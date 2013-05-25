@@ -1,0 +1,3 @@
+[submodule "kage"]
+	path = kage
+	url = http://git.chise.org/git/chise/kage.git
