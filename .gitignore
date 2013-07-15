@@ -1,2 +1,11 @@
 dump.tar.gz
 dump_newest_only.txt
+engine
+foot.txt
+head.txt
+makeglyph.js
+parts.txt
+*.log
+*.scr
+*.ttf
+build
