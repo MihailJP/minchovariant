@@ -7,6 +7,7 @@ makeglyph.js
 parts.txt
 *.log
 *.scr
+*.sfd
 *.ttf
 makettf.pl
 build

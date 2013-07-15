@@ -1,4 +1,4 @@
-TARGETS=head.txt parts.txt foot.txt engine makeglyph.js makettf.pl work.ttf
+TARGETS=head.txt parts.txt foot.txt engine makeglyph.js makettf.pl work.sfd
 
 .PHONY: all clean font
 all: $(TARGETS)
@@ -19,7 +19,7 @@ makettf.pl:
 	cat ../kage/makettf/makettf.pl | sed -f ../makettf-patch.sed > $@
 	chmod +x $@
 
-work.ttf: head.txt parts.txt foot.txt engine makeglyph.js makettf.pl
+work.sfd: head.txt parts.txt foot.txt engine makeglyph.js makettf.pl
 	./makettf.pl . work mincho 1
 
 clean:
