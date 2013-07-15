@@ -8,4 +8,5 @@ parts.txt
 *.log
 *.scr
 *.ttf
+makettf.pl
 build
