@@ -1,4 +1,4 @@
-TARGETS=head.txt parts.txt foot.txt engine makeglyph.js makettf.pl work.sfd
+TARGETS=head.txt parts.txt foot.txt engine makeglyph.js makettf.pl work.sfd work.ttf
 
 .PHONY: all clean font
 all: $(TARGETS)
@@ -21,6 +21,8 @@ makettf.pl:
 
 work.sfd: head.txt parts.txt foot.txt engine makeglyph.js makettf.pl
 	./makettf.pl . work mincho 1
+work.ttf: work.sfd
+	../merge-contours.py
 
 clean:
 	-rm -rf $(TARGETS) work.scr work.log build
