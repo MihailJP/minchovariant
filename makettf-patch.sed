@@ -14,3 +14,4 @@ while (<GLYPHLIST>) {\
 	$target{$target} = $name;\
 }\
 close GLYPHLIST;
+/^  while(\$buffer =~ m\/\\\$99/c \ \ while($buffer =~ m/\\\$99:[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:([^\\\$:]*)(?::[^\\\$]*)?/gc){
