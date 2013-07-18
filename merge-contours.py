@@ -1,5 +1,12 @@
 #!/usr/bin/env fontforge
 
+import fontforge
+from sys import argv, stderr
+
+if len(argv) < 3:
+	stderr.write("Usage: "+argv[0]+" infile outfile\n")
+	quit(1)
+
 def separate(contour):
 	layer = fontforge.layer()
 	for i in range(0, len(contour) - 1):
@@ -38,7 +45,7 @@ def separateSelfIntersect(layer):
 	return l
 
 import fontforge
-font = fontforge.open("work.sfd")
+font = fontforge.open(argv[1])
 for glyph in font.glyphs():
 	if glyph.isWorthOutputting():
 		layer = separateSelfIntersect(glyph.layers[1])
@@ -54,4 +61,4 @@ for glyph in font.glyphs():
 				if ex.args[0] != "Empty contour":
 					raise
 			glyph.layers[1] = newLayer
-font.generate("work.ttf")
+font.generate(argv[2])
