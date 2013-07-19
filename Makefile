@@ -17,7 +17,7 @@ dump.tar.gz:
 dump_newest_only.txt: dump.tar.gz
 	tar xfz $< $@ && touch $@
 
-glyphs.txt: kana.txt jisx0208-level-1.txt
+glyphs.txt: 7bit-ascii.txt kana.txt jisx0208-level-1.txt
 	cat $^ | sort | uniq > $@
 
 mincho1/Makefile: dump_newest_only.txt glyphs.txt
