@@ -28,7 +28,7 @@ engine:
 	ln -s ../kage/engine $@
 makeglyph.js:
 	echo 'load(\"engine/2d.js\");' > $@
-	cat ../kage/makettf/makeglyph.js >> $@
+	cat ../kage/makettf/makeglyph.js | sed -f ../makeglyph-patch.sed >> $@
 makettf.pl:
 	cat ../kage/makettf/makettf.pl | sed -f ../makettf-patch.sed > $@
 	chmod +x $@

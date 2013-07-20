@@ -1,4 +1,4 @@
-SUBDIRS=mincho1 mincho3 mincho5 mincho7
+SUBDIRS=mincho1 mincho3 mincho5 mincho7 mincho9
 DOWNLOADABLES=dump.tar.gz
 GENERATABLES=dump_newest_only.txt glyphs.txt $(SUBDIRS)
 TARGETS=$(GENERATABLES) $(DOWNLOADABLES)
@@ -39,6 +39,11 @@ mincho7/Makefile: dump_newest_only.txt glyphs.txt
 	mkdir -p mincho7
 	./mkmkfile.rb mincho7.ttf 7 "HZ Mincho" "Bold" "HZ 明朝" "太" > $@
 mincho7: mincho7/Makefile
+	cd $@ && make
+mincho9/Makefile: dump_newest_only.txt glyphs.txt
+	mkdir -p mincho9
+	./mkmkfile.rb mincho9.ttf 9 "HZ Mincho" "Extra" "HZ 明朝" "極太" > $@
+mincho9: mincho9/Makefile
 	cd $@ && make
 
 clean:
