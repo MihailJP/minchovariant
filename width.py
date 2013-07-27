@@ -18,6 +18,7 @@ def hwList():
 	import fileinput
 	import os
 	import re
+	currdir = os.getcwd()
 	try:
 		os.chdir(os.path.dirname(__file__))
 	except OSError:
@@ -26,6 +27,7 @@ def hwList():
 	nwl = re.compile('\r?\n')
 	for line in fileinput.input("groups/HALFWIDTH.txt"):
 		hwl.add(nwl.sub('', line))
+	os.chdir(currdir)
 	return frozenset(hwl)
 
 font = fontforge.open(argv[1])
