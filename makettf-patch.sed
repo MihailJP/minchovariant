@@ -1,3 +1,4 @@
+s/^  &addglyph(\$code);/  &addglyph($code, $target);/
 /^Move(400, -400)/d
 /^Move(0, 50)/d
 /^RemoveOverlap()/d
@@ -5,7 +6,8 @@
 /^SetWidth(1000)/i Scale(20)
 /^Scale(500)/a CanonicalContours()\
 CanonicalStart()\
-FindIntersections()
+FindIntersections()\
+SetGlyphComment("Kage: $_[1]")
 s/"Generate(\(.*\)\.ttf.*)/"Save(\1.sfd\\")/
 /^foreach(sort(keys %buhin)){/,/^}/c open GLYPHLIST, "../glyphs.txt" or die "Cannot read the glyph list";\
 while (<GLYPHLIST>) {\
