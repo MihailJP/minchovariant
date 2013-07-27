@@ -4,7 +4,7 @@
 license = 'Created by KAGE system. (http://fonts.jp/)'
 psName = "#{enName} #{enWeight}".gsub(/\s/, "-")
 print <<FINIS
-TARGETS=head.txt parts.txt foot.txt engine makeglyph.js makettf.pl work.sfd #{target}
+TARGETS=head.txt parts.txt foot.txt engine makeglyph.js makettf.pl work.sfd work2.sfd #{target}
 
 .PHONY: all clean font
 all: $(TARGETS)
@@ -35,8 +35,10 @@ makettf.pl:
 
 work.sfd: head.txt parts.txt foot.txt engine makeglyph.js makettf.pl
 	./makettf.pl . work mincho #{weightNum}
-#{target}: work.sfd
+work2.sfd: work.sfd
 	../merge-contours.py $< $@
+#{target}: work2.sfd
+	../width.py $< $@
 
 clean:
 	-rm -rf $(TARGETS) work.scr work.log build

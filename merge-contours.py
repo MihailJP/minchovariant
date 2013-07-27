@@ -44,7 +44,6 @@ def separateSelfIntersect(layer):
 			l += contour
 	return l
 
-import fontforge
 font = fontforge.open(argv[1])
 for glyph in font.glyphs():
 	if glyph.isWorthOutputting():
@@ -61,4 +60,5 @@ for glyph in font.glyphs():
 				if ex.args[0] != "Empty contour":
 					raise
 			glyph.layers[1] = newLayer
-font.generate(argv[2])
+#font.generate(argv[2])
+font.save(argv[2])
