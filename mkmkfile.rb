@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-(target, weightNum, enName, enWeight, jaName, jaWeight) = ARGV
+(target, weightNum, enName, enWeight, jaName, jaWeight, glyphFilter) = ARGV
 license = 'Created by KAGE system. (http://fonts.jp/)'
 psName = "#{enName} #{enWeight}".gsub(/\s/, "-")
 print <<FINIS
@@ -21,7 +21,7 @@ head.txt:
 	echo 'SetTTFName(0x411,2,\"#{jaWeight}\")' >> $@
 	echo 'SetTTFName(0x411,4,\"#{jaName} #{jaWeight}\")' >> $@
 parts.txt:
-	cat ../dump_newest_only.txt | ../mkparts.pl > $@
+	cat ../dump_newest_only.txt | ../mkparts.pl | sed -f #{glyphFilter} > $@
 foot.txt:
 	touch $@
 engine:
