@@ -21,7 +21,13 @@ dump_newest_only.txt: dump.tar.gz
 glyphs.txt: groups/7bit-ascii.txt groups/jisx0208-non-kanji.txt \
 groups/jisx0208-level-1.txt groups/jisx0208-level-2.txt \
 groups/jisx0208-compatibility.txt \
-groups/jisx0201-katakana.txt
+groups/jisx0201-katakana.txt \
+groups/cp1252.txt groups/cp437.txt \
+groups/iso8859-1.txt groups/iso8859-2.txt groups/iso8859-3.txt \
+groups/iso8859-4.txt groups/iso8859-5.txt groups/iso8859-7.txt \
+groups/iso8859-9.txt groups/iso8859-10.txt groups/iso8859-13.txt \
+groups/iso8859-14.txt groups/iso8859-15.txt groups/iso8859-16.txt \
+groups/viscii.txt
 	cat $^ | sort | uniq > $@
 
 mincho1/Makefile: dump_newest_only.txt glyphs.txt
