@@ -1,5 +1,18 @@
+s/\(^\|:\)u00a2\(\s\|\$\|$\|:\)/\1u00a2-halfwidth\2/
+s/\(^\|:\)u00a3\(\s\|\$\|$\|:\)/\1u00a3-halfwidth\2/
+s/\(^\|:\)u00a8\(\s\|\$\|$\|:\)/\1u00a8-halfwidth\2/
+s/\(^\|:\)u00ac\(\s\|\$\|$\|:\)/\1u00ac-halfwidth\2/
+s/\(^\|:\)u00b0\(\s\|\$\|$\|:\)/\1u00b0-halfwidth\2/
+s/\(^\|:\)u00b6\(\s\|\$\|$\|:\)/\1u00b0-halfwidth\2/
+
+/^u00a2-halfwidth\s/i u00a2	99:0:0:0:0:200:200:uffe0
+/^u00a3-halfwidth\s/i u00a3	99:0:0:0:0:200:200:uffe1
 /^u00a7\s/c u00a7	99:0:0:0:0:200:200:u00a7-fullwidth
+/^u00a8-halfwidth\s/i u00a8	99:0:0:0:0:200:200:u00a8-fullwidth
+/^u00ac-halfwidth\s/i u00ac	99:0:0:0:0:200:200:uffe2
+/^u00b0-halfwidth\s/i u00b0	99:0:0:0:0:200:200:u00b0-fullwidth
 /^u00b1\s/c u00b1	99:0:0:0:0:200:200:u00b1-fullwidth
+/^u00b6-halfwidth\s/i u00b6	99:0:0:0:0:200:200:u00b6-fullwidth
 /^u00d7\s/c u00d7	99:0:0:0:0:200:200:u00d7-fullwidth
 /^u00f7\s/c u00f7	99:0:0:0:0:200:200:u00f7-fullwidth
 
@@ -238,15 +251,37 @@ s/\(^\|:\)u0451\(\s\|\$\|$\|:\)/\1u0451-halfwidth\2/
 
 /^u1e9e\s/c u1e9e	99:0:0:0:0:200:200:u1e9e-fullwidth
 
+s/\(^\|:\)u2010\(\s\|\$\|$\|:\)/\1u2010-halfwidth\2/
+s/\(^\|:\)u2016\(\s\|\$\|$\|:\)/\1u2016-halfwidth\2/
+s/\(^\|:\)u2018\(\s\|\$\|$\|:\)/\1u2018-halfwidth\2/
+s/\(^\|:\)u2019\(\s\|\$\|$\|:\)/\1u2019-halfwidth\2/
+s/\(^\|:\)u201c\(\s\|\$\|$\|:\)/\1u201c-halfwidth\2/
+s/\(^\|:\)u201d\(\s\|\$\|$\|:\)/\1u201d-halfwidth\2/
+s/\(^\|:\)u2020\(\s\|\$\|$\|:\)/\1u2020-halfwidth\2/
+s/\(^\|:\)u2021\(\s\|\$\|$\|:\)/\1u2021-halfwidth\2/
+s/\(^\|:\)u2032\(\s\|\$\|$\|:\)/\1u2032-halfwidth\2/
+s/\(^\|:\)u2033\(\s\|\$\|$\|:\)/\1u2033-halfwidth\2/
 s/\(^\|:\)u2202\(\s\|\$\|$\|:\)/\1u2202-halfwidth\2/
+s/\(^\|:\)u2207\(\s\|\$\|$\|:\)/\1u2207-halfwidth\2/
 
+/^u2010-halfwidth\s/i u2010	99:0:0:0:0:200:200:u2010-fullwidth
 /^u2014\s/c u2014	99:0:0:0:0:200:200:u2014-fullwidth
+/^u2016-halfwidth\s/i u2016	99:0:0:0:0:200:200:u2016-fullwidth
+/^u2018-halfwidth\s/i u2018	99:0:0:0:0:200:200:u2018-fullwidth
+/^u2019-halfwidth\s/i u2019	99:0:0:0:0:200:200:u2019-fullwidth
+/^u201c-halfwidth\s/i u201c	99:0:0:0:0:200:200:u201c-fullwidth
+/^u201d-halfwidth\s/i u201d	99:0:0:0:0:200:200:u201d-fullwidth
+/^u2020-halfwidth\s/i u2020	99:0:0:0:0:200:200:u2020-fullwidth
+/^u2021-halfwidth\s/i u2021	99:0:0:0:0:200:200:u2021-fullwidth
 /^u2025\s/c u2025	99:0:0:0:0:200:200:u2025-fullwidth
 /^u2026\s/c u2026	99:0:0:0:0:200:200:u2026-fullwidth
+/^u2032-halfwidth\s/i u2032	99:0:0:0:0:200:200:u2032-fullwidth
+/^u2033-halfwidth\s/i u2033	99:0:0:0:0:200:200:u2033-fullwidth
 /^u204b\s/c u204b	99:0:0:0:0:200:200:u204b-fullwidth
 /^u210e\s/c u210e	99:0:0:0:0:200:200:u210e-fullwidth
 /^u2135\s/c u2135	99:0:0:0:0:200:200:u2135-fullwidth
 /^u2202-halfwidth\s/i u2202	99:0:0:0:0:200:200:u2202-fullwidth
+/^u2207-halfwidth\s/i u2207	99:0:0:0:0:200:200:u2207-fullwidth
 /^u2212\s/c u2212	99:0:0:0:0:200:200:u2212-fullwidth
 /^u2213\s/c u2213	99:0:0:0:0:200:200:u2213-fullwidth
 /^u222b\s/c u222b	99:0:0:0:0:200:200:u222b-fullwidth
@@ -385,4 +420,18 @@ s/\(^\|:\)u2202\(\s\|\$\|$\|:\)/\1u2202-halfwidth\2/
 /^u2592\s/c u2592	99:0:0:0:0:200:200:u2592-fullwidth
 /^u2593\s/c u2593	99:0:0:0:0:200:200:u2593-fullwidth
 
+s/\(^\|:\)u266d\(\s\|\$\|$\|:\)/\1u266d-halfwidth\2/
+s/\(^\|:\)u266f\(\s\|\$\|$\|:\)/\1u266f-halfwidth\2/
+
+/^u266d-halfwidth\s/i u266d	99:0:0:0:0:200:200:u266d-fullwidth
+/^u266f-halfwidth\s/i u266f	99:0:0:0:0:200:200:u266f-fullwidth
+
 /^ua668\s/c ua668	99:0:0:0:0:200:200:ua668-fullwidth
+
+s/\(^\|:\)uff09\(\s\|\$\|$\|:\)/\1uff09-halfwidth\2/
+s/\(^\|:\)uff3d\(\s\|\$\|$\|:\)/\1uff3d-halfwidth\2/
+s/\(^\|:\)uff5d\(\s\|\$\|$\|:\)/\1uff5d-halfwidth\2/
+
+/^uff09-halfwidth\s/i uff09	99:0:0:0:0:200:200:uff09-fullwidth
+/^uff3d-halfwidth\s/i uff3d	99:0:0:0:0:200:200:uff3d-fullwidth
+/^uff5d-halfwidth\s/i uff5d	99:0:0:0:0:200:200:uff5d-fullwidth
