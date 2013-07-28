@@ -1,7 +1,7 @@
 SUBDIRS=mincho1 mincho3 mincho5 mincho7 mincho9 \
 minchof1 minchof3 minchof5 minchof7 minchof9
 DOWNLOADABLES=dump.tar.gz
-GENERATABLES=dump_newest_only.txt glyphs.txt $(SUBDIRS)
+GENERATABLES=dump_newest_only.txt fullwidth.sed glyphs.txt $(SUBDIRS)
 TARGETS=$(GENERATABLES) $(DOWNLOADABLES)
 
 .PHONY: all fetch clean distclean $(SUBDIRS)
@@ -17,6 +17,9 @@ dump.tar.gz:
 
 dump_newest_only.txt: dump.tar.gz
 	tar xfz $< $@ && touch $@
+
+fullwidth.sed: fullwidth.txt
+	./fullwidth.pl < $< > $@
 
 glyphs.txt: groups/7bit-ascii.txt groups/jisx0208-non-kanji.txt \
 groups/jisx0208-level-1.txt groups/jisx0208-level-2.txt \
