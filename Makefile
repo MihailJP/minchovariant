@@ -1,7 +1,8 @@
 SUBDIRS=mincho1 mincho3 mincho5 mincho7 mincho9 \
 minchof1 minchof3 minchof5 minchof7 minchof9
 DOWNLOADABLES=dump.tar.gz
-GENERATABLES=dump_newest_only.txt fullwidth.sed glyphs.txt $(SUBDIRS)
+GENERATABLES=dump_newest_only.txt fullwidth.sed \
+glyphlst.txt variants.txt vs.txt glyphs.txt $(SUBDIRS)
 TARGETS=$(GENERATABLES) $(DOWNLOADABLES)
 
 .PHONY: all fetch clean distclean $(SUBDIRS)
@@ -21,7 +22,7 @@ dump_newest_only.txt: dump.tar.gz
 fullwidth.sed: fullwidth.txt
 	./fullwidth.pl < $< > $@
 
-glyphs.txt: groups/7bit-ascii.txt groups/jisx0208-non-kanji.txt \
+glyphlst.txt: groups/7bit-ascii.txt groups/jisx0208-non-kanji.txt \
 groups/jisx0208-level-1.txt groups/jisx0208-level-2.txt \
 groups/jisx0208-compatibility.txt \
 groups/jisx0201-katakana.txt \
@@ -32,6 +33,15 @@ groups/iso8859-9.txt groups/iso8859-10.txt groups/iso8859-13.txt \
 groups/iso8859-14.txt groups/iso8859-15.txt groups/iso8859-16.txt \
 groups/viscii.txt
 	cat $^ | sort | uniq > $@
+
+variants.txt: dump_newest_only.txt glyphlst.txt
+	./variants.rb -d $^ > $@
+
+vs.txt: variants.txt
+	cat $^ | cut -d '-' -f 2 | sort | uniq > $@
+
+glyphs.txt: variants.txt vs.txt
+	cat $^ > $@
 
 mincho1/Makefile: dump_newest_only.txt glyphs.txt
 	mkdir -p mincho1
