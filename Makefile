@@ -9,9 +9,6 @@ all: $(TARGETS)
 
 fetch: $(DOWNLOADABLES)
 
-kagebold.js: kage.js kagebold.patch
-	patch -o $@ -r /dev/null $^
-
 dump.tar.gz:
 	wget -O $@ http://glyphwiki.org/dump.tar.gz
 
