@@ -7,6 +7,9 @@ glyphs.txt
 head.txt
 makeglyph.js
 parts.txt
+cidalias.sed
+cidalias.txt
+groups/cidalias.txt
 *.log
 *.scr
 *.sfd
@@ -18,8 +21,3 @@ mincho3
 mincho5
 mincho7
 mincho9
-minchof1
-minchof3
-minchof5
-minchof7
-minchof9
