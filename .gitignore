@@ -13,7 +13,7 @@ groups/cidalias.txt
 *.log
 *.scr
 *.sfd
-*.ttf
+*.otf
 makettf.pl
 build
 mincho1
