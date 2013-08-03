@@ -9,6 +9,8 @@ makeglyph.js
 parts.txt
 cidalias.sed
 cidalias.txt
+cidalias1.txt
+cidalias2.txt
 groups/cidalias.txt
 *.log
 *.scr
