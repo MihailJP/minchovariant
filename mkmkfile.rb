@@ -1,12 +1,16 @@
 #!/usr/bin/env ruby
 
 AFD_DIR='/cygdrive/c/Apps/FDK'
-AFD_BINDIR="#{AFD_DIR}/Tools/win"
 
 (target, weightNum, enName, enWeight, jaName, jaWeight, glyphFilter) = ARGV
 license = 'Created by KAGE system. (http://fonts.jp/)'
 psName = "#{enName} #{enWeight}".gsub(/\s/, "-")
 print <<FINIS
+AFD_DIR=#{AFD_DIR}
+AFD_BINDIR=$(AFD_DIR)/Tools/win
+MERGEFONTS=$(AFD_BINDIR)/mergeFonts
+MAKEOTF=cmd /c `cygpath -w $(AFD_BINDIR)/makeotf.cmd`
+
 TARGETS=head.txt parts.txt foot.txt engine makeglyph.js makettf.pl \
 work.sfd work2.sfd work.otf #{target.sub(/\..+?$/, '.raw')} cidfontinfo #{target}
 
@@ -45,7 +49,10 @@ work.otf: work2.sfd
 	../width.py $< $@
 
 #{target.sub(/\..+?$/, '.raw')}: work.otf cidfontinfo
-	$(AFD_BINDIR)/mergeFonts -cid cidfontinfo $@ ../cidpua.map work.otf
+	$(MERGEFONTS) -cid cidfontinfo $@ ../cidpua.map work.otf
+
+#{target}: #{target.sub(/\..+?$/, '.raw')}
+	$(MAKEOTF) -f $< -ff ../otf-features -o $@
 
 cidfontinfo:
 	../makecfi.rb '#{enName}' '#{enWeight}' > $@
