@@ -1,6 +1,6 @@
 SUBDIRS=mincho1 mincho3 mincho5 mincho7 mincho9
 DOWNLOADABLES=dump.tar.gz
-GENERATABLES=dump_newest_only.txt fullwidth.sed glyphs.txt cidpua.map \
+GENERATABLES=dump_newest_only.txt glyphs.txt cidpua.map \
 cidalias.txt cidalias.sed groups/cidalias.txt \
 cidalias1.txt cidalias2.txt $(SUBDIRS)
 TARGETS=$(GENERATABLES) $(DOWNLOADABLES)
@@ -15,9 +15,6 @@ dump.tar.gz:
 
 dump_newest_only.txt: dump.tar.gz
 	tar xfz $< $@ && touch $@
-
-fullwidth.sed: fullwidth.txt
-	./fullwidth.pl < $< > $@
 
 cidalias1.txt: pua-addenda.txt
 	./cidpua.rb < $< > $@
