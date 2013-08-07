@@ -8,6 +8,9 @@ psName = "#{enName} #{enWeight}".gsub(/\s/, "-")
 print <<FINIS
 AFD_DIR=#{AFD_DIR}
 AFD_BINDIR=$(AFD_DIR)/Tools/win
+AFD_CMAPDIR=$(AFD_DIR)/Tools/SharedData/Adobe Cmaps/Adobe-Japan1
+CMAP_HORIZONTAL="`cygpath -w "$(AFD_CMAPDIR)/UniJIS2004-UTF32-H"`"
+CMAP_VERTICAL="`cygpath -w "$(AFD_CMAPDIR)/UniJIS2004-UTF32-V"`"
 MERGEFONTS=$(AFD_BINDIR)/mergeFonts
 MAKEOTF=cmd /c `cygpath -w $(AFD_BINDIR)/makeotf.cmd`
 
@@ -52,7 +55,8 @@ work.otf: work2.sfd
 	$(MERGEFONTS) -cid cidfontinfo $@ ../cidpua.map work.otf
 
 #{target}: #{target.sub(/\..+?$/, '.raw')}
-	$(MAKEOTF) -f $< -ff ../otf-features -o $@
+	$(MAKEOTF) -f $< -ff ../otf-features -o $@ -ch $(CMAP_HORIZONTAL) -cv $(CMAP_VERTICAL)
+	stat #{target} > /dev/null
 
 cidfontinfo:
 	../makecfi.rb '#{enName}' '#{enWeight}' > $@
