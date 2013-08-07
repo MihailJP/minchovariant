@@ -1,7 +1,27 @@
 #!/usr/bin/env fontforge
 
 import fontforge
+import psMat
 from sys import argv, stderr
+
+class GlyphList:
+	listDat = frozenset()
+
+	def __init__(self, filename):
+		import fileinput
+		import os
+		import re
+		currdir = os.getcwd()
+		try:
+			os.chdir(os.path.dirname(__file__))
+		except OSError:
+			pass
+		hwl = set()
+		nwl = re.compile('\r?\n')
+		for line in fileinput.input(filename):
+			hwl.add(nwl.sub('', line))
+		os.chdir(currdir)
+		listDat = frozenset(hwl)
 
 def getfield(glyph, key):
 	import re
@@ -14,27 +34,15 @@ def getfield(glyph, key):
 		fields[name] = value
 	return fields[key]
 
-def hwList():
-	import fileinput
-	import os
-	import re
-	currdir = os.getcwd()
-	try:
-		os.chdir(os.path.dirname(__file__))
-	except OSError:
-		pass
-	hwl = set()
-	nwl = re.compile('\r?\n')
-	for line in fileinput.input("groups/HALFWIDTH.txt"):
-		hwl.add(nwl.sub('', line))
-	os.chdir(currdir)
-	return frozenset(hwl)
-
 font = fontforge.open(argv[1])
-hwl = hwList()
+hwl = GlyphList("groups/HALFWIDTH.txt").listDat
+nsl = GlyphList("groups/NONSPACING.txt").listDat
 for glyph in font.glyphs():
 	if glyph.isWorthOutputting():
 		kagename = getfield(glyph, "Kage")
-		if kagename in hwl:
+		if kagename in nsl:
+			glyph.transform(psMat.translate(0, -1000), ("partialRefs", None))
+			glyph.width = 0
+		elif kagename in hwl:
 			glyph.width /= 2
 font.generate(argv[2])
