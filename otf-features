@@ -35,7 +35,16 @@ feature vert {
 	sub \124 by \7897;
 	sub \669 by \7898;
 	sub [\674-\691] by [\7899-\7916];
-	sub [\7585-\7600] by [\7940-\7955];
+	sub \7585 by \7940;
+	sub \7586 by \7941;
+	sub \7588 by \7943;
+	sub \7590 by \7945;
+	sub \7592 by \7947;
+	sub \7593 by \7948;
+	sub \7595 by \7950;
+	sub \7596 by \7951;
+	sub \7598 by \7953;
+	sub \7599 by \7954;
 	sub \7608 by \7956;
 	sub \7609 by \7957;
 	sub \8054 by \8324;
@@ -119,7 +128,16 @@ feature vrt2 {
 	sub \124 by \7897;
 	sub \669 by \7898;
 	sub [\674-\691] by [\7899-\7916];
-	sub [\7585-\7600] by [\7940-\7955];
+	sub \7585 by \7940;
+	sub \7586 by \7941;
+	sub \7588 by \7943;
+	sub \7590 by \7945;
+	sub \7592 by \7947;
+	sub \7593 by \7948;
+	sub \7595 by \7950;
+	sub \7596 by \7951;
+	sub \7598 by \7953;
+	sub \7599 by \7954;
 	sub \7608 by \7956;
 	sub \7609 by \7957;
 	sub \8054 by \8324;
@@ -237,7 +255,7 @@ feature fwid {
 	sub \162 by \8184;
 	sub \161 by \8185;
 	sub \107 by \16280;
-} hwid;
+} fwid;
 feature zero {
 	sub \17 by \230;
 } zero;
@@ -246,7 +264,7 @@ feature salt {
 	script latn;
 	sub \15739 by \20341;
 	sub \15747 by \20359;
-}
+} salt;
 feature ccmp {
 	sub \15855 \15851 by \15856;
 	sub \15851 \15855 by \15857;
