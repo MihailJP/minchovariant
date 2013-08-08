@@ -5,8 +5,6 @@ import psMat
 from sys import argv, stderr
 
 class GlyphList:
-	listDat = frozenset()
-
 	def __init__(self, filename):
 		import fileinput
 		import os
@@ -21,7 +19,7 @@ class GlyphList:
 		for line in fileinput.input(filename):
 			hwl.add(nwl.sub('', line))
 		os.chdir(currdir)
-		listDat = frozenset(hwl)
+		self.listDat = frozenset(hwl)
 
 def getfield(glyph, key):
 	import re
