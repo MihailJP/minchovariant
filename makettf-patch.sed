@@ -19,3 +19,8 @@ while (<GLYPHLIST>) {\
 }\
 close GLYPHLIST;
 /^  while(\$buffer =~ m\/\\\$99/c \ \ while($buffer =~ m/\\\$99:[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:([^\\\$:]*)(?::[^\\\$]*)?/gc){
+/^sub addglyph/,/^}/ {
+	/^  open/i {
+	/^  open/ s/;/ or redo;/
+	/^  close/a }
+}
