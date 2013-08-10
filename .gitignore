@@ -13,6 +13,7 @@ cidalias1.txt
 cidalias2.txt
 groups/cidalias.txt
 cidpua.map
+cidpua-*.map
 *.log
 *.scr
 *.sfd
