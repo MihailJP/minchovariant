@@ -55,7 +55,7 @@ work.otf: work2.sfd
 	$(MERGEFONTS) -cid cidfontinfo $@ ../cidpua.map work.otf ../cidpua-blockelem.map ../mincho3/work.otf ../cidpua-dingbats.map ../mincho#{weightNum.to_i > 7 ? 7 : (weightNum.to_i > 3 ? weightNum : 3)}/work.otf
 
 #{target}: #{target.sub(/\..+?$/, '.raw')}
-	$(MAKEOTF) -f $< -ff ../otf-features -o $@ -ch $(CMAP_HORIZONTAL) -cv $(CMAP_VERTICAL)
+	$(MAKEOTF) -f $< -ff ../otf-features -mf ../fontMenuDB -o $@ -ch $(CMAP_HORIZONTAL) -cv $(CMAP_VERTICAL)
 	stat #{target} > /dev/null
 
 cidfontinfo:
