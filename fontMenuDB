@@ -62,3 +62,16 @@ l=3,1,0x411,HZ \660e\671d \6975\592a
 f=1,1,11,HZ \96\be\92\a9
 s=1,1,11,\8b\c9\91\be
 l=1,1,11,HZ \96\be\92\a9 \8b\c9\91\be
+
+[HZMinchoModern-Extra]
+f=HZ Mincho Modern
+s=Extra
+l=HZ Mincho Modern Extra
+
+f=3,1,0x411,HZ \660e\671d\30e2\30c0\30f3
+s=3,1,0x411,\6975\592a
+l=3,1,0x411,HZ \660e\671d\30e2\30c0\30f3 \6975\592a
+
+f=1,1,11,HZ \96\be\92\a9\83\82\83\5f\83\93
+s=1,1,11,\8b\c9\91\be
+l=1,1,11,HZ \96\be\92\a9\83\82\83\5f\83\93 \8b\c9\91\be

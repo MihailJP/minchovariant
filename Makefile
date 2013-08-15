@@ -1,4 +1,4 @@
-SUBDIRS=mincho1 mincho3 mincho5 mincho7 mincho9
+SUBDIRS=mincho1 mincho3 mincho5 mincho7 mincho9 mincho9m
 DOWNLOADABLES=dump.tar.gz
 GENERATABLES=dump_newest_only.txt glyphs.txt \
 cidpua.map cidpua-blockelem.map cidpua-dingbats.map \
@@ -71,6 +71,13 @@ cidpua.map cidpua-blockelem.map cidpua-dingbats.map
 	mkdir -p mincho9
 	./mkmkfile.rb mincho9.otf 9 "HZ Mincho" "Extra" "HZ 明朝" "極太" ../cidalias.sed > $@
 mincho9: mincho9/Makefile mincho3/work.otf
+	cd $@ && make
+
+mincho9m/Makefile: dump_newest_only.txt glyphs.txt cidalias.sed \
+cidpua.map cidpua-blockelem.map cidpua-dingbats.map
+	mkdir -p mincho9m
+	./mkmkfile.rb mincho9m.otf 109 "HZ Mincho Modern" "Extra" "HZ 明朝モダン" "極太" ../cidalias.sed > $@
+mincho9m: mincho9m/Makefile mincho3/work.otf
 	cd $@ && make
 
 clean:
