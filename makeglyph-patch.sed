@@ -11,10 +11,10 @@
 } else if(arguments[3] == 107){\
   kage.kMinWidthY = 2;\
   kage.kMinWidthT = 10;\
-  kage.kWidth = 5;\
+  kage.kWidth = 9;\
   kage.kKakato = 0.5;\
 } else if(arguments[3] == 109){\
   kage.kMinWidthY = 2;\
   kage.kMinWidthT = 12;\
-  kage.kWidth = 5;\
+  kage.kWidth = 9;\
   kage.kKakato = 0.3;
