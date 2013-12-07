@@ -1,0 +1,19 @@
+StartChar: fraction
+Encoding: 8260 8260 103
+Width: 575
+Flags: W
+VStem: 64 445
+LayerCount: 2
+Fore
+SplineSet
+64 -220 m 0
+ 64 -209 71 -195 75 -184 c 2
+ 445 714 l 2
+ 450 727 459 749 480 749 c 0
+ 495 749 509 736 509 720 c 0
+ 509 711 504 699 500 689 c 2
+ 129 -211 l 2
+ 124 -224 116 -249 93 -249 c 0
+ 78 -249 64 -236 64 -220 c 0
+EndSplineSet
+EndChar
