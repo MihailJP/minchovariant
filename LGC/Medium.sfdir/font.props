@@ -1,10 +1,8 @@
 SplineFontDB: 3.0
 FontName: Serif-Medium
 FullName: Serif Medium
-FamilyName: Serif-Medium
 Weight: Regular
 Copyright: 
-Version: 
 ItalicAngle: 0
 UnderlinePosition: -99.6094
 UnderlineWidth: 49.8047
@@ -17,8 +15,8 @@ XUID: [1021 562 -354799692 13138345]
 OS2Version: 0
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
-CreationTime: 1386390540
-ModificationTime: 1386393238
+CreationTime: 1386393379
+ModificationTime: 1386394817
 OS2TypoAscent: 0
 OS2TypoAOffset: 1
 OS2TypoDescent: 0

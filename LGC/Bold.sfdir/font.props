@@ -1,10 +1,8 @@
 SplineFontDB: 3.0
 FontName: Serif-Bold
 FullName: Serif Bold
-FamilyName: Serif-Bold
 Weight: Regular
 Copyright: 
-Version: 
 ItalicAngle: 0
 UnderlinePosition: -99.6094
 UnderlineWidth: 49.8047
@@ -17,8 +15,8 @@ XUID: [1021 562 -354799692 5669473]
 OS2Version: 0
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
-CreationTime: 1386393041
-ModificationTime: 1386393244
+CreationTime: 1386393381
+ModificationTime: 1386394870
 OS2TypoAscent: 0
 OS2TypoAOffset: 1
 OS2TypoDescent: 0
