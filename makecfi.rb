@@ -13,5 +13,5 @@ version        (1.000)
 Registry       (Adobe)
 Ordering       (Japan1)
 Supplement     6
-AdobeCopyright (#{license})
+AdobeCopyright (Japanese glyphs #{license} / Alphabet glyphs by Andrey V. Panov (C) 2005 All rights reserved.)
 FINIS
