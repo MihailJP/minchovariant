@@ -1,4 +1,4 @@
-SUBDIRS=mincho1 mincho3 mincho5 mincho7 mincho9 mincho5m mincho7m mincho9m
+SUBDIRS=mincho1 mincho3 mincho5 mincho7 mincho9
 DOWNLOADABLES=dump.tar.gz
 GENERATABLES=dump_newest_only.txt glyphs.txt \
 cidpua.map cidpua-blockelem.map cidpua-dingbats.map \
@@ -57,39 +57,19 @@ mincho3/work.otf: mincho3
 mincho5/Makefile: dump_newest_only.txt glyphs.txt cidalias.sed \
 cidpua.map cidpua-blockelem.map cidpua-dingbats.map
 	mkdir -p mincho5
-	./mkmkfile.rb mincho5.otf 5 "HZ Mincho" "Demi" "HZ 明朝" "中太" ../cidalias.sed > $@
+	./mkmkfile.rb mincho5.otf 105 "HZ Mincho" "Demi" "HZ 明朝" "中太" ../cidalias.sed > $@
 mincho5: mincho5/Makefile mincho3/work.otf
 	cd $@ && make
 mincho7/Makefile: dump_newest_only.txt glyphs.txt cidalias.sed \
 cidpua.map cidpua-blockelem.map cidpua-dingbats.map
 	mkdir -p mincho7
-	./mkmkfile.rb mincho7.otf 7 "HZ Mincho" "Bold" "HZ 明朝" "太" ../cidalias.sed > $@
+	./mkmkfile.rb mincho7.otf 107 "HZ Mincho" "Bold" "HZ 明朝" "太" ../cidalias.sed > $@
 mincho7: mincho7/Makefile mincho3/work.otf
 	cd $@ && make
 mincho9/Makefile: dump_newest_only.txt glyphs.txt cidalias.sed \
 cidpua.map cidpua-blockelem.map cidpua-dingbats.map
 	mkdir -p mincho9
-	./mkmkfile.rb mincho9.otf 9 "HZ Mincho" "Extra" "HZ 明朝" "極太" ../cidalias.sed > $@
-mincho9: mincho9/Makefile mincho3/work.otf
-	cd $@ && make
-
-mincho5m/Makefile: dump_newest_only.txt glyphs.txt cidalias.sed \
-cidpua.map cidpua-blockelem.map cidpua-dingbats.map
-	mkdir -p mincho5m
-	./mkmkfile.rb mincho5m.otf 105 "HZ Mincho Modern" "Demi" "HZ 明朝モダン" "中太" ../cidalias.sed > $@
-mincho5m: mincho5m/Makefile mincho3/work.otf
-	cd $@ && make
-mincho7m/Makefile: dump_newest_only.txt glyphs.txt cidalias.sed \
-cidpua.map cidpua-blockelem.map cidpua-dingbats.map
-	mkdir -p mincho7m
-	./mkmkfile.rb mincho7m.otf 107 "HZ Mincho Modern" "Bold" "HZ 明朝モダン" "太" ../cidalias.sed > $@
-mincho7m: mincho7m/Makefile mincho3/work.otf
-	cd $@ && make
-mincho9m/Makefile: dump_newest_only.txt glyphs.txt cidalias.sed \
-cidpua.map cidpua-blockelem.map cidpua-dingbats.map
-	mkdir -p mincho9m
-	./mkmkfile.rb mincho9m.otf 109 "HZ Mincho Modern" "Extra" "HZ 明朝モダン" "極太" ../cidalias.sed > $@
-mincho9m: mincho9m/Makefile mincho3/work.otf
+	./mkmkfile.rb mincho9.otf 109 "HZ Mincho" "Extra" "HZ 明朝" "極太" ../cidalias.sed > $@
 	cd $@ && make
 
 clean:
