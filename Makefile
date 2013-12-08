@@ -33,44 +33,59 @@ cidalias.sed: cidalias.txt
 glyphs.txt: groups/cidalias.txt
 	cat $^ | sort | uniq > $@
 
-cidpua.map:
+cidpua.map: lgc.map
 	./mkcfinfo.rb > $@
-cidpua-blockelem.map:
+cidpua-blockelem.map: lgc.map
 	./mkcfinfo.rb BlockElem > $@
-cidpua-dingbats.map:
+cidpua-dingbats.map: lgc.map
 	./mkcfinfo.rb Dingbats > $@
 
 mincho1/Makefile: dump_newest_only.txt glyphs.txt cidalias.sed \
 cidpua.map cidpua-blockelem.map cidpua-dingbats.map
 	mkdir -p mincho1
 	./mkmkfile.rb mincho1.otf 1 "HZ Mincho" "Light" "HZ 明朝" "細" ../cidalias.sed > $@
-mincho1: mincho1/Makefile mincho3/work.otf
+mincho1: mincho1/Makefile mincho3/work.otf LGC/lgc1.otf
 	cd $@ && make
+LGC/lgc1.otf:
+	cd LGC && make lgc1.otf
+
 mincho3/Makefile: dump_newest_only.txt glyphs.txt cidalias.sed \
 cidpua.map cidpua-blockelem.map cidpua-dingbats.map
 	mkdir -p mincho3
 	./mkmkfile.rb mincho3.otf 3 "HZ Mincho" "Book" "HZ 明朝" "標準" ../cidalias.sed > $@
-mincho3: mincho3/Makefile
+mincho3: mincho3/Makefile LGC/lgc3.otf
 	cd $@ && make
 mincho3/work.otf: mincho3
 	cd mincho3 && make work.otf
+LGC/lgc3.otf:
+	cd LGC && make lgc3.otf
+
 mincho5/Makefile: dump_newest_only.txt glyphs.txt cidalias.sed \
 cidpua.map cidpua-blockelem.map cidpua-dingbats.map
 	mkdir -p mincho5
 	./mkmkfile.rb mincho5.otf 105 "HZ Mincho" "Demi" "HZ 明朝" "中太" ../cidalias.sed > $@
-mincho5: mincho5/Makefile mincho3/work.otf
+mincho5: mincho5/Makefile mincho3/work.otf LGC/lgc5.otf
 	cd $@ && make
+LGC/lgc5.otf:
+	cd LGC && make lgc5.otf
+
 mincho7/Makefile: dump_newest_only.txt glyphs.txt cidalias.sed \
 cidpua.map cidpua-blockelem.map cidpua-dingbats.map
 	mkdir -p mincho7
 	./mkmkfile.rb mincho7.otf 107 "HZ Mincho" "Bold" "HZ 明朝" "太" ../cidalias.sed > $@
-mincho7: mincho7/Makefile mincho3/work.otf
+mincho7: mincho7/Makefile mincho3/work.otf LGC/lgc7.otf
 	cd $@ && make
+LGC/lgc7.otf:
+	cd LGC && make lgc7.otf
+
 mincho9/Makefile: dump_newest_only.txt glyphs.txt cidalias.sed \
 cidpua.map cidpua-blockelem.map cidpua-dingbats.map
 	mkdir -p mincho9
 	./mkmkfile.rb mincho9.otf 109 "HZ Mincho" "Extra" "HZ 明朝" "極太" ../cidalias.sed > $@
+mincho9: mincho9/Makefile mincho3/work.otf LGC/lgc9.otf
 	cd $@ && make
+LGC/lgc9.otf:
+	cd LGC && make lgc9.otf
 
 clean:
 	-rm -rf $(GENERATABLES)

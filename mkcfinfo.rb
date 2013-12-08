@@ -1,6 +1,16 @@
 #!/usr/bin/env ruby
 
+require 'set'
+
 mode = ARGV[0]
+lgcIDs = Set.new []
+
+open("lgc.map") {|file|
+	while l = file.gets
+		p = l.split('\t')[0].to_i
+		if p > 0 then lgcIDs.add(p) end
+	end
+}
 
 GlyphList = {
 	"BlockElem" => [
@@ -18,12 +28,14 @@ GlyphList = {
 		].flatten
 }
 
-print("mergeFonts #{mode or 'All'}\n")
+print("mergeFonts #{mode or 'Japanese'}\n")
 for i in mode ? GlyphList[mode] : 0..23057 do
 	if not mode then
 		flag = false
 		for k in GlyphList.keys do flag |= GlyphList[k].member?(i) end
 		if flag then next end
 	end
-	print("#{'%05d' % i} u#{(i + 0xf0000).to_s(16).upcase}\n")
+	if not lgcIDs.include?(i) then
+		print("#{'%05d' % i} u#{(i + 0xf0000).to_s(16).upcase}\n")
+	end
 end

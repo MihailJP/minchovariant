@@ -51,8 +51,13 @@ work2.sfd: work.sfd
 work.otf: work2.sfd
 	../width.py $< $@
 
-#{target.sub(/\..+?$/, '.raw')}: work.otf cidfontinfo
-	$(MERGEFONTS) -cid cidfontinfo $@ ../cidpua.map work.otf ../cidpua-blockelem.map ../mincho3/work.otf ../cidpua-dingbats.map ../mincho#{weightNum.to_i > 7 ? 7 : (weightNum.to_i > 3 ? weightNum : 3)}/work.otf
+lgc.otf: ../LGC/lgc#{weightNum.to_i % 100}.otf
+	cp $^ $@
+../LGC/lgc#{weightNum.to_i % 100}.otf:
+	cd ../LGC && make lgc#{weightNum.to_i % 100}.otf
+
+#{target.sub(/\..+?$/, '.raw')}: work.otf cidfontinfo lgc.otf
+	$(MERGEFONTS) -cid cidfontinfo $@ ../cidpua.map work.otf ../cidpua-blockelem.map ../mincho3/work.otf ../cidpua-dingbats.map ../mincho#{weightNum.to_i > 7 ? 7 : (weightNum.to_i > 3 ? weightNum : 3)}/work.otf ../lgc.map lgc.otf
 
 #{target}: #{target.sub(/\..+?$/, '.raw')}
 	$(MAKEOTF) -f $< -ff ../otf-features -mf ../fontMenuDB -o $@ -ch $(CMAP_HORIZONTAL) -cv $(CMAP_VERTICAL)
