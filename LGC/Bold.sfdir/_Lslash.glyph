@@ -1,9 +1,7 @@
 StartChar: Lslash
 Encoding: 321 321 131
 Width: 691
-Flags: W
-HStem: 0 48<39 147 289 487.281> 638 45<39 147 289 425>
-VStem: 147 142<48 275 318.863 395.02 439 638> 595 48<210.833 275>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

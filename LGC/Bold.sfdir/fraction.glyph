@@ -1,8 +1,7 @@
 StartChar: fraction
 Encoding: 8260 8260 103
 Width: 575
-Flags: W
-VStem: 64 445
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

@@ -1,9 +1,7 @@
 StartChar: pi
 Encoding: 960 960 263
 Width: 514
-Flags: W
-HStem: -18 21G<120 143.5> -11 76<369.298 457.475> 365 65<94.5625 158 184 315 340 470.985>
-VStem: 90 79<-12.9219 60.184> 158 26<131.818 365> 315 25<119.539 365>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

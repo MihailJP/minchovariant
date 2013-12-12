@@ -1,9 +1,7 @@
 StartChar: Iogonek
 Encoding: 302 302 537
 Width: 435
-Flags: W
-HStem: -205 68<227.361 311.449> 0 47<33 147 289 403> 639 44<33 147 289 403>
-VStem: 128 79<-116.145 -35.6939> 147 142<47 639>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

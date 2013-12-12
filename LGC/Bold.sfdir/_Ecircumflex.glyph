@@ -1,9 +1,7 @@
 StartChar: Ecircumflex
 Encoding: 202 202 163
 Width: 754
-Flags: W
-HStem: 0 47<39 147 289 563.196> 329 47<289 423.516> 633 47<39 147 289 556.201>
-VStem: 147 142<47 329 376 633> 450 47<212 303.63 401.37 493>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet
@@ -36,7 +34,7 @@ SplineSet
  723 274 l 1
  677 0 l 1
  39 0 l 1
-230 775 m 1xea
+230 775 m 1
  387 900 l 1
  388 900 l 1
  544 775 l 1
@@ -45,6 +43,6 @@ SplineSet
  387 817 l 1
  257 736 l 5
  257 736 l 1
- 230 775 l 1xea
+ 230 775 l 1
 EndSplineSet
 EndChar

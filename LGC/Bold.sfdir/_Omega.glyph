@@ -1,9 +1,7 @@
 StartChar: Omega
 Encoding: 937 937 247
 Width: 894
-Flags: W
-HStem: 0 103<217 281 217 311 612 667 667 716.5> 660 37<398.5 494.5>
-VStem: 81 153<385.5 505> 660 153<385 504.5 383.5 539.5>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

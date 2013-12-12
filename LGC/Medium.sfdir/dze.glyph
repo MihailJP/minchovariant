@@ -1,9 +1,7 @@
 StartChar: dze
 Encoding: 1109 1109 440
 Width: 394
-Flags: W
-HStem: -11 22<188.5 238 157 256.5> 429 19<150 200.5 132 248>
-VStem: 33 48<324 353> 312 48<92 138>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

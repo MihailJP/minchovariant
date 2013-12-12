@@ -1,9 +1,7 @@
 StartChar: Psi
 Encoding: 936 936 246
 Width: 778
-Flags: W
-HStem: 0 31<215 235> 652 31<215 230 215 215>
-VStem: 124 84<393 400 400 414 358 415> 344 84<77 135 58 136 58 136 161 605>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

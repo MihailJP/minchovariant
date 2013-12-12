@@ -1,9 +1,7 @@
 StartChar: Umacron
 Encoding: 362 362 350
 Width: 750
-Flags: W
-HStem: -22 31<366.5 437.5 366.5 445.5> 652 31<33 33 33 57> 755 40<87 648 100 648 648 650>
-VStem: 136 89<228 605> 582 31<234 254 254 574>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

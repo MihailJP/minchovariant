@@ -1,9 +1,7 @@
 StartChar: dagger
 Encoding: 8224 8224 114
 Width: 511
-Flags: W
-HStem: 387 114<75.6089 189.852 318.814 433.714> 679 20G<245 265.5>
-VStem: 197 115<-47.8242 347.358 542.735 686.75> 227 53<-204.65 13.1044>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

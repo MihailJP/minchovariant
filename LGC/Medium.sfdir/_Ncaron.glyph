@@ -1,9 +1,7 @@
 StartChar: Ncaron
 Encoding: 327 327 484
 Width: 750
-Flags: W
-HStem: 0 31<33 108.688 191.359 267> 652 31<33 135.7 482 558.88 640.037 716> 794 62<343.69 405.312>
-VStem: 136 28<57.819 625> 585 28<151 625.122>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

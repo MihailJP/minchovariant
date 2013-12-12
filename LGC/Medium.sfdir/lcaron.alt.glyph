@@ -1,9 +1,7 @@
 StartChar: lcaron.alt
 Encoding: 65556 -1 557
 Width: 276
-Flags: W
-HStem: 0 31<33 106.404 181.596 255> 652 31<33 103.419> 674 20G<33 177> 724 62<106.69 168.312>
-VStem: 111 66<34.0171 646.709>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

@@ -1,9 +1,7 @@
 StartChar: Omega.math
 Encoding: 8486 8486 339
 Width: 830
-Flags: W
-HStem: 0 103<196 255 196 284 573 632 632 674.5> 660 37<369.5 459>
-VStem: 63 153<385.5 505> 612 153<387 505 387 539.5>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

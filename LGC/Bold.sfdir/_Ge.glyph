@@ -1,13 +1,11 @@
 StartChar: Ge
 Encoding: 1043 1043 275
 Width: 691
-Flags: W
-HStem: 0 48<39 147 289 425> 444 21G<587.5 643> 638 48<39 147 289 515.054>
-VStem: 147 142<48 638> 595 48<444 500.467>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet
-39 0 m 1xbc
+39 0 m 1
  39 48 l 1
  147 48 l 1
  147 638 l 1
@@ -22,8 +20,8 @@ SplineSet
  289 48 l 1
  289 48 l 1
  425 48 l 1
- 425 0 l 1xbc
- 356 2 286 3 217 3 c 0x7c
- 146 3 92 2 39 0 c 1xbc
+ 425 0 l 1
+ 356 2 286 3 217 3 c 0
+ 146 3 92 2 39 0 c 1
 EndSplineSet
 EndChar

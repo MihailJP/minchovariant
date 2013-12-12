@@ -1,13 +1,11 @@
 StartChar: Iota
 Encoding: 921 921 232
 Width: 475
-Flags: W
-HStem: 0 47<52 166 308 422> 639 44<52 166 308 422>
-VStem: 166 142<47 639>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet
-52 0 m 1xb0
+52 0 m 1
  52 47 l 1
  52 47 l 1
  166 47 l 1
@@ -23,8 +21,8 @@ SplineSet
  308 47 l 1
  422 47 l 1
  422 47 l 1
- 422 0 l 1xb0
- 381 3 283 3 237 3 c 0x70
- 191 3 93 3 52 0 c 1xb0
+ 422 0 l 1
+ 381 3 283 3 237 3 c 0
+ 191 3 93 3 52 0 c 1
 EndSplineSet
 EndChar

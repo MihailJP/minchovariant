@@ -1,9 +1,7 @@
 StartChar: dieresistonos
 Encoding: 901 901 517
 Width: 361
-Flags: W
-HStem: 489 80<2.55524 106.128 255.717 359.578>
-VStem: -3 115<497.108 562.065> 250 115<496.208 561.186>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

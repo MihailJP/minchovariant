@@ -1,8 +1,7 @@
 StartChar: Sigma
 Encoding: 931 931 241
 Width: 722
-Flags: W
-HStem: 0 42<120 546.014> 652 31<169 532.547>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

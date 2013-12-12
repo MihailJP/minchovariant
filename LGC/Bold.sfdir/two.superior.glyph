@@ -1,9 +1,7 @@
 StartChar: two.superior
 Encoding: 178 178 147
 Width: 511
-Flags: W
-HStem: 347 126<192 391.085> 713 48<195.219 275.235>
-VStem: 57 144<631.159 711.496> 314 139<576.399 679.713> 402 47<490.704 541>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

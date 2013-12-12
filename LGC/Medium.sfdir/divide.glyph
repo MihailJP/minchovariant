@@ -1,9 +1,7 @@
 StartChar: divide
 Encoding: 247 247 204
 Width: 778
-Flags: W
-HStem: -28 125<340.63 435.033> 230 40<56.0048 719.988> 403 125<340.63 435.033>
-VStem: 325 126<-11.6961 81.1591 419.211 511.706>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

@@ -1,8 +1,7 @@
 StartChar: Kha
 Encoding: 1061 1061 294
 Width: 750
-Flags: W
-HStem: 0 31<24 109.696 216.193 263 450 505.771 632.514 726> 652 31<37 131.136 257.229 313 445 491 597.519 684>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

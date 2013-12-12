@@ -1,9 +1,7 @@
 StartChar: q
 Encoding: 113 113 81
 Width: 526
-Flags: W
-HStem: -194 31<302 375.404 453.596 527> -11 22<209.067 299.995> 417 25<212.951 307.931>
-VStem: 34 83<116.833 310.323> 380 69<-159.983 61 70.75 355.953>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

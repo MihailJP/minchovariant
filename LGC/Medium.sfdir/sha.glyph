@@ -1,9 +1,7 @@
 StartChar: sha
 Encoding: 1096 1096 330
 Width: 805
-Flags: W
-HStem: 0 23<25 33 25 33 33 62 222 325 325 338.5 486 589 589 602.5 770 778> 408 22<25 32 25 25>
-VStem: 103 70<69 349> 366 70<67 349 67 362 67 381> 630 70<69 362 69 362 69 362>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

@@ -1,9 +1,7 @@
 StartChar: dotaccent
 Encoding: 729 729 503
 Width: 278
-Flags: W
-HStem: 563 105<138.5 165>
-VStem: 99 105<602 630.5>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

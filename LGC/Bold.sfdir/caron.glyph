@@ -1,8 +1,7 @@
 StartChar: caron
 Encoding: 711 711 470
 Width: 575
-Flags: W
-VStem: 115 345<641 642 641 642>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

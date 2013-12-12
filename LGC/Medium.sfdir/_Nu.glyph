@@ -1,9 +1,7 @@
 StartChar: Nu
 Encoding: 925 925 236
 Width: 750
-Flags: W
-HStem: 0 31<33 108.703 191.08 267> 652 31<33 135.7 482 557.338 640.08 716>
-VStem: 136 28<57.875 625> 585 28<151 625.125>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

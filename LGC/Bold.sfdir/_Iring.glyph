@@ -1,9 +1,7 @@
 StartChar: Iring
 Encoding: 65537 -1 358
 Width: 436
-Flags: W
-HStem: 0 47<33 147 289 403> 639 44<33 147 289 403> 719 36<157.996 278.8> 866 36<157.63 278.448>
-VStem: 98.5 48<763.271 857.391> 147 142<47 639> 290.5 47<763.321 857.39>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

@@ -1,9 +1,7 @@
 StartChar: alphatonos
 Encoding: 940 940 413
 Width: 655
-Flags: W
-HStem: -5 98<170.571 318.558 522.142 619.744> 351 99<171.683 326.734>
-VStem: 64 48<140.661 302.318>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

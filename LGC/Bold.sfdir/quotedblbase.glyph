@@ -1,9 +1,7 @@
 StartChar: quotedblbase
 Encoding: 8222 8222 119
 Width: 411
-Flags: W
-HStem: -193 21G<38.5 52 308.5 322> 0 156<15.6695 125.352 285.669 395.352>
-VStem: -7 172<24.7057 113.195> 263 172<24.2149 113.032>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

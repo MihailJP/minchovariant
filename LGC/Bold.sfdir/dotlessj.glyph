@@ -1,9 +1,7 @@
 StartChar: dotlessj
 Encoding: 567 567 394
 Width: 351
-Flags: W
-HStem: -200 36<76 114 76 129> 395 47<83 91.5>
-VStem: -56 125<-115.5 -91> 159 108<-42 355 355 365.5>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

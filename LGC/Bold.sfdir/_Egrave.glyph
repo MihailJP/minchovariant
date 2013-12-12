@@ -1,9 +1,7 @@
 StartChar: Egrave
 Encoding: 200 200 161
 Width: 754
-Flags: W
-HStem: 0 47<39 147 289 563.196> 329 47<289 423.516> 633 47<39 147 289 556.201> 759.96 115.04<279.074 371.464>
-VStem: 147 142<47 329 376 633> 450 47<212 303.63 401.37 493>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

@@ -1,9 +1,7 @@
 StartChar: breve
 Encoding: 728 728 459
 Width: 500
-Flags: W
-HStem: 503 38<234 264.5 234 286>
-VStem: 99 23<639 639> 377 22<639 639>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

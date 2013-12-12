@@ -1,9 +1,7 @@
 StartChar: period
 Encoding: 46 46 14
 Width: 318
-Flags: W
-HStem: 0 156<105.988 212.012>
-VStem: 81 156<24.7918 130.64>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

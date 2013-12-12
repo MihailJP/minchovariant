@@ -1,9 +1,7 @@
 StartChar: tau
 Encoding: 964 964 266
 Width: 578
-Flags: W
-HStem: -5 114<365 405 365 411> 346 99<147 149 149 256 304 486 486 488 304 304>
-VStem: 256 48<250 346>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

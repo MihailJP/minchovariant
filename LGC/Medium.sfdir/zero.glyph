@@ -1,9 +1,7 @@
 StartChar: zero
 Encoding: 48 48 16
 Width: 500
-Flags: W
-HStem: -22 22<205.027 294.023> 644 22<203.199 295.911>
-VStem: 39 83<134.994 506.511> 377 83<133.868 504.883>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

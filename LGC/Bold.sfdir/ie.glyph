@@ -1,9 +1,7 @@
 StartChar: ie
 Encoding: 1077 1077 310
 Width: 527
-Flags: W
-HStem: -6 40<226.384 385.659> 218 33<160 399> 417 36<220.144 341.11>
-VStem: 32 128<127.175 218 251 323.446> 399 95<251 347.125> 445 49<83.4296 134.931>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

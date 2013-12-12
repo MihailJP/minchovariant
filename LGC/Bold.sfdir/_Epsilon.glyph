@@ -1,13 +1,11 @@
 StartChar: Epsilon
 Encoding: 917 917 228
 Width: 816
-Flags: W
-HStem: 0 48<58 166 308 605.618> 329 48<308 457.134> 633 47<58 166 308 598.91>
-VStem: 166 142<48 329 377 633> 485 48<212 301.866 404.526 494>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet
-58 0 m 1xbe
+58 0 m 1
  58 48 l 1
  58 48 l 1
  166 48 l 1
@@ -41,8 +39,8 @@ SplineSet
  704 173 712 225 721 275 c 1
  768 275 l 1
  723 0 l 1
- 369 0 l 2xbe
- 341 0 313 3 228 3 c 0x7e
- 171 3 115 2 58 0 c 1xbe
+ 369 0 l 2
+ 341 0 313 3 228 3 c 0
+ 171 3 115 2 58 0 c 1
 EndSplineSet
 EndChar

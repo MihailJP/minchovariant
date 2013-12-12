@@ -1,9 +1,7 @@
 StartChar: Ngrave
 Encoding: 504 504 452
 Width: 750
-Flags: W
-HStem: 0 31<33 108.688 191.359 267> 652 31<33 135.7 482 558.88 640.037 716> 810 66<277.455 351.572>
-VStem: 136 28<57.819 625> 585 28<151 625.122>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

@@ -1,9 +1,7 @@
 StartChar: Ograve
 Encoding: 210 210 171
 Width: 777
-Flags: W
-HStem: -22 26<327.838 449.052> 680 25<322.713 449.023> 796 66<278.455 352.572>
-VStem: 56 103<212.237 467.533> 618 103<212.787 467.764>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

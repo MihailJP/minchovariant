@@ -1,9 +1,7 @@
 StartChar: omicrontonos
 Encoding: 972 972 419
 Width: 661
-Flags: W
-HStem: -5 40<223.474 357.84> 409 41<300.44 437.526>
-VStem: 64 118<125.986 270.726> 479 118<177.082 318.96>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

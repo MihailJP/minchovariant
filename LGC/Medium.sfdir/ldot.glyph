@@ -1,9 +1,7 @@
 StartChar: ldot
 Encoding: 320 320 528
 Width: 387
-Flags: W
-HStem: 0 31<33 66.5> 189 105<292.5 321> 652 31<33 68>
-VStem: 111 66<76 596 596 620.5> 255 105<228.5 255.5>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

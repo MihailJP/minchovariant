@@ -1,8 +1,7 @@
 StartChar: Amacron
 Encoding: 256 256 348
 Width: 750
-Flags: W
-HStem: 0 31<32 32> 228 31<233 458 233 469 222 458> 696 20<351 383 367 398> 766 40<87 648 100 648 648 650>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

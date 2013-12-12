@@ -1,8 +1,7 @@
 StartChar: Chi
 Encoding: 935 935 245
 Width: 750
-Flags: W
-HStem: 0 31<24 108.018 216.193 263 450 505.771 631.851 726> 652 31<37 131.136 257.229 313 445 491 597.497 684>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

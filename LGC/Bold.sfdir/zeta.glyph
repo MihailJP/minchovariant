@@ -1,9 +1,7 @@
 StartChar: zeta
 Encoding: 950 950 253
 Width: 594
-Flags: W
-HStem: -213 96<306.363 437.628> 0 115<201.109 408.407> 551 154<106.868 193.266>
-VStem: 64 48<176.843 318.658> 81 126<613.985 689.398> 482 48<-93.4367 -22.3242>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

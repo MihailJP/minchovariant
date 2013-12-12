@@ -1,9 +1,7 @@
 StartChar: alpha
 Encoding: 945 945 248
 Width: 655
-Flags: W
-HStem: -5 98<216.5 280 216.5 308 551.5 604> 351 99<218.5 304.5>
-VStem: 64 48<170.5 275.5 170.5 306.5>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

@@ -1,9 +1,7 @@
 StartChar: upsilon
 Encoding: 965 965 267
 Width: 655
-Flags: W
-HStem: -5 51<240.421 365.567>
-VStem: 57 121<362.462 439.34> 57 108<362.462 453.491> 511 80<208.456 335.517>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

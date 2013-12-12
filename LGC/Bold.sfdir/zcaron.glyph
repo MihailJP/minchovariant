@@ -1,9 +1,7 @@
 StartChar: zcaron
 Encoding: 382 382 222
 Width: 511
-Flags: W
-HStem: 0 40<172 354.32> 408 36<147.021 320>
-VStem: 48 47<269 360.881> 415 47<123.444 202>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet
@@ -24,7 +22,7 @@ SplineSet
  444 0 l 1
  64 0 l 2
  45 0 32 0 32 22 c 0
-71 641 m 1x10
+71 641 m 1
  71 642 l 1
  88 664 l 1
  89 664 l 1
@@ -35,6 +33,6 @@ SplineSet
  416 641 l 1
  244 470 l 1
  243 470 l 1
- 71 641 l 1x10
+ 71 641 l 1
 EndSplineSet
 EndChar

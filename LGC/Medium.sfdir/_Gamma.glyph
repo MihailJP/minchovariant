@@ -1,9 +1,7 @@
 StartChar: Gamma
 Encoding: 915 915 226
 Width: 625
-Flags: W
-HStem: 0 31<33 48> 650 30<33 48 33 33 283 365>
-VStem: 136 89<74 77 77 608 608 608> 557 26<455 455>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

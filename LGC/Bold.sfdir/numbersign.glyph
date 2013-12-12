@@ -1,9 +1,7 @@
 StartChar: numbersign
 Encoding: 35 35 3
 Width: 957
-Flags: W
-HStem: -193 21G<203.5 216.5 472.5 486> 120 37<64.0153 283 333 553 603 891.988> 343 36<64.0124 353 404 623 673 891.985> 673 20G<474.5 484 740 754>
-VStem: 461 34<632.828 692.991>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

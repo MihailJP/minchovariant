@@ -1,9 +1,7 @@
 StartChar: dotlessi
 Encoding: 305 305 136
 Width: 277
-Flags: W
-HStem: 0 31<33 66.5> 400 31<37 69.5>
-VStem: 111 66<76 345 345 369.5>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

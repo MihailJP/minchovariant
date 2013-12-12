@@ -1,9 +1,7 @@
 StartChar: ia
 Encoding: 1103 1103 337
 Width: 607
-Flags: W
-HStem: 0 36<19 19> 215 33<352 366 366 393> 408 37<264.5 571 326 371>
-VStem: 64 128<333 351> 393 109<58 59 59 215 215 215 248 387>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

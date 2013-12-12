@@ -1,13 +1,11 @@
 StartChar: Ycircumflex
 Encoding: 374 374 549
 Width: 869
-Flags: W
-HStem: 3 44<258 366 502 611> 639 47<19 117 282 367 603 677.781 737.003 849>
-VStem: 366 136<47 274>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet
-275 782 m 1x10
+275 782 m 1
  434 930 l 1
  435 930 l 1
  593 782 l 1
@@ -15,7 +13,7 @@ SplineSet
  435 848 l 1
  434 848 l 1
  306 746 l 1
- 275 782 l 1x10
+ 275 782 l 1
 19 639 m 1
  19 686 l 1
  54 683 144 683 184 683 c 0

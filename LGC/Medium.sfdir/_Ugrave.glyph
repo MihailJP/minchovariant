@@ -1,9 +1,7 @@
 StartChar: Ugrave
 Encoding: 217 217 177
 Width: 750
-Flags: W
-HStem: -22 31<325.06 459.728> 652 31<33 130.733 230.267 328 479 554.96 638.758 716> 787 75<265.405 339.451>
-VStem: 136 89<129.453 647.088> 582 31<143.375 626.809>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

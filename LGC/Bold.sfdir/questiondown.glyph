@@ -1,9 +1,7 @@
 StartChar: questiondown
 Encoding: 191 191 124
 Width: 543
-Flags: W
-HStem: -200 36<206.055 366.055> 344 156<201.792 307.208>
-VStem: 63 128<-139.914 -3.77148> 177 155<368.988 475.012> 231 47<134.263 273.802> 353 125<-117.039 -23.3758>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

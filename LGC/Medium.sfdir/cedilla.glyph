@@ -1,9 +1,7 @@
 StartChar: cedilla
 Encoding: 184 184 128
 Width: 444
-Flags: W
-HStem: -204 23<103 115 115 147 103 115> -71 71<187 257>
-VStem: 187 70<-54 0 -54 0 -54 0> 269 70<-148 -115>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

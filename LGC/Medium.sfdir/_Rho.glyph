@@ -1,9 +1,7 @@
 StartChar: Rho
 Encoding: 929 929 240
 Width: 680
-Flags: W
-HStem: 0 31<34 129.765 233.205 329> 315 27<226 438.91> 652 31<34 130.192 226.947 447.359>
-VStem: 137 87<37.7772 315 342 646.071> 521 103<422.389 573.696>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

@@ -1,9 +1,7 @@
 StartChar: sigma.end
 Encoding: 962 962 403
 Width: 589
-Flags: W
-HStem: -125 99<349 373 349 381> 0 100 336 114<380 443 443 458>
-VStem: 63 48<186 267.5 186 305>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

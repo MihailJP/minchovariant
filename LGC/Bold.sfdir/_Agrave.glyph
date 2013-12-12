@@ -1,8 +1,7 @@
 StartChar: Agrave
 Encoding: 192 192 154
 Width: 868
-Flags: W
-HStem: 0 47<41 146.444 201.063 290 488 583 730 827> 193 47<275 503> 678 20G<420 442.5>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet
@@ -34,11 +33,11 @@ SplineSet
  503 240 l 1
  389 518 l 1
  275 240 l 1
-279 812 m 0x3c
+279 812 m 0
  279 841 300 875 335 875 c 0
  361 875 369 863 505 778 c 1
  489 733 l 1
  293 761 300 763 287 783 c 0
- 281 792 279 802 279 812 c 0x3c
+ 281 792 279 802 279 812 c 0
 EndSplineSet
 EndChar

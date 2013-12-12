@@ -1,9 +1,7 @@
 StartChar: obar
 Encoding: 629 629 396
 Width: 575
-Flags: W
-HStem: -5 40<283.5 306 283.5 365> 199 47<159 414 159 414> 416 37<266.5 306.5>
-VStem: 31 128<199 199 246 270.5 199 288.5> 414 128<199 199 246 246>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

@@ -1,9 +1,7 @@
 StartChar: Dcroat
 Encoding: 272 272 520
 Width: 882
-Flags: W
-HStem: 0 48<39 147 284 543.946> 313 47<41.1941 147 284 483.942> 638 48<39 147 284 543.21>
-VStem: 147 137<48 313 360 638> 670 148<213.879 466.788>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

@@ -1,9 +1,7 @@
 StartChar: iotatonos
 Encoding: 943 943 416
 Width: 328
-Flags: W
-HStem: -9 138<161.763 231.217> 430 20G<96.5 189>
-VStem: 80 124<326.221 449.941> 100 211<39.6291 127.718>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

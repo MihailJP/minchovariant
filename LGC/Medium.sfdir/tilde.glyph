@@ -1,9 +1,7 @@
 StartChar: tilde
 Encoding: 732 732 99
 Width: 500
-Flags: W
-HStem: 574 46<295.5 329.5> 621 46<169.5 203.5>
-VStem: 83 333<588 653>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

@@ -1,9 +1,7 @@
 StartChar: tonos
 Encoding: 900 900 516
 Width: 167
-Flags: W
-HStem: 480 219<29 129>
-VStem: 15 148
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

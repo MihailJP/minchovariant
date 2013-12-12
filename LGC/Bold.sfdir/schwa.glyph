@@ -1,9 +1,7 @@
 StartChar: schwa
 Encoding: 601 601 385
 Width: 527
-Flags: W
-HStem: -8 36<176.07 315.036> 193 33<111 382> 409 41<128.084 310.003>
-VStem: 382 129<124.672 193 226 314.917>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

@@ -1,9 +1,7 @@
 StartChar: yacute
 Encoding: 253 253 209
 Width: 527
-Flags: W
-HStem: -205 22<73.3011 149.846> 400 31<19 88.1875 172 225 346 383.896 453.337 508>
-VStem: 19 84<-159.232 -85.956>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

@@ -1,13 +1,11 @@
 StartChar: I.ukran
 Encoding: 1030 1030 428
 Width: 436
-Flags: W
-HStem: 0 47<33 147 289 403> 639 44<33 147 289 403>
-VStem: 147 142<47 639>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet
-33 0 m 1xb0
+33 0 m 1
  33 47 l 1
  33 47 l 1
  147 47 l 1
@@ -23,8 +21,8 @@ SplineSet
  289 47 l 1
  403 47 l 1
  403 47 l 1
- 403 0 l 1xb0
- 362 3 264 3 218 3 c 0x70
- 172 3 74 3 33 0 c 1xb0
+ 403 0 l 1
+ 362 3 264 3 218 3 c 0
+ 172 3 74 3 33 0 c 1
 EndSplineSet
 EndChar

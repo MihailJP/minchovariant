@@ -1,9 +1,7 @@
 StartChar: colon
 Encoding: 58 58 26
 Width: 318
-Flags: W
-HStem: 0 156<105.215 212.785> 288 156<105.215 212.785>
-VStem: 81 156<24.2149 131.785 312.215 419.785>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

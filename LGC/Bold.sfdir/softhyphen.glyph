@@ -1,8 +1,7 @@
 StartChar: softhyphen
 Encoding: 173 173 141
 Width: 192
-Flags: W
-HStem: 174 97<12 318 12 318>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

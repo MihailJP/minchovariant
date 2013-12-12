@@ -1,9 +1,7 @@
 StartChar: asterisk
 Encoding: 42 42 10
 Width: 574
-Flags: W
-HStem: 392 87<81.9993 104 470 492.001> 577 87<81.9993 104 470 492.001>
-VStem: 243 88<311.555 478 578 744.445>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

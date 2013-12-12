@@ -1,9 +1,7 @@
 StartChar: eth
 Encoding: 240 240 198
 Width: 575
-Flags: W
-HStem: -5 40<216.865 353.738> 416 37<220.087 346.036> 568 78<276.764 307.098> 655 40<83.6062 175.724>
-VStem: 31 128<121.965 319.688> 414 128<122.838 341.594>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

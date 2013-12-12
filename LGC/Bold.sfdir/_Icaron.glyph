@@ -1,13 +1,11 @@
 StartChar: Icaron
 Encoding: 463 463 357
 Width: 436
-Flags: W
-HStem: 0 47<33 147 289 403> 639 44<33 147 289 403>
-VStem: 147 142<47 639>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet
-46 918 m 1x10
+46 918 m 1
  46 919 l 1
  63 941 l 1
  64 941 l 1
@@ -18,7 +16,7 @@ SplineSet
  391 918 l 1
  219 747 l 1
  218 747 l 1
- 46 918 l 1x10
+ 46 918 l 1
 33 0 m 1
  33 47 l 1
  33 47 l 1

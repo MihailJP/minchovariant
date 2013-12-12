@@ -1,8 +1,7 @@
 StartChar: Acircumflex
 Encoding: 194 194 156
 Width: 750
-Flags: W
-HStem: 0 31<32 102.845 193.94 249 442 518.781 627.316 717> 228 31<233 458> 696 20G<367 383>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

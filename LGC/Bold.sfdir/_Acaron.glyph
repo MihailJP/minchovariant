@@ -1,12 +1,11 @@
 StartChar: Acaron
 Encoding: 461 461 353
 Width: 869
-Flags: W
-HStem: 0 47<41 146.444 201.063 290 488 583 730 827> 193 47<275 503> 678 20G<420 442.5>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet
-261 919 m 1x08
+261 919 m 1
  261 920 l 1
  278 942 l 1
  279 942 l 1
@@ -17,7 +16,7 @@ SplineSet
  606 919 l 1
  434 748 l 1
  433 748 l 1
- 261 919 l 1x08
+ 261 919 l 1
 41 0 m 1
  41 47 l 1
  62 47 l 2

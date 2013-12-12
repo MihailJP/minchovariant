@@ -1,9 +1,7 @@
 StartChar: currency
 Encoding: 164 164 106
 Width: 736
-Flags: W
-HStem: -11 40<273.515 462.948> 524 40<273.141 460.047>
-VStem: 80 40<181.889 371.651> 615 40<182.733 371.74>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

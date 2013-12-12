@@ -1,9 +1,7 @@
 StartChar: apostrophemod
 Encoding: 700 700 96
 Width: 278
-Flags: W
-HStem: 588 106<122.5 143.5>
-VStem: 182 23<535 591.5>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

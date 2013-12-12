@@ -1,9 +1,7 @@
 StartChar: Lcommaaccent
 Encoding: 315 315 540
 Width: 690
-Flags: W
-HStem: -166.127 93.5996<325.061 397.259> 0 47<39 147 289 487.814> 639 44<39 147 289 424>
-VStem: 147 142<47 639> 397.5 22.2002<-200.672 -154.127> 596 47<212.129 274>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

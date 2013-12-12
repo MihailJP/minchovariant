@@ -1,9 +1,7 @@
 StartChar: commaturnedmod
 Encoding: 699 699 97
 Width: 278
-Flags: W
-HStem: 394 106<131.5 153.5 131.5 154.5> 672 20G<155.5 167>
-VStem: 71 23<497 554>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

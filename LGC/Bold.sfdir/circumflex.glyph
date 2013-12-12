@@ -1,8 +1,7 @@
 StartChar: circumflex
 Encoding: 710 710 125
 Width: 575
-Flags: W
-VStem: 128 318<510 510>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

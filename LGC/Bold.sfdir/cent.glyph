@@ -1,9 +1,7 @@
 StartChar: cent
 Encoding: 162 162 101
 Width: 575
-Flags: W
-HStem: 412 41<343 356.5>
-VStem: 38 128<199 268.5> 295 48<-97 -5 -97 -5 40 411 411 411 453 545> 405 125<343 373>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

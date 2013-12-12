@@ -1,9 +1,7 @@
 StartChar: iacute
 Encoding: 237 237 194
 Width: 277
-Flags: W
-HStem: 0 31<33 106.404 180.774 247> 400 31<37 104.079> 422 20G<37 177>
-VStem: 111 66<34.0171 395.048>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet
@@ -19,11 +17,11 @@ SplineSet
  247 0 l 1
  213 1 178 3 143 3 c 0
  119 3 65 1 33 0 c 1
-80 510 m 1xf0
+80 510 m 1
  208 635 211 642 230 642 c 0
  251 642 265 622 265 605 c 0
  265 582 245 575 196 547 c 0
  116 501 105 495 95 490 c 1
- 80 510 l 1xf0
+ 80 510 l 1
 EndSplineSet
 EndChar

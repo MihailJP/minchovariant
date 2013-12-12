@@ -1,8 +1,7 @@
 StartChar: Wcircumflex
 Encoding: 372 372 548
 Width: 1188
-Flags: W
-HStem: -8 21G<372.5 397.5 790.5 815.5> 639 47<24 110 256 352 442 528 674 770 921 1021.63 1069.81 1164>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

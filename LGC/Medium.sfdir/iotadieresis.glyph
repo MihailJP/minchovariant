@@ -1,9 +1,7 @@
 StartChar: iotadieresis
 Encoding: 970 970 417
 Width: 250
-Flags: W
-HStem: -13 98<103.067 162.896> 421 20G<68.5 111.5> 520 105<-49.6133 34.3093 153.462 237.369>
-VStem: -60 105<530.542 614.23> 55 74<210.481 440.987> 143 105<530.542 614.23>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

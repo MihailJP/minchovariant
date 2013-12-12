@@ -1,9 +1,7 @@
 StartChar: Omicron
 Encoding: 927 927 238
 Width: 777
-Flags: W
-HStem: -22 26<327.785 449.316> 680 25<327.577 449.73>
-VStem: 56 103<216.175 466.391> 618 103<212.352 466.12>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

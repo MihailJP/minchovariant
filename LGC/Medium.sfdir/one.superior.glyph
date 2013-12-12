@@ -1,9 +1,7 @@
 StartChar: one.superior
 Encoding: 185 185 150
 Width: 444
-Flags: W
-HStem: 348 30<362 362> 666 31<69 69>
-VStem: 192 75<425 696 696 696>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

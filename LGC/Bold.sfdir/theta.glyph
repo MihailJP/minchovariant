@@ -1,9 +1,7 @@
 StartChar: theta
 Encoding: 952 952 255
 Width: 606
-Flags: W
-HStem: -5 36<256.5 331 256.5 379> 355 33<191 418 188 420> 663 36<279.5 349.5>
-VStem: 64 121<250.5 253 172 476.5> 420 122<388 388>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

@@ -1,9 +1,7 @@
 StartChar: Ve
 Encoding: 1042 1042 274
 Width: 818
-Flags: W
-HStem: 0 47<39 147 278 545.25> 339 36<278 510.613> 639 47<39 147 278 529.881>
-VStem: 147 131<47 339 375 639> 579 142<443.181 588.085> 606 147<106.832 262.935>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

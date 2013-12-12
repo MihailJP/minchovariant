@@ -1,9 +1,7 @@
 StartChar: ring
 Encoding: 730 730 127
 Width: 750
-Flags: W
-HStem: 500 22<327.338 421.523> 638 23<327.507 421.946>
-VStem: 278 26<542.4 618.606> 445 25<542.321 617.549>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

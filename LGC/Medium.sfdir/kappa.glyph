@@ -1,9 +1,7 @@
 StartChar: kappa
 Encoding: 954 954 257
 Width: 528
-Flags: W
-HStem: -22 95<453 457.5> 366 86<63.5 69>
-VStem: 174 30<260.5 297.5> 320 32<133.5 164>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

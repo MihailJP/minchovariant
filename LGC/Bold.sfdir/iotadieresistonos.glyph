@@ -1,9 +1,7 @@
 StartChar: iotadieresistonos
 Encoding: 912 912 418
 Width: 328
-Flags: W
-HStem: -9 138<161.763 231.217> 430 20G<96.5 189> 489 80<-34.4448 69.1277 218.717 322.578>
-VStem: -40 115<497.108 562.065> 80 124<326.221 449.941> 100 211<39.6291 127.718> 213 115<496.208 561.186>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

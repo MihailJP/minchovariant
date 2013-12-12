@@ -1,9 +1,7 @@
 StartChar: Zcaron
 Encoding: 381 381 219
 Width: 611
-Flags: W
-HStem: 0 34<159 433.047> 652 31<195.391 452> 794 62<263.901 325.225>
-VStem: 69 25<458 535.984> 535 25<166.678 267>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

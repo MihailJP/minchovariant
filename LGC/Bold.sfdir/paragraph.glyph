@@ -1,9 +1,7 @@
 StartChar: paragraph
 Encoding: 182 182 216
 Width: 703
-Flags: W
-HStem: -195 61<323 373 433 513 574 623 623 628 316 373> 634 60<433 513 433 433 574 622 574 574>
-VStem: 373 60<-134 220 220 220> 513 61<-134 634 -134 634>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

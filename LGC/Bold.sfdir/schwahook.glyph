@@ -1,9 +1,7 @@
 StartChar: schwahook
 Encoding: 602 602 388
 Width: 735
-Flags: W
-HStem: -8 36<140.906 281.119> 226 37<607.187 672.426> 409 41<130.884 272.501>
-VStem: 334 128<118.642 269.464> 522 72<274.61 380> 684 49<271.593 327.839>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

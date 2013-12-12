@@ -1,9 +1,7 @@
 StartChar: epsilontonos
 Encoding: 941 941 414
 Width: 430
-Flags: W
-HStem: -22 65<128.234 298.741> 186 83<125.235 249.807> 388 65<118.002 296.121> 679 20G<267.5 288>
-VStem: 41 43<85.5912 189.392 265.455 355.444> 238 84<650 690.289>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

@@ -1,9 +1,7 @@
 StartChar: Eacute
 Encoding: 201 201 162
 Width: 755
-Flags: W
-HStem: 0 47<39 147 289 563.196> 329 47<289 423.516> 633 47<39 147 289 556.201> 752 123<451.139 542.724>
-VStem: 147 142<47 329 376 633> 450 47<212 303.63 401.37 493>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

@@ -1,9 +1,7 @@
 StartChar: ordmasculine
 Encoding: 186 186 134
 Width: 511
-Flags: W
-HStem: 278 37<61.5 438 73 436> 370 40<254 261 254 324> 722 36<253.5 273.5>
-VStem: 31 128<513.5 543 543 583 513.5 606.5> 350 128<538.5 586>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

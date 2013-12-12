@@ -1,9 +1,7 @@
 StartChar: Omacron
 Encoding: 332 332 352
 Width: 777
-Flags: W
-HStem: -22 26<341 435 341 479> 680 25<346.5 431.5> 755 40<101 662 114 662 662 664>
-VStem: 56 103<236.5 442> 618 103<238 441 238 481>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet

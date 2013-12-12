@@ -1,8 +1,7 @@
 StartChar: parenleft
 Encoding: 40 40 8
 Width: 446
-Flags: W
-VStem: 108 97<80.8503 420.777>
+Flags: MW
 LayerCount: 2
 Fore
 SplineSet
