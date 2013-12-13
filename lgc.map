@@ -528,6 +528,12 @@ mergeFonts LGC
 15891	Bsmallcap
 15892	Hsmallcap
 15893	Lsmallcap
+15894	hsuper
+15895	jsuper
+15896	wsuper
+15897	glottalstopreversedmod
+15898	gammasuper
+15899	lsuper
 16222	sigma.end
 20317	tonos
 20318	dieresistonos
