@@ -1,0 +1,17 @@
+StartChar: halflength
+Encoding: 721 721 635
+Width: 319
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+65 431 m 0
+ 65 448 80 450 92 450 c 2
+ 225 450 l 2
+ 236 450 253 449 253 432 c 0
+ 253 421 243 406 189 312 c 0
+ 181 297 171 280 160 280 c 0
+ 148 280 143 288 130 310 c 0
+ 65 421 65 427 65 431 c 0
+EndSplineSet
+EndChar

@@ -1,0 +1,16 @@
+StartChar: verticallinelowmod
+Encoding: 716 716 634
+Width: 222
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+95 2 m 2
+ 95 16 97 27 110 27 c 0
+ 124 27 127 18 127 5 c 2
+ 127 -170 l 2
+ 127 -183 125 -194 112 -194 c 0
+ 97 -194 95 -183 95 -171 c 2
+ 95 2 l 2
+EndSplineSet
+EndChar

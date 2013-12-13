@@ -517,6 +517,10 @@ mergeFonts LGC
 15842	zcurl
 15843	rturnascend
 15844	henghook
+15846	verticallinemod
+15847	verticallinelowmod
+15848	halflength
+15867	rhotichook
 15883	Gsmallcap
 15884	gammalatin
 15885	Ismallcap
