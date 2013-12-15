@@ -5,12 +5,16 @@ require 'set'
 mode = ARGV[0]
 lgcIDs = Set.new []
 
-open("lgc.map") {|file|
-	while l = file.gets
-		p = l.split('\t')[0].to_i
-		if p > 0 then lgcIDs.add(p) end
-	end
-}
+def excludeGlyphMap(lgcIDs, filename)
+	open(filename) {|file|
+		while l = file.gets
+			p = l.split('\t')[0].to_i
+			if p > 0 then lgcIDs.add(p) end
+		end
+	}
+end
+excludeGlyphMap(lgcIDs, "lgc.map")
+excludeGlyphMap(lgcIDs, "lgc-italic.map")
 
 GlyphList = {
 	"BlockElem" => [

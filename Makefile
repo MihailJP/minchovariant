@@ -5,6 +5,7 @@ cidpua.map cidpua-blockelem.map cidpua-dingbats.map \
 cidalias.txt cidalias.sed groups/cidalias.txt \
 cidalias1.txt cidalias2.txt $(SUBDIRS)
 TARGETS=$(GENERATABLES) $(DOWNLOADABLES)
+LGCMAPS=lgc.map lgc-italic.map
 
 .PHONY: all fetch clean distclean $(SUBDIRS)
 all: $(TARGETS)
@@ -33,11 +34,11 @@ cidalias.sed: cidalias.txt
 glyphs.txt: groups/cidalias.txt
 	cat $^ | sort | uniq > $@
 
-cidpua.map: lgc.map
+cidpua.map: $(LGCMAPS)
 	./mkcfinfo.rb > $@
-cidpua-blockelem.map: lgc.map
+cidpua-blockelem.map: $(LGCMAPS)
 	./mkcfinfo.rb BlockElem > $@
-cidpua-dingbats.map: lgc.map
+cidpua-dingbats.map: $(LGCMAPS)
 	./mkcfinfo.rb Dingbats > $@
 
 mincho1/Makefile: dump_newest_only.txt glyphs.txt cidalias.sed \
