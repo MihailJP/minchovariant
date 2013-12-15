@@ -59,6 +59,7 @@ mergeFonts Italic
 09501	Y
 09502	Z
 09503	bracketleft
+09504	yen
 09505	bracketright
 09506	asciicircum
 09507	underscore
@@ -90,7 +91,9 @@ mergeFonts Italic
 09533	y
 09534	z
 09535	braceleft
+09536	brokenbar
 09537	braceright
+09538	tilde
 09540	backslash
 09542	bar
 09543	asciitilde

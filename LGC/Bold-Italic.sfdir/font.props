@@ -4,7 +4,6 @@ FullName: Serif Bold Italic
 FamilyName: Serif
 Weight: Bold
 Copyright: 
-Version: 001.000
 ItalicAngle: -14.04
 UnderlinePosition: -100
 UnderlineWidth: 50
@@ -17,8 +16,8 @@ XUID: [1021 854 -560934592 16556282]
 OS2Version: 0
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
-CreationTime: 1387075153
-ModificationTime: 1387075602
+CreationTime: 1387081721
+ModificationTime: 1387082814
 OS2TypoAscent: 0
 OS2TypoAOffset: 1
 OS2TypoDescent: 0
