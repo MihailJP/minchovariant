@@ -10,6 +10,7 @@ cidmap = <<FINIS
 ../cidpua-blockelem.map ../mincho3/work.otf
 ../cidpua-dingbats.map ../mincho#{weightNum.to_i > 7 ? 7 : (weightNum.to_i > 3 ? weightNum : 3)}/work.otf
 ../lgc.map lgc.otf
+../lgc-fixed.map fixed.otf
 ../lgc-italic.map italic.otf
 FINIS
 print <<FINIS
@@ -63,12 +64,17 @@ lgc.otf: ../LGC/lgc#{weightNum.to_i % 100}.otf
 ../LGC/lgc#{weightNum.to_i % 100}.otf:
 	cd ../LGC && make lgc#{weightNum.to_i % 100}.otf
 
+fixed.otf: ../LGC/lgc#{weightNum.to_i % 100}f.otf
+	cp $^ $@
+../LGC/lgc#{weightNum.to_i % 100}f.otf:
+	cd ../LGC && make lgc#{weightNum.to_i % 100}f.otf
+
 italic.otf: ../LGC/lgc#{weightNum.to_i % 100}i.otf
 	cp $^ $@
 ../LGC/lgc#{weightNum.to_i % 100}i.otf:
 	cd ../LGC && make lgc#{weightNum.to_i % 100}i.otf
 
-#{target.sub(/\..+?$/, '.raw')}: work.otf cidfontinfo lgc.otf italic.otf
+#{target.sub(/\..+?$/, '.raw')}: work.otf cidfontinfo lgc.otf fixed.otf italic.otf
 	$(MERGEFONTS) -cid cidfontinfo $@ #{cidmap.gsub(/\r?\n/, " ")}
 
 #{target}: #{target.sub(/\..+?$/, '.raw')}

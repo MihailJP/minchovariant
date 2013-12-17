@@ -14,6 +14,7 @@ def excludeGlyphMap(lgcIDs, filename)
 	}
 end
 excludeGlyphMap(lgcIDs, "lgc.map")
+excludeGlyphMap(lgcIDs, "lgc-fixed.map")
 excludeGlyphMap(lgcIDs, "lgc-italic.map")
 
 GlyphList = {
