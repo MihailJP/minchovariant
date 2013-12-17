@@ -5,6 +5,13 @@ AFD_DIR='/cygdrive/c/Apps/FDK'
 (target, weightNum, enName, enWeight, jaName, jaWeight, glyphFilter) = ARGV
 license = 'Created by KAGE system. (http://fonts.jp/)'
 psName = "#{enName} #{enWeight}".gsub(/\s/, "-")
+cidmap = <<FINIS
+../cidpua.map work.otf
+../cidpua-blockelem.map ../mincho3/work.otf
+../cidpua-dingbats.map ../mincho#{weightNum.to_i > 7 ? 7 : (weightNum.to_i > 3 ? weightNum : 3)}/work.otf
+../lgc.map lgc.otf
+../lgc-fixed.map fixed.otf
+FINIS
 print <<FINIS
 AFD_DIR=#{AFD_DIR}
 AFD_BINDIR=$(AFD_DIR)/Tools/win
@@ -56,8 +63,13 @@ lgc.otf: ../LGC/lgc#{weightNum.to_i % 100}.otf
 ../LGC/lgc#{weightNum.to_i % 100}.otf:
 	cd ../LGC && make lgc#{weightNum.to_i % 100}.otf
 
-#{target.sub(/\..+?$/, '.raw')}: work.otf cidfontinfo lgc.otf
-	$(MERGEFONTS) -cid cidfontinfo $@ ../cidpua.map work.otf ../cidpua-blockelem.map ../mincho3/work.otf ../cidpua-dingbats.map ../mincho#{weightNum.to_i > 7 ? 7 : (weightNum.to_i > 3 ? weightNum : 3)}/work.otf ../lgc.map lgc.otf
+fixed.otf: ../LGC/lgc#{weightNum.to_i % 100}f.otf
+	cp $^ $@
+../LGC/lgc#{weightNum.to_i % 100}f.otf:
+	cd ../LGC && make lgc#{weightNum.to_i % 100}f.otf
+
+#{target.sub(/\..+?$/, '.raw')}: work.otf cidfontinfo lgc.otf fixed.otf
+	$(MERGEFONTS) -cid cidfontinfo $@ #{cidmap.gsub(/\r?\n/, " ")}
 
 #{target}: #{target.sub(/\..+?$/, '.raw')}
 	$(MAKEOTF) -f $< -ff ../otf-features -mf ../fontMenuDB -o $@ -ch $(CMAP_HORIZONTAL) -cv $(CMAP_VERTICAL)

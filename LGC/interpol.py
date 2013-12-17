@@ -1,10 +1,10 @@
-#!/usr/local/bin/fontforge
+#!/usr/bin/env fontforge
 
 from sys import (argv, stderr)
 import fontforge
 
-if len(argv) < 3:
-	stderr.write("Usage: %s filename weight-param\n" % argv[0])
+if len(argv) < 5:
+	stderr.write("Usage: %s filename weight-param reg-src bold-src\n" % argv[0])
 	exit(1)
 
 def val(string):
@@ -13,6 +13,6 @@ def val(string):
 	except ValueError:
 		return float(string)
 
-srcFont = fontforge.open("Medium.sfdir")
-font = srcFont.interpolateFonts(val(argv[2]), "Bold.sfdir")
+srcFont = fontforge.open(argv[3])
+font = srcFont.interpolateFonts(val(argv[2]), argv[4])
 font.generate(argv[1])

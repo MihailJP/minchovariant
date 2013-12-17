@@ -1,0 +1,15 @@
+StartChar: grave
+Encoding: 96 96 64
+Width: 500
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+100 605 m 0
+ 100 622 114 642 135 642 c 0
+ 155 642 159 631 285 510 c 1
+ 270 490 l 1
+ 252 499 180 540 136 565 c 0
+ 127 570 100 581 100 605 c 0
+EndSplineSet
+EndChar
