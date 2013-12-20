@@ -124,6 +124,9 @@ mergeFonts Fixed
 00626	ucircumflex
 00627	agrave
 00628	egrave
+00629	triagup
 00630	aacute
 00631	asciitilde
 00632	zero.slash
+08718	logicalnot
+08719	backslash

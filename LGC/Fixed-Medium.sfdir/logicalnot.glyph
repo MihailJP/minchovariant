@@ -1,0 +1,20 @@
+StartChar: logicalnot
+Encoding: 172 172 129
+Width: 500
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+56 336 m 0
+ 56 355 77 356 85 356 c 2
+ 409 356 l 2
+ 412 356 415 356 418 356 c 4
+ 435 354 440 345 440 323 c 2
+ 440 121 l 2
+ 440 107 437 91 420 91 c 0
+ 403 91 400 106 400 119 c 2
+ 400 316 l 1
+ 88 316 l 2
+ 72 316 56 319 56 336 c 0
+EndSplineSet
+EndChar
