@@ -1,0 +1,18 @@
+StartChar: backslash
+Encoding: 92 92 130
+Width: 500
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+56 731 m 4
+ 56 740 62 748 70 748 c 0
+ 82 748 89 730 92 721 c 2
+ 434 -197 l 2
+ 441 -217 444 -224 444 -231 c 0
+ 444 -240 436 -249 428 -249 c 0
+ 415 -249 411 -230 408 -221 c 2
+ 64 706 l 2
+ 61 714 56 722 56 731 c 4
+EndSplineSet
+EndChar
