@@ -15,6 +15,8 @@ def excludeGlyphMap(lgcIDs, filename)
 end
 excludeGlyphMap(lgcIDs, "lgc.map")
 excludeGlyphMap(lgcIDs, "lgc-fixed.map")
+excludeGlyphMap(lgcIDs, "lgc-rotated.map")
+excludeGlyphMap(lgcIDs, "lgc-rotfixed.map")
 
 GlyphList = {
 	"BlockElem" => [

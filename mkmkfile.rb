@@ -11,6 +11,8 @@ cidmap = <<FINIS
 ../cidpua-dingbats.map ../mincho#{weightNum.to_i > 7 ? 7 : (weightNum.to_i > 3 ? weightNum : 3)}/work.otf
 ../lgc.map lgc.otf
 ../lgc-fixed.map fixed.otf
+../lgc-rotated.map rotated.otf
+../lgc-rotfixed.map rotfixed.otf
 FINIS
 print <<FINIS
 AFD_DIR=#{AFD_DIR}
@@ -68,7 +70,17 @@ fixed.otf: ../LGC/lgc#{weightNum.to_i % 100}f.otf
 ../LGC/lgc#{weightNum.to_i % 100}f.otf:
 	cd ../LGC && make lgc#{weightNum.to_i % 100}f.otf
 
-#{target.sub(/\..+?$/, '.raw')}: work.otf cidfontinfo lgc.otf fixed.otf
+rotated.otf: ../LGC/lgc#{weightNum.to_i % 100}r.otf
+	cp $^ $@
+../LGC/lgc#{weightNum.to_i % 100}r.otf:
+	cd ../LGC && make lgc#{weightNum.to_i % 100}r.otf
+
+rotfixed.otf: ../LGC/lgc#{weightNum.to_i % 100}rf.otf
+	cp $^ $@
+../LGC/lgc#{weightNum.to_i % 100}rf.otf:
+	cd ../LGC && make lgc#{weightNum.to_i % 100}rf.otf
+
+#{target.sub(/\..+?$/, '.raw')}: work.otf cidfontinfo lgc.otf fixed.otf rotated.otf rotfixed.otf
 	$(MERGEFONTS) -cid cidfontinfo $@ #{cidmap.gsub(/\r?\n/, " ")}
 
 #{target}: #{target.sub(/\..+?$/, '.raw')}
