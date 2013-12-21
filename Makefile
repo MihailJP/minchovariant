@@ -5,7 +5,8 @@ cidpua.map cidpua-blockelem.map cidpua-dingbats.map \
 cidalias.txt cidalias.sed groups/cidalias.txt \
 cidalias1.txt cidalias2.txt $(SUBDIRS)
 TARGETS=$(GENERATABLES) $(DOWNLOADABLES)
-LGCMAPS=lgc.map lgc-fixed.map lgc-rotated.map lgc-rotfixed.map
+LGCMAPS=lgc.map lgc-fixed.map lgc-third.map lgc-quarter.map \
+	lgc-rotated.map lgc-rotfixed.map
 
 .PHONY: all fetch clean distclean $(SUBDIRS)
 all: $(TARGETS)
@@ -41,13 +42,16 @@ cidpua-blockelem.map: $(LGCMAPS)
 cidpua-dingbats.map: $(LGCMAPS)
 	./mkcfinfo.rb Dingbats > $@
 
+LGC/Makefile: LGC/metamake.rb
+	LGC/metamake.rb > $@
+
 mincho1/Makefile: dump_newest_only.txt glyphs.txt cidalias.sed \
 cidpua.map cidpua-blockelem.map cidpua-dingbats.map
 	mkdir -p mincho1
 	./mkmkfile.rb mincho1.otf 1 "HZ Mincho" "Light" "HZ 明朝" "細" ../cidalias.sed > $@
 mincho1: mincho1/Makefile mincho3/work.otf LGC/lgc1.otf
 	cd $@ && make
-LGC/lgc1.otf:
+LGC/lgc1.otf: LGC/Makefile
 	cd LGC && make lgc1.otf
 
 mincho3/Makefile: dump_newest_only.txt glyphs.txt cidalias.sed \
@@ -58,7 +62,7 @@ mincho3: mincho3/Makefile LGC/lgc3.otf
 	cd $@ && make
 mincho3/work.otf: mincho3
 	cd mincho3 && make work.otf
-LGC/lgc3.otf:
+LGC/lgc3.otf: LGC/Makefile
 	cd LGC && make lgc3.otf
 
 mincho5/Makefile: dump_newest_only.txt glyphs.txt cidalias.sed \
@@ -67,7 +71,7 @@ cidpua.map cidpua-blockelem.map cidpua-dingbats.map
 	./mkmkfile.rb mincho5.otf 105 "HZ Mincho" "Demi" "HZ 明朝" "中太" ../cidalias.sed > $@
 mincho5: mincho5/Makefile mincho3/work.otf LGC/lgc5.otf
 	cd $@ && make
-LGC/lgc5.otf:
+LGC/lgc5.otf: LGC/Makefile
 	cd LGC && make lgc5.otf
 
 mincho7/Makefile: dump_newest_only.txt glyphs.txt cidalias.sed \
@@ -76,7 +80,7 @@ cidpua.map cidpua-blockelem.map cidpua-dingbats.map
 	./mkmkfile.rb mincho7.otf 107 "HZ Mincho" "Bold" "HZ 明朝" "太" ../cidalias.sed > $@
 mincho7: mincho7/Makefile mincho3/work.otf LGC/lgc7.otf
 	cd $@ && make
-LGC/lgc7.otf:
+LGC/lgc7.otf: LGC/Makefile
 	cd LGC && make lgc7.otf
 
 mincho9/Makefile: dump_newest_only.txt glyphs.txt cidalias.sed \
@@ -85,7 +89,7 @@ cidpua.map cidpua-blockelem.map cidpua-dingbats.map
 	./mkmkfile.rb mincho9.otf 109 "HZ Mincho" "Extra" "HZ 明朝" "極太" ../cidalias.sed > $@
 mincho9: mincho9/Makefile mincho3/work.otf LGC/lgc9.otf
 	cd $@ && make
-LGC/lgc9.otf:
+LGC/lgc9.otf: LGC/Makefile
 	cd LGC && make lgc9.otf
 
 clean:
