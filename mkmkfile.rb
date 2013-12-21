@@ -14,6 +14,16 @@ cidmap = <<FINIS
 ../lgc-third.map third.otf
 ../lgc-quarter.map quarter.otf
 FINIS
+
+def lgcFile(file, suffix)
+	return <<FINIS
+#{file}.otf: ../LGC/lgc#{weightNum.to_i % 100}#{suffix}.otf
+	cp $^ $@
+../LGC/lgc#{weightNum.to_i % 100}#{suffix}.otf:
+	cd ../LGC && make lgc#{weightNum.to_i % 100}#{suffix}.otf
+FINIS
+end
+
 print <<FINIS
 AFD_DIR=#{AFD_DIR}
 AFD_BINDIR=$(AFD_DIR)/Tools/win
@@ -60,25 +70,10 @@ work2.sfd: work.sfd
 work.otf: work2.sfd
 	../width.py $< $@
 
-lgc.otf: ../LGC/lgc#{weightNum.to_i % 100}.otf
-	cp $^ $@
-../LGC/lgc#{weightNum.to_i % 100}.otf:
-	cd ../LGC && make lgc#{weightNum.to_i % 100}.otf
-
-fixed.otf: ../LGC/lgc#{weightNum.to_i % 100}f.otf
-	cp $^ $@
-../LGC/lgc#{weightNum.to_i % 100}f.otf:
-	cd ../LGC && make lgc#{weightNum.to_i % 100}f.otf
-
-third.otf: ../LGC/lgc#{weightNum.to_i % 100}t.otf
-	cp $^ $@
-../LGC/lgc#{weightNum.to_i % 100}t.otf:
-	cd ../LGC && make lgc#{weightNum.to_i % 100}t.otf
-
-quarter.otf: ../LGC/lgc#{weightNum.to_i % 100}q.otf
-	cp $^ $@
-../LGC/lgc#{weightNum.to_i % 100}q.otf:
-	cd ../LGC && make lgc#{weightNum.to_i % 100}q.otf
+#{lgcFile("lgc",      "")}
+#{lgcFile("fixed",    "f")}
+#{lgcFile("third",    "t")}
+#{lgcFile("quarter",  "q")}
 
 #{target.sub(/\..+?$/, '.raw')}: work.otf cidfontinfo lgc.otf fixed.otf third.otf quarter.otf
 	$(MERGEFONTS) -cid cidfontinfo $@ #{cidmap.gsub(/\r?\n/, " ")}
