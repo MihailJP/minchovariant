@@ -2,13 +2,13 @@
 
 AFD_DIR='/cygdrive/c/Apps/FDK'
 
-(target, weightNum, enName, enWeight, jaName, jaWeight, glyphFilter) = ARGV
+(target, $weightNum, enName, enWeight, jaName, jaWeight, glyphFilter) = ARGV
 license = 'Created by KAGE system. (http://fonts.jp/)'
 psName = "#{enName} #{enWeight}".gsub(/\s/, "-")
 cidmap = <<FINIS
 ../cidpua.map work.otf
 ../cidpua-blockelem.map ../mincho3/work.otf
-../cidpua-dingbats.map ../mincho#{weightNum.to_i > 7 ? 7 : (weightNum.to_i > 3 ? weightNum : 3)}/work.otf
+../cidpua-dingbats.map ../mincho#{$weightNum.to_i > 7 ? 7 : ($weightNum.to_i > 3 ? $weightNum : 3)}/work.otf
 ../lgc.map lgc.otf
 ../lgc-fixed.map fixed.otf
 ../lgc-third.map third.otf
@@ -18,10 +18,10 @@ FINIS
 
 def lgcFile(file, suffix)
 	return <<FINIS
-#{file}.otf: ../LGC/lgc#{weightNum.to_i % 100}#{suffix}.otf
+#{file}.otf: ../LGC/lgc#{$weightNum.to_i % 100}#{suffix}.otf
 	cp $^ $@
-../LGC/lgc#{weightNum.to_i % 100}#{suffix}.otf:
-	cd ../LGC && make lgc#{weightNum.to_i % 100}#{suffix}.otf
+../LGC/lgc#{$weightNum.to_i % 100}#{suffix}.otf:
+	cd ../LGC && make lgc#{$weightNum.to_i % 100}#{suffix}.otf
 FINIS
 end
 
@@ -65,7 +65,7 @@ makettf.pl:
 	chmod +x $@
 
 work.sfd: head.txt parts.txt foot.txt engine makeglyph.js makettf.pl
-	./makettf.pl . work mincho #{weightNum}
+	./makettf.pl . work mincho #{$weightNum}
 work2.sfd: work.sfd
 	../merge-contours.py $< $@
 work.otf: work2.sfd
