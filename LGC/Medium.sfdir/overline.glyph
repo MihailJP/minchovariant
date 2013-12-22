@@ -1,0 +1,16 @@
+StartChar: overline
+Encoding: 8254 8254 667
+Width: 777
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+83 789 m 0
+ 83 805 98 809 113 809 c 2
+ 661 809 l 2
+ 675 809 691 807 691 789 c 0
+ 691 772 674 770 663 769 c 1
+ 112 769 l 2
+ 88 769 83 781 83 789 c 0
+EndSplineSet
+EndChar
