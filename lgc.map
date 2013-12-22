@@ -613,6 +613,11 @@ mergeFonts LGC
 20364	wcircumflex
 20365	ycircumflex
 20366	estimated
+20367	Delta.math
+20368	product
+20369	lessequal
+20370	greaterequal
+20371	lozenge
 20427	Alphatonos
 20428	Epsilontonos
 20429	Etatonos

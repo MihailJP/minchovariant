@@ -1,0 +1,25 @@
+StartChar: Delta.math
+Encoding: 8710 8710 661
+Width: 1028
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+75 13 m 0
+ 75 17 76 20 83 33 c 2
+ 215 253 l 5
+ 460 661 l 2
+ 475 686 481 698 512 698 c 0
+ 535 698 546 696 561 671 c 2
+ 941 37 l 2
+ 952 19 952 17 952 12 c 0
+ 952 2 943 0 932 0 c 2
+ 100 0 l 2
+ 88 0 75 1 75 13 c 0
+198 121 m 1
+ 725 121 l 1
+ 462 560 l 1
+ 461 560 l 1
+ 198 121 l 1
+EndSplineSet
+EndChar
