@@ -618,6 +618,9 @@ mergeFonts LGC
 20369	lessequal
 20370	greaterequal
 20371	lozenge
+20421	estimated
+20423	product
+20426	lozenge
 20427	Alphatonos
 20428	Epsilontonos
 20429	Etatonos

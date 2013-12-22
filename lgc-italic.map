@@ -395,3 +395,6 @@ mergeFonts Italic
 20418	uogonek
 20419	wcircumflex
 20420	ycircumflex
+20422	Delta.math
+20424	lessequal
+20425	greaterequal
