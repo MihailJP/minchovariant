@@ -2613,6 +2613,8 @@ u3010-halfwidth
 u3011-halfwidth
 u3014-halfwidth
 u3015-halfwidth
+u301d-halfwidth
+u301f-halfwidth
 u3041-halfwidth
 u3042-halfwidth
 u3043-halfwidth
