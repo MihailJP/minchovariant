@@ -18,6 +18,7 @@ excludeGlyphMap(lgcIDs, "lgc-fixed.map")
 excludeGlyphMap(lgcIDs, "lgc-third.map")
 excludeGlyphMap(lgcIDs, "lgc-quarter.map")
 excludeGlyphMap(lgcIDs, "lgc-wide.map")
+excludeGlyphMap(lgcIDs, "lgc-italic.map")
 
 GlyphList = {
 	"BlockElem" => [

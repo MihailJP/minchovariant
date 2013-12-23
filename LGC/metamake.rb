@@ -18,6 +18,9 @@ Targets={
     "WIDEDIRS"     => {"srcPrefix" => "Wide-",
                        "srcSuffix" => ".sfdir",
                        "tSuffix"   => "w"},
+    "ITALICDIRS"   => {"srcPrefix" => "",
+                       "srcSuffix" => "-Italic.sfdir",
+                       "tSuffix"   => "i"},
 }
 Interpol={1 => -0.5, 3 => -0.3, 5 => 0, 7 => 0.4, 9 => 0.8}
 
