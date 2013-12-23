@@ -1,0 +1,14 @@
+StartChar: bullet
+Encoding: 8226 8226 118
+Width: 511
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+134 212 m 0
+ 134 322 241 429 357 429 c 0
+ 439 429 501 372 501 288 c 0
+ 501 178 394 71 278 71 c 0
+ 196 71 134 128 134 212 c 0
+EndSplineSet
+EndChar

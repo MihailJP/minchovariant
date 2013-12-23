@@ -1,0 +1,18 @@
+StartChar: backslash
+Encoding: 92 92 60
+Width: 511
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+262 722 m 1
+ 262 732 l 2
+ 262 739 264 748 272 748 c 0
+ 283 748 284 735 285 723 c 2
+ 373 -223 l 1
+ 373 -233 l 2
+ 373 -245 367 -248 363 -248 c 0
+ 352 -248 351 -235 350 -223 c 2
+ 262 722 l 1
+EndSplineSet
+EndChar

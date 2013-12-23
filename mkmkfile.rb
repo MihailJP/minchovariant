@@ -13,6 +13,7 @@ cidmap = <<FINIS
 ../lgc-fixed.map fixed.otf
 ../lgc-third.map third.otf
 ../lgc-quarter.map quarter.otf
+../lgc-italic.map italic.otf
 FINIS
 
 def lgcFile(file, suffix)
@@ -74,8 +75,9 @@ work.otf: work2.sfd
 #{lgcFile("fixed",    "f")}
 #{lgcFile("third",    "t")}
 #{lgcFile("quarter",  "q")}
+#{lgcFile("italic",   "i")}
 
-#{target.sub(/\..+?$/, '.raw')}: work.otf cidfontinfo lgc.otf fixed.otf third.otf quarter.otf
+#{target.sub(/\..+?$/, '.raw')}: work.otf cidfontinfo lgc.otf fixed.otf third.otf quarter.otf italic.otf
 	$(MERGEFONTS) -cid cidfontinfo $@ #{cidmap.gsub(/\r?\n/, " ")}
 
 #{target}: #{target.sub(/\..+?$/, '.raw')}
