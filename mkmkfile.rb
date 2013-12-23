@@ -40,6 +40,11 @@ work.sfd work2.sfd work.otf #{target.sub(/\..+?$/, '.raw')} cidfontinfo #{target
 .PHONY: all clean font
 all: $(TARGETS)
 
+Makefile: ../dump_newest_only.txt ../glyphs.txt ../cidalias.sed \
+../cidpua.map ../cidpua-blockelem.map ../cidpua-dingbats.map \
+../mkmkfile.rb
+	env MYDIR=$$(basename $$PWD) bash -c 'cd .. && make $$MYDIR/Makefile'
+
 head.txt:
 	echo 'New()' > $@
 	echo 'Reencode(\"UnicodeFull\")' >> $@
