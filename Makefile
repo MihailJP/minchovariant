@@ -34,17 +34,17 @@ otf-features: feathead.txt featfoot.txt featmap.yml glyphmap.yml
 	./genfeat.rb > $@
 
 lgc.map: $(MAPGEN_DEPS)
-	./genmap.rb pwid > $@
+	./genmaps.rb pwid > $@
 lgc-fixed.map: $(MAPGEN_DEPS)
-	./genmap.rb hwid > $@
+	./genmaps.rb hwid > $@
 lgc-third.map: $(MAPGEN_DEPS)
-	./genmap.rb twid > $@
+	./genmaps.rb twid > $@
 lgc-quarter.map: $(MAPGEN_DEPS)
-	./genmap.rb qwid > $@
+	./genmaps.rb qwid > $@
 lgc-wide.map: $(MAPGEN_DEPS)
-	./genmap.rb fwid > $@
+	./genmaps.rb fwid > $@
 lgc-italic.map: $(MAPGEN_DEPS)
-	./genmap.rb ital > $@
+	./genmaps.rb ital > $@
 
 groups/cidalias.txt: cidalias.txt
 	cat $^ | cut -f 1 > $@
