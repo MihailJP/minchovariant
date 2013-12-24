@@ -1,8 +1,4 @@
 
-feature zero {
-	sub \17 by \230;
-} zero;
-
 feature salt {
 	script latn;
 	sub \15739 by \20341;
