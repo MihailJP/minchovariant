@@ -1,0 +1,33 @@
+pwid:
+    pwid:
+        - hwid
+        - qwid
+        - twid
+        - fwid
+hwid:
+    hwid:
+        - pwid
+        - qwid
+        - twid
+        - fwid
+qwid:
+    qwid:
+        - pwid
+        - hwid
+        - twid
+        - fwid
+twid:
+    twid:
+        - pwid
+        - hwid
+        - qwid
+        - fwid
+fwid:
+    fwid:
+        - pwid
+        - hwid
+        - qwid
+        - twid
+ital:
+    ital:
+        - pwid

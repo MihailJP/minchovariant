@@ -3,11 +3,13 @@ DOWNLOADABLES=dump.tar.gz
 GENERATABLES=dump_newest_only.txt glyphs.txt \
 cidpua.map cidpua-blockelem.map cidpua-dingbats.map \
 cidalias.txt cidalias.sed groups/cidalias.txt \
-cidalias1.txt cidalias2.txt $(SUBDIRS)
+cidalias1.txt cidalias2.txt $(SUBDIRS) \
+otf-features
 TARGETS=$(GENERATABLES) $(DOWNLOADABLES)
 LGCMAPS=lgc.map lgc-fixed.map lgc-third.map lgc-quarter.map lgc-italic.map
 METAMAKE_DEPS=dump_newest_only.txt glyphs.txt cidalias.sed \
-cidpua.map cidpua-blockelem.map cidpua-dingbats.map ./mkmkfile.rb
+cidpua.map cidpua-blockelem.map cidpua-dingbats.map ./mkmkfile.rb \
+otf-features
 
 .PHONY: all fetch clean distclean $(SUBDIRS)
 all: $(TARGETS)
@@ -26,6 +28,9 @@ cidalias2.txt: dump_newest_only.txt
 	cat $^ | ./cidalias.rb > $@
 cidalias.txt: cidalias1.txt cidalias2.txt
 	cat $^ > $@
+
+otf-features: feathead.txt featfoot.txt featmap.yml glyphmap.yml
+	./genfeat.rb > $@
 
 groups/cidalias.txt: cidalias.txt
 	cat $^ | cut -f 1 > $@
