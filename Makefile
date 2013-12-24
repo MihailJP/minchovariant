@@ -1,13 +1,16 @@
 SUBDIRS=mincho1 mincho3 mincho5 mincho7 mincho9
 DOWNLOADABLES=dump.tar.gz
+LGCMAPS=lgc.map lgc-fixed.map lgc-third.map lgc-quarter.map lgc-italic.map
+METAMAKE_DEPS=dump_newest_only.txt glyphs.txt cidalias.sed \
+cidpua.map cidpua-blockelem.map cidpua-dingbats.map ./mkmkfile.rb \
+otf-features $(LGCMAPS)
+MAPGEN_DEPS=genmaps.rb lgcmapnm.yml glyphmap.yml
 GENERATABLES=dump_newest_only.txt glyphs.txt \
 cidpua.map cidpua-blockelem.map cidpua-dingbats.map \
 cidalias.txt cidalias.sed groups/cidalias.txt \
-cidalias1.txt cidalias2.txt $(SUBDIRS)
+cidalias1.txt cidalias2.txt $(SUBDIRS) \
+otf-features $(LGCMAPS)
 TARGETS=$(GENERATABLES) $(DOWNLOADABLES)
-LGCMAPS=lgc.map lgc-fixed.map lgc-third.map lgc-quarter.map lgc-italic.map
-METAMAKE_DEPS=dump_newest_only.txt glyphs.txt cidalias.sed \
-cidpua.map cidpua-blockelem.map cidpua-dingbats.map ./mkmkfile.rb
 
 .PHONY: all fetch clean distclean $(SUBDIRS)
 all: $(TARGETS)
@@ -26,6 +29,20 @@ cidalias2.txt: dump_newest_only.txt
 	cat $^ | ./cidalias.rb > $@
 cidalias.txt: cidalias1.txt cidalias2.txt
 	cat $^ > $@
+
+otf-features: feathead.txt featfoot.txt featmap.yml glyphmap.yml
+	./genfeat.rb > $@
+
+lgc.map: $(MAPGEN_DEPS)
+	./genmap.rb pwid > $@
+lgc-fixed.map: $(MAPGEN_DEPS)
+	./genmap.rb hwid > $@
+lgc-third.map: $(MAPGEN_DEPS)
+	./genmap.rb twid > $@
+lgc-quarter.map: $(MAPGEN_DEPS)
+	./genmap.rb qwid > $@
+lgc-italic.map: $(MAPGEN_DEPS)
+	./genmap.rb ital > $@
 
 groups/cidalias.txt: cidalias.txt
 	cat $^ | cut -f 1 > $@

@@ -14,6 +14,9 @@ cidalias2.txt
 groups/cidalias.txt
 cidpua.map
 cidpua-*.map
+lgc.map
+lgc-*.map
+otf-features
 *.log
 *.scr
 *.sfd
