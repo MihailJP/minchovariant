@@ -97,6 +97,8 @@ Aogonek:
 apostrophemod:
     pwid: 96
     ital: 9539
+approxequalorimage:
+    fwid: 762
 aring:
     pwid: 198
     ital: 9641
@@ -508,6 +510,8 @@ equal:
     twid: 9770
     fwid: 697
     ital: 9473
+equivalence:
+    fwid: 761
 er:
     pwid: 1109
 Er:
@@ -706,6 +710,8 @@ greater:
 greaterequal:
     pwid: 20370
     ital: 20425
+greateroverequal:
+    fwid: 702
 gscript:
     pwid: 15813
 Gsmallcap:
@@ -1011,6 +1017,8 @@ less:
 lessequal:
     pwid: 20369
     ital: 20424
+lessoverequal:
+    fwid: 701
 lezh:
     pwid: 15799
 lje:
@@ -1136,6 +1144,8 @@ nje:
     pwid: 20468
 Nje:
     pwid: 20455
+notequal:
+    fwid: 698
 nrthook:
     pwid: 15803
 Nsmallcap:
