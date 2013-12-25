@@ -27,7 +27,7 @@ cidalias1.txt: pua-addenda.txt
 	./cidpua.rb < $< > $@
 cidalias2.txt: dump_newest_only.txt
 	cat $^ | ./cidalias.rb > $@
-cidalias.txt: cidalias1.txt cidalias2.txt
+cidalias.txt: cidalias1.txt cidalias2.txt pua-extension.txt
 	cat $^ > $@
 
 otf-features: feathead.txt featfoot.txt featmap.yml glyphmap.yml
