@@ -9,6 +9,7 @@ cidmap = <<FINIS
 ../cidpua.map work.otf
 ../cidpua-blockelem.map ../mincho3/work.otf
 ../cidpua-dingbats.map ../mincho#{$weightNum.to_i > 7 ? 7 : ($weightNum.to_i > 3 ? $weightNum : 3)}/work.otf
+../cidpua-enclosed.map enclosed.otf
 ../lgc.map lgc.otf
 ../lgc-fixed.map fixed.otf
 ../lgc-third.map third.otf
@@ -83,8 +84,10 @@ work.otf: work2.sfd
 #{lgcFile("quarter",  "q")}
 #{lgcFile("wide",     "w")}
 #{lgcFile("italic",   "i")}
+#{lgcFile("enclosed", "encl")}
 
-#{target.sub(/\..+?$/, '.raw')}: work.otf cidfontinfo lgc.otf fixed.otf third.otf quarter.otf wide.otf italic.otf
+#{target.sub(/\..+?$/, '.raw')}: work.otf cidfontinfo \
+lgc.otf fixed.otf third.otf quarter.otf wide.otf italic.otf enclosed.otf
 	$(MERGEFONTS) -cid cidfontinfo $@ #{cidmap.gsub(/\r?\n/, " ")}
 
 #{target}: #{target.sub(/\..+?$/, '.raw')}

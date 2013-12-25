@@ -2,11 +2,11 @@ SUBDIRS=mincho1 mincho3 mincho5 mincho7 mincho9
 DOWNLOADABLES=dump.tar.gz
 LGCMAPS=lgc.map lgc-fixed.map lgc-third.map lgc-quarter.map lgc-wide.map lgc-italic.map
 METAMAKE_DEPS=dump_newest_only.txt glyphs.txt cidalias.sed \
-cidpua.map cidpua-blockelem.map cidpua-dingbats.map ./mkmkfile.rb \
-otf-features $(LGCMAPS)
+cidpua.map cidpua-blockelem.map cidpua-dingbats.map cidpua-enclosed.map \
+./mkmkfile.rb otf-features $(LGCMAPS)
 MAPGEN_DEPS=genmaps.rb lgcmapnm.yml glyphmap.yml
 GENERATABLES=dump_newest_only.txt glyphs.txt \
-cidpua.map cidpua-blockelem.map cidpua-dingbats.map \
+cidpua.map cidpua-blockelem.map cidpua-dingbats.map cidpua-enclosed.map \
 cidalias.txt cidalias.sed groups/cidalias.txt \
 cidalias1.txt cidalias2.txt $(SUBDIRS) \
 otf-features $(LGCMAPS)
@@ -61,6 +61,8 @@ cidpua-blockelem.map: $(LGCMAPS)
 	./mkcfinfo.rb BlockElem > $@
 cidpua-dingbats.map: $(LGCMAPS)
 	./mkcfinfo.rb Dingbats > $@
+cidpua-enclosed.map: $(LGCMAPS)
+	./mkcfinfo.rb Enclosed > $@
 
 LGC/Makefile: LGC/metamake.rb
 	LGC/metamake.rb > $@
