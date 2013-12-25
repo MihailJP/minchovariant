@@ -12,6 +12,7 @@ hwid:
             - qwid
             - twid
             - fwid
+            - fwid-j
 qwid:
     font-to-font:
         qwid:
@@ -33,6 +34,8 @@ fwid:
             - hwid
             - qwid
             - twid
+        fwid-j:
+            - hwid
 ital:
     font-to-font:
         ital:
