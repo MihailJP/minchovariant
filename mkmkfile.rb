@@ -78,13 +78,16 @@ work2.sfd: work.sfd
 work.otf: work2.sfd
 	../width.py $< $@
 
-#{lgcFile("lgc",      "")}
-#{lgcFile("fixed",    "f")}
-#{lgcFile("third",    "t")}
-#{lgcFile("quarter",  "q")}
-#{lgcFile("wide",     "w")}
-#{lgcFile("italic",   "i")}
-#{lgcFile("enclosed", "encl")}
+#{lgcFile("lgc",           "")}
+#{lgcFile("fixed",         "f")}
+#{lgcFile("third",         "t")}
+#{lgcFile("quarter",       "q")}
+#{lgcFile("wide",          "w")}
+#{lgcFile("italic",        "i")}
+#{lgcFile("enclosed-base", "encl")}
+
+enclosed.otf: enclosed-base.otf work.otf
+	../enclose.py $^ $@
 
 #{target.sub(/\..+?$/, '.raw')}: work.otf cidfontinfo \
 lgc.otf fixed.otf third.otf quarter.otf wide.otf italic.otf enclosed.otf
@@ -98,5 +101,5 @@ cidfontinfo:
 	../makecfi.rb '#{enName}' '#{enWeight}' > $@
 
 clean:
-	-rm -rf $(TARGETS) work.scr work.log build
+	-rm -rf $(TARGETS) work.scr work.log build *.otf
 FINIS

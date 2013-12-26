@@ -55,13 +55,13 @@ cidalias.sed: cidalias.txt
 glyphs.txt: groups/cidalias.txt
 	cat $^ | sort | uniq > $@
 
-cidpua.map: $(LGCMAPS)
+cidpua.map: $(LGCMAPS) mkcfinfo.rb
 	./mkcfinfo.rb > $@
-cidpua-blockelem.map: $(LGCMAPS)
+cidpua-blockelem.map: $(LGCMAPS) mkcfinfo.rb
 	./mkcfinfo.rb BlockElem > $@
-cidpua-dingbats.map: $(LGCMAPS)
+cidpua-dingbats.map: $(LGCMAPS) mkcfinfo.rb
 	./mkcfinfo.rb Dingbats > $@
-cidpua-enclosed.map: $(LGCMAPS)
+cidpua-enclosed.map: $(LGCMAPS) mkcfinfo.rb
 	./mkcfinfo.rb Enclosed > $@
 
 LGC/Makefile: LGC/metamake.rb
