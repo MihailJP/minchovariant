@@ -19,6 +19,7 @@ for srcGlyph in srcFont.glyphs():
 				addFont.copy()
 				srcFont.selection.select(("encoding",), gNum)
 				srcFont.pasteInto()
+				srcFont.correctDirection()
 		except TypeError:
 			pass
 		srcGlyph.removeOverlap()
