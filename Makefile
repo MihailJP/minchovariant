@@ -33,7 +33,7 @@ cidalias.txt: cidalias1.txt cidalias2.txt
 HZMincho.db: HZMincho.sql gensql.rb
 	rm -f $@; cat $< | ./gensql.rb | sqlite3 $@
 
-otf-features: feathead.txt featfoot.txt featmap.yml glyphmap.yml
+otf-features: HZMincho.db genfeat.rb
 	./genfeat.rb > $@
 
 cidpua.map: $(MAPGEN_DEPS)
