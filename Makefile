@@ -9,7 +9,7 @@ GENERATABLES=dump_newest_only.txt glyphs.txt \
 cidpua.map cidpua-blockelem.map cidpua-dingbats.map \
 cidalias.txt cidalias.sed groups/cidalias.txt \
 cidalias1.txt cidalias2.txt $(SUBDIRS) \
-otf-features $(LGCMAPS)
+otf-features $(LGCMAPS) HZMincho.db
 TARGETS=$(GENERATABLES) $(DOWNLOADABLES)
 
 .PHONY: all fetch clean distclean $(SUBDIRS)
@@ -29,6 +29,9 @@ cidalias2.txt: dump_newest_only.txt
 	cat $^ | ./cidalias.rb > $@
 cidalias.txt: cidalias1.txt cidalias2.txt
 	cat $^ > $@
+
+HZMincho.db: HZMincho.sql
+	rm -f $@; sqlite3 $@ < $<
 
 otf-features: feathead.txt featfoot.txt featmap.yml glyphmap.yml
 	./genfeat.rb > $@
