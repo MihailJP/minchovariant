@@ -1,20 +1,16 @@
 #!/usr/bin/env ruby
 
 AFD_DIR='/cygdrive/c/Apps/FDK'
+require 'sqlite3'
+fontDB = SQLite3::Database.new('HZMincho.db')
 
 (target, $weightNum, enName, enWeight, jaName, jaWeight, glyphFilter) = ARGV
 license = 'Created by KAGE system. (http://fonts.jp/)'
 psName = "#{enName} #{enWeight}".gsub(/\s/, "-")
-cidmap = <<FINIS
-../cidpua.map work.otf
-../cidpua-blockelem.map ../mincho3/work.otf
-../cidpua-dingbats.map ../mincho#{$weightNum.to_i > 7 ? 7 : ($weightNum.to_i > 3 ? $weightNum : 3)}/work.otf
-../lgc.map lgc.otf
-../lgc-fixed.map fixed.otf
-../lgc-third.map third.otf
-../lgc-quarter.map quarter.otf
-../lgc-italic.map italic.otf
-FINIS
+cidmap = ""
+fontDB.execute("SELECT mapFile, fontFile FROM subFont") {|subFont|
+	cidmap += "../#{subFont[0]} #{eval("\'#{subFont[1]}\'")}\n"
+}
 
 def lgcFile(file, suffix)
 	return <<FINIS
@@ -23,6 +19,14 @@ def lgcFile(file, suffix)
 ../LGC/lgc#{$weightNum.to_i % 100}#{suffix}.otf:
 	cd ../LGC && make lgc#{$weightNum.to_i % 100}#{suffix}.otf
 FINIS
+end
+
+def lgcFiles(db)
+	result = ""
+	db.execute("SELECT fontFile, tSuffix FROM subFont JOIN lgcFont ON lgcFontTag = fontTag WHERE lgcFontTag IS NOT NULL") {|subFont|
+		result += lgcFile(subFont[0], subFont[1])
+	}
+	return result
 end
 
 print <<FINIS
@@ -40,9 +44,7 @@ work.sfd work2.sfd work.otf #{target.sub(/\..+?$/, '.raw')} cidfontinfo #{target
 .PHONY: all clean font
 all: $(TARGETS)
 
-Makefile: ../dump_newest_only.txt ../glyphs.txt ../cidalias.sed \
-../cidpua.map ../cidpua-blockelem.map ../cidpua-dingbats.map \
-../mkmkfile.rb
+Makefile: ../dump_newest_only.txt ../glyphs.txt ../cidalias.sed ../HZMincho.sql ../mkmkfile.rb
 	env MYDIR=$$(basename $$PWD) bash -c 'cd .. && make $$MYDIR/Makefile'
 
 head.txt:
@@ -76,13 +78,9 @@ work2.sfd: work.sfd
 work.otf: work2.sfd
 	../width.py $< $@
 
-#{lgcFile("lgc",      "")}
-#{lgcFile("fixed",    "f")}
-#{lgcFile("third",    "t")}
-#{lgcFile("quarter",  "q")}
-#{lgcFile("italic",   "i")}
+#{lgcFiles(fontDB)}
 
-#{target.sub(/\..+?$/, '.raw')}: work.otf cidfontinfo lgc.otf fixed.otf third.otf quarter.otf italic.otf
+#{target.sub(/\..+?$/, '.raw')}: work.otf cidfontinfo #{fontDB.execute("SELECT fontFile FROM subFont WHERE lgcFontTag IS NOT NULL").flatten.join(" ")}
 	$(MERGEFONTS) -cid cidfontinfo $@ #{cidmap.gsub(/\r?\n/, " ")}
 
 #{target}: #{target.sub(/\..+?$/, '.raw')}
