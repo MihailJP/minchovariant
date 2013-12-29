@@ -1,26 +1,17 @@
 #!/usr/bin/env ruby
 
+require 'sqlite3'
+fontDB = SQLite3::Database.new('../HZMincho.db')
+
 TargetWeight=[1, 3, 5, 7, 9]
 FileNameHeader="lgc"
-Targets={
-    "SRCDIRS"      => {"srcPrefix" => "",
-                       "srcSuffix" => ".sfdir",
-                       "tSuffix"   => ""},
-    "FIXEDDIRS"    => {"srcPrefix" => "Fixed-",
-                       "srcSuffix" => ".sfdir",
-                       "tSuffix"   => "f"},
-    "THIRDWIDTH"   => {"srcPrefix" => "Third-",
-                       "srcSuffix" => ".sfd",
-                       "tSuffix"   => "t"},
-    "QUARTERWIDTH" => {"srcPrefix" => "Quarter-",
-                       "srcSuffix" => ".sfd",
-                       "tSuffix"   => "q"},
-    "WIDEDIRS"     => {"srcPrefix" => "Wide-",
-                       "srcSuffix" => ".sfdir",
-                       "tSuffix"   => "w"},
-    "ITALICDIRS"   => {"srcPrefix" => "",
-                       "srcSuffix" => "-Italic.sfdir",
-                       "tSuffix"   => "i"},
+Targets={}
+fontDB.execute("SELECT fontTag, srcPrefix, srcSuffix, tSuffix FROM lgcFont") {|subFont|
+	Targets[subFont[0]] = {
+		"srcPrefix" => subFont[1],
+		"srcSuffix" => subFont[2],
+		"tSuffix"   => subFont[3]
+	}
 }
 Interpol={1 => -0.5, 3 => -0.3, 5 => 0, 7 => 0.4, 9 => 0.8}
 
@@ -52,7 +43,7 @@ FINIS
 
 # Makefile
 print <<FINIS
-Makefile: metamake.rb
+Makefile: metamake.rb ../HZMincho.sql
 	./metamake.rb > $@
 
 FINIS
