@@ -1,19 +1,15 @@
 #!/usr/bin/env ruby
 
 if ARGV.length < 1 then
-	STDERR.write("Usage: #{$0} tagName\n")
+	STDERR.write("Usage: #{$0} fontID\n")
 	exit(1)
 end
 
-require 'yaml'
+require 'sqlite3'
+fontDB = SQLite3::Database.new('HZMincho.db')
+SubFontName = fontDB.execute("SELECT fontName FROM subFont WHERE FontID = #{ARGV[0]}")[0][0]
 
-NameDat = YAML.load(open('lgcmapnm.yml') {|f| f.read})
-GlyphDat = YAML.load(open('glyphmap.yml') {|f| f.read})
-
-lines = []
-
-print("mergeFonts #{NameDat[ARGV[0]]}\n")
-GlyphDat.each {|gName, gDat|
-	lines.push(sprintf("%05d\t%s\n", gDat[ARGV[0]], gName)) if gDat[ARGV[0]]
+print("mergeFonts #{SubFontName}\n")
+fontDB.execute("SELECT CID, glyphName FROM lgcCID WHERE fontID = #{ARGV[0]}").each {|gID, gName|
+	printf("%05d\t%s\n", gID, gName)
 }
-lines.sort.each {|line| print(line)}

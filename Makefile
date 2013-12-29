@@ -4,7 +4,7 @@ LGCMAPS=lgc.map lgc-fixed.map lgc-third.map lgc-quarter.map lgc-italic.map
 METAMAKE_DEPS=dump_newest_only.txt glyphs.txt cidalias.sed \
 cidpua.map cidpua-blockelem.map cidpua-dingbats.map ./mkmkfile.rb \
 otf-features $(LGCMAPS)
-MAPGEN_DEPS=genmaps.rb lgcmapnm.yml glyphmap.yml
+MAPGEN_DEPS=genmaps.rb lgcmapnm.yml glyphmap.yml HZMincho.db
 GENERATABLES=dump_newest_only.txt glyphs.txt \
 cidpua.map cidpua-blockelem.map cidpua-dingbats.map \
 cidalias.txt cidalias.sed groups/cidalias.txt \
@@ -37,15 +37,15 @@ otf-features: feathead.txt featfoot.txt featmap.yml glyphmap.yml
 	./genfeat.rb > $@
 
 lgc.map: $(MAPGEN_DEPS)
-	./genmaps.rb pwid > $@
+	./genmaps.rb 10 > $@
 lgc-fixed.map: $(MAPGEN_DEPS)
-	./genmaps.rb hwid > $@
+	./genmaps.rb 11 > $@
 lgc-third.map: $(MAPGEN_DEPS)
-	./genmaps.rb twid > $@
+	./genmaps.rb 12 > $@
 lgc-quarter.map: $(MAPGEN_DEPS)
-	./genmaps.rb qwid > $@
+	./genmaps.rb 13 > $@
 lgc-italic.map: $(MAPGEN_DEPS)
-	./genmaps.rb ital > $@
+	./genmaps.rb 20 > $@
 
 groups/cidalias.txt: cidalias.txt
 	cat $^ | cut -f 1 > $@
