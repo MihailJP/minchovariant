@@ -10,6 +10,6 @@ fontDB = SQLite3::Database.new('HZMincho.db')
 SubFontName = fontDB.execute("SELECT fontName FROM subFont WHERE FontID = #{ARGV[0]}")[0][0]
 
 print("mergeFonts #{SubFontName}\n")
-fontDB.execute("SELECT CID, glyphName FROM lgcCID WHERE fontID = #{ARGV[0]}").each {|gID, gName|
+fontDB.execute("SELECT CID, glyphName FROM cidKeys WHERE fontID = #{ARGV[0]}").each {|gID, gName|
 	printf("%05d\t%s\n", gID, gName)
 }
