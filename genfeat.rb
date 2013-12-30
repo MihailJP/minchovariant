@@ -1,32 +1,46 @@
 #!/usr/bin/env ruby
 
-require 'yaml'
+require 'sqlite3'
+fontDB = SQLite3::Database.new('HZMincho.db')
+Features = fontDB.execute("SELECT featTag FROM featureCode").flatten
 
-FeatureDat = YAML.load(open('featmap.yml') {|f| f.read})
-GlyphDat = YAML.load(open('glyphmap.yml') {|f| f.read})
+print <<FINIS
+table head {
+	FontRevision     1.000;
+} head;
+table hhea {
+	Ascender           800;
+	Descender         -200;
+	LineGap           1000;
+} hhea;
+table OS/2 {
+	TypoAscender       800;
+	TypoDescender     -200;
+	TypoLineGap       1000;
+} OS/2;
+table vhea {
+	VertTypoAscender   500;
+	VertTypoDescender -500;
+	VertTypoLineGap   1000;
+} vhea;
 
-print(open('feathead.txt') {|f| f.read})
+languagesystem DFLT dflt;
+languagesystem kana dflt;
+languagesystem hani dflt;
+languagesystem latn dflt;
+languagesystem grek dflt;
+languagesystem cyrl dflt;
 
-FeatureDat.each {|featName, featStyle|
+FINIS
+
+Features.each {|featName|
 	print("feature #{featName} {\n")
-	featStyle.each {|featStyleName, featDat|
-		if featStyleName == 'font-to-font' then
-			featDat.each {|fName, field|
-				GlyphDat.each {|gName, gDat|
-					field.each {|fromTag|
-						print("\tsub \\#{gDat[fromTag]} by \\#{gDat[fName]};\n") if gDat[fromTag] && gDat[fName]
-					}
-				}
-			}
-		elsif featStyleName == 'glyph-to-glyph' then
-			featDat.each {|glyph|
-				GlyphDat[glyph['from']].each {|gName, gDat|
-					print("\tsub \\#{GlyphDat[glyph['from']][gName]} by \\#{GlyphDat[glyph['to']][gName]};\n") if GlyphDat[glyph['from']][gName] && GlyphDat[glyph['to']][gName]
-				}
-			}
+	fontDB.execute("SELECT base1, base2, base3, base4, target FROM features WHERE featTag = '#{featName}'") {|featDat|
+		print "\tsub "
+		for i in 0...(featDat.length - 1)
+			if featDat[i] then print "\\#{featDat[i]} " end
 		end
+		print "by \\#{featDat[-1]};\n"
 	}
 	print("} #{featName};\n")
 }
-
-print(open('featfoot.txt') {|f| f.read})
