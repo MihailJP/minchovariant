@@ -692,10 +692,12 @@ INSERT INTO lgcFont VALUES('THIRDWIDTH', 'Third-', '.sfd', 't');
 INSERT INTO lgcFont VALUES('QUARTERWIDTH', 'Quarter-', '.sfd', 'q');
 INSERT INTO lgcFont VALUES('WIDEFONT', 'Wide-', '.sfdir', 'w');
 INSERT INTO lgcFont VALUES('ITALICFONT', '', '-Italic.sfdir', 'i');
+INSERT INTO lgcFont VALUES('KUMIMOJI', 'Kumimoji-', '.sfdir', 'kumi');
 CREATE TABLE subFont (FontID INTEGER PRIMARY KEY NOT NULL, mapFile TEXT NOT NULL, fontName TEXT NOT NULL, fontFile TEXT NOT NULL, lgcFontTag TEXT, FOREIGN KEY(lgcFontTag) REFERENCES lgcFont(fontTag));
 INSERT INTO subFont VALUES(0,'cidpua.map','Japanese','work.otf', NULL);
 INSERT INTO subFont VALUES(1,'cidpua-blockelem.map','BlockElem','../mincho3/work.otf', NULL);
 INSERT INTO subFont VALUES(2,'cidpua-dingbats.map','Dingbats','../mincho#{$weightNum.to_i > 7 ? 7 : ($weightNum.to_i > 3 ? $weightNum : 3)}/work.otf', NULL);
+INSERT INTO subFont VALUES(4,'cidpua-kumimoji.map','Kumimoji','kumimoji.otf', 'KUMIMOJI');
 INSERT INTO subFont VALUES(10,'lgc.map','LGC','lgc.otf', 'SRCFONT');
 INSERT INTO subFont VALUES(11,'lgc-fixed.map','Fixed','fixed.otf', 'FIXEDFONT');
 INSERT INTO subFont VALUES(12,'lgc-third.map','ThirdWidth','third.otf', 'THIRDWIDTH');
@@ -730,6 +732,7 @@ CREATE TABLE cjkCID (CID INTEGER NOT NULL, fontID INTEGER NOT NULL, FOREIGN KEY(
 -- CJKCID 16274 16277 2
 -- CJKCID 20366 20366 2
 -- CJKCID 20957 20957 2
+-- CJKCID 7575 7584 4
 CREATE VIEW lgcCID AS
 SELECT pwid AS CID, 10 AS fontID, glyphName FROM lgcGlyphs WHERE pwid IS NOT NULL
 UNION SELECT hwid AS CID, 11 AS fontID, glyphName FROM lgcGlyphs WHERE hwid IS NOT NULL
