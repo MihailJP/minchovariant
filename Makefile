@@ -3,13 +3,11 @@ DOWNLOADABLES=dump.tar.gz
 LGCMAPS=lgc.map lgc-fixed.map lgc-third.map lgc-quarter.map lgc-wide.map lgc-italic.map
 METAMAKE_DEPS=dump_newest_only.txt glyphs.txt cidalias.sed \
 cidpua.map cidpua-blockelem.map cidpua-dingbats.map cidpua-enclosed.map \
-./mkmkfile.rb otf-features $(LGCMAPS)
+cidpua-kumimoji.map \
+./mkmkfile.rb otf-features HZMincho.db $(LGCMAPS)
 MAPGEN_DEPS=genmaps.rb HZMincho.db
-GENERATABLES=dump_newest_only.txt glyphs.txt \
-cidpua.map cidpua-blockelem.map cidpua-dingbats.map cidpua-enclosed.map \
-cidalias.txt cidalias.sed groups/cidalias.txt \
-cidalias1.txt cidalias2.txt $(SUBDIRS) \
-otf-features $(LGCMAPS) HZMincho.db
+GENERATABLES=$(METAMAKE_DEPS) $(SUBDIRS) \
+groups/cidalias.txt cidalias1.txt cidalias2.txt
 TARGETS=$(GENERATABLES) $(DOWNLOADABLES)
 
 .PHONY: all fetch clean distclean $(SUBDIRS)
@@ -44,6 +42,8 @@ cidpua-dingbats.map: $(MAPGEN_DEPS)
 	./genmaps.rb 2 > $@
 cidpua-enclosed.map: $(MAPGEN_DEPS)
 	./genmaps.rb 3 > $@
+cidpua-kumimoji.map: $(MAPGEN_DEPS)
+	./genmaps.rb 4 > $@
 lgc.map: $(MAPGEN_DEPS)
 	./genmaps.rb 10 > $@
 lgc-fixed.map: $(MAPGEN_DEPS)
