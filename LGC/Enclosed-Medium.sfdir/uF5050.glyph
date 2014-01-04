@@ -1,6 +1,7 @@
 StartChar: uF5050
 Encoding: 1003600 1003600 1687
 Width: 1000
+VWidth: 1000
 Flags: MW
 LayerCount: 2
 Fore
