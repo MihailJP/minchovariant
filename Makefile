@@ -1,12 +1,13 @@
 SUBDIRS=mincho1 mincho3 mincho5 mincho7 mincho9
 DOWNLOADABLES=dump.tar.gz
 LGCMAPS=lgc.map lgc-fixed.map lgc-third.map lgc-quarter.map lgc-wide.map lgc-italic.map
-METAMAKE_DEPS=dump_newest_only.txt glyphs.txt cidalias.sed \
+METAMAKE_DEP_GENERATABLES=dump_newest_only.txt glyphs.txt cidalias.sed \
 cidpua.map cidpua-blockelem.map cidpua-dingbats.map cidpua-enclosed.map \
 cidpua-kumimoji.map \
-./mkmkfile.rb otf-features HZMincho.db $(LGCMAPS)
+otf-features HZMincho.db $(LGCMAPS)
+METAMAKE_DEPS=$(METAMAKE_DEP_GENERATABLES) ./mkmkfile.rb
 MAPGEN_DEPS=genmaps.rb HZMincho.db
-GENERATABLES=$(METAMAKE_DEPS) $(SUBDIRS) \
+GENERATABLES=$(METAMAKE_DEP_GENERATABLES) $(SUBDIRS) \
 groups/cidalias.txt cidalias1.txt cidalias2.txt
 TARGETS=$(GENERATABLES) $(DOWNLOADABLES)
 
