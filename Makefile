@@ -112,9 +112,9 @@ LGC/lgc9.otf: LGC/Makefile
 	cd LGC && make lgc9.otf
 
 clean:
-	-rm -rf $(GENERATABLES)
 	-cd LGC && make clean
+	-rm -rf $(GENERATABLES)
 
 distclean:
-	-rm -rf $(TARGETS)
 	-cd LGC && make clean
+	-rm -rf $(TARGETS)
