@@ -9,12 +9,12 @@ license = 'Created by KAGE system. (http://fonts.jp/)'
 psName = "#{enName} #{enWeight}".gsub(/\s/, "-")
 cidmap = ""
 fontDB.execute("SELECT mapFile, fontFile FROM subFont") {|subFont|
-	cidmap += "../#{subFont[0]} #{eval("\'#{subFont[1]}\'")}\n"
+	cidmap += "../#{subFont[0]} #{eval("\"#{subFont[1]}\"")}\n"
 }
 
 def lgcFile(file, suffix)
 	return <<FINIS
-#{file}.otf: ../LGC/lgc#{$weightNum.to_i % 100}#{suffix}.otf
+#{file}: ../LGC/lgc#{$weightNum.to_i % 100}#{suffix}.otf
 	cp $^ $@
 ../LGC/lgc#{$weightNum.to_i % 100}#{suffix}.otf:
 	cd ../LGC && make lgc#{$weightNum.to_i % 100}#{suffix}.otf
