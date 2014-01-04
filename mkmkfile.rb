@@ -23,8 +23,8 @@ end
 
 def lgcFiles(db)
 	result = ""
-	db.execute("SELECT fontFile, tSuffix FROM subFont JOIN lgcFont ON lgcFontTag = fontTag WHERE lgcFontTag IS NOT NULL") {|subFont|
-		result += lgcFile(subFont[0], subFont[1])
+	db.execute("SELECT fontFile, procBaseFont, tSuffix FROM subFont JOIN lgcFont ON lgcFontTag = fontTag WHERE lgcFontTag IS NOT NULL") {|subFont|
+		result += lgcFile((subFont[1] or subFont[0]), subFont[2])
 	}
 	return result
 end
@@ -80,7 +80,10 @@ work.otf: work2.sfd
 
 #{lgcFiles(fontDB)}
 
-#{target.sub(/\..+?$/, '.raw')}: work.otf cidfontinfo #{fontDB.execute("SELECT fontFile FROM subFont WHERE lgcFontTag IS NOT NULL").flatten.join(" ")}
+enclosed.otf: enclosed-base.otf work.otf
+	../enclose.py $^ $@
+
+#{target.sub(/\..+?$/, '.raw')}: work.otf cidfontinfo enclosed.otf #{fontDB.execute("SELECT fontFile FROM subFont WHERE lgcFontTag IS NOT NULL").flatten.join(" ")}
 	$(MERGEFONTS) -cid cidfontinfo $@ #{cidmap.gsub(/\r?\n/, " ")}
 
 #{target}: #{target.sub(/\..+?$/, '.raw')}
@@ -91,5 +94,5 @@ cidfontinfo:
 	../makecfi.rb '#{enName}' '#{enWeight}' > $@
 
 clean:
-	-rm -rf $(TARGETS) work.scr work.log build
+	-rm -rf $(TARGETS) work.scr work.log build *.otf
 FINIS

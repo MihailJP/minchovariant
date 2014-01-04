@@ -1,0 +1,15 @@
+StartChar: uF2BDF
+Encoding: 994271 994271 1065
+Width: 1000
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+50 760 m 1
+ 950 760 l 1
+ 950 -160 l 1
+ 50 -160 l 1
+ 50 760 l 1
+EndSplineSet
+Colour: ff0000
+EndChar
