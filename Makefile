@@ -1,12 +1,12 @@
 SUBDIRS=mincho1 mincho3 mincho5 mincho7 mincho9
 DOWNLOADABLES=dump.tar.gz
-LGCMAPS=lgc.map lgc-fixed.map lgc-third.map lgc-quarter.map lgc-italic.map
+LGCMAPS=lgc.map lgc-fixed.map lgc-third.map lgc-quarter.map lgc-wide.map lgc-italic.map
 METAMAKE_DEPS=dump_newest_only.txt glyphs.txt cidalias.sed \
-cidpua.map cidpua-blockelem.map cidpua-dingbats.map ./mkmkfile.rb \
-otf-features $(LGCMAPS)
+cidpua.map cidpua-blockelem.map cidpua-dingbats.map cidpua-enclosed.map \
+./mkmkfile.rb otf-features $(LGCMAPS)
 MAPGEN_DEPS=genmaps.rb HZMincho.db
 GENERATABLES=dump_newest_only.txt glyphs.txt \
-cidpua.map cidpua-blockelem.map cidpua-dingbats.map \
+cidpua.map cidpua-blockelem.map cidpua-dingbats.map cidpua-enclosed.map \
 cidalias.txt cidalias.sed groups/cidalias.txt \
 cidalias1.txt cidalias2.txt $(SUBDIRS) \
 otf-features $(LGCMAPS) HZMincho.db
@@ -27,7 +27,7 @@ cidalias1.txt: pua-addenda.txt
 	./cidpua.rb < $< > $@
 cidalias2.txt: dump_newest_only.txt
 	cat $^ | ./cidalias.rb > $@
-cidalias.txt: cidalias1.txt cidalias2.txt
+cidalias.txt: cidalias1.txt cidalias2.txt pua-extension.txt
 	cat $^ > $@
 
 HZMincho.db: HZMincho.sql gensql.rb
@@ -42,6 +42,8 @@ cidpua-blockelem.map: $(MAPGEN_DEPS)
 	./genmaps.rb 1 > $@
 cidpua-dingbats.map: $(MAPGEN_DEPS)
 	./genmaps.rb 2 > $@
+cidpua-enclosed.map: $(MAPGEN_DEPS)
+	./genmaps.rb 3 > $@
 lgc.map: $(MAPGEN_DEPS)
 	./genmaps.rb 10 > $@
 lgc-fixed.map: $(MAPGEN_DEPS)
@@ -50,6 +52,8 @@ lgc-third.map: $(MAPGEN_DEPS)
 	./genmaps.rb 12 > $@
 lgc-quarter.map: $(MAPGEN_DEPS)
 	./genmaps.rb 13 > $@
+lgc-wide.map: $(MAPGEN_DEPS)
+	./genmaps.rb 14 > $@
 lgc-italic.map: $(MAPGEN_DEPS)
 	./genmaps.rb 20 > $@
 

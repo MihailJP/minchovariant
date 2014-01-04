@@ -1,0 +1,15 @@
+StartChar: minute
+Encoding: 8242 8242 115
+Width: 1000
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+15 487 m 1
+ 79 650 l 2
+ 86 667 94 699 123 699 c 0
+ 135 699 163 691 163 658 c 0
+ 163 646 157 641 29 480 c 1
+ 15 487 l 1
+EndSplineSet
+EndChar
