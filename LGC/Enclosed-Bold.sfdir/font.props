@@ -13,12 +13,13 @@ Descent: 200
 LayerCount: 2
 Layer: 0 0 "+gMyXYgAA"  1
 Layer: 1 0 "+Uk2XYgAA"  0
+HasVMetrics: 1
 XUID: [1021 854 -560934592 8050359]
 OS2Version: 0
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
-CreationTime: 1388837534
-ModificationTime: 1388838550
+CreationTime: 1388838933
+ModificationTime: 1388839574
 OS2TypoAscent: 0
 OS2TypoAOffset: 1
 OS2TypoDescent: 0
