@@ -1,6 +1,7 @@
 StartChar: uF2800
 Encoding: 993280 993280 38
 Width: 1000
+VWidth: 1000
 Flags: MW
 LayerCount: 2
 Fore
