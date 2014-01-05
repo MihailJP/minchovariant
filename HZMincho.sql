@@ -704,6 +704,7 @@ INSERT INTO subFont VALUES(0,'cidpua.map','Japanese','work.otf', NULL, NULL);
 INSERT INTO subFont VALUES(1,'cidpua-blockelem.map','BlockElem','../mincho3/work.otf', NULL, NULL);
 INSERT INTO subFont VALUES(2,'cidpua-dingbats.map','Dingbats','../mincho#{$weightNum.to_i > 7 ? 7 : ($weightNum.to_i > 3 ? $weightNum : 3)}/work.otf', NULL, NULL);
 INSERT INTO subFont VALUES(3,'cidpua-enclosed.map','Enclosed','enclosed.otf', 'enclosed-base.otf', 'ENCLFONT');
+INSERT INTO subFont VALUES(5,'cidpua-rot.map','RotCJK','rotcjk.otf', NULL, NULL);
 INSERT INTO subFont VALUES(10,'lgc.map','LGC','lgc.otf', NULL, 'SRCFONT');
 INSERT INTO subFont VALUES(11,'lgc-fixed.map','Fixed','fixed.otf', NULL, 'FIXEDFONT');
 INSERT INTO subFont VALUES(12,'lgc-third.map','ThirdWidth','third.otf', NULL, 'THIRDWIDTH');
@@ -757,6 +758,13 @@ CREATE TABLE cjkCID (CID INTEGER NOT NULL, fontID INTEGER NOT NULL, FOREIGN KEY(
 -- CJKCID 16328 16328 3
 -- CJKCID 20497 20512 3
 -- CJKCID 20553 20583 3
+-- CJKROT 326 389 9084 5
+-- CJKROT 391 421 9148 5
+-- CJKROT 422 422 9276 5
+-- CJKROT 423 424 9263 5
+-- CJKROT 425 500 9277 5
+-- CJKROT 515 598 9179 5
+-- CJKROT 504 513 9265 5
 CREATE VIEW lgcCID AS
 SELECT pwid AS CID, 10 AS fontID, glyphName FROM lgcGlyphs WHERE pwid IS NOT NULL
 UNION SELECT hwid AS CID, 11 AS fontID, glyphName FROM lgcGlyphs WHERE hwid IS NOT NULL
@@ -969,6 +977,8 @@ INSERT INTO vert VALUES(16249, 16346, 0);
 INSERT INTO vert VALUES(16250, 16347, 0);
 INSERT INTO vert VALUES(16251, 16348, 0);
 INSERT INTO vert VALUES(16252, 16349, 0);
+CREATE TABLE vrt2 (horizontal INTEGER UNIQUE NOT NULL, vertical INTEGER UNIQUE NOT NULL);
+-- CJKROT RECALL
 CREATE TABLE jVars (j90 INTEGER PRIMARY KEY, j83 INTEGER, j04 INTEGER);
 INSERT INTO jVars VALUES(1133, 13408, NULL);
 INSERT INTO jVars VALUES(1142, NULL, 7961);
@@ -1600,6 +1610,7 @@ CREATE VIEW oneToOneFeat AS
 SELECT 10 AS feat, horizontal AS fromCID, vertical AS toCID FROM vert
 UNION SELECT 11 AS feat, horizontal AS fromCID, vertical AS toCID FROM vert
 UNION SELECT 12 AS feat, horizontal AS fromCID, vertical AS toCID FROM vert WHERE kana
+UNION SELECT 11 AS feat, horizontal AS fromCID, vertical AS toCID FROM vrt2
 UNION SELECT 11 AS feat, pwid AS fromCID, rotPwid AS toCID FROM lgcGlyphs WHERE pwid IS NOT NULL AND rotPwid IS NOT NULL
 UNION SELECT 11 AS feat, hwid AS fromCID, rotHwid AS toCID FROM lgcGlyphs WHERE hwid IS NOT NULL AND rotHwid IS NOT NULL
 UNION SELECT 11 AS feat, qwid AS fromCID, rotQwid AS toCID FROM lgcGlyphs WHERE qwid IS NOT NULL AND rotQwid IS NOT NULL
