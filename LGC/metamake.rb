@@ -1,7 +1,9 @@
 #!/usr/bin/env ruby
 
 require 'sqlite3'
-fontDB = SQLite3::Database.new('../HZMincho.db')
+DBFileName = 'HZMincho.db'
+if not File.exist?(DBFileName) then raise IOError, "Database '#{DBFileName}' not found" end
+fontDB = SQLite3::Database.new(DBFileName)
 
 TargetWeight=[1, 3, 5, 7, 9]
 FileNameHeader="lgc"

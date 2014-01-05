@@ -6,7 +6,9 @@ if ARGV.length < 1 then
 end
 
 require 'sqlite3'
-fontDB = SQLite3::Database.new('HZMincho.db')
+DBFileName = 'HZMincho.db'
+if not File.exist?(DBFileName) then raise IOError, "Database '#{DBFileName}' not found" end
+fontDB = SQLite3::Database.new(DBFileName)
 SubFontName = fontDB.execute("SELECT fontName FROM subFont WHERE FontID = #{ARGV[0]}")[0][0]
 
 print("mergeFonts #{SubFontName}\n")
