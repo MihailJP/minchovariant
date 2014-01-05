@@ -1,32 +1,18 @@
 #!/usr/bin/env ruby
 
+require 'sqlite3'
+fontDB = SQLite3::Database.new('../HZMincho.db')
+
 TargetWeight=[1, 3, 5, 7, 9]
 FileNameHeader="lgc"
-Targets={
-    "SRCDIRS"      => {"srcPrefix" => "",
-                       "srcSuffix" => ".sfdir",
-                       "tSuffix"   => "",
-                       "rotated"   => "ROTATED"},
-    "FIXEDDIRS"    => {"srcPrefix" => "Fixed-",
-                       "srcSuffix" => ".sfdir",
-                       "tSuffix"   => "f",
-                       "rotated"   => "ROTATEDFIXED"},
-    "THIRDWIDTH"   => {"srcPrefix" => "Third-",
-                       "srcSuffix" => ".sfd",
-                       "tSuffix"   => "t",
-                       "rotated"   => nil},
-    "QUARTERWIDTH" => {"srcPrefix" => "Quarter-",
-                       "srcSuffix" => ".sfd",
-                       "tSuffix"   => "q",
-                       "rotated"   => nil},
-    "ROTATED"      => {"srcPrefix" => "Rotated-",
-                       "srcSuffix" => ".sfd",
-                       "tSuffix"   => "r",
-                       "rotated"   => nil},
-    "ROTATEDFIXED" => {"srcPrefix" => "Rotated-Fixed-",
-                       "srcSuffix" => ".sfd",
-                       "tSuffix"   => "rf",
-                       "rotated"   => nil},
+Targets={}
+fontDB.execute("SELECT fontTag, srcPrefix, srcSuffix, tSuffix, rotated FROM lgcFont") {|subFont|
+	Targets[subFont[0]] = {
+		"srcPrefix" => subFont[1],
+		"srcSuffix" => subFont[2],
+		"tSuffix"   => subFont[3],
+		"rotated"   => subFont[4]
+	}
 }
 Interpol={1 => -0.5, 3 => -0.3, 5 => 0, 7 => 0.4, 9 => 0.8}
 
@@ -58,7 +44,7 @@ FINIS
 
 # Makefile
 print <<FINIS
-Makefile: metamake.rb
+Makefile: metamake.rb ../HZMincho.sql
 	./metamake.rb > $@
 
 FINIS

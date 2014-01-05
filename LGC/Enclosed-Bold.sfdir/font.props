@@ -1,0 +1,49 @@
+SplineFontDB: 3.0
+FontName: Enclosed-Bold
+FullName: Enclosed Bold
+FamilyName: Enclosed
+Weight: Bold
+Copyright: 
+Version: 001.000
+ItalicAngle: 0
+UnderlinePosition: -100
+UnderlineWidth: 50
+Ascent: 800
+Descent: 200
+LayerCount: 2
+Layer: 0 0 "+gMyXYgAA"  1
+Layer: 1 0 "+Uk2XYgAA"  0
+HasVMetrics: 1
+XUID: [1021 854 -560934592 8050359]
+OS2Version: 0
+OS2_WeightWidthSlopeOnly: 0
+OS2_UseTypoMetrics: 1
+CreationTime: 1388838933
+ModificationTime: 1388839574
+OS2TypoAscent: 0
+OS2TypoAOffset: 1
+OS2TypoDescent: 0
+OS2TypoDOffset: 1
+OS2TypoLinegap: 0
+OS2WinAscent: 0
+OS2WinAOffset: 1
+OS2WinDescent: 0
+OS2WinDOffset: 1
+HheadAscent: 0
+HheadAOffset: 1
+HheadDescent: 0
+HheadDOffset: 1
+OS2Vendor: 'PfEd'
+MarkAttachClasses: 1
+DEI: 91125
+Encoding: UnicodeFull
+Compacted: 1
+UnicodeInterp: none
+NameList: AGL For New Fonts
+DisplaySize: -48
+AntiAlias: 1
+FitToEm: 1
+WinInfo: 0 16 4
+BeginPrivate: 0
+EndPrivate
+EndSplineFont

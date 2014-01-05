@@ -1,0 +1,20 @@
+StartChar: uF2E30
+Encoding: 994864 994864 1658
+Width: 1000
+VWidth: 1000
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+250 760 m 2
+ 750 760 l 2
+ 860 760 950 670 950 560 c 2
+ 950 40 l 2
+ 950 -70 860 -160 750 -160 c 2
+ 250 -160 l 2
+ 140 -160 50 -70 50 40 c 2
+ 50 560 l 2
+ 50 670 140 760 250 760 c 2
+EndSplineSet
+Colour: ff0000
+EndChar
