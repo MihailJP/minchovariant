@@ -1,7 +1,7 @@
 SUBDIRS=mincho1 mincho3 mincho5 mincho7 mincho9
 DOWNLOADABLES=dump.tar.gz
 LGCMAPS=lgc.map lgc-fixed.map lgc-third.map lgc-quarter.map lgc-wide.map lgc-italic.map \
-lgc-rotated.map lgc-rotfixed.map
+lgc-rotated.map lgc-rotfixed.map lgc-rotquarter.map lgc-rotthird.map lgc-rotitalic.map
 METAMAKE_DEPS=dump_newest_only.txt glyphs.txt cidalias.sed \
 cidpua.map cidpua-blockelem.map cidpua-dingbats.map cidpua-enclosed.map \
 ./mkmkfile.rb otf-features $(LGCMAPS)
@@ -61,6 +61,12 @@ lgc-rotated.map: $(MAPGEN_DEPS)
 	./genmaps.rb 30 > $@
 lgc-rotfixed.map: $(MAPGEN_DEPS)
 	./genmaps.rb 31 > $@
+lgc-rotquarter.map: $(MAPGEN_DEPS)
+	./genmaps.rb 32 > $@
+lgc-rotthird.map: $(MAPGEN_DEPS)
+	./genmaps.rb 33 > $@
+lgc-rotitalic.map: $(MAPGEN_DEPS)
+	./genmaps.rb 40 > $@
 
 groups/cidalias.txt: cidalias.txt
 	cat $^ | cut -f 1 > $@

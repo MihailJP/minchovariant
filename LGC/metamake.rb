@@ -70,10 +70,11 @@ for target in Targets
 		suffix=target[1]["srcSuffix"]
 		depSuffix = suffix + (suffix == ".sfdir" ? "/font.props" : "")
 		tPrefix=Targets[target[1]["rotated"]]["srcPrefix"]
+		tSuffix=Targets[target[1]["rotated"]]["srcSuffix"]
 print <<FINIS
-#{tPrefix}Medium.sfd: #{prefix}Medium#{depSuffix}
+#{tPrefix}Medium#{tSuffix}: #{prefix}Medium#{depSuffix}
 	fontforge ./rotate.py #{prefix}Medium#{suffix} $@
-#{tPrefix}Bold.sfd: #{prefix}Bold#{depSuffix}
+#{tPrefix}Bold#{tSuffix}: #{prefix}Bold#{depSuffix}
 	fontforge ./rotate.py #{prefix}Bold#{suffix} $@
 FINIS
 	end
