@@ -8,11 +8,12 @@ fontDB = SQLite3::Database.new(DBFileName)
 TargetWeight=[1, 3, 5, 7, 9]
 FileNameHeader="lgc"
 Targets={}
-fontDB.execute("SELECT fontTag, srcPrefix, srcSuffix, tSuffix FROM lgcFont") {|subFont|
+fontDB.execute("SELECT fontTag, srcPrefix, srcSuffix, tSuffix, rotated FROM lgcFont") {|subFont|
 	Targets[subFont[0]] = {
 		"srcPrefix" => subFont[1],
 		"srcSuffix" => subFont[2],
-		"tSuffix"   => subFont[3]
+		"tSuffix"   => subFont[3],
+		"rotated"   => subFont[4]
 	}
 }
 Interpol={1 => -0.5, 3 => -0.3, 5 => 0, 7 => 0.4, 9 => 0.8}
@@ -62,6 +63,25 @@ Quarter-Bold.sfd: Fixed-Bold.sfdir/font.props
 	fontforge ./narrow.py Fixed-Bold.sfdir $@ 0.5
 
 FINIS
+
+# pre-rotated
+# SRCDIRS
+for target in Targets
+	if target[1]["rotated"] then
+		prefix=target[1]["srcPrefix"]
+		suffix=target[1]["srcSuffix"]
+		depSuffix = suffix + (suffix == ".sfdir" ? "/font.props" : "")
+		tPrefix=Targets[target[1]["rotated"]]["srcPrefix"]
+		tSuffix=Targets[target[1]["rotated"]]["srcSuffix"]
+print <<FINIS
+#{tPrefix}Medium#{tSuffix}: #{prefix}Medium#{depSuffix}
+	fontforge ./rotate.py #{prefix}Medium#{suffix} $@
+#{tPrefix}Bold#{tSuffix}: #{prefix}Bold#{depSuffix}
+	fontforge ./rotate.py #{prefix}Bold#{suffix} $@
+FINIS
+	end
+end
+print "\n"
 
 # targets
 for target in Targets

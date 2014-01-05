@@ -80,12 +80,17 @@ work2.sfd: work.sfd
 work.otf: work2.sfd
 	../width.py $< $@
 
+rotcjk.sfd: work.otf
+	../LGC/rotate.py $< $@
+rotcjk.otf: rotcjk.sfd
+	../rotcid.py $< $@
+
 #{lgcFiles(fontDB)}
 
 enclosed.otf: enclosed-base.otf work.otf
 	../enclose.py $^ $@
 
-#{target.sub(/\..+?$/, '.raw')}: work.otf cidfontinfo enclosed.otf #{fontDB.execute("SELECT fontFile FROM subFont WHERE lgcFontTag IS NOT NULL").flatten.join(" ")}
+#{target.sub(/\..+?$/, '.raw')}: work.otf cidfontinfo enclosed.otf rotcjk.otf #{fontDB.execute("SELECT fontFile FROM subFont WHERE lgcFontTag IS NOT NULL").flatten.join(" ")}
 	$(MERGEFONTS) -cid cidfontinfo $@ #{cidmap.gsub(/\r?\n/, " ")}
 
 #{target}: #{target.sub(/\..+?$/, '.raw')}

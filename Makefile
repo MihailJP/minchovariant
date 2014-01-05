@@ -1,9 +1,10 @@
 SUBDIRS=mincho1 mincho3 mincho5 mincho7 mincho9
 DOWNLOADABLES=dump.tar.gz
-LGCMAPS=lgc.map lgc-fixed.map lgc-third.map lgc-quarter.map lgc-wide.map lgc-italic.map
+LGCMAPS=lgc.map lgc-fixed.map lgc-third.map lgc-quarter.map lgc-wide.map lgc-italic.map \
+lgc-rotated.map lgc-rotfixed.map lgc-rotquarter.map lgc-rotthird.map lgc-rotitalic.map
 METAMAKE_DEPS=dump_newest_only.txt glyphs.txt cidalias.sed \
 cidpua.map cidpua-blockelem.map cidpua-dingbats.map cidpua-enclosed.map \
-./mkmkfile.rb otf-features $(LGCMAPS)
+cidpua-rot.map ./mkmkfile.rb otf-features $(LGCMAPS)
 MAPGEN_DEPS=genmaps.rb HZMincho.db
 GENERATABLES=dump_newest_only.txt glyphs.txt \
 cidpua.map cidpua-blockelem.map cidpua-dingbats.map cidpua-enclosed.map \
@@ -44,6 +45,8 @@ cidpua-dingbats.map: $(MAPGEN_DEPS)
 	./genmaps.rb 2 > $@
 cidpua-enclosed.map: $(MAPGEN_DEPS)
 	./genmaps.rb 3 > $@
+cidpua-rot.map: $(MAPGEN_DEPS)
+	./genmaps.rb 5 > $@
 lgc.map: $(MAPGEN_DEPS)
 	./genmaps.rb 10 > $@
 lgc-fixed.map: $(MAPGEN_DEPS)
@@ -56,6 +59,16 @@ lgc-wide.map: $(MAPGEN_DEPS)
 	./genmaps.rb 14 > $@
 lgc-italic.map: $(MAPGEN_DEPS)
 	./genmaps.rb 20 > $@
+lgc-rotated.map: $(MAPGEN_DEPS)
+	./genmaps.rb 30 > $@
+lgc-rotfixed.map: $(MAPGEN_DEPS)
+	./genmaps.rb 31 > $@
+lgc-rotquarter.map: $(MAPGEN_DEPS)
+	./genmaps.rb 32 > $@
+lgc-rotthird.map: $(MAPGEN_DEPS)
+	./genmaps.rb 33 > $@
+lgc-rotitalic.map: $(MAPGEN_DEPS)
+	./genmaps.rb 40 > $@
 
 groups/cidalias.txt: cidalias.txt
 	cat $^ | cut -f 1 > $@
