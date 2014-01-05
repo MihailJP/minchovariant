@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'sqlite3'
-DBFileName = 'HZMincho.db'
+DBFileName = '../HZMincho.db'
 if not File.exist?(DBFileName) then raise IOError, "Database '#{DBFileName}' not found" end
 fontDB = SQLite3::Database.new(DBFileName)
 
