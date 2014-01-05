@@ -1583,16 +1583,20 @@ UNION SELECT zeroNoSlash.fwid AS fromCID, zeroWithSlash.fwid AS toCID FROM zeroN
 UNION SELECT zeroNoSlash.ital AS fromCID, zeroWithSlash.ital AS toCID FROM zeroNoSlash JOIN zeroWithSlash;
 CREATE VIEW oneToOneFeat AS
 SELECT 10 AS feat, horizontal AS fromCID, vertical AS toCID FROM vert
+UNION SELECT 11 AS feat, pwid AS fromCID, rotPwid AS toCID FROM lgcGlyphs WHERE pwid IS NOT NULL AND rotPwid IS NOT NULL
+UNION SELECT 11 AS feat, hwid AS fromCID, rotHwid AS toCID FROM lgcGlyphs WHERE hwid IS NOT NULL AND rotHwid IS NOT NULL
 UNION SELECT 11 AS feat, horizontal AS fromCID, vertical AS toCID FROM vert
 UNION SELECT 12 AS feat, horizontal AS fromCID, vertical AS toCID FROM vert WHERE kana
 UNION SELECT 20 AS feat, hwid AS fromCID, pwid AS toCID FROM lgcGlyphs WHERE hwid IS NOT NULL AND pwid IS NOT NULL
 UNION SELECT 20 AS feat, qwid AS fromCID, pwid AS toCID FROM lgcGlyphs WHERE qwid IS NOT NULL AND pwid IS NOT NULL
 UNION SELECT 20 AS feat, twid AS fromCID, pwid AS toCID FROM lgcGlyphs WHERE twid IS NOT NULL AND pwid IS NOT NULL
 UNION SELECT 20 AS feat, fwid AS fromCID, pwid AS toCID FROM lgcGlyphs WHERE fwid IS NOT NULL AND pwid IS NOT NULL
+UNION SELECT 20 AS feat, rotHwid AS fromCID, rotPwid AS toCID FROM lgcGlyphs WHERE rotHwid IS NOT NULL AND rotPwid IS NOT NULL
 UNION SELECT 21 AS feat, pwid AS fromCID, hwid AS toCID FROM lgcGlyphs WHERE pwid IS NOT NULL AND hwid IS NOT NULL
 UNION SELECT 21 AS feat, qwid AS fromCID, hwid AS toCID FROM lgcGlyphs WHERE qwid IS NOT NULL AND hwid IS NOT NULL
 UNION SELECT 21 AS feat, twid AS fromCID, hwid AS toCID FROM lgcGlyphs WHERE twid IS NOT NULL AND hwid IS NOT NULL
 UNION SELECT 21 AS feat, fwid AS fromCID, hwid AS toCID FROM lgcGlyphs WHERE fwid IS NOT NULL AND hwid IS NOT NULL
+UNION SELECT 21 AS feat, rotPwid AS fromCID, rotHwid AS toCID FROM lgcGlyphs WHERE rotPwid IS NOT NULL AND rotHwid IS NOT NULL
 UNION SELECT 22 AS feat, pwid AS fromCID, qwid AS toCID FROM lgcGlyphs WHERE pwid IS NOT NULL AND qwid IS NOT NULL
 UNION SELECT 22 AS feat, hwid AS fromCID, qwid AS toCID FROM lgcGlyphs WHERE hwid IS NOT NULL AND qwid IS NOT NULL
 UNION SELECT 22 AS feat, twid AS fromCID, qwid AS toCID FROM lgcGlyphs WHERE twid IS NOT NULL AND qwid IS NOT NULL
