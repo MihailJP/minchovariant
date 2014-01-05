@@ -37,7 +37,7 @@ FINIS
 
 Features.each {|featName|
 	print("feature #{featName} {\n")
-	fontDB.execute("SELECT base1, base2, base3, base4, target FROM features WHERE featTag = '#{featName}'") {|featDat|
+	fontDB.execute("SELECT base1, base2, base3, base4, base5, base6, base7, base8, target FROM features WHERE featTag = '#{featName}'") {|featDat|
 		print "\tsub "
 		for i in 0...(featDat.length - 1)
 			if featDat[i] then print "\\#{featDat[i]} " end

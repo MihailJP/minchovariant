@@ -761,6 +761,8 @@ CREATE TABLE cjkCID (CID INTEGER NOT NULL, fontID INTEGER NOT NULL, FOREIGN KEY(
 -- CJKCID 20497 20512 3
 -- CJKCID 20553 20583 3
 -- CJKCID 7575 7584 4
+-- CJKCID 7601 7607 4
+-- CJKCID 7610 7612 4
 -- CJKCID 8092 8101 4
 -- CJKCID 8225 8226 4
 -- CJKCID 8295 8302 4
@@ -817,6 +819,7 @@ INSERT INTO featureCode VALUES(30, 'ital');
 INSERT INTO featureCode VALUES(35, 'zero');
 INSERT INTO featureCode VALUES(36, 'salt');
 INSERT INTO featureCode VALUES(40, 'ccmp');
+INSERT INTO featureCode VALUES(42, 'dlig');
 INSERT INTO featureCode VALUES(50, 'jp83');
 INSERT INTO featureCode VALUES(51, 'jp04');
 INSERT INTO featureCode VALUES(52, 'jp90');
@@ -2219,39 +2222,52 @@ INSERT INTO enclosed VALUES('AS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2050
 INSERT INTO enclosed VALUES('AM', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 20509);
 INSERT INTO enclosed VALUES('段', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 20510);
 INSERT INTO enclosed VALUES('ゴ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 20511);
+CREATE TABLE kumimoji (CID INTEGER PRIMARY KEY NOT NULL, src1 TEXT NOT NULL, src2 TEXT, src3 TEXT, src4 TEXT, src5 TEXT, src6 TEXT, src7 TEXT, src8 TEXT);
+INSERT INTO kumimoji VALUES(7601, 'm', 'm', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO kumimoji VALUES(7602, 'c', 'm', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO kumimoji VALUES(7603, 'k', 'm', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO kumimoji VALUES(7604, 'm', 'g', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO kumimoji VALUES(7605, 'k', 'g', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO kumimoji VALUES(7606, 'c', 'c', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO kumimoji VALUES(7607, 'm', 'two.superior', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO kumimoji VALUES(7611, 'K', 'period', 'K', 'period', NULL, NULL, NULL, NULL);
+INSERT INTO kumimoji VALUES(7612, 'T', 'E', 'L', NULL, NULL, NULL, NULL, NULL);
 CREATE VIEW glyphLabels AS
 SELECT glyphName, pwid AS CID FROM lgcGlyphs WHERE pwid IS NOT NULL
 UNION SELECT glyphName, fwid AS CID FROM lgcGlyphs WHERE fwid IS NOT NULL
 UNION SELECT label AS glyphName, CID FROM cjkLabel
 ORDER BY glyphName;
 CREATE VIEW compositeFeat AS
-SELECT 40 AS feat, part1 AS base1, part2 AS base2, part3 AS base3, part4 AS base4, ligature AS target FROM compositeCID
-UNION SELECT 40 AS feat, CID AS base1, 10233 AS base2, NULL AS base3, NULL AS base4, parenthesis    AS target FROM glyphLabels NATURAL INNER JOIN enclosed WHERE parenthesis    IS NOT NULL
-UNION SELECT 40 AS feat, CID AS base1, 16328 AS base2, NULL AS base3, NULL AS base4, circle         AS target FROM glyphLabels NATURAL INNER JOIN enclosed WHERE circle         IS NOT NULL
-UNION SELECT 40 AS feat, CID AS base1, 10763 AS base2, NULL AS base3, NULL AS base4, circleRev      AS target FROM glyphLabels NATURAL INNER JOIN enclosed WHERE circleRev      IS NOT NULL
-UNION SELECT 40 AS feat, CID AS base1, 11035 AS base2, NULL AS base3, NULL AS base4, square         AS target FROM glyphLabels NATURAL INNER JOIN enclosed WHERE square         IS NOT NULL
-UNION SELECT 40 AS feat, CID AS base1, 11306 AS base2, NULL AS base3, NULL AS base4, squareRev      AS target FROM glyphLabels NATURAL INNER JOIN enclosed WHERE squareRev      IS NOT NULL
-UNION SELECT 40 AS feat, CID AS base1,  8015 AS base2, NULL AS base3, NULL AS base4, roundSquare    AS target FROM glyphLabels NATURAL INNER JOIN enclosed WHERE roundSquare    IS NOT NULL
-UNION SELECT 40 AS feat, CID AS base1, 11845 AS base2, NULL AS base3, NULL AS base4, roundSquareRev AS target FROM glyphLabels NATURAL INNER JOIN enclosed WHERE roundSquareRev IS NOT NULL
-UNION SELECT 40 AS feat, s1.CID AS base1, s2.CID AS base2, 10233 AS base3, NULL AS base4, parenthesis    AS target FROM lig2 NATURAL INNER JOIN enclosed INNER JOIN glyphLabels AS s1 ON src1 = s1.glyphName INNER JOIN glyphLabels AS s2 ON src2 = s2.glyphName WHERE parenthesis    IS NOT NULL
-UNION SELECT 40 AS feat, s1.CID AS base1, s2.CID AS base2, 16328 AS base3, NULL AS base4, circle         AS target FROM lig2 NATURAL INNER JOIN enclosed INNER JOIN glyphLabels AS s1 ON src1 = s1.glyphName INNER JOIN glyphLabels AS s2 ON src2 = s2.glyphName WHERE circle         IS NOT NULL
-UNION SELECT 40 AS feat, s1.CID AS base1, s2.CID AS base2, 10763 AS base3, NULL AS base4, circleRev      AS target FROM lig2 NATURAL INNER JOIN enclosed INNER JOIN glyphLabels AS s1 ON src1 = s1.glyphName INNER JOIN glyphLabels AS s2 ON src2 = s2.glyphName WHERE circleRev      IS NOT NULL
-UNION SELECT 40 AS feat, s1.CID AS base1, s2.CID AS base2, 11035 AS base3, NULL AS base4, square         AS target FROM lig2 NATURAL INNER JOIN enclosed INNER JOIN glyphLabels AS s1 ON src1 = s1.glyphName INNER JOIN glyphLabels AS s2 ON src2 = s2.glyphName WHERE square         IS NOT NULL
-UNION SELECT 40 AS feat, s1.CID AS base1, s2.CID AS base2, 11306 AS base3, NULL AS base4, squareRev      AS target FROM lig2 NATURAL INNER JOIN enclosed INNER JOIN glyphLabels AS s1 ON src1 = s1.glyphName INNER JOIN glyphLabels AS s2 ON src2 = s2.glyphName WHERE squareRev      IS NOT NULL
-UNION SELECT 40 AS feat, s1.CID AS base1, s2.CID AS base2,  8015 AS base3, NULL AS base4, roundSquare    AS target FROM lig2 NATURAL INNER JOIN enclosed INNER JOIN glyphLabels AS s1 ON src1 = s1.glyphName INNER JOIN glyphLabels AS s2 ON src2 = s2.glyphName WHERE roundSquare    IS NOT NULL
-UNION SELECT 40 AS feat, s1.CID AS base1, s2.CID AS base2, 11845 AS base3, NULL AS base4, roundSquareRev AS target FROM lig2 NATURAL INNER JOIN enclosed INNER JOIN glyphLabels AS s1 ON src1 = s1.glyphName INNER JOIN glyphLabels AS s2 ON src2 = s2.glyphName WHERE roundSquareRev IS NOT NULL
-UNION SELECT 40 AS feat, s1.CID AS base1, s2.CID AS base2, s3.CID AS base3, 10233 AS base4, parenthesis    AS target FROM lig3 NATURAL INNER JOIN enclosed INNER JOIN glyphLabels AS s1 ON src1 = s1.glyphName INNER JOIN glyphLabels AS s2 ON src2 = s2.glyphName INNER JOIN glyphLabels AS s3 ON src3 = s3.glyphName WHERE parenthesis    IS NOT NULL
-UNION SELECT 40 AS feat, s1.CID AS base1, s2.CID AS base2, s3.CID AS base3, 16328 AS base4, circle         AS target FROM lig3 NATURAL INNER JOIN enclosed INNER JOIN glyphLabels AS s1 ON src1 = s1.glyphName INNER JOIN glyphLabels AS s2 ON src2 = s2.glyphName INNER JOIN glyphLabels AS s3 ON src3 = s3.glyphName WHERE circle         IS NOT NULL
-UNION SELECT 40 AS feat, s1.CID AS base1, s2.CID AS base2, s3.CID AS base3, 10763 AS base4, circleRev      AS target FROM lig3 NATURAL INNER JOIN enclosed INNER JOIN glyphLabels AS s1 ON src1 = s1.glyphName INNER JOIN glyphLabels AS s2 ON src2 = s2.glyphName INNER JOIN glyphLabels AS s3 ON src3 = s3.glyphName WHERE circleRev      IS NOT NULL
-UNION SELECT 40 AS feat, s1.CID AS base1, s2.CID AS base2, s3.CID AS base3, 11035 AS base4, square         AS target FROM lig3 NATURAL INNER JOIN enclosed INNER JOIN glyphLabels AS s1 ON src1 = s1.glyphName INNER JOIN glyphLabels AS s2 ON src2 = s2.glyphName INNER JOIN glyphLabels AS s3 ON src3 = s3.glyphName WHERE square         IS NOT NULL
-UNION SELECT 40 AS feat, s1.CID AS base1, s2.CID AS base2, s3.CID AS base3, 11306 AS base4, squareRev      AS target FROM lig3 NATURAL INNER JOIN enclosed INNER JOIN glyphLabels AS s1 ON src1 = s1.glyphName INNER JOIN glyphLabels AS s2 ON src2 = s2.glyphName INNER JOIN glyphLabels AS s3 ON src3 = s3.glyphName WHERE squareRev      IS NOT NULL
-UNION SELECT 40 AS feat, s1.CID AS base1, s2.CID AS base2, s3.CID AS base3,  8015 AS base4, roundSquare    AS target FROM lig3 NATURAL INNER JOIN enclosed INNER JOIN glyphLabels AS s1 ON src1 = s1.glyphName INNER JOIN glyphLabels AS s2 ON src2 = s2.glyphName INNER JOIN glyphLabels AS s3 ON src3 = s3.glyphName WHERE roundSquare    IS NOT NULL
-UNION SELECT 40 AS feat, s1.CID AS base1, s2.CID AS base2, s3.CID AS base3, 11845 AS base4, roundSquareRev AS target FROM lig3 NATURAL INNER JOIN enclosed INNER JOIN glyphLabels AS s1 ON src1 = s1.glyphName INNER JOIN glyphLabels AS s2 ON src2 = s2.glyphName INNER JOIN glyphLabels AS s3 ON src3 = s3.glyphName WHERE roundSquareRev IS NOT NULL
+SELECT 40 AS feat, part1 AS base1, part2 AS base2, part3 AS base3, part4 AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, ligature AS target FROM compositeCID
+UNION SELECT 40 AS feat, CID AS base1, 10233 AS base2, NULL AS base3, NULL AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, parenthesis    AS target FROM glyphLabels NATURAL INNER JOIN enclosed WHERE parenthesis    IS NOT NULL
+UNION SELECT 40 AS feat, CID AS base1, 16328 AS base2, NULL AS base3, NULL AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, circle         AS target FROM glyphLabels NATURAL INNER JOIN enclosed WHERE circle         IS NOT NULL
+UNION SELECT 40 AS feat, CID AS base1, 10763 AS base2, NULL AS base3, NULL AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, circleRev      AS target FROM glyphLabels NATURAL INNER JOIN enclosed WHERE circleRev      IS NOT NULL
+UNION SELECT 40 AS feat, CID AS base1, 11035 AS base2, NULL AS base3, NULL AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, square         AS target FROM glyphLabels NATURAL INNER JOIN enclosed WHERE square         IS NOT NULL
+UNION SELECT 40 AS feat, CID AS base1, 11306 AS base2, NULL AS base3, NULL AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, squareRev      AS target FROM glyphLabels NATURAL INNER JOIN enclosed WHERE squareRev      IS NOT NULL
+UNION SELECT 40 AS feat, CID AS base1,  8015 AS base2, NULL AS base3, NULL AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, roundSquare    AS target FROM glyphLabels NATURAL INNER JOIN enclosed WHERE roundSquare    IS NOT NULL
+UNION SELECT 40 AS feat, CID AS base1, 11845 AS base2, NULL AS base3, NULL AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, roundSquareRev AS target FROM glyphLabels NATURAL INNER JOIN enclosed WHERE roundSquareRev IS NOT NULL
+UNION SELECT 40 AS feat, s1.CID AS base1, s2.CID AS base2, 10233 AS base3, NULL AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, parenthesis    AS target FROM lig2 NATURAL INNER JOIN enclosed INNER JOIN glyphLabels AS s1 ON src1 = s1.glyphName INNER JOIN glyphLabels AS s2 ON src2 = s2.glyphName WHERE parenthesis    IS NOT NULL
+UNION SELECT 40 AS feat, s1.CID AS base1, s2.CID AS base2, 16328 AS base3, NULL AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, circle         AS target FROM lig2 NATURAL INNER JOIN enclosed INNER JOIN glyphLabels AS s1 ON src1 = s1.glyphName INNER JOIN glyphLabels AS s2 ON src2 = s2.glyphName WHERE circle         IS NOT NULL
+UNION SELECT 40 AS feat, s1.CID AS base1, s2.CID AS base2, 10763 AS base3, NULL AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, circleRev      AS target FROM lig2 NATURAL INNER JOIN enclosed INNER JOIN glyphLabels AS s1 ON src1 = s1.glyphName INNER JOIN glyphLabels AS s2 ON src2 = s2.glyphName WHERE circleRev      IS NOT NULL
+UNION SELECT 40 AS feat, s1.CID AS base1, s2.CID AS base2, 11035 AS base3, NULL AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, square         AS target FROM lig2 NATURAL INNER JOIN enclosed INNER JOIN glyphLabels AS s1 ON src1 = s1.glyphName INNER JOIN glyphLabels AS s2 ON src2 = s2.glyphName WHERE square         IS NOT NULL
+UNION SELECT 40 AS feat, s1.CID AS base1, s2.CID AS base2, 11306 AS base3, NULL AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, squareRev      AS target FROM lig2 NATURAL INNER JOIN enclosed INNER JOIN glyphLabels AS s1 ON src1 = s1.glyphName INNER JOIN glyphLabels AS s2 ON src2 = s2.glyphName WHERE squareRev      IS NOT NULL
+UNION SELECT 40 AS feat, s1.CID AS base1, s2.CID AS base2,  8015 AS base3, NULL AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, roundSquare    AS target FROM lig2 NATURAL INNER JOIN enclosed INNER JOIN glyphLabels AS s1 ON src1 = s1.glyphName INNER JOIN glyphLabels AS s2 ON src2 = s2.glyphName WHERE roundSquare    IS NOT NULL
+UNION SELECT 40 AS feat, s1.CID AS base1, s2.CID AS base2, 11845 AS base3, NULL AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, roundSquareRev AS target FROM lig2 NATURAL INNER JOIN enclosed INNER JOIN glyphLabels AS s1 ON src1 = s1.glyphName INNER JOIN glyphLabels AS s2 ON src2 = s2.glyphName WHERE roundSquareRev IS NOT NULL
+UNION SELECT 40 AS feat, s1.CID AS base1, s2.CID AS base2, s3.CID AS base3, 10233 AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, parenthesis    AS target FROM lig3 NATURAL INNER JOIN enclosed INNER JOIN glyphLabels AS s1 ON src1 = s1.glyphName INNER JOIN glyphLabels AS s2 ON src2 = s2.glyphName INNER JOIN glyphLabels AS s3 ON src3 = s3.glyphName WHERE parenthesis    IS NOT NULL
+UNION SELECT 40 AS feat, s1.CID AS base1, s2.CID AS base2, s3.CID AS base3, 16328 AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, circle         AS target FROM lig3 NATURAL INNER JOIN enclosed INNER JOIN glyphLabels AS s1 ON src1 = s1.glyphName INNER JOIN glyphLabels AS s2 ON src2 = s2.glyphName INNER JOIN glyphLabels AS s3 ON src3 = s3.glyphName WHERE circle         IS NOT NULL
+UNION SELECT 40 AS feat, s1.CID AS base1, s2.CID AS base2, s3.CID AS base3, 10763 AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, circleRev      AS target FROM lig3 NATURAL INNER JOIN enclosed INNER JOIN glyphLabels AS s1 ON src1 = s1.glyphName INNER JOIN glyphLabels AS s2 ON src2 = s2.glyphName INNER JOIN glyphLabels AS s3 ON src3 = s3.glyphName WHERE circleRev      IS NOT NULL
+UNION SELECT 40 AS feat, s1.CID AS base1, s2.CID AS base2, s3.CID AS base3, 11035 AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, square         AS target FROM lig3 NATURAL INNER JOIN enclosed INNER JOIN glyphLabels AS s1 ON src1 = s1.glyphName INNER JOIN glyphLabels AS s2 ON src2 = s2.glyphName INNER JOIN glyphLabels AS s3 ON src3 = s3.glyphName WHERE square         IS NOT NULL
+UNION SELECT 40 AS feat, s1.CID AS base1, s2.CID AS base2, s3.CID AS base3, 11306 AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, squareRev      AS target FROM lig3 NATURAL INNER JOIN enclosed INNER JOIN glyphLabels AS s1 ON src1 = s1.glyphName INNER JOIN glyphLabels AS s2 ON src2 = s2.glyphName INNER JOIN glyphLabels AS s3 ON src3 = s3.glyphName WHERE squareRev      IS NOT NULL
+UNION SELECT 40 AS feat, s1.CID AS base1, s2.CID AS base2, s3.CID AS base3,  8015 AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, roundSquare    AS target FROM lig3 NATURAL INNER JOIN enclosed INNER JOIN glyphLabels AS s1 ON src1 = s1.glyphName INNER JOIN glyphLabels AS s2 ON src2 = s2.glyphName INNER JOIN glyphLabels AS s3 ON src3 = s3.glyphName WHERE roundSquare    IS NOT NULL
+UNION SELECT 40 AS feat, s1.CID AS base1, s2.CID AS base2, s3.CID AS base3, 11845 AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, roundSquareRev AS target FROM lig3 NATURAL INNER JOIN enclosed INNER JOIN glyphLabels AS s1 ON src1 = s1.glyphName INNER JOIN glyphLabels AS s2 ON src2 = s2.glyphName INNER JOIN glyphLabels AS s3 ON src3 = s3.glyphName WHERE roundSquareRev IS NOT NULL
+UNION SELECT 42 AS feat, s1.CID AS base1, s2.CID AS base2, s3.CID AS base3, s4.CID AS base4, s5.CID AS base5, s6.CID AS base6, s7.CID AS base7, s8.CID AS base8, kumimoji.CID AS target FROM kumimoji
+LEFT JOIN glyphLabels AS s1 ON src1 = s1.glyphName LEFT JOIN glyphLabels AS s2 ON src2 = s2.glyphName LEFT JOIN glyphLabels AS s3 ON src3 = s3.glyphName LEFT JOIN glyphLabels AS s4 ON src4 = s4.glyphName
+LEFT JOIN glyphLabels AS s5 ON src5 = s5.glyphName LEFT JOIN glyphLabels AS s6 ON src6 = s6.glyphName LEFT JOIN glyphLabels AS s7 ON src7 = s7.glyphName LEFT JOIN glyphLabels AS s8 ON src8 = s8.glyphName
 ORDER BY feat, target;
 CREATE VIEW featureList AS
-SELECT feat, fromCID AS base1, NULL AS base2, NULL AS base3, NULL AS base4, toCID AS target FROM oneToOneFeat
-UNION SELECT feat, base1, base2, base3, base4, target FROM compositeFeat
+SELECT feat, fromCID AS base1, NULL AS base2, NULL AS base3, NULL AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, toCID AS target FROM oneToOneFeat
+UNION SELECT feat, base1, base2, base3, base4, base5, base6, base7, base8, target FROM compositeFeat
 ORDER BY feat;
 CREATE VIEW features AS
-SELECT featTag, base1, base2, base3, base4, target FROM featureCode INNER JOIN featureList ON featID = feat;
+SELECT featTag, base1, base2, base3, base4, base5, base6, base7, base8, target FROM featureCode INNER JOIN featureList ON featID = feat;
 COMMIT;
