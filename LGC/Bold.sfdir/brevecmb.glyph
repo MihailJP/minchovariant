@@ -1,0 +1,16 @@
+StartChar: brevecmb
+Encoding: 774 774 668
+Width: 0
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+-466 784 m 1
+ -430 784 l 1
+ -423 698 -325 687 -288 687 c 0
+ -252 687 -153 698 -147 784 c 1
+ -111 784 l 1
+ -115 679 -205 625 -288 625 c 0
+ -376 625 -463 683 -466 784 c 1
+EndSplineSet
+EndChar

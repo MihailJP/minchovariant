@@ -1,0 +1,14 @@
+StartChar: dotaccentcmb
+Encoding: 775 775 672
+Width: 0
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+-179 749 m 0
+ -179 780 -153 802 -126 802 c 0
+ -99 802 -74 780 -74 749 c 0
+ -74 718 -100 697 -126 697 c 0
+ -157 697 -179 723 -179 749 c 0
+EndSplineSet
+EndChar
