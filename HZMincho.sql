@@ -2255,6 +2255,16 @@ INSERT INTO kumimoji VALUES(8033, 'G', 'B', NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO kumimoji VALUES(8035, 'H', 'z', NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO kumimoji VALUES(8036, 'm', 'b', NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO kumimoji VALUES(8037, 'm', 'liter', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO kumimoji VALUES(8053, 'K', 'K', 'period', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO kumimoji VALUES(8182, 'i', 'n', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO kumimoji VALUES(8186, 'm', 'm', 'two.superior', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO kumimoji VALUES(8187, 'm', 'm', 'three.superior', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO kumimoji VALUES(8188, 'k', 'm', 'three.superior', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO kumimoji VALUES(8189, 's', 'e', 'c', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO kumimoji VALUES(8190, 'm', 'i', 'n', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO kumimoji VALUES(8192, 'c', 'a', 'l', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO kumimoji VALUES(8193, 'k', 'c', 'a', 'l', NULL, NULL, NULL, NULL);
+INSERT INTO kumimoji VALUES(8194, 'd', 'B', NULL, NULL, NULL, NULL, NULL, NULL);
 CREATE VIEW glyphLabels AS
 SELECT glyphName, pwid AS CID FROM lgcGlyphs WHERE pwid IS NOT NULL
 UNION SELECT glyphName, fwid AS CID FROM lgcGlyphs WHERE fwid IS NOT NULL
