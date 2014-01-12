@@ -2254,7 +2254,7 @@ INSERT INTO kumimoji VALUES(7612, 'T', 'E', 'L', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO kumimoji VALUES(8020, 'c', 'm', 'two.superior', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO kumimoji VALUES(8021, 'k', 'm', 'two.superior', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO kumimoji VALUES(8022, 'c', 'm', 'three.superior', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO kumimoji VALUES(8023, 'm', 'm', 'three.superior', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO kumimoji VALUES(8023, 'm', 'three.superior', NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO kumimoji VALUES(8024, 'd', 'liter', NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO kumimoji VALUES(8026, 'k', 'liter', NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO kumimoji VALUES(8027, 'm', 's', NULL, NULL, NULL, NULL, NULL, NULL);
@@ -2309,7 +2309,7 @@ INSERT INTO kumimoji VALUES(11864, 'micro', 'g', NULL, NULL, NULL, NULL, NULL, N
 INSERT INTO kumimoji VALUES(11865, 'micro', 'm', NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO kumimoji VALUES(11866, 'm', 'l', NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO kumimoji VALUES(11867, 'm', 'slash', 'm', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO kumimoji VALUES(11868, 'm', 'slash', 'm', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO kumimoji VALUES(11868, 'n', 'slash', 'm', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO kumimoji VALUES(11869, 'p', 'H', NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO kumimoji VALUES(11870, 'p', 'period', 'm', 'period', NULL, NULL, NULL, NULL);
 INSERT INTO kumimoji VALUES(20523, 'zero', 'multiply', NULL, NULL, NULL, NULL, NULL, NULL);
@@ -2516,7 +2516,7 @@ INSERT INTO kumimoji VALUES(20817, 'comma', 'eight', NULL, NULL, NULL, NULL, NUL
 INSERT INTO kumimoji VALUES(20818, 'comma', 'nine', NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO kumimoji VALUES(20819, 'p', 'p', 'b', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO kumimoji VALUES(20820, 'p', 'p', 'm', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO kumimoji VALUES(20821, 'apostrophe', 'S', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO kumimoji VALUES(20821, 'quotesingle', 'S', NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO kumimoji VALUES(20822, 'H', 'two.inferior', NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO kumimoji VALUES(20823, 'O', 'two.inferior', NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO kumimoji VALUES(20824, 'O', 'x', NULL, NULL, NULL, NULL, NULL, NULL);
