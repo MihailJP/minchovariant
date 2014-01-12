@@ -1684,6 +1684,15 @@
 12042	u337d-vert
 12043	u337c-vert
 12044	u337b-vert
+12045	kumimoji-u2ff1-u2ff0-u533b-u7642-u2ff0-u6cd5-u4eba
+12046	kumimoji-u2ff1-u2ff0-u5b66-u6821-u2ff0-u6cd5-u4eba
+12047	kumimoji-u2ff1-u2ff0-u5171-u540c-u2ff0-u7d44-u5408
+12048	kumimoji-u2ff1-u2ff0-u5354-u540c-u2ff0-u7d44-u5408
+12049	kumimoji-u2ff1-u2ff0-u5408-u8cc7-u2ff0-u4f1a-u793e
+12050	kumimoji-u2ff1-u2ff0-u5408-u540d-u2ff0-u4f1a-u793e
+12051	kumimoji-u2ff1-u2ff0-u793e-u56e3-u2ff0-u6cd5-u4eba
+12052	kumimoji-u2ff1-u2ff0-u5b97-u6559-u2ff0-u6cd5-u4eba
+12053	kumimoji-u2ff1-u2ff0-u90f5-u4fbf-u2ff0-u756a-u53f7
 12089	u2135
 12090	u03d0
 12092	u210f
