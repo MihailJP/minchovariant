@@ -81,7 +81,7 @@ glyphs.txt: groups/cidalias.txt
 	cat $^ | sort | uniq > $@
 
 LGC/Makefile: HZMincho.db LGC/metamake.rb
-	LGC/metamake.rb > $@
+	cd LGC && (./metamake.rb > Makefile)
 
 mincho1/Makefile: $(METAMAKE_DEPS)
 	mkdir -p mincho1
