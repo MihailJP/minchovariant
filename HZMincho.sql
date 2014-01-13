@@ -2846,6 +2846,7 @@ CREATE VIEW glyphLabels AS
 SELECT glyphName, pwid AS CID FROM lgcGlyphs WHERE pwid IS NOT NULL
 UNION SELECT glyphName, fwid AS CID FROM lgcGlyphs WHERE fwid IS NOT NULL
 UNION SELECT label AS glyphName, CID FROM cjkLabel
+UNION SELECT label AS glyphName, horizontalFull AS CID FROM kana
 ORDER BY glyphName;
 CREATE VIEW compositeFeat AS
 SELECT 40 AS feat, part1 AS base1, part2 AS base2, part3 AS base3, part4 AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, ligature AS target FROM compositeCID
