@@ -827,6 +827,7 @@ CREATE TABLE featureCode (featID INTEGER PRIMARY KEY NOT NULL, featTag TEXT NOT 
 INSERT INTO featureCode VALUES(10, 'vert', 0);
 INSERT INTO featureCode VALUES(11, 'vrt2', 0);
 INSERT INTO featureCode VALUES(12, 'vkna', 0);
+INSERT INTO featureCode VALUES(14, 'ruby', 0);
 INSERT INTO featureCode VALUES(20, 'pwid', 0);
 INSERT INTO featureCode VALUES(21, 'hwid', 0);
 INSERT INTO featureCode VALUES(22, 'qwid', 0);
@@ -1525,7 +1526,7 @@ INSERT INTO kana VALUES('ヶ', 1010, 395, 7939, 9152, 12787, 12861, 1);
 INSERT INTO kana VALUES('ー', 660, 342, 7891, 9100, 12867, 12868, 1);
 INSERT INTO kana VALUES('voicedmark', 643, 388, NULL, 9146, NULL, NULL, 1);
 INSERT INTO kana VALUES('semivoicedmark', 644, 389, NULL, 9147, NULL, NULL, 1);
-INSERT INTO kana VALUES('triangle', 731, 629, NULL, 9353, NULL, NULL, 0);
+INSERT INTO kana VALUES('triangle', 731, 629, NULL, 9353, 12648, NULL, 0);
 INSERT INTO kana VALUES('u2500', 7479, 425, NULL, 9277, NULL, NULL, 0);
 INSERT INTO kana VALUES('u2501', 7480, 426, NULL, 9278, NULL, NULL, 0);
 INSERT INTO kana VALUES('u2502', 7481, 427, NULL, 9279, NULL, NULL, 0);
@@ -1609,8 +1610,8 @@ INSERT INTO kana VALUES('ideographiccomma', 634, 330, NULL, 9088, NULL, NULL, 0)
 INSERT INTO kana VALUES('dotkatakana', 638, 331, NULL, 9089, NULL, NULL, 0);
 INSERT INTO kana VALUES('u301D', 7608, 423, 7956, 9263, NULL, NULL, 0);
 INSERT INTO kana VALUES('u301F', 7609, 424, 7957, 9264, NULL, NULL, 0);
-INSERT INTO kana VALUES('tortoiseshellbracketleft', 676, 504, NULL, 9265, NULL, NULL, 0);
-INSERT INTO kana VALUES('tortoiseshellbracketright', 677, 505, NULL, 9266, NULL, NULL, 0);
+INSERT INTO kana VALUES('tortoiseshellbracketleft', 676, 504, NULL, 9265, 12655, 12659, 0);
+INSERT INTO kana VALUES('tortoiseshellbracketright', 677, 505, NULL, 9266, 12656, 12660, 0);
 INSERT INTO kana VALUES('anglebracketleft', 682, 506, NULL, 9267, NULL, NULL, 0);
 INSERT INTO kana VALUES('anglebracketright', 683, 507, NULL, 9268, NULL, NULL, 0);
 INSERT INTO kana VALUES('dblanglebracketleft', 684, 508, NULL, 9269, NULL, NULL, 0);
@@ -1642,6 +1643,29 @@ INSERT INTO kana VALUES('rusmallkatakana', 16250, NULL, 16347, NULL, NULL, NULL,
 INSERT INTO kana VALUES('resmallkatakana', 16251, NULL, 16348, NULL, NULL, NULL, 1);
 INSERT INTO kana VALUES('rosmallkatakana', 16252, NULL, 16349, NULL, NULL, NULL, 1);
 INSERT INTO kana VALUES('dittosignkana', 12106, NULL, 12107, NULL, NULL, NULL, 1);
+INSERT INTO kana VALUES('blackcircle', 724, NULL, NULL, NULL, 12641, NULL, 0);
+INSERT INTO kana VALUES('asteriskmonospace', 718, NULL, NULL, NULL, 12642, NULL, 0);
+INSERT INTO kana VALUES('referencemark', 734, NULL, NULL, NULL, 12643, NULL, 0);
+INSERT INTO kana VALUES('whitecircle', 723, NULL, NULL, NULL, 12644, NULL, 0);
+INSERT INTO kana VALUES('bullseye', 725, NULL, NULL, NULL, 12645, NULL, 0);
+INSERT INTO kana VALUES('fisheye', 8210, NULL, NULL, NULL, 12646, NULL, 0);
+INSERT INTO kana VALUES('whitetriangle', 730, NULL, NULL, NULL, 12647, NULL, 0);
+INSERT INTO kana VALUES('iterationkatakana', 651, NULL, NULL, NULL, 12649, NULL, 0);
+INSERT INTO kana VALUES('voicediterationkatakana', 652, NULL, NULL, NULL, 12650, NULL, 0);
+INSERT INTO kana VALUES('iterationhiragana', 653, NULL, NULL, NULL, 12651, NULL, 0);
+INSERT INTO kana VALUES('voicediterationhiragana', 654, NULL, NULL, NULL, 12652, NULL, 0);
+INSERT INTO kana VALUES('parenleftmonospace', 674, 239, 7899, 8958, 12653, 12657, 0);
+INSERT INTO kana VALUES('parenrightmonospace', 675, 240, 7900, 8959, 12654, 12658, 0);
+INSERT INTO kana VALUES('zero', 780, 247, NULL, 8966, 12661, NULL, 0);
+INSERT INTO kana VALUES('one', 781, 248, NULL, 8967, 12662, NULL, 0);
+INSERT INTO kana VALUES('two', 782, 249, NULL, 8968, 12663, NULL, 0);
+INSERT INTO kana VALUES('three', 783, 250, NULL, 8969, 12664, NULL, 0);
+INSERT INTO kana VALUES('four', 784, 251, NULL, 8970, 12665, NULL, 0);
+INSERT INTO kana VALUES('five', 785, 252, NULL, 8971, 12666, NULL, 0);
+INSERT INTO kana VALUES('six', 786, 253, NULL, 8972, 12667, NULL, 0);
+INSERT INTO kana VALUES('seven', 787, 254, NULL, 8973, 12668, NULL, 0);
+INSERT INTO kana VALUES('eight', 788, 255, NULL, 8974, 12669, NULL, 0);
+INSERT INTO kana VALUES('nine', 789, 256, NULL, 8975, 12670, NULL, 0);
 CREATE TABLE cjkLabel (label TEXT PRIMARY KEY NOT NULL, CID INTEGER NOT NULL);
 INSERT INTO cjkLabel VALUES('Unus', 7575);
 INSERT INTO cjkLabel VALUES('Duo', 7576);
@@ -1950,6 +1974,7 @@ UNION SELECT zeroNoSlash.rotItal AS fromCID, zeroWithSlash.rotItal AS toCID FROM
 CREATE VIEW oneToOneFeat AS
 SELECT 10 AS feat, horizontal AS fromCID, vertical AS toCID FROM vert
 UNION SELECT 10 AS feat, horizontalFull AS fromCID, verticalFull AS toCID FROM kana WHERE horizontalFull IS NOT NULL AND verticalFull IS NOT NULL
+UNION SELECT 10 AS feat, horizontalRuby AS fromCID, verticalRuby AS toCID FROM kana WHERE horizontalRuby IS NOT NULL AND verticalRuby IS NOT NULL
 UNION SELECT 10 AS feat, horizontal AS fromCID, vertical AS toCID FROM cjkKumimoji WHERE horizontal IS NOT NULL AND vertical IS NOT NULL
 UNION SELECT 11 AS feat, horizontal AS fromCID, vertical AS toCID FROM vert
 UNION SELECT 11 AS feat, horizontal AS fromCID, vertical AS toCID FROM vrt2
@@ -1960,8 +1985,10 @@ UNION SELECT 11 AS feat, twid AS fromCID, rotTwid AS toCID FROM lgcGlyphs WHERE 
 UNION SELECT 11 AS feat, ital AS fromCID, rotItal AS toCID FROM lgcGlyphs WHERE ital IS NOT NULL AND rotItal IS NOT NULL
 UNION SELECT 11 AS feat, horizontalFull AS fromCID, verticalFull AS toCID FROM kana WHERE horizontalFull IS NOT NULL AND verticalFull IS NOT NULL
 UNION SELECT 11 AS feat, horizontalHalf AS fromCID, verticalHalf AS toCID FROM kana WHERE horizontalHalf IS NOT NULL AND verticalHalf IS NOT NULL
+UNION SELECT 11 AS feat, horizontalRuby AS fromCID, verticalRuby AS toCID FROM kana WHERE horizontalRuby IS NOT NULL AND verticalRuby IS NOT NULL
 UNION SELECT 11 AS feat, horizontal AS fromCID, vertical AS toCID FROM cjkKumimoji WHERE horizontal IS NOT NULL AND vertical IS NOT NULL
-UNION SELECT 12 AS feat, horizontalFull AS fromCID, verticalFull AS toCID FROM kana WHERE horizontalFull IS NOT NULL AND verticalFull IS NOT NULL
+UNION SELECT 14 AS feat, horizontalFull AS fromCID, horizontalRuby AS toCID FROM kana WHERE horizontalFull IS NOT NULL AND horizontalRuby IS NOT NULL
+UNION SELECT 14 AS feat, verticalFull AS fromCID, verticalRuby AS toCID FROM kana WHERE verticalFull IS NOT NULL AND verticalRuby IS NOT NULL
 UNION SELECT 20 AS feat, hwid AS fromCID, pwid AS toCID FROM lgcGlyphs WHERE hwid IS NOT NULL AND pwid IS NOT NULL
 UNION SELECT 20 AS feat, qwid AS fromCID, pwid AS toCID FROM lgcGlyphs WHERE qwid IS NOT NULL AND pwid IS NOT NULL
 UNION SELECT 20 AS feat, twid AS fromCID, pwid AS toCID FROM lgcGlyphs WHERE twid IS NOT NULL AND pwid IS NOT NULL
