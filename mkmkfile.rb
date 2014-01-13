@@ -89,6 +89,8 @@ rotcjk.otf: rotcjk.sfd
 
 enclosed.otf: enclosed-base.otf work.otf
 	../enclose.py $^ $@
+ruby.otf: ruby-base.otf work.otf
+	../enclose.py $^ $@
 
 #{target.sub(/\..+?$/, '.raw')}: work.otf cidfontinfo enclosed.otf rotcjk.otf #{fontDB.execute("SELECT fontFile FROM subFont WHERE lgcFontTag IS NOT NULL").flatten.join(" ")}
 	$(MERGEFONTS) -cid cidfontinfo $@ #{cidmap.gsub(/\r?\n/, " ")}
