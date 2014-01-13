@@ -4,7 +4,7 @@ require 'sqlite3'
 DBFileName = 'HZMincho.db'
 if not File.exist?(DBFileName) then raise IOError, "Database '#{DBFileName}' not found" end
 fontDB = SQLite3::Database.new(DBFileName)
-Features = fontDB.execute("SELECT featTag FROM featureCode").flatten
+Features = fontDB.execute("SELECT featTag, isLarge FROM featureCode")
 
 print <<FINIS
 table head {
@@ -36,13 +36,21 @@ languagesystem cyrl dflt;
 FINIS
 
 Features.each {|featName|
-	print("feature #{featName} {\n")
-	fontDB.execute("SELECT base1, base2, base3, base4, target FROM features WHERE featTag = '#{featName}'") {|featDat|
+	if featName[1] != 0 then
+		print("lookup #{featName[0]}Lookup useExtension {\n")
+	else
+		print("feature #{featName[0]} {\n")
+	end
+	fontDB.execute("SELECT base1, base2, base3, base4, base5, base6, base7, base8, target FROM features WHERE featTag = '#{featName[0]}'") {|featDat|
 		print "\tsub "
 		for i in 0...(featDat.length - 1)
 			if featDat[i] then print "\\#{featDat[i]} " end
 		end
 		print "by \\#{featDat[-1]};\n"
 	}
-	print("} #{featName};\n")
+	if featName[1] != 0 then
+		print("} #{featName[0]}Lookup;\nfeature #{featName[0]} {\n\tlookup #{featName[0]}Lookup;\n} #{featName[0]};\n")
+	else
+		print("} #{featName[0]};\n")
+	end
 }
