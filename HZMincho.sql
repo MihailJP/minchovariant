@@ -820,7 +820,8 @@ ORDER BY CID;
 CREATE TABLE featureCode (featID INTEGER PRIMARY KEY NOT NULL, featTag TEXT NOT NULL, isLarge BOOLEAN NOT NULL);
 INSERT INTO featureCode VALUES(10, 'vert', 0);
 INSERT INTO featureCode VALUES(11, 'vrt2', 0);
-INSERT INTO featureCode VALUES(12, 'vkna', 0);
+INSERT INTO featureCode VALUES(12, 'hkna', 0);
+INSERT INTO featureCode VALUES(13, 'vkna', 0);
 INSERT INTO featureCode VALUES(14, 'ruby', 0);
 INSERT INTO featureCode VALUES(20, 'pwid', 0);
 INSERT INTO featureCode VALUES(21, 'hwid', 0);
@@ -1898,6 +1899,9 @@ UNION SELECT 11 AS feat, horizontalFull AS fromCID, verticalFull AS toCID FROM k
 UNION SELECT 11 AS feat, horizontalHalf AS fromCID, verticalHalf AS toCID FROM kana WHERE horizontalHalf IS NOT NULL AND verticalHalf IS NOT NULL
 UNION SELECT 11 AS feat, horizontalRuby AS fromCID, verticalRuby AS toCID FROM kana WHERE horizontalRuby IS NOT NULL AND verticalRuby IS NOT NULL
 UNION SELECT 11 AS feat, horizontal AS fromCID, vertical AS toCID FROM cjkKumimoji WHERE horizontal IS NOT NULL AND vertical IS NOT NULL
+UNION SELECT 12 AS feat, horizontalFull AS fromCID, horizontalTune AS toCID FROM kana WHERE horizontalFull IS NOT NULL AND horizontalTune IS NOT NULL
+UNION SELECT 13 AS feat, horizontalFull AS fromCID, verticalTune AS toCID FROM kana WHERE horizontalFull IS NOT NULL AND verticalTune IS NOT NULL
+UNION SELECT 13 AS feat, verticalFull AS fromCID, verticalTune AS toCID FROM kana WHERE verticalFull IS NOT NULL AND verticalTune IS NOT NULL
 UNION SELECT 14 AS feat, horizontalFull AS fromCID, horizontalRuby AS toCID FROM kana WHERE horizontalFull IS NOT NULL AND horizontalRuby IS NOT NULL
 UNION SELECT 14 AS feat, verticalFull AS fromCID, verticalRuby AS toCID FROM kana WHERE verticalFull IS NOT NULL AND verticalRuby IS NOT NULL
 UNION SELECT 20 AS feat, hwid AS fromCID, pwid AS toCID FROM lgcGlyphs WHERE hwid IS NOT NULL AND pwid IS NOT NULL
