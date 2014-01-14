@@ -704,6 +704,7 @@ INSERT INTO lgcFont VALUES('ROTATEDQUARTER', 'Rotated-Third-', '.sfd', 'rq', NUL
 INSERT INTO lgcFont VALUES('ROTATEDTHIRD', 'Rotated-Quarter-', '.sfd', 'rt', NULL);
 INSERT INTO lgcFont VALUES('ROTATEDITALIC', 'Rotated-', '-Italic.sfd', 'ri', NULL);
 INSERT INTO lgcFont VALUES('RUBYFONT', 'Ruby-', '.sfdir', 'ruby', NULL);
+INSERT INTO lgcFont VALUES('PROPORTIONALKANA', 'KanaP-', '.sfdir', 'pkna', NULL);
 CREATE TABLE subFont (FontID INTEGER PRIMARY KEY NOT NULL, mapFile TEXT NOT NULL, fontName TEXT NOT NULL, fontFile TEXT NOT NULL, procBaseFont TEXT, lgcFontTag TEXT, FOREIGN KEY(lgcFontTag) REFERENCES lgcFont(fontTag));
 INSERT INTO subFont VALUES(0,'cidpua.map','Japanese','work.otf', NULL, NULL);
 INSERT INTO subFont VALUES(1,'cidpua-blockelem.map','BlockElem','../mincho3/work.otf', NULL, NULL);
@@ -712,6 +713,7 @@ INSERT INTO subFont VALUES(3,'cidpua-enclosed.map','Enclosed','enclosed.otf', 'e
 INSERT INTO subFont VALUES(4,'cidpua-kumimoji.map','Kumimoji','kumimoji.otf', NULL, 'KUMIMOJI');
 INSERT INTO subFont VALUES(5,'cidpua-rot.map','RotCJK','rotcjk.otf', NULL, NULL);
 INSERT INTO subFont VALUES(6,'cidpua-ruby.map','Ruby','ruby.otf', 'ruby-base.otf', 'RUBYFONT');
+INSERT INTO subFont VALUES(7,'cidpua-kanap.map','KanaP','kanap.otf', 'kanap-base.otf', 'PROPORTIONALKANA');
 INSERT INTO subFont VALUES(10,'lgc.map','LGC','lgc.otf', NULL, 'SRCFONT');
 INSERT INTO subFont VALUES(11,'lgc-fixed.map','Fixed','fixed.otf', NULL, 'FIXEDFONT');
 INSERT INTO subFont VALUES(12,'lgc-third.map','ThirdWidth','third.otf', NULL, 'THIRDWIDTH');
@@ -785,6 +787,9 @@ CREATE TABLE cjkCID (CID INTEGER NOT NULL, fontID INTEGER NOT NULL, FOREIGN KEY(
 -- CJKCID 9084 9353 5
 -- CJKCID 12639 12869 6
 -- CJKCID 16412 16468 6
+-- CJKCID 15449 15452 7
+-- CJKCID 15455 15455 7
+-- CJKCID 15517 15724 7
 CREATE VIEW lgcCID AS
 SELECT pwid AS CID, 10 AS fontID, glyphName FROM lgcGlyphs WHERE pwid IS NOT NULL
 UNION SELECT hwid AS CID, 11 AS fontID, glyphName FROM lgcGlyphs WHERE hwid IS NOT NULL
@@ -824,6 +829,7 @@ INSERT INTO featureCode VALUES(11, 'vrt2', 0);
 INSERT INTO featureCode VALUES(12, 'hkna', 0);
 INSERT INTO featureCode VALUES(13, 'vkna', 0);
 INSERT INTO featureCode VALUES(14, 'ruby', 0);
+INSERT INTO featureCode VALUES(15, 'pkna', 0);
 INSERT INTO featureCode VALUES(20, 'pwid', 0);
 INSERT INTO featureCode VALUES(21, 'hwid', 0);
 INSERT INTO featureCode VALUES(22, 'qwid', 0);
@@ -1907,6 +1913,7 @@ UNION SELECT 13 AS feat, horizontalFull AS fromCID, verticalTune AS toCID FROM k
 UNION SELECT 13 AS feat, verticalFull AS fromCID, verticalTune AS toCID FROM kana WHERE verticalFull IS NOT NULL AND verticalTune IS NOT NULL
 UNION SELECT 14 AS feat, horizontalFull AS fromCID, horizontalRuby AS toCID FROM kana WHERE horizontalFull IS NOT NULL AND horizontalRuby IS NOT NULL
 UNION SELECT 14 AS feat, verticalFull AS fromCID, verticalRuby AS toCID FROM kana WHERE verticalFull IS NOT NULL AND verticalRuby IS NOT NULL
+UNION SELECT 15 AS feat, horizontalFull AS fromCID, proportional AS toCID FROM kana WHERE horizontalFull IS NOT NULL AND proportional IS NOT NULL
 UNION SELECT 20 AS feat, hwid AS fromCID, pwid AS toCID FROM lgcGlyphs WHERE hwid IS NOT NULL AND pwid IS NOT NULL
 UNION SELECT 20 AS feat, qwid AS fromCID, pwid AS toCID FROM lgcGlyphs WHERE qwid IS NOT NULL AND pwid IS NOT NULL
 UNION SELECT 20 AS feat, twid AS fromCID, pwid AS toCID FROM lgcGlyphs WHERE twid IS NOT NULL AND pwid IS NOT NULL
