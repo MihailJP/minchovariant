@@ -15,7 +15,7 @@ if not path.exists(dbFileName):
 try:
 	db = sqlite3.connect(dbFileName)
 	font = fontforge.open(argv[1])
-	for i in db.execute(u"SELECT CID, horizontal FROM cjkCID INNER JOIN vrt2 ON CID=vertical WHERE fontID=5;"):
+	for i in db.execute(u"SELECT CID, base1 FROM cjkCID INNER JOIN features ON CID=target WHERE fontID=5 AND featTag='vrt2';"):
 		font.selection.select(("unicode",), i[1] + 0xf0000)
 		font.copy()
 		font.selection.select(("unicode",), i[0] + 0xf0000)
