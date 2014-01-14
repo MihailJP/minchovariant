@@ -707,6 +707,7 @@ INSERT INTO lgcFont VALUES('ROTATEDTHIRD', 'Rotated-Quarter-', '.sfd', 'rt', NUL
 INSERT INTO lgcFont VALUES('ROTATEDITALIC', 'Rotated-', '-Italic.sfd', 'ri', NULL);
 INSERT INTO lgcFont VALUES('RUBYFONT', 'Ruby-', '.sfdir', 'ruby', NULL);
 INSERT INTO lgcFont VALUES('PROPORTIONALKANA', 'KanaP-', '.sfdir', 'pkna', NULL);
+INSERT INTO lgcFont VALUES('SYMBOLFONT', 'Symbols-', '.sfdir', 'syms', NULL);
 CREATE TABLE subFont (FontID INTEGER PRIMARY KEY NOT NULL, mapFile TEXT NOT NULL, fontName TEXT NOT NULL, fontFile TEXT NOT NULL, procBaseFont TEXT, lgcFontTag TEXT, FOREIGN KEY(lgcFontTag) REFERENCES lgcFont(fontTag));
 INSERT INTO subFont VALUES(0,'cidpua.map','Japanese','work.otf', NULL, NULL);
 INSERT INTO subFont VALUES(1,'cidpua-blockelem.map','BlockElem','../mincho3/work.otf', NULL, NULL);
@@ -716,6 +717,7 @@ INSERT INTO subFont VALUES(4,'cidpua-kumimoji.map','Kumimoji','kumimoji.otf', NU
 INSERT INTO subFont VALUES(5,'cidpua-rot.map','RotCJK','rotcjk.otf', NULL, NULL);
 INSERT INTO subFont VALUES(6,'cidpua-ruby.map','Ruby','ruby.otf', 'ruby-base.otf', 'RUBYFONT');
 INSERT INTO subFont VALUES(7,'cidpua-kanap.map','KanaP','kanap.otf', 'kanap-base.otf', 'PROPORTIONALKANA');
+INSERT INTO subFont VALUES(8,'cidpua-symbols.map','Symbols','symbols.otf', NULL, 'SYMBOLFONT');
 INSERT INTO subFont VALUES(10,'lgc.map','LGC','lgc.otf', NULL, 'SRCFONT');
 INSERT INTO subFont VALUES(11,'lgc-fixed.map','Fixed','fixed.otf', NULL, 'FIXEDFONT');
 INSERT INTO subFont VALUES(12,'lgc-third.map','ThirdWidth','third.otf', NULL, 'THIRDWIDTH');
@@ -793,6 +795,7 @@ CREATE TABLE cjkCID (CID INTEGER NOT NULL, fontID INTEGER NOT NULL, FOREIGN KEY(
 -- CJKCID 15449 15452 7
 -- CJKCID 15455 15455 7
 -- CJKCID 15517 15724 7
+-- CJKCID 8166 8181 8
 CREATE VIEW lgcCID AS
 SELECT pwid AS CID, 10 AS fontID, glyphName FROM lgcGlyphs WHERE pwid IS NOT NULL
 UNION SELECT hwid AS CID, 11 AS fontID, glyphName FROM lgcGlyphs WHERE hwid IS NOT NULL
