@@ -97,6 +97,7 @@ INSERT INTO lgcGlyphs VALUES('colon', 27, 257, 9756, 9776, 639, 9470, 8746, 8976
 INSERT INTO lgcGlyphs VALUES('comma', 13, 243, 9751, 9771, 636, 9456, 8732, 8962, 13267, 13287, 12972);
 INSERT INTO lgcGlyphs VALUES('commaturnedmod', 98, NULL, NULL, NULL, NULL, 9541, 8817, NULL, NULL, NULL, 13057);
 INSERT INTO lgcGlyphs VALUES('copyright', 152, NULL, NULL, NULL, NULL, 9595, 8871, NULL, NULL, NULL, 13111);
+INSERT INTO lgcGlyphs VALUES('copyright.sups', 8059, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO lgcGlyphs VALUES('currency', 107, NULL, NULL, NULL, NULL, 9550, 8826, NULL, NULL, NULL, 13066);
 INSERT INTO lgcGlyphs VALUES('d', 69, 299, NULL, NULL, 819, 9512, 8788, 9018, NULL, NULL, 13028);
 INSERT INTO lgcGlyphs VALUES('D', 37, 267, NULL, NULL, 793, 9480, 8756, 8986, NULL, NULL, 12996);
@@ -502,6 +503,7 @@ INSERT INTO lgcGlyphs VALUES('Rcaron', 15765, NULL, NULL, NULL, NULL, 15947, 165
 INSERT INTO lgcGlyphs VALUES('rcommaaccent', 20362, NULL, NULL, NULL, NULL, 20417, 21006, NULL, NULL, NULL, 21061);
 INSERT INTO lgcGlyphs VALUES('Rcommaaccent', 20344, NULL, NULL, NULL, NULL, 20399, 20988, NULL, NULL, NULL, 21043);
 INSERT INTO lgcGlyphs VALUES('registered', 154, NULL, NULL, NULL, NULL, 9597, 8873, NULL, NULL, NULL, 13113);
+INSERT INTO lgcGlyphs VALUES('registered.sups', 8060, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO lgcGlyphs VALUES('rfishhook', 15797, NULL, NULL, NULL, NULL, NULL, 16600, NULL, NULL, NULL, NULL);
 INSERT INTO lgcGlyphs VALUES('rho', 1051, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO lgcGlyphs VALUES('Rho', 1027, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
@@ -845,6 +847,8 @@ INSERT INTO featureCode VALUES(50, 'jp83', 0);
 INSERT INTO featureCode VALUES(51, 'jp04', 0);
 INSERT INTO featureCode VALUES(52, 'jp90', 0);
 INSERT INTO featureCode VALUES(53, 'nlck', 0);
+INSERT INTO featureCode VALUES(60, 'sups', 0);
+INSERT INTO featureCode VALUES(61, 'subs', 0);
 CREATE TABLE jVars (j90 INTEGER PRIMARY KEY, j83 INTEGER, j04 INTEGER);
 INSERT INTO jVars VALUES(1133, 13408, NULL);
 INSERT INTO jVars VALUES(1142, NULL, 7961);
@@ -1238,6 +1242,54 @@ CREATE TABLE salt (fromCID INTEGER PRIMARY KEY NOT NULL, toCID INTEGER NOT NULL)
 INSERT INTO salt VALUES(705, 7478);
 INSERT INTO salt VALUES(15739, 20341);
 INSERT INTO salt VALUES(15747, 20359);
+CREATE TABLE supsLabel (fromGlyph TEXT PRIMARY KEY NOT NULL, toGlyph TEXT NOT NULL);
+INSERT INTO supsLabel VALUES('zero', 'zero.superior');
+INSERT INTO supsLabel VALUES('one', 'one.superior');
+INSERT INTO supsLabel VALUES('two', 'two.superior');
+INSERT INTO supsLabel VALUES('three', 'three.superior');
+INSERT INTO supsLabel VALUES('four', 'four.superior');
+INSERT INTO supsLabel VALUES('five', 'five.superior');
+INSERT INTO supsLabel VALUES('six', 'six.superior');
+INSERT INTO supsLabel VALUES('seven', 'seven.superior');
+INSERT INTO supsLabel VALUES('eight', 'eight.superior');
+INSERT INTO supsLabel VALUES('nine', 'nine.superior');
+INSERT INTO supsLabel VALUES('copyright', 'copyright.sups');
+INSERT INTO supsLabel VALUES('registered', 'registered.sups');
+CREATE TABLE subsLabel (fromGlyph TEXT PRIMARY KEY NOT NULL, toGlyph TEXT NOT NULL);
+INSERT INTO subsLabel VALUES('zero', 'zero.inferior');
+INSERT INTO subsLabel VALUES('one', 'one.inferior');
+INSERT INTO subsLabel VALUES('two', 'two.inferior');
+INSERT INTO subsLabel VALUES('three', 'three.inferior');
+INSERT INTO subsLabel VALUES('four', 'four.inferior');
+INSERT INTO subsLabel VALUES('five', 'five.inferior');
+INSERT INTO subsLabel VALUES('six', 'six.inferior');
+INSERT INTO subsLabel VALUES('seven', 'seven.inferior');
+INSERT INTO subsLabel VALUES('eight', 'eight.inferior');
+INSERT INTO subsLabel VALUES('nine', 'nine.inferior');
+CREATE VIEW sups AS
+SELECT s1.pwid AS fromCID, s2.pwid AS toCID FROM supsLabel INNER JOIN lgcGlyphs AS s1 ON fromGlyph=s1.glyphName INNER JOIN lgcGlyphs AS s2 ON toGlyph=s2.glyphName
+UNION SELECT s1.hwid AS fromCID, s2.hwid AS toCID FROM supsLabel INNER JOIN lgcGlyphs AS s1 ON fromGlyph=s1.glyphName INNER JOIN lgcGlyphs AS s2 ON toGlyph=s2.glyphName
+UNION SELECT s1.qwid AS fromCID, s2.qwid AS toCID FROM supsLabel INNER JOIN lgcGlyphs AS s1 ON fromGlyph=s1.glyphName INNER JOIN lgcGlyphs AS s2 ON toGlyph=s2.glyphName
+UNION SELECT s1.twid AS fromCID, s2.twid AS toCID FROM supsLabel INNER JOIN lgcGlyphs AS s1 ON fromGlyph=s1.glyphName INNER JOIN lgcGlyphs AS s2 ON toGlyph=s2.glyphName
+UNION SELECT s1.fwid AS fromCID, s2.fwid AS toCID FROM supsLabel INNER JOIN lgcGlyphs AS s1 ON fromGlyph=s1.glyphName INNER JOIN lgcGlyphs AS s2 ON toGlyph=s2.glyphName
+UNION SELECT s1.ital AS fromCID, s2.ital AS toCID FROM supsLabel INNER JOIN lgcGlyphs AS s1 ON fromGlyph=s1.glyphName INNER JOIN lgcGlyphs AS s2 ON toGlyph=s2.glyphName
+UNION SELECT s1.rotPwid AS fromCID, s2.rotPwid AS toCID FROM supsLabel INNER JOIN lgcGlyphs AS s1 ON fromGlyph=s1.glyphName INNER JOIN lgcGlyphs AS s2 ON toGlyph=s2.glyphName
+UNION SELECT s1.rotHwid AS fromCID, s2.rotHwid AS toCID FROM supsLabel INNER JOIN lgcGlyphs AS s1 ON fromGlyph=s1.glyphName INNER JOIN lgcGlyphs AS s2 ON toGlyph=s2.glyphName
+UNION SELECT s1.rotQwid AS fromCID, s2.rotQwid AS toCID FROM supsLabel INNER JOIN lgcGlyphs AS s1 ON fromGlyph=s1.glyphName INNER JOIN lgcGlyphs AS s2 ON toGlyph=s2.glyphName
+UNION SELECT s1.rotTwid AS fromCID, s2.rotTwid AS toCID FROM supsLabel INNER JOIN lgcGlyphs AS s1 ON fromGlyph=s1.glyphName INNER JOIN lgcGlyphs AS s2 ON toGlyph=s2.glyphName
+UNION SELECT s1.rotItal AS fromCID, s2.rotItal AS toCID FROM supsLabel INNER JOIN lgcGlyphs AS s1 ON fromGlyph=s1.glyphName INNER JOIN lgcGlyphs AS s2 ON toGlyph=s2.glyphName;
+CREATE VIEW subs AS
+SELECT s1.pwid AS fromCID, s2.pwid AS toCID FROM subsLabel INNER JOIN lgcGlyphs AS s1 ON fromGlyph=s1.glyphName INNER JOIN lgcGlyphs AS s2 ON toGlyph=s2.glyphName
+UNION SELECT s1.hwid AS fromCID, s2.hwid AS toCID FROM subsLabel INNER JOIN lgcGlyphs AS s1 ON fromGlyph=s1.glyphName INNER JOIN lgcGlyphs AS s2 ON toGlyph=s2.glyphName
+UNION SELECT s1.qwid AS fromCID, s2.qwid AS toCID FROM subsLabel INNER JOIN lgcGlyphs AS s1 ON fromGlyph=s1.glyphName INNER JOIN lgcGlyphs AS s2 ON toGlyph=s2.glyphName
+UNION SELECT s1.twid AS fromCID, s2.twid AS toCID FROM subsLabel INNER JOIN lgcGlyphs AS s1 ON fromGlyph=s1.glyphName INNER JOIN lgcGlyphs AS s2 ON toGlyph=s2.glyphName
+UNION SELECT s1.fwid AS fromCID, s2.fwid AS toCID FROM subsLabel INNER JOIN lgcGlyphs AS s1 ON fromGlyph=s1.glyphName INNER JOIN lgcGlyphs AS s2 ON toGlyph=s2.glyphName
+UNION SELECT s1.ital AS fromCID, s2.ital AS toCID FROM subsLabel INNER JOIN lgcGlyphs AS s1 ON fromGlyph=s1.glyphName INNER JOIN lgcGlyphs AS s2 ON toGlyph=s2.glyphName
+UNION SELECT s1.rotPwid AS fromCID, s2.rotPwid AS toCID FROM subsLabel INNER JOIN lgcGlyphs AS s1 ON fromGlyph=s1.glyphName INNER JOIN lgcGlyphs AS s2 ON toGlyph=s2.glyphName
+UNION SELECT s1.rotHwid AS fromCID, s2.rotHwid AS toCID FROM subsLabel INNER JOIN lgcGlyphs AS s1 ON fromGlyph=s1.glyphName INNER JOIN lgcGlyphs AS s2 ON toGlyph=s2.glyphName
+UNION SELECT s1.rotQwid AS fromCID, s2.rotQwid AS toCID FROM subsLabel INNER JOIN lgcGlyphs AS s1 ON fromGlyph=s1.glyphName INNER JOIN lgcGlyphs AS s2 ON toGlyph=s2.glyphName
+UNION SELECT s1.rotTwid AS fromCID, s2.rotTwid AS toCID FROM subsLabel INNER JOIN lgcGlyphs AS s1 ON fromGlyph=s1.glyphName INNER JOIN lgcGlyphs AS s2 ON toGlyph=s2.glyphName
+UNION SELECT s1.rotItal AS fromCID, s2.rotItal AS toCID FROM subsLabel INNER JOIN lgcGlyphs AS s1 ON fromGlyph=s1.glyphName INNER JOIN lgcGlyphs AS s2 ON toGlyph=s2.glyphName;
 CREATE TABLE kana (label TEXT PRIMARY KEY NOT NULL, horizontalFull INTEGER UNIQUE, horizontalHalf INTEGER UNIQUE, verticalFull INTEGER UNIQUE, verticalHalf INTEGER UNIQUE, horizontalRuby INTEGER UNIQUE, verticalRuby INTEGER UNIQUE, horizontalTune INTEGER UNIQUE, verticalTune INTEGER UNIQUE, proportional INTEGER UNIQUE);
 INSERT INTO kana VALUES('ぁ', 842, 517, 7918, 9181, 12671, 12757, 12275, 12458, 15517);
 INSERT INTO kana VALUES('あ', 843, 526, NULL, 9190, 12672, NULL, 12276, 12459, 15518);
@@ -1964,6 +2016,8 @@ UNION SELECT 52 AS feat, j83 AS fromCID, j90 AS toCID FROM jVars WHERE j83 IS NO
 UNION SELECT 52 AS feat, j04 AS fromCID, j90 AS toCID FROM jVars WHERE j04 IS NOT NULL AND j90 IS NOT NULL
 UNION SELECT 53 AS feat, j90 AS fromCID, j04 AS toCID FROM jVars WHERE j90 IS NOT NULL AND j04 IS NOT NULL AND j04 >= 19132 AND j04 <= 20296
 UNION SELECT 53 AS feat, j83 AS fromCID, j04 AS toCID FROM jVars WHERE j83 IS NOT NULL AND j04 IS NOT NULL AND j04 >= 19132 AND j04 <= 20296
+UNION SELECT 60 AS feat, fromCID, toCID FROM sups WHERE fromCID IS NOT NULL AND toCID IS NOT NULL
+UNION SELECT 61 AS feat, fromCID, toCID FROM subs WHERE fromCID IS NOT NULL AND toCID IS NOT NULL
 ORDER BY feat, fromCID;
 CREATE TABLE compositeCID (ligature INTEGER PRIMARY KEY NOT NULL, part1 INTEGER NOT NULL, part2 INTEGER NOT NULL, part3 INTEGER, part4 INTEGER CHECK(part3 IS NOT NULL OR part4 IS NULL));
 INSERT INTO compositeCID VALUES(15856, 15855, 15851, NULL, NULL);
