@@ -4,7 +4,7 @@ LGCMAPS=lgc.map lgc-fixed.map lgc-third.map lgc-quarter.map lgc-wide.map lgc-ita
 lgc-rotated.map lgc-rotfixed.map lgc-rotquarter.map lgc-rotthird.map lgc-rotitalic.map
 METAMAKE_DEP_GENERATABLES=HZMincho.db dump_newest_only.txt glyphs.txt cidalias.sed \
 cidpua.map cidpua-blockelem.map cidpua-dingbats.map cidpua-enclosed.map \
-cidpua-kumimoji.map cidpua-rot.map cidpua-ruby.map cidpua-kanap.map \
+cidpua-kumimoji.map cidpua-rot.map cidpua-ruby.map cidpua-kanap.map cidpua-symbols.map \
 otf-features HZMincho.db $(LGCMAPS)
 METAMAKE_DEPS=$(METAMAKE_DEP_GENERATABLES) ./mkmkfile.rb
 MAPGEN_DEPS=genmaps.rb HZMincho.db
@@ -52,6 +52,8 @@ cidpua-ruby.map: $(MAPGEN_DEPS)
 	./genmaps.rb 6 > $@
 cidpua-kanap.map: $(MAPGEN_DEPS)
 	./genmaps.rb 7 > $@
+cidpua-symbols.map: $(MAPGEN_DEPS)
+	./genmaps.rb 8 > $@
 lgc.map: $(MAPGEN_DEPS)
 	./genmaps.rb 10 > $@
 lgc-fixed.map: $(MAPGEN_DEPS)
