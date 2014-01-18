@@ -798,6 +798,8 @@ CREATE TABLE cjkCID (CID INTEGER NOT NULL, fontID INTEGER NOT NULL, FOREIGN KEY(
 -- CJKCID 15455 15455 7
 -- CJKCID 15517 15724 7
 -- CJKCID 8166 8181 8
+-- CJKCID 8184 8185 8
+-- CJKCID 9780 9871 8
 -- CJKCID 12111 12115 8
 -- CJKCID 12143 12168 8
 -- CJKCID 12220 12227 8
@@ -851,6 +853,8 @@ INSERT INTO featureCode VALUES(35, 'zero', 0);
 INSERT INTO featureCode VALUES(36, 'salt', 0);
 INSERT INTO featureCode VALUES(40, 'ccmp', 0);
 INSERT INTO featureCode VALUES(42, 'dlig', 1);
+INSERT INTO featureCode VALUES(46, 'frac', 0);
+INSERT INTO featureCode VALUES(47, 'afrc', 0);
 INSERT INTO featureCode VALUES(50, 'jp83', 0);
 INSERT INTO featureCode VALUES(51, 'jp04', 0);
 INSERT INTO featureCode VALUES(52, 'jp90', 0);
@@ -1246,6 +1250,55 @@ INSERT INTO jVars VALUES(14762, NULL, 21933);
 INSERT INTO jVars VALUES(15319, NULL, 22920);
 INSERT INTO jVars VALUES(17469, NULL, 21371);
 INSERT INTO jVars VALUES(17755, NULL, 21722);
+CREATE TABLE fractions (src1 TEXT NOT NULL, src2 TEXT NOT NULL, src3 TEXT NOT NULL, src4 TEXT, src5 TEXT,
+diagonal INTEGER NOT NULL, stacked INTEGER NOT NULL, pwid INTEGER, CHECK(src4 IS NOT NULL OR src5 IS NULL));
+INSERT INTO fractions VALUES('zero', 'fraction', 'three', NULL, NULL, 9780, 9825, NULL);
+INSERT INTO fractions VALUES('one', 'fraction', 'two', NULL, NULL, 8184, 9826, 162);
+INSERT INTO fractions VALUES('one', 'fraction', 'three', NULL, NULL, 9781, 9827, 9375);
+INSERT INTO fractions VALUES('two', 'fraction', 'three', NULL, NULL, 9782, 9828, 9376);
+INSERT INTO fractions VALUES('one', 'fraction', 'four', NULL, NULL, 8185, 9829, 161);
+INSERT INTO fractions VALUES('three', 'fraction', 'four', NULL, NULL, 9783, 9830, 163);
+INSERT INTO fractions VALUES('one', 'fraction', 'five', NULL, NULL, 9784, 9831, 15727);
+INSERT INTO fractions VALUES('two', 'fraction', 'five', NULL, NULL, 9785, 9832, NULL);
+INSERT INTO fractions VALUES('three', 'fraction', 'five', NULL, NULL, 9786, 9833, NULL);
+INSERT INTO fractions VALUES('four', 'fraction', 'five', NULL, NULL, 9787, 9834, NULL);
+INSERT INTO fractions VALUES('one', 'fraction', 'six', NULL, NULL, 9788, 9835, NULL);
+INSERT INTO fractions VALUES('five', 'fraction', 'six', NULL, NULL, 9789, 9836, NULL);
+INSERT INTO fractions VALUES('one', 'fraction', 'seven', NULL, NULL, 9790, 9837, NULL);
+INSERT INTO fractions VALUES('two', 'fraction', 'seven', NULL, NULL, 9791, 9838, NULL);
+INSERT INTO fractions VALUES('three', 'fraction', 'seven', NULL, NULL, 9792, 9839, NULL);
+INSERT INTO fractions VALUES('four', 'fraction', 'seven', NULL, NULL, 9793, 9840, NULL);
+INSERT INTO fractions VALUES('five', 'fraction', 'seven', NULL, NULL, 9794, 9841, NULL);
+INSERT INTO fractions VALUES('six', 'fraction', 'seven', NULL, NULL, 9795, 9842, NULL);
+INSERT INTO fractions VALUES('one', 'fraction', 'eight', NULL, NULL, 9796, 9843, 9371);
+INSERT INTO fractions VALUES('three', 'fraction', 'eight', NULL, NULL, 9797, 9844, 9372);
+INSERT INTO fractions VALUES('five', 'fraction', 'eight', NULL, NULL, 9798, 9845, 9373);
+INSERT INTO fractions VALUES('seven', 'fraction', 'eight', NULL, NULL, 9799, 9846, 9374);
+INSERT INTO fractions VALUES('one', 'fraction', 'nine', NULL, NULL, 9800, 9847, NULL);
+INSERT INTO fractions VALUES('two', 'fraction', 'nine', NULL, NULL, 9801, 9848, NULL);
+INSERT INTO fractions VALUES('four', 'fraction', 'nine', NULL, NULL, 9802, 9849, NULL);
+INSERT INTO fractions VALUES('five', 'fraction', 'nine', NULL, NULL, 9803, 9850, NULL);
+INSERT INTO fractions VALUES('seven', 'fraction', 'nine', NULL, NULL, 9804, 9851, NULL);
+INSERT INTO fractions VALUES('eight', 'fraction', 'nine', NULL, NULL, 9805, 9852, NULL);
+INSERT INTO fractions VALUES('one', 'fraction', 'one', 'zero', NULL, 9806, 9853, NULL);
+INSERT INTO fractions VALUES('three', 'fraction', 'one', 'zero', NULL, 9807, 9854, NULL);
+INSERT INTO fractions VALUES('seven', 'fraction', 'one', 'zero', NULL, 9808, 9855, NULL);
+INSERT INTO fractions VALUES('nine', 'fraction', 'one', 'zero', NULL, 9809, 9856, NULL);
+INSERT INTO fractions VALUES('one', 'fraction', 'one', 'one', NULL, 9810, 9857, NULL);
+INSERT INTO fractions VALUES('two', 'fraction', 'one', 'one', NULL, 9811, 9858, NULL);
+INSERT INTO fractions VALUES('three', 'fraction', 'one', 'one', NULL, 9812, 9859, NULL);
+INSERT INTO fractions VALUES('four', 'fraction', 'one', 'one', NULL, 9813, 9860, NULL);
+INSERT INTO fractions VALUES('five', 'fraction', 'one', 'one', NULL, 9814, 9861, NULL);
+INSERT INTO fractions VALUES('six', 'fraction', 'one', 'one', NULL, 9815, 9862, NULL);
+INSERT INTO fractions VALUES('seven', 'fraction', 'one', 'one', NULL, 9816, 9863, NULL);
+INSERT INTO fractions VALUES('eight', 'fraction', 'one', 'one', NULL, 9817, 9864, NULL);
+INSERT INTO fractions VALUES('nine', 'fraction', 'one', 'one', NULL, 9818, 9865, NULL);
+INSERT INTO fractions VALUES('one', 'zero', 'fraction', 'one', 'one', 9819, 9866, NULL);
+INSERT INTO fractions VALUES('one', 'fraction', 'one', 'two', NULL, 9820, 9867, NULL);
+INSERT INTO fractions VALUES('five', 'fraction', 'one', 'two', NULL, 9821, 9868, NULL);
+INSERT INTO fractions VALUES('seven', 'fraction', 'one', 'two', NULL, 9822, 9869, NULL);
+INSERT INTO fractions VALUES('one', 'one', 'fraction', 'one', 'two', 9823, 9870, NULL);
+INSERT INTO fractions VALUES('one', 'fraction', 'one', 'zero', 'zero', 9824, 9871, NULL);
 CREATE TABLE salt (fromCID INTEGER PRIMARY KEY NOT NULL, toCID INTEGER NOT NULL);
 INSERT INTO salt VALUES(705, 7478);
 INSERT INTO salt VALUES(15739, 20341);
@@ -2046,6 +2099,9 @@ UNION SELECT 21 AS feat, horizontalFull AS fromCID, horizontalHalf AS toCID FROM
 UNION SELECT 21 AS feat, verticalFull AS fromCID, verticalHalf AS toCID FROM kana WHERE verticalFull IS NOT NULL AND verticalHalf IS NOT NULL
 UNION SELECT 24 AS feat, horizontalHalf AS fromCID, horizontalFull AS toCID FROM kana WHERE horizontalHalf IS NOT NULL AND horizontalFull IS NOT NULL
 UNION SELECT 24 AS feat, verticalHalf AS fromCID, verticalFull AS toCID FROM kana WHERE verticalHalf IS NOT NULL AND verticalFull IS NOT NULL
+UNION SELECT 20 AS feat, diagonal AS fromCID, pwid AS toCID FROM fractions WHERE diagonal IS NOT NULL AND pwid IS NOT NULL
+UNION SELECT 20 AS feat, stacked AS fromCID, pwid AS toCID FROM fractions WHERE stacked IS NOT NULL AND pwid IS NOT NULL
+UNION SELECT 24 AS feat, pwid AS stacked, pwid AS toCID FROM fractions WHERE pwid IS NOT NULL AND stacked IS NOT NULL
 UNION SELECT 35 AS feat, fromCID, toCID FROM zero WHERE fromCID IS NOT NULL AND toCID IS NOT NULL
 UNION SELECT 36 AS feat, fromCID, toCID FROM salt WHERE fromCID IS NOT NULL AND toCID IS NOT NULL
 UNION SELECT 50 AS feat, j90 AS fromCID, j83 AS toCID FROM jVars WHERE j90 IS NOT NULL AND j83 IS NOT NULL
@@ -2928,6 +2984,24 @@ UNION SELECT 40 AS feat, s1.CID AS base1, s2.CID AS base2, s3.CID AS base3, 1184
 UNION SELECT 42 AS feat, s1.CID AS base1, s2.CID AS base2, s3.CID AS base3, s4.CID AS base4, s5.CID AS base5, s6.CID AS base6, s7.CID AS base7, s8.CID AS base8, kumimoji.CID AS target FROM kumimoji
 LEFT JOIN glyphLabels AS s1 ON src1 = s1.glyphName LEFT JOIN glyphLabels AS s2 ON src2 = s2.glyphName LEFT JOIN glyphLabels AS s3 ON src3 = s3.glyphName LEFT JOIN glyphLabels AS s4 ON src4 = s4.glyphName
 LEFT JOIN glyphLabels AS s5 ON src5 = s5.glyphName LEFT JOIN glyphLabels AS s6 ON src6 = s6.glyphName LEFT JOIN glyphLabels AS s7 ON src7 = s7.glyphName LEFT JOIN glyphLabels AS s8 ON src8 = s8.glyphName
+UNION SELECT 46 AS feat, s1.CID AS base1, s2.CID AS base2, s3.CID AS base3, NULL AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, diagonal AS target FROM fractions
+LEFT JOIN glyphLabels AS s1 ON src1 = s1.glyphName LEFT JOIN glyphLabels AS s2 ON src2 = s2.glyphName LEFT JOIN glyphLabels AS s3 ON src3 = s3.glyphName
+WHERE src4 IS NULL AND src5 IS NULL
+UNION SELECT 46 AS feat, s1.CID AS base1, s2.CID AS base2, s3.CID AS base3, s4.CID AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, diagonal AS target FROM fractions
+LEFT JOIN glyphLabels AS s1 ON src1 = s1.glyphName LEFT JOIN glyphLabels AS s2 ON src2 = s2.glyphName LEFT JOIN glyphLabels AS s3 ON src3 = s3.glyphName LEFT JOIN glyphLabels AS s4 ON src4 = s4.glyphName
+WHERE src4 IS NOT NULL AND src5 IS NULL
+UNION SELECT 46 AS feat, s1.CID AS base1, s2.CID AS base2, s3.CID AS base3, s4.CID AS base4, s5.CID AS base5, NULL AS base6, NULL AS base7, NULL AS base8, diagonal AS target FROM fractions
+LEFT JOIN glyphLabels AS s1 ON src1 = s1.glyphName LEFT JOIN glyphLabels AS s2 ON src2 = s2.glyphName LEFT JOIN glyphLabels AS s3 ON src3 = s3.glyphName LEFT JOIN glyphLabels AS s4 ON src4 = s4.glyphName LEFT JOIN glyphLabels AS s5 ON src5 = s5.glyphName
+WHERE src4 IS NOT NULL AND src5 IS NOT NULL
+UNION SELECT 47 AS feat, s1.CID AS base1, s2.CID AS base2, s3.CID AS base3, NULL AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, stacked AS target FROM fractions
+LEFT JOIN glyphLabels AS s1 ON src1 = s1.glyphName LEFT JOIN glyphLabels AS s2 ON src2 = s2.glyphName LEFT JOIN glyphLabels AS s3 ON src3 = s3.glyphName
+WHERE src4 IS NULL AND src5 IS NULL
+UNION SELECT 47 AS feat, s1.CID AS base1, s2.CID AS base2, s3.CID AS base3, s4.CID AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, stacked AS target FROM fractions
+LEFT JOIN glyphLabels AS s1 ON src1 = s1.glyphName LEFT JOIN glyphLabels AS s2 ON src2 = s2.glyphName LEFT JOIN glyphLabels AS s3 ON src3 = s3.glyphName LEFT JOIN glyphLabels AS s4 ON src4 = s4.glyphName
+WHERE src4 IS NOT NULL AND src5 IS NULL
+UNION SELECT 47 AS feat, s1.CID AS base1, s2.CID AS base2, s3.CID AS base3, s4.CID AS base4, s5.CID AS base5, NULL AS base6, NULL AS base7, NULL AS base8, stacked AS target FROM fractions
+LEFT JOIN glyphLabels AS s1 ON src1 = s1.glyphName LEFT JOIN glyphLabels AS s2 ON src2 = s2.glyphName LEFT JOIN glyphLabels AS s3 ON src3 = s3.glyphName LEFT JOIN glyphLabels AS s4 ON src4 = s4.glyphName LEFT JOIN glyphLabels AS s5 ON src5 = s5.glyphName
+WHERE src4 IS NOT NULL AND src5 IS NOT NULL
 ORDER BY feat, target;
 CREATE VIEW featureList AS
 SELECT feat, fromCID AS base1, NULL AS base2, NULL AS base3, NULL AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, toCID AS target FROM oneToOneFeat
