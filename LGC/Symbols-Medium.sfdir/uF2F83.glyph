@@ -1,16 +1,16 @@
 StartChar: uF2F83
-Encoding: 995203 995203 33
+Encoding: 995203 995203 41
 Width: 1000
 Flags: MW
 LayerCount: 2
 Fore
 SplineSet
-100 334 m 1
+225 334 m 1
  1000 334 l 1
  1000 266 l 1
- 141 266 l 1
+ 241 266 l 1
  141 33 l 1
  100 33 l 1
- 100 334 l 1
+ 225 334 l 1
 EndSplineSet
 EndChar
