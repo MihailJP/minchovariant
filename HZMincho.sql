@@ -852,7 +852,7 @@ INSERT INTO featureCode VALUES(24, 'fwid', 0);
 INSERT INTO featureCode VALUES(30, 'ital', 0);
 INSERT INTO featureCode VALUES(35, 'zero', 0);
 INSERT INTO featureCode VALUES(36, 'salt', 0);
-INSERT INTO featureCode VALUES(40, 'ccmp', 0);
+INSERT INTO featureCode VALUES(40, 'ccmp', 1);
 INSERT INTO featureCode VALUES(42, 'dlig', 1);
 INSERT INTO featureCode VALUES(46, 'frac', 0);
 INSERT INTO featureCode VALUES(47, 'afrc', 0);
