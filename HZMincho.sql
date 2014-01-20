@@ -2127,8 +2127,8 @@ CREATE VIEW oneToOneFeat AS
 SELECT 10 AS feat, horizontalFull AS fromCID, verticalFull AS toCID FROM kana WHERE horizontalFull IS NOT NULL AND verticalFull IS NOT NULL
 UNION SELECT 10 AS feat, horizontalRuby AS fromCID, verticalRuby AS toCID FROM kana WHERE horizontalRuby IS NOT NULL AND verticalRuby IS NOT NULL
 UNION SELECT 10 AS feat, horizontalTune AS fromCID, verticalTune AS toCID FROM kana WHERE horizontalTune IS NOT NULL AND verticalTune IS NOT NULL
+UNION SELECT 10 AS feat, proportional AS fromCID, verticalProp AS toCID FROM kana WHERE proportional IS NOT NULL AND verticalProp IS NOT NULL
 UNION SELECT 10 AS feat, horizontal AS fromCID, vertical AS toCID FROM cjkKumimoji WHERE horizontal IS NOT NULL AND vertical IS NOT NULL
-UNION SELECT 10 AS feat, proportional AS fromCID, verticalProp AS toCID FROM cjkKumimoji WHERE proportional IS NOT NULL AND verticalProp IS NOT NULL
 UNION SELECT 11 AS feat, pwid AS fromCID, rotPwid AS toCID FROM lgcGlyphs WHERE pwid IS NOT NULL AND rotPwid IS NOT NULL
 UNION SELECT 11 AS feat, hwid AS fromCID, rotHwid AS toCID FROM lgcGlyphs WHERE hwid IS NOT NULL AND rotHwid IS NOT NULL
 UNION SELECT 11 AS feat, qwid AS fromCID, rotQwid AS toCID FROM lgcGlyphs WHERE qwid IS NOT NULL AND rotQwid IS NOT NULL
@@ -2138,8 +2138,8 @@ UNION SELECT 11 AS feat, horizontalFull AS fromCID, verticalFull AS toCID FROM k
 UNION SELECT 11 AS feat, horizontalHalf AS fromCID, verticalHalf AS toCID FROM kana WHERE horizontalHalf IS NOT NULL AND verticalHalf IS NOT NULL
 UNION SELECT 11 AS feat, horizontalRuby AS fromCID, verticalRuby AS toCID FROM kana WHERE horizontalRuby IS NOT NULL AND verticalRuby IS NOT NULL
 UNION SELECT 11 AS feat, horizontalTune AS fromCID, verticalTune AS toCID FROM kana WHERE horizontalTune IS NOT NULL AND verticalTune IS NOT NULL
+UNION SELECT 11 AS feat, proportional AS fromCID, verticalProp AS toCID FROM kana WHERE proportional IS NOT NULL AND verticalProp IS NOT NULL
 UNION SELECT 11 AS feat, horizontal AS fromCID, vertical AS toCID FROM cjkKumimoji WHERE horizontal IS NOT NULL AND vertical IS NOT NULL
-UNION SELECT 11 AS feat, proportional AS fromCID, verticalProp AS toCID FROM cjkKumimoji WHERE proportional IS NOT NULL AND verticalProp IS NOT NULL
 UNION SELECT 12 AS feat, horizontalFull AS fromCID, horizontalTune AS toCID FROM kana WHERE horizontalFull IS NOT NULL AND horizontalTune IS NOT NULL
 UNION SELECT 13 AS feat, horizontalFull AS fromCID, verticalTune AS toCID FROM kana WHERE horizontalFull IS NOT NULL AND verticalTune IS NOT NULL
 UNION SELECT 13 AS feat, verticalFull AS fromCID, verticalTune AS toCID FROM kana WHERE verticalFull IS NOT NULL AND verticalTune IS NOT NULL
