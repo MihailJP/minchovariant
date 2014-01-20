@@ -1,8 +1,9 @@
 #!/usr/bin/env fontforge
 
-import fontforge
+import fontforge, psMat
 from sys import argv, stderr
 from re import search
+from math import pi
 
 if len(argv) < 4:
 	stderr.write("Usage: "+argv[0]+" encloser enclosed outfile\n")
@@ -12,6 +13,7 @@ srcFont = fontforge.open(argv[1])
 addFont = fontforge.open(argv[2])
 
 proportionalFlag = (search('proportional', argv[0]) is not None)
+verticalFlag = (search('vert', argv[0]) is not None)
 
 for srcGlyph in srcFont.glyphs():
 	if srcGlyph.isWorthOutputting():
@@ -25,12 +27,23 @@ for srcGlyph in srcFont.glyphs():
 				srcFont.correctDirection()
 				if proportionalFlag:
 					for glyph in srcFont.selection.byGlyphs:
+						if verticalFlag:
+							glyph.transform(psMat.translate(0, srcFont.descent))
+							glyph.transform(psMat.rotate(-pi / 2))
+							glyph.transform(psMat.translate(0, srcFont.ascent))
 						try:
 							glyph.left_side_bearing = 50
 							glyph.right_side_bearing = 50
 						except TypeError:
 							glyph.left_side_bearing = 50L
 							glyph.right_side_bearing = 50L
+						if verticalFlag:
+							w = glyph.width
+							glyph.transform(psMat.translate(srcFont.em - w, srcFont.descent))
+							glyph.transform(psMat.rotate(pi / 2))
+							glyph.transform(psMat.translate(srcFont.em, -srcFont.descent))
+							glyph.width = srcFont.em
+							glyph.vwidth = w
 		except TypeError:
 			pass
 		srcGlyph.removeOverlap()
