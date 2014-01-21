@@ -29,8 +29,7 @@ for srcGlyph in srcFont.glyphs():
 					for glyph in srcFont.selection.byGlyphs:
 						if verticalFlag:
 							glyph.transform(psMat.translate(0, srcFont.descent))
-							glyph.transform(psMat.rotate(-pi / 2))
-							glyph.transform(psMat.translate(0, srcFont.ascent))
+							glyph.transform(psMat.rotate(pi / 2))
 						try:
 							glyph.left_side_bearing = 50
 							glyph.right_side_bearing = 50
@@ -39,9 +38,8 @@ for srcGlyph in srcFont.glyphs():
 							glyph.right_side_bearing = 50L
 						if verticalFlag:
 							w = glyph.width
-							glyph.transform(psMat.translate(srcFont.em - w, srcFont.descent))
-							glyph.transform(psMat.rotate(pi / 2))
-							glyph.transform(psMat.translate(srcFont.em, -srcFont.descent))
+							glyph.transform(psMat.rotate(-pi / 2))
+							glyph.transform(psMat.translate(0, srcFont.ascent))
 							glyph.width = srcFont.em
 							glyph.vwidth = w
 		except TypeError:
