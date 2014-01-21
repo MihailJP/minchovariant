@@ -1,0 +1,16 @@
+StartChar: verticallinebelowcmb
+Encoding: 809 809 694
+Width: 0
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+-127 -98 m 2
+ -127 -84 -125 -73 -112 -73 c 0
+ -98 -73 -95 -82 -95 -95 c 2
+ -95 -270 l 2
+ -95 -283 -97 -294 -110 -294 c 0
+ -125 -294 -127 -283 -127 -271 c 2
+ -127 -98 l 2
+EndSplineSet
+EndChar
