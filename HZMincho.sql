@@ -906,6 +906,7 @@ INSERT INTO featureCode VALUES(30, 'ital', 0);
 INSERT INTO featureCode VALUES(35, 'zero', 0);
 INSERT INTO featureCode VALUES(36, 'salt', 0);
 INSERT INTO featureCode VALUES(40, 'ccmp', 1);
+INSERT INTO featureCode VALUES(41, 'liga', 0);
 INSERT INTO featureCode VALUES(42, 'dlig', 1);
 INSERT INTO featureCode VALUES(46, 'frac', 0);
 INSERT INTO featureCode VALUES(47, 'afrc', 0);
@@ -2413,6 +2414,12 @@ CREATE TABLE lig3 (glyphName TEXT PRIMARY KEY NOT NULL, src1 TEXT NOT NULL, src2
 INSERT INTO lig3 VALUES('hundred', 'one', 'zero', 'zero', 20849);
 INSERT INTO lig3 VALUES('KCL', 'K', 'C', 'L', NULL);
 INSERT INTO lig3 VALUES('BEL', 'B', 'E', 'L', NULL);
+CREATE TABLE latinLigatures (CID INTEGER PRIMARY KEY NOT NULL, src1 INTEGER NOT NULL, src2 INTEGER NOT NULL, src3 INTEGER);
+INSERT INTO latinLigatures VALUES(112, 71, 74, NULL); -- fi
+INSERT INTO latinLigatures VALUES(113, 71, 77, NULL); -- fl
+INSERT INTO latinLigatures VALUES(9358, 71, 71, NULL); -- ff
+INSERT INTO latinLigatures VALUES(9359, 71, 71, 74); -- ffi
+INSERT INTO latinLigatures VALUES(9360, 71, 71, 77); -- ffl
 CREATE TABLE enclosed (glyphName TEXT PRIMARY KEY NOT NULL, parenthesis INTEGER, circle INTEGER, circleRev INTEGER, square INTEGER, squareRev INTEGER, roundSquare INTEGER, roundSquareRev INTEGER, squareDashed INTEGER, dotAfter INTEGER, circleDbl INTEGER);
 INSERT INTO enclosed VALUES('zero', 8227, 8224, 10503, 10764, 11037, 11307, 11576, NULL, 8061, NULL);
 INSERT INTO enclosed VALUES('one', 8071, 7555, 8286, 10766, 11039, 11309, 11578, NULL, 8062, 16223);
@@ -3136,6 +3143,7 @@ UNION SELECT 40 AS feat, s1.CID AS base1, s2.CID AS base2, s3.CID AS base3, 1103
 UNION SELECT 40 AS feat, s1.CID AS base1, s2.CID AS base2, s3.CID AS base3, 11306 AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, squareRev      AS target FROM lig3 NATURAL INNER JOIN enclosed INNER JOIN glyphLabels AS s1 ON src1 = s1.glyphName INNER JOIN glyphLabels AS s2 ON src2 = s2.glyphName INNER JOIN glyphLabels AS s3 ON src3 = s3.glyphName WHERE squareRev      IS NOT NULL
 UNION SELECT 40 AS feat, s1.CID AS base1, s2.CID AS base2, s3.CID AS base3,  8015 AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, roundSquare    AS target FROM lig3 NATURAL INNER JOIN enclosed INNER JOIN glyphLabels AS s1 ON src1 = s1.glyphName INNER JOIN glyphLabels AS s2 ON src2 = s2.glyphName INNER JOIN glyphLabels AS s3 ON src3 = s3.glyphName WHERE roundSquare    IS NOT NULL
 UNION SELECT 40 AS feat, s1.CID AS base1, s2.CID AS base2, s3.CID AS base3, 11845 AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, roundSquareRev AS target FROM lig3 NATURAL INNER JOIN enclosed INNER JOIN glyphLabels AS s1 ON src1 = s1.glyphName INNER JOIN glyphLabels AS s2 ON src2 = s2.glyphName INNER JOIN glyphLabels AS s3 ON src3 = s3.glyphName WHERE roundSquareRev IS NOT NULL
+UNION SELECT 41 AS feat, src1 AS base1, src2 AS base2, src3 AS base3, NULL AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, CID AS target FROM latinLigatures
 UNION SELECT 42 AS feat, s1.CID AS base1, s2.CID AS base2, s3.CID AS base3, s4.CID AS base4, s5.CID AS base5, s6.CID AS base6, s7.CID AS base7, s8.CID AS base8, kumimoji.CID AS target FROM kumimoji
 LEFT JOIN glyphLabels AS s1 ON src1 = s1.glyphName LEFT JOIN glyphLabels AS s2 ON src2 = s2.glyphName LEFT JOIN glyphLabels AS s3 ON src3 = s3.glyphName LEFT JOIN glyphLabels AS s4 ON src4 = s4.glyphName
 LEFT JOIN glyphLabels AS s5 ON src5 = s5.glyphName LEFT JOIN glyphLabels AS s6 ON src6 = s6.glyphName LEFT JOIN glyphLabels AS s7 ON src7 = s7.glyphName LEFT JOIN glyphLabels AS s8 ON src8 = s8.glyphName
