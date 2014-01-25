@@ -846,6 +846,7 @@ CREATE TABLE cjkCID (CID INTEGER NOT NULL, fontID INTEGER NOT NULL, FOREIGN KEY(
 -- CJKCID 12111 12115 8
 -- CJKCID 12143 12168 8
 -- CJKCID 12220 12227 8
+-- CJKCID 15444 15448 8
 -- CJKCID 16312 16314 8
 -- CJKCID 16323 16325 8
 -- CJKCID 16350 16351 8
@@ -906,6 +907,7 @@ INSERT INTO featureCode VALUES(30, 'ital', 0);
 INSERT INTO featureCode VALUES(35, 'zero', 0);
 INSERT INTO featureCode VALUES(36, 'salt', 0);
 INSERT INTO featureCode VALUES(40, 'ccmp', 1);
+INSERT INTO featureCode VALUES(41, 'liga', 0);
 INSERT INTO featureCode VALUES(42, 'dlig', 1);
 INSERT INTO featureCode VALUES(46, 'frac', 0);
 INSERT INTO featureCode VALUES(47, 'afrc', 0);
@@ -2413,6 +2415,12 @@ CREATE TABLE lig3 (glyphName TEXT PRIMARY KEY NOT NULL, src1 TEXT NOT NULL, src2
 INSERT INTO lig3 VALUES('hundred', 'one', 'zero', 'zero', 20849);
 INSERT INTO lig3 VALUES('KCL', 'K', 'C', 'L', NULL);
 INSERT INTO lig3 VALUES('BEL', 'B', 'E', 'L', NULL);
+CREATE TABLE latinLigatures (CID INTEGER PRIMARY KEY NOT NULL, src1 INTEGER NOT NULL, src2 INTEGER NOT NULL, src3 INTEGER);
+INSERT INTO latinLigatures VALUES(112, 71, 74, NULL); -- fi
+INSERT INTO latinLigatures VALUES(113, 71, 77, NULL); -- fl
+INSERT INTO latinLigatures VALUES(9358, 71, 71, NULL); -- ff
+INSERT INTO latinLigatures VALUES(9359, 71, 71, 74); -- ffi
+INSERT INTO latinLigatures VALUES(9360, 71, 71, 77); -- ffl
 CREATE TABLE enclosed (glyphName TEXT PRIMARY KEY NOT NULL, parenthesis INTEGER, circle INTEGER, circleRev INTEGER, square INTEGER, squareRev INTEGER, roundSquare INTEGER, roundSquareRev INTEGER, squareDashed INTEGER, dotAfter INTEGER, circleDbl INTEGER);
 INSERT INTO enclosed VALUES('zero', 8227, 8224, 10503, 10764, 11037, 11307, 11576, NULL, 8061, NULL);
 INSERT INTO enclosed VALUES('one', 8071, 7555, 8286, 10766, 11039, 11309, 11578, NULL, 8062, 16223);
@@ -3113,6 +3121,26 @@ UNION SELECT glyphName, fwid AS CID FROM lgcGlyphs WHERE fwid IS NOT NULL
 UNION SELECT label AS glyphName, CID FROM cjkLabel
 UNION SELECT label AS glyphName, horizontalFull AS CID FROM kana WHERE horizontalFull IS NOT NULL
 ORDER BY glyphName;
+CREATE TABLE macCompat (CID INTEGER PRIMARY KEY NOT NULL, src1 INTEGER NOT NULL, src2 INTEGER NOT NULL, src3 INTEGER, src4 INTEGER, src5 INTEGER);
+INSERT INTO macCompat VALUES(8061, 15444, 17, 15, NULL, NULL); -- 0.
+INSERT INTO macCompat VALUES(8297, 15444, 57, 55, NULL, NULL); -- XV
+INSERT INTO macCompat VALUES(8302, 15444, 89, 87, NULL, NULL); -- xv
+INSERT INTO macCompat VALUES(8306, 15444, 53, 35, NULL, NULL); -- TB
+INSERT INTO macCompat VALUES(8312, 15444, 739, 738, NULL, NULL); -- down up
+INSERT INTO macCompat VALUES(8296, 15445, 57, 42, 55, NULL); -- XIV
+INSERT INTO macCompat VALUES(8301, 15445, 89, 74, 87, NULL); -- xiv
+INSERT INTO macCompat VALUES(8307, 15445, 39, 34, 57, NULL); -- FAX
+INSERT INTO macCompat VALUES(8295, 15446, 57, 42, 42, 42); -- XIII
+INSERT INTO macCompat VALUES(8300, 15446, 89, 74, 74, 74); -- xiii
+INSERT INTO macCompat VALUES(8321, 15446, 3863, 1910, 1393, 2302); -- Yuugen Kaisha
+INSERT INTO macCompat VALUES(8322, 15446, 2130, 2946, 3663, 2579); -- Zaidan Hohjin
+INSERT INTO macCompat VALUES(8206, 8014, 15447, NULL, NULL, NULL); -- right filled arrow
+INSERT INTO macCompat VALUES(8207, 8013, 15447, NULL, NULL, NULL); -- left filled arrow
+INSERT INTO macCompat VALUES(8208, 8012, 15447, NULL, NULL, NULL); -- up filled arrow
+INSERT INTO macCompat VALUES(8209, 8011, 15447, NULL, NULL, NULL); -- down filled arrow
+INSERT INTO macCompat VALUES(124, 668, 15448, NULL, NULL, NULL); -- ellipsis
+INSERT INTO macCompat VALUES(8303, 828, 15448, NULL, NULL, NULL); -- metre
+INSERT INTO macCompat VALUES(8304, 822, 15448, NULL, NULL, NULL); -- gramme
 CREATE VIEW compositeFeat AS
 SELECT 40 AS feat, part1 AS base1, part2 AS base2, part3 AS base3, part4 AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, ligature AS target FROM compositeCID
 UNION SELECT 40 AS feat, CID AS base1, 10233 AS base2, NULL AS base3, NULL AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, parenthesis    AS target FROM glyphLabels NATURAL INNER JOIN enclosed WHERE parenthesis    IS NOT NULL
@@ -3136,6 +3164,8 @@ UNION SELECT 40 AS feat, s1.CID AS base1, s2.CID AS base2, s3.CID AS base3, 1103
 UNION SELECT 40 AS feat, s1.CID AS base1, s2.CID AS base2, s3.CID AS base3, 11306 AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, squareRev      AS target FROM lig3 NATURAL INNER JOIN enclosed INNER JOIN glyphLabels AS s1 ON src1 = s1.glyphName INNER JOIN glyphLabels AS s2 ON src2 = s2.glyphName INNER JOIN glyphLabels AS s3 ON src3 = s3.glyphName WHERE squareRev      IS NOT NULL
 UNION SELECT 40 AS feat, s1.CID AS base1, s2.CID AS base2, s3.CID AS base3,  8015 AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, roundSquare    AS target FROM lig3 NATURAL INNER JOIN enclosed INNER JOIN glyphLabels AS s1 ON src1 = s1.glyphName INNER JOIN glyphLabels AS s2 ON src2 = s2.glyphName INNER JOIN glyphLabels AS s3 ON src3 = s3.glyphName WHERE roundSquare    IS NOT NULL
 UNION SELECT 40 AS feat, s1.CID AS base1, s2.CID AS base2, s3.CID AS base3, 11845 AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, roundSquareRev AS target FROM lig3 NATURAL INNER JOIN enclosed INNER JOIN glyphLabels AS s1 ON src1 = s1.glyphName INNER JOIN glyphLabels AS s2 ON src2 = s2.glyphName INNER JOIN glyphLabels AS s3 ON src3 = s3.glyphName WHERE roundSquareRev IS NOT NULL
+UNION SELECT 40 AS feat, src1 AS base1, src2 AS base2, src3 AS base3, src4 AS base4, src5 AS base5, NULL AS base6, NULL AS base7, NULL AS base8, CID AS target FROM macCompat
+UNION SELECT 41 AS feat, src1 AS base1, src2 AS base2, src3 AS base3, NULL AS base4, NULL AS base5, NULL AS base6, NULL AS base7, NULL AS base8, CID AS target FROM latinLigatures
 UNION SELECT 42 AS feat, s1.CID AS base1, s2.CID AS base2, s3.CID AS base3, s4.CID AS base4, s5.CID AS base5, s6.CID AS base6, s7.CID AS base7, s8.CID AS base8, kumimoji.CID AS target FROM kumimoji
 LEFT JOIN glyphLabels AS s1 ON src1 = s1.glyphName LEFT JOIN glyphLabels AS s2 ON src2 = s2.glyphName LEFT JOIN glyphLabels AS s3 ON src3 = s3.glyphName LEFT JOIN glyphLabels AS s4 ON src4 = s4.glyphName
 LEFT JOIN glyphLabels AS s5 ON src5 = s5.glyphName LEFT JOIN glyphLabels AS s6 ON src6 = s6.glyphName LEFT JOIN glyphLabels AS s7 ON src7 = s7.glyphName LEFT JOIN glyphLabels AS s8 ON src8 = s8.glyphName
