@@ -19,6 +19,8 @@ table OS/2 {
 	TypoAscender       800;
 	TypoDescender     -200;
 	TypoLineGap       1000;
+	winAscent         1000;
+	winDescent         300;
 } OS/2;
 table vhea {
 	VertTypoAscender   500;
