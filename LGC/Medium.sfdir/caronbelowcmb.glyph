@@ -1,0 +1,21 @@
+StartChar: caronbelowcmb
+Encoding: 812 812 688
+Width: 0
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+-404 -80 m 1
+ -404 -80 l 1
+ -391 -65 l 1
+ -391 -65 l 1
+ -257 -155 -258 -155 -251 -155 c 0
+ -240 -155 -221 -138 -110 -65 c 1
+ -110 -65 l 1
+ -98 -80 l 1
+ -98 -80 l 1
+ -250 -227 l 1
+ -251 -227 l 1
+ -404 -80 l 1
+EndSplineSet
+EndChar

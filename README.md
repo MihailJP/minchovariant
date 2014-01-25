@@ -9,6 +9,9 @@ Latin, Greek and Cyrillic glyphs are not derived from GlyphWiki but from
 because GlyphWiki's [Kage engine](http://fonts.jp/kage/index.en.html) is
 intended for Chinese characters and not good at LGC.
 
+A few symbols, namely CIDs 16314, 16323, 16324 and 16325,
+came from [Symbola](http://users.teilar.gr/~g1951d/) font.
+
 License
 -------
 This font is composed of some individual fonts available under
@@ -72,3 +75,12 @@ font exception clause.
 > X11 License. If you modify these fonts, you may extend this exception to
 > your version of the fonts, but you are not obligated to do so. If you do
 > not wish to do so, delete this exception statement from your version.
+
+### Symbola font, in lieu of a licence ###
+_See http://users.teilar.gr/~g1951d/._
+
+Symbola font is free for any use.
+
+> Fonts in this site are offered free for any use; they may be installed,
+> embedded, opened, edited, modified, regenerated, posted, packaged and
+> redistributed. George Douros

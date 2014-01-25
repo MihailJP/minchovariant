@@ -1,0 +1,18 @@
+StartChar: tildeoverlaycmb
+Encoding: 820 820 699
+Width: 0
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+-480 264 m 1
+ -433 315 -411 347 -359 347 c 0
+ -303 347 -255 313 -199 313 c 0
+ -165 313 -148 325 -124 347 c 1
+ -97 322 l 1
+ -145 271 -166 239 -219 239 c 0
+ -274 239 -322 273 -378 273 c 0
+ -412 273 -429 261 -454 239 c 1
+ -480 264 l 1
+EndSplineSet
+EndChar
