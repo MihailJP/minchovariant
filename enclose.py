@@ -29,7 +29,7 @@ for srcGlyph in srcFont.glyphs():
 					for glyph in srcFont.selection.byGlyphs:
 						if verticalFlag:
 							glyph.transform(psMat.translate(0, srcFont.descent))
-							glyph.transform(psMat.rotate(pi / 2))
+							if glyph.color != 0xffff00: glyph.transform(psMat.rotate(pi / 2))
 						try:
 							glyph.left_side_bearing = 50
 							glyph.right_side_bearing = 50
