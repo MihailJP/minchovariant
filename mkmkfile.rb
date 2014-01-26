@@ -7,7 +7,7 @@ if not File.exist?(DBFileName) then raise IOError, "Database '#{DBFileName}' not
 fontDB = SQLite3::Database.new(DBFileName)
 
 (target, $weightNum, enName, enWeight, jaName, jaWeight, glyphFilter) = ARGV
-license = 'Created by KAGE system. (http://fonts.jp/)'
+license = 'Created by KAGE system. (http://fonts.jp/) / Alphabet glyphs by Andrey V. Panov (C) 2005 All rights reserved. / A few symbol glyphs are from George Doulos\' Symbola font. / AJ1-6 sans-serif glyphs from M+ fonts.'
 psName = "#{enName} #{enWeight}".gsub(/\s/, "-")
 cidmap = ""
 fontDB.execute("SELECT mapFile, fontFile FROM subFont") {|subFont|
