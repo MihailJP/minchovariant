@@ -1,10 +1,17 @@
-StartChar: ordfeminine
-Encoding: 170 170 131
+StartChar: ordfeminine.alt
+Encoding: 65545 -1 412
 Width: 460
 Flags: MW
 LayerCount: 2
 Fore
 SplineSet
+54 324 m 0
+ 54 333 65 335 74 335 c 2
+ 380 335 l 2
+ 391 335 404 334 404 324 c 0
+ 404 314 392 313 382 313 c 2
+ 74 313 l 2
+ 62 313 54 315 54 324 c 0
 101 499 m 0
  101 627 201 762 296 762 c 0
  335 762 352 736 360 721 c 1
@@ -27,7 +34,7 @@ SplineSet
  245 387 289 447 296 464 c 1
  296 464 346 659 346 672 c 0
  346 699 327 738 297 738 c 0
- 273 738 253 720 236 692 c 0
+ 273 738 253 720 236 692 c 4
  191 619 168 481 168 450 c 0
 EndSplineSet
 EndChar
