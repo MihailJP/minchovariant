@@ -64,3 +64,13 @@ Features.each {|featName|
 		print("} #{featName[0]};\n")
 	end
 }
+
+print("feature nalt {\n")
+fontDB.execute("SELECT * FROM glyphLabels NATURAL JOIN enclosed ORDER BY CID;") {|cid|
+	subExpr = ""
+	for i in 2..(cid.length - 1)
+		if cid[i] then subExpr += "\\#{cid[i]} " end
+	end
+	print "\tsub \\#{cid[1]} from [#{subExpr[0..-2]}];\n"
+}
+print("} nalt;\n")
