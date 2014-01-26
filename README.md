@@ -12,6 +12,10 @@ intended for Chinese characters and not good at LGC.
 A few symbols, namely CIDs 16314, 16323, 16324 and 16325,
 came from [Symbola](http://users.teilar.gr/~g1951d/) font.
 
+Sans-serif Katakana and Figures, namely CIDs 20473 to 20496 and
+20513 to 20522 are from
+[M+ 2m](http://mplus-fonts.sourceforge.jp/mplus-outline-fonts/) font.
+
 License
 -------
 This font is composed of some individual fonts available under
@@ -84,3 +88,15 @@ Symbola font is free for any use.
 > Fonts in this site are offered free for any use; they may be installed,
 > embedded, opened, edited, modified, regenerated, posted, packaged and
 > redistributed. George Douros
+
+### License of M+ font ###
+_See http://mplus-fonts.sourceforge.jp/mplus-outline-fonts/index.html#license._
+
+M+ font is free for any use.
+
+> These fonts are free software.
+> 
+> Unlimited permission is granted to use, copy, and distribute them,
+> with or without modification, either commercially or noncommercially.
+> 
+> **THESE FONTS ARE PROVIDED "AS IS" WITHOUT WARRANTY.**
