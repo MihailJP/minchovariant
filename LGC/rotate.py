@@ -17,5 +17,6 @@ for glyph in font.glyphs():
 		glyph.transform(psMat.translate(font.descent, font.ascent))
 		glyph.width = font.em
 		glyph.vwidth = w
+		glyph.round()
 
 font.save(argv[2])

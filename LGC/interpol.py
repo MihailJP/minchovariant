@@ -15,4 +15,7 @@ def val(string):
 
 srcFont = fontforge.open(argv[3])
 font = srcFont.interpolateFonts(val(argv[2]), argv[4])
+for glyph in font.glyphs():
+	if glyph.isWorthOutputting():
+		glyph.round()
 font.generate(argv[1])
