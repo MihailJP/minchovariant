@@ -4,7 +4,7 @@ require 'sqlite3'
 DBFileName = 'HZMincho.db'
 if not File.exist?(DBFileName) then raise IOError, "Database '#{DBFileName}' not found" end
 fontDB = SQLite3::Database.new(DBFileName)
-Features = fontDB.execute("SELECT featTag, isLarge FROM featureCode")
+Features = fontDB.execute("SELECT featTag, isLarge, aalt FROM featureCode")
 
 print <<FINIS
 table head {
@@ -35,7 +35,15 @@ languagesystem latn dflt;
 languagesystem grek dflt;
 languagesystem cyrl dflt;
 
+feature aalt {
 FINIS
+
+Features.each {|featName|
+	if featName[2] != 0 then
+		print("\tfeature #{featName[0]};\n")
+	end
+}
+print("} aalt;\n")
 
 Features.each {|featName|
 	if featName[1] != 0 then
