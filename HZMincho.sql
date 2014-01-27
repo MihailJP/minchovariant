@@ -751,7 +751,7 @@ INSERT INTO lgcFont VALUES('PROPORTIONALVERTKANA', 'KanaVertP-', '.sfdir', 'pvkn
 CREATE TABLE subFont (FontID INTEGER PRIMARY KEY NOT NULL, mapFile TEXT NOT NULL, fontName TEXT NOT NULL, fontFile TEXT NOT NULL, procBaseFont TEXT, lgcFontTag TEXT, FOREIGN KEY(lgcFontTag) REFERENCES lgcFont(fontTag));
 INSERT INTO subFont VALUES(0,'cidpua.map','Japanese','work.otf', NULL, NULL);
 INSERT INTO subFont VALUES(1,'cidpua-blockelem.map','BlockElem','../mincho3/work.otf', NULL, NULL);
-INSERT INTO subFont VALUES(2,'cidpua-dingbats.map','Dingbats','../mincho#{$weightNum.to_i > 7 ? 7 : ($weightNum.to_i > 3 ? $weightNum : 3)}/work.otf', NULL, NULL);
+INSERT INTO subFont VALUES(2,'cidpua-dingbats.map','Dingbats','../mincho#{($weightNum.to_i % 100) > 7 ? 7 : (($weightNum.to_i % 100) > 3 ? ($weightNum.to_i % 100) : 3)}/work.otf', NULL, NULL);
 INSERT INTO subFont VALUES(3,'cidpua-enclosed.map','Enclosed','enclosed.otf', 'enclosed-base.otf', 'ENCLFONT');
 INSERT INTO subFont VALUES(4,'cidpua-kumimoji.map','Kumimoji','kumimoji.otf', NULL, 'KUMIMOJI');
 INSERT INTO subFont VALUES(5,'cidpua-rot.map','RotCJK','rotcjk.otf', NULL, NULL);
