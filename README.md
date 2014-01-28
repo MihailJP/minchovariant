@@ -16,10 +16,25 @@ Sans-serif Katakana and Figures, namely CIDs 20473 to 20496 and
 20513 to 20522 are from
 [M+ 2m](http://mplus-fonts.sourceforge.jp/mplus-outline-fonts/) font.
 
+Authors
+-------
+* Merged by MihailJP <mihailjp@gmail.com>.
+* GlyphWiki contributors
+  * Includes MihailJP
+* Andrei V. Panov (Computer Modern Unicode)
+  * Some additional glyphs are composed by MihailJP
+* George Doulos (Symbola)
+* Coji Morishita (M+ 2m)
+
 License
 -------
 This font is composed of some individual fonts available under
 their open source licenses.
+
+HZMincho font may be used in any way, including, but not limited to, copying,
+modifying, distributing, or selling copies, as long as you follow the terms
+of Computer Modern Unicode's X11 license with font embedding exception.
+This permission is regardless of commerciality.
 
 ### GlyphWiki's license ##
 _See [GlyphWiki:License](http://en.glyphwiki.org/wiki/GlyphWiki:License)._
