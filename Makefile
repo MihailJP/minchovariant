@@ -13,7 +13,7 @@ GENERATABLES=$(METAMAKE_DEP_GENERATABLES) $(SUBDIRS) \
 groups/cidalias.txt cidalias1.txt cidalias2.txt
 TARGETS=$(GENERATABLES) $(DOWNLOADABLES)
 
-.PHONY: all fetch clean distclean $(SUBDIRS)
+.PHONY: all fetch clean distclean $(SUBDIRS) dist
 all: $(TARGETS)
 
 fetch: $(DOWNLOADABLES)
@@ -134,10 +134,26 @@ mincho9: LGC/Makefile mincho9/Makefile mincho3/work.otf LGC/lgc9.otf
 LGC/lgc9.otf: LGC/Makefile
 	cd LGC && make lgc9.otf
 
+mincho1/mincho1.otf: mincho1
+mincho3/mincho3.otf: mincho3
+mincho5/mincho5.otf: mincho5
+mincho7/mincho7.otf: mincho7
+mincho9/mincho9.otf: mincho9
+
+HZMincho.zip: README.md \
+mincho1/mincho1.otf mincho3/mincho3.otf mincho5/mincho5.otf \
+mincho7/mincho7.otf mincho9/mincho9.otf
+	rm -f $@
+	mkdir HZMincho
+	cp $^ HZMincho
+	zip -m9r $@ HZMincho
+
+dist: HZMincho.zip
+
 clean:
 	-cd LGC && make clean
 	-rm -rf $(GENERATABLES)
+	-rm -rf HZMincho
 
-distclean:
-	-cd LGC && make clean
+distclean: clean
 	-rm -rf $(TARGETS)
