@@ -115,3 +115,14 @@ M+ font is free for any use.
 > with or without modification, either commercially or noncommercially.
 > 
 > **THESE FONTS ARE PROVIDED "AS IS" WITHOUT WARRANTY.**
+
+Version History
+---------------
+
+### Version 1.001, February 1, 2014
+* Have fixed vertical glyph issue
+* Have fixed subfamily name for extra-bold weight
+* Have added metadata
+
+### Version 1.000, January 28, 2014
+* First release
