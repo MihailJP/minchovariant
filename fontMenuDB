@@ -50,10 +50,10 @@ f=1,1,11,HZ \96\be\92\a9
 s=1,1,11,\91\be
 l=1,1,11,HZ \96\be\92\a9 \91\be
 
-[HZMincho-Extra]
+[HZMincho-Heavy]
 f=HZ Mincho
-s=Extra
-l=HZ Mincho Extra
+s=Heavy
+l=HZ Mincho Heavy
 
 f=3,1,0x411,HZ \660e\671d
 s=3,1,0x411,\6975\592a

@@ -128,7 +128,7 @@ LGC/lgc7.otf: LGC/Makefile
 
 mincho9/Makefile: $(METAMAKE_DEPS)
 	mkdir -p mincho9
-	./mkmkfile.rb mincho9.otf 109 "HZ Mincho" "Extra" "HZ 明朝" "極太" ../cidalias.sed > $@
+	./mkmkfile.rb mincho9.otf 109 "HZ Mincho" "Heavy" "HZ 明朝" "極太" ../cidalias.sed > $@
 mincho9: LGC/Makefile mincho9/Makefile mincho3/work.otf LGC/lgc9.otf
 	cd $@ && make
 LGC/lgc9.otf: LGC/Makefile
