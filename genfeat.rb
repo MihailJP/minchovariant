@@ -8,7 +8,7 @@ Features = fontDB.execute("SELECT featTag, isLarge, aalt FROM featureCode")
 
 print <<FINIS
 table head {
-	FontRevision     1.000;
+	FontRevision     1.001;
 } head;
 table hhea {
 	Ascender           800;
