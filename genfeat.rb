@@ -6,9 +6,25 @@ if not File.exist?(DBFileName) then raise IOError, "Database '#{DBFileName}' not
 fontDB = SQLite3::Database.new(DBFileName)
 Features = fontDB.execute("SELECT featTag, isLarge, aalt FROM featureCode")
 
+FontVersion = '1.001'
+FontCopyright = "Created by KAGE system. (http://fonts.jp/) \
+/ Alphabet glyphs by Andrey V. Panov (C) 2005 All rights reserved. \
+/ A few symbol glyphs are from George Doulos' Symbola font. \
+/ AJ1-6 sans-serif glyphs from M+ fonts. \
+/ Merged by MihailJP, February 2014."
+FontLicense = "X11 License with exception: \
+As a special exception, if you create a document which uses these fonts, \
+and embed these fonts or unaltered portions of these fonts into the \
+document, these fonts does not by itself cause the resulting document to \
+be covered by the X11 License. This exception does not however \
+invalidate any other reasons why the document might be covered by the \
+X11 License. If you modify these fonts, you may extend this exception to \
+your version of the fonts, but you are not obligated to do so. If you do \
+not wish to do so, delete this exception statement from your version."
+
 print <<FINIS
 table head {
-	FontRevision     1.001;
+	FontRevision     #{FontVersion};
 } head;
 table hhea {
 	Ascender           800;
@@ -27,6 +43,16 @@ table vhea {
 	VertTypoDescender -500;
 	VertTypoLineGap   1000;
 } vhea;
+table name {
+	nameid 0 "#{FontCopyright.gsub(/\(C\)/, "\\\\00a9")}";
+	nameid 0 1 "#{FontCopyright.gsub(/\(C\)/, "\\a9")}";
+	nameid 0 1 1 11 "#{FontCopyright.gsub(/\(C\)/, "\\fd")}";
+	nameid 5 "#{FontVersion}";
+	nameid 5 1 "#{FontVersion}";
+	nameid 5 3 "#{FontVersion}";
+	nameid 13 "#{FontLicense}";
+	nameid 13 1 "#{FontLicense}";
+} name;
 
 languagesystem DFLT dflt;
 languagesystem kana dflt;
