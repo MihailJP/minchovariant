@@ -12,6 +12,8 @@ if len(argv) < 3:
 if not path.exists(dbFileName):
 	raise IOError(2, "Database '%s' not found" % (dbFileName,))
 
+fontforge.setPrefs('CoverageFormatsAllowed', 1)
+
 try:
 	db = sqlite3.connect(dbFileName)
 	font = fontforge.open(argv[1])

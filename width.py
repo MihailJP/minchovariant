@@ -4,6 +4,8 @@ import fontforge
 import psMat
 from sys import argv, stderr
 
+fontforge.setPrefs('CoverageFormatsAllowed', 1)
+
 class GlyphList:
 	def __init__(self, filename):
 		import fileinput

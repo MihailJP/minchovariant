@@ -7,6 +7,8 @@ if len(argv) < 3:
 	stderr.write("Usage: "+argv[0]+" infile outfile\n")
 	quit(1)
 
+fontforge.setPrefs('CoverageFormatsAllowed', 1)
+
 def separate(contour):
 	layer = fontforge.layer()
 	for i in range(0, len(contour) - 1):

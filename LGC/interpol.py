@@ -7,6 +7,8 @@ if len(argv) < 5:
 	stderr.write("Usage: %s filename weight-param reg-src bold-src\n" % argv[0])
 	exit(1)
 
+fontforge.setPrefs('CoverageFormatsAllowed', 1)
+
 def val(string):
 	try:
 		return int(string)

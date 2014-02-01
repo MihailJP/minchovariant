@@ -7,6 +7,8 @@ if len(argv) < 3:
 	stderr.write("Usage: %s in-sfd out-sfd compress-ratio\n" % argv[0])
 	exit(1)
 
+fontforge.setPrefs('CoverageFormatsAllowed', 1)
+
 font = fontforge.open(argv[1])
 
 for glyph in font.glyphs():

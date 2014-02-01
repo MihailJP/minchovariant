@@ -9,6 +9,8 @@ if len(argv) < 4:
 	stderr.write("Usage: "+argv[0]+" encloser enclosed outfile\n")
 	quit(1)
 
+fontforge.setPrefs('CoverageFormatsAllowed', 1)
+
 srcFont = fontforge.open(argv[1])
 addFont = fontforge.open(argv[2])
 
