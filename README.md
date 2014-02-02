@@ -119,7 +119,7 @@ M+ font is free for any use.
 Version History
 ---------------
 
-### Version 1.001, February 1, 2014
+### Version 1.001, February 2, 2014
 * Have fixed vertical glyph issue
 * Have fixed subfamily name for extra-bold weight
 * Have added metadata
