@@ -119,6 +119,12 @@ M+ font is free for any use.
 Version History
 ---------------
 
+### Version 1.002, February 7, 2014
+* KAGE data update
+* Search glyph parts from all versions during build
+* Have unified font family name
+* Use newlines into font metadata
+
 ### Version 1.001, February 2, 2014
 * Have fixed vertical glyph issue
 * Have fixed subfamily name for extra-bold weight
