@@ -46,7 +46,7 @@ work.sfd work2.sfd work.otf #{target.sub(/\..+?$/, '.raw')} cidfontinfo #{target
 .PHONY: all clean font
 all: $(TARGETS)
 
-Makefile: ../dump_newest_only.txt ../glyphs.txt ../cidalias.sed ../HZMincho.sql ../mkmkfile.rb
+Makefile: ../dump_all_versions.txt ../glyphs.txt ../cidalias.sed ../HZMincho.sql ../mkmkfile.rb
 	env MYDIR=$$(basename $$PWD) bash -c 'cd .. && make $$MYDIR/Makefile'
 
 head.txt:
@@ -61,7 +61,7 @@ head.txt:
 	echo 'SetTTFName(0x411,2,\"#{jaWeight}\")' >> $@
 	echo 'SetTTFName(0x411,4,\"#{jaName} #{jaWeight}\")' >> $@
 parts.txt:
-	cat ../dump_newest_only.txt | ../mkparts.pl | sed -f #{glyphFilter} > $@
+	cat ../dump_newest_only.txt ../dump_all_versions.txt | ../mkparts.pl | sed -f #{glyphFilter} > $@
 foot.txt:
 	touch $@
 engine:

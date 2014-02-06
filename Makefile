@@ -2,7 +2,7 @@ SUBDIRS=mincho1 mincho3 mincho5 mincho7 mincho9
 DOWNLOADABLES=dump.tar.gz
 LGCMAPS=lgc.map lgc-fixed.map lgc-third.map lgc-quarter.map lgc-wide.map lgc-italic.map \
 lgc-rotated.map lgc-rotfixed.map lgc-rotquarter.map lgc-rotthird.map lgc-rotitalic.map
-METAMAKE_DEP_GENERATABLES=HZMincho.db dump_newest_only.txt glyphs.txt cidalias.sed \
+METAMAKE_DEP_GENERATABLES=HZMincho.db dump_newest_only.txt dump_all_versions.txt glyphs.txt cidalias.sed \
 cidpua.map cidpua-blockelem.map cidpua-dingbats.map cidpua-enclosed.map \
 cidpua-kumimoji.map cidpua-rot.map cidpua-ruby.map cidpua-kanap.map cidpua-symbols.map \
 cidpua-kanavertp.map \
@@ -23,10 +23,12 @@ dump.tar.gz:
 
 dump_newest_only.txt: dump.tar.gz
 	tar xfz $< $@ && touch $@
+dump_all_versions.txt: dump.tar.gz
+	tar xfz $< $@ && touch $@
 
 cidalias1.txt: pua-addenda.txt
 	./cidpua.rb < $< > $@
-cidalias2.txt: dump_newest_only.txt
+cidalias2.txt: dump_newest_only.txt dump_all_versions.txt
 	cat $^ | ./cidalias.rb > $@
 cidalias.txt: cidalias1.txt cidalias2.txt pua-extension.txt
 	cat $^ > $@
