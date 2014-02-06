@@ -7,12 +7,12 @@ fontDB = SQLite3::Database.new(DBFileName)
 Features = fontDB.execute("SELECT featTag, isLarge, aalt FROM featureCode")
 
 FontVersion = '1.001'
-FontCopyright = "Created by KAGE system. (http://fonts.jp/) \
-/ Alphabet glyphs by Andrey V. Panov (C) 2005 All rights reserved. \
-/ A few symbol glyphs are from George Doulos' Symbola font. \
-/ AJ1-6 sans-serif glyphs from M+ fonts. \
-/ Merged by MihailJP, February 2014."
-FontLicense = "X11 License with exception: \
+FontCopyright = "Created by KAGE system. (http://fonts.jp/)
+Alphabet glyphs by Andrey V. Panov (C) 2005 All rights reserved.
+A few symbol glyphs are from George Doulos' Symbola font.
+AJ1-6 sans-serif glyphs from M+ fonts.
+Merged by MihailJP, February 2014."
+FontLicense = "X11 License with exception:
 As a special exception, if you create a document which uses these fonts, \
 and embed these fonts or unaltered portions of these fonts into the \
 document, these fonts does not by itself cause the resulting document to \
@@ -44,17 +44,19 @@ table vhea {
 	VertTypoLineGap   1000;
 } vhea;
 table name {
-	nameid 0 "#{FontCopyright.gsub(/\(C\)/, "\\\\00a9")}";
-	nameid 0 1 "#{FontCopyright.gsub(/\(C\)/, "\\a9")}";
-	nameid 0 1 1 11 "#{FontCopyright.gsub(/\(C\)/, "\\fd")}";
+	nameid 0 "#{FontCopyright.gsub(/\(C\)/, "\\\\00a9").gsub(/\n/, "\\\\000a")}";
+	nameid 0 1 "#{FontCopyright.gsub(/\(C\)/, "\\a9").gsub(/\n/, "\\\\0a")}";
+	nameid 0 3 "#{FontCopyright.gsub(/\(C\)/, "\\\\00a9").gsub(/\n/, "\\\\000d\\\\000a")}";
+	nameid 0 1 1 11 "#{FontCopyright.gsub(/\(C\)/, "\\fd").gsub(/\n/, "\\\\0d")}";
 	nameid 1 "HZ Mincho";
 	nameid 1 1 1 11 "HZ \\96\\be\\92\\a9";
 	nameid 1 3 1 0x411 "HZ \\660e\\671d";
 	nameid 5 "#{FontVersion}";
 	nameid 5 1 "#{FontVersion}";
 	nameid 5 3 "#{FontVersion}";
-	nameid 13 "#{FontLicense}";
-	nameid 13 1 "#{FontLicense}";
+	nameid 13 "#{FontLicense.gsub(/\n/, "\\\\000a")}";
+	nameid 13 1 "#{FontLicense.gsub(/\n/, "\\\\0a")}";
+	nameid 13 3 "#{FontLicense.gsub(/\n/, "\\\\000d\\\\000a")}";
 } name;
 
 languagesystem DFLT dflt;
