@@ -1,64 +1,49 @@
 [HZMincho-Light]
 f=HZ Mincho
 s=Light
-l=HZ Mincho Light
 
 f=3,1,0x411,HZ \660e\671d
 s=3,1,0x411,\7d30
-l=3,1,0x411,HZ \660e\671d \7d30
 
 f=1,1,11,HZ \96\be\92\a9
 s=1,1,11,\8d\d7
-l=1,1,11,HZ \96\be\92\a9 \8d\d7
 
 [HZMincho-Book]
 f=HZ Mincho
 s=Book
-l=HZ Mincho
 
 f=3,1,0x411,HZ \660e\671d
 s=3,1,0x411,\6a19\6e96
-l=3,1,0x411,HZ \660e\671d
 
 f=1,1,11,HZ \96\be\92\a9
 s=1,1,11,\95\57\8f\80
-l=1,1,11,HZ \96\be\92\a9
 
 [HZMincho-Demi]
 f=HZ Mincho
 s=Demi
-l=HZ Mincho Demi
 
 f=3,1,0x411,HZ \660e\671d
 s=3,1,0x411,\4e2d\592a
-l=3,1,0x411,HZ \660e\671d \4e2d\592a
 
 f=1,1,11,HZ \96\be\92\a9
 s=1,1,11,\92\86\91\be
-l=1,1,11,HZ \96\be\92\a9 \92\86\91\be
 
 [HZMincho-Bold]
 f=HZ Mincho
 s=Bold
-l=HZ Mincho Bold
 
 f=3,1,0x411,HZ \660e\671d
 s=3,1,0x411,\592a
-l=3,1,0x411,HZ \660e\671d \592a
 
 f=1,1,11,HZ \96\be\92\a9
 s=1,1,11,\91\be
-l=1,1,11,HZ \96\be\92\a9 \91\be
 
 [HZMincho-Heavy]
 f=HZ Mincho
 s=Heavy
-l=HZ Mincho Heavy
 
 f=3,1,0x411,HZ \660e\671d
 s=3,1,0x411,\6975\592a
-l=3,1,0x411,HZ \660e\671d \6975\592a
 
 f=1,1,11,HZ \96\be\92\a9
 s=1,1,11,\8b\c9\91\be
-l=1,1,11,HZ \96\be\92\a9 \8b\c9\91\be
