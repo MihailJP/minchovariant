@@ -98,43 +98,43 @@ mincho1/Makefile: $(METAMAKE_DEPS)
 	mkdir -p mincho1
 	./mkmkfile.rb mincho1.otf 1 "HZ Mincho" "Light" "HZ 明朝" "細" ../cidalias.sed > $@
 mincho1: LGC/Makefile mincho1/Makefile mincho3/work.otf LGC/lgc1.otf
-	cd $@ && make
+	cd $@ && $(MAKE)
 LGC/lgc1.otf: LGC/Makefile
-	cd LGC && make lgc1.otf
+	cd LGC && $(MAKE) lgc1.otf
 
 mincho3/Makefile: $(METAMAKE_DEPS)
 	mkdir -p mincho3
 	./mkmkfile.rb mincho3.otf 3 "HZ Mincho" "Book" "HZ 明朝" "標準" ../cidalias.sed > $@
 mincho3: LGC/Makefile mincho3/Makefile LGC/lgc3.otf
-	cd $@ && make
+	cd $@ && $(MAKE)
 mincho3/work.otf: mincho3
-	cd mincho3 && make work.otf
+	cd mincho3 && $(MAKE) work.otf
 LGC/lgc3.otf: LGC/Makefile
-	cd LGC && make lgc3.otf
+	cd LGC && $(MAKE) lgc3.otf
 
 mincho5/Makefile: $(METAMAKE_DEPS)
 	mkdir -p mincho5
 	./mkmkfile.rb mincho5.otf 105 "HZ Mincho" "Demi" "HZ 明朝" "中太" ../cidalias.sed > $@
 mincho5: LGC/Makefile mincho5/Makefile mincho3/work.otf LGC/lgc5.otf
-	cd $@ && make
+	cd $@ && $(MAKE)
 LGC/lgc5.otf: LGC/Makefile
-	cd LGC && make lgc5.otf
+	cd LGC && $(MAKE) lgc5.otf
 
 mincho7/Makefile: $(METAMAKE_DEPS)
 	mkdir -p mincho7
 	./mkmkfile.rb mincho7.otf 107 "HZ Mincho" "Bold" "HZ 明朝" "太" ../cidalias.sed > $@
 mincho7: LGC/Makefile mincho7/Makefile mincho3/work.otf LGC/lgc7.otf
-	cd $@ && make
+	cd $@ && $(MAKE)
 LGC/lgc7.otf: LGC/Makefile
-	cd LGC && make lgc7.otf
+	cd LGC && $(MAKE) lgc7.otf
 
 mincho9/Makefile: $(METAMAKE_DEPS)
 	mkdir -p mincho9
 	./mkmkfile.rb mincho9.otf 109 "HZ Mincho" "Heavy" "HZ 明朝" "極太" ../cidalias.sed > $@
 mincho9: LGC/Makefile mincho9/Makefile mincho3/work.otf LGC/lgc9.otf
-	cd $@ && make
+	cd $@ && $(MAKE)
 LGC/lgc9.otf: LGC/Makefile
-	cd LGC && make lgc9.otf
+	cd LGC && $(MAKE) lgc9.otf
 
 mincho1/mincho1.otf: mincho1
 mincho3/mincho3.otf: mincho3
@@ -153,7 +153,7 @@ mincho7/mincho7.otf mincho9/mincho9.otf
 dist: HZMincho.zip
 
 clean:
-	-cd LGC && make clean
+	-cd LGC && $(MAKE) clean
 	-rm -rf $(GENERATABLES)
 	-rm -rf HZMincho
 

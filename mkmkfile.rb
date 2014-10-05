@@ -19,7 +19,7 @@ def lgcFile(file, suffix)
 #{file}: ../LGC/lgc#{$weightNum.to_i % 100}#{suffix}.otf
 	cp $^ $@
 ../LGC/lgc#{$weightNum.to_i % 100}#{suffix}.otf:
-	cd ../LGC && make lgc#{$weightNum.to_i % 100}#{suffix}.otf
+	cd ../LGC && $(MAKE) lgc#{$weightNum.to_i % 100}#{suffix}.otf
 FINIS
 end
 
@@ -47,7 +47,7 @@ work.sfd work2.sfd work.otf #{target.sub(/\..+?$/, '.raw')} cidfontinfo #{target
 all: $(TARGETS)
 
 Makefile: ../dump_all_versions.txt ../glyphs.txt ../cidalias.sed ../HZMincho.sql ../mkmkfile.rb
-	env MYDIR=$$(basename $$PWD) bash -c 'cd .. && make $$MYDIR/Makefile'
+	env MYDIR=$$(basename $$PWD) bash -c 'cd .. && $(MAKE) $$MYDIR/Makefile'
 
 head.txt:
 	echo 'New()' > $@
