@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-AFD_DIR='/cygdrive/c/Apps/FDK'
+AFD_DIR='/cygdrive/c/Apps/FDK' # Needed for Cygwin, otherwise meaningless
 require 'sqlite3'
 DBFileName = 'HZMincho.db'
 if not File.exist?(DBFileName) then raise IOError, "Database '#{DBFileName}' not found" end
@@ -31,14 +31,26 @@ def lgcFiles(db)
 	return result
 end
 
+def iscygwin
+	!!(RUBY_PLATFORM.downcase =~ /cygwin/)
+end
+
+def cygPath(path)
+	if iscygwin then
+		return "\"`cygpath -w \"#{path}\"`\""
+	else
+		return path
+	end
+end
+
 print <<FINIS
-AFD_DIR=#{AFD_DIR}
-AFD_BINDIR=$(AFD_DIR)/Tools/win
+AFD_DIR=#{iscygwin ? AFD_DIR : '~/bin/FDK'}
+AFD_BINDIR=$(AFD_DIR)/Tools/#{iscygwin ? 'win' : 'linux'}
 AFD_CMAPDIR=$(AFD_DIR)/Tools/SharedData/Adobe Cmaps/Adobe-Japan1
-CMAP_HORIZONTAL="`cygpath -w "$(AFD_CMAPDIR)/UniJIS2004-UTF32-H"`"
-CMAP_VERTICAL="`cygpath -w "$(AFD_CMAPDIR)/UniJIS2004-UTF32-V"`"
+CMAP_HORIZONTAL=#{cygPath "$(AFD_CMAPDIR)/UniJIS2004-UTF32-H"}
+CMAP_VERTICAL=#{cygPath "$(AFD_CMAPDIR)/UniJIS2004-UTF32-V"}
 MERGEFONTS=$(AFD_BINDIR)/mergeFonts
-MAKEOTF=cmd /c `cygpath -w $(AFD_BINDIR)/makeotf.cmd`
+MAKEOTF=#{iscygwin ? 'cmd /c ' : ''}#{cygPath "$(AFD_BINDIR)/makeotf#{iscygwin ? '.cmd' : ''}"}
 
 TARGETS=head.txt parts.txt foot.txt engine makeglyph.js makettf.pl \
 work.sfd work2.sfd work.otf #{target.sub(/\..+?$/, '.raw')} cidfontinfo #{target}
