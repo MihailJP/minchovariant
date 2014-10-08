@@ -39,12 +39,12 @@ def cygPath(path)
 	if iscygwin then
 		return "\"`cygpath -w \"#{path}\"`\""
 	else
-		return path
+		return "\"#{path}\""
 	end
 end
 
 print <<FINIS
-AFD_DIR=#{iscygwin ? AFD_DIR : '~/bin/FDK'}
+AFD_DIR=#{iscygwin ? AFD_DIR : "#{ENV["HOME"]}/bin/FDK"}
 AFD_BINDIR=$(AFD_DIR)/Tools/#{iscygwin ? 'win' : 'linux'}
 AFD_CMAPDIR=$(AFD_DIR)/Tools/SharedData/Adobe Cmaps/Adobe-Japan1
 CMAP_HORIZONTAL=#{cygPath "$(AFD_CMAPDIR)/UniJIS2004-UTF32-H"}
