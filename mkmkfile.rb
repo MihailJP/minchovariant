@@ -88,7 +88,7 @@ makettf.pl:
 work.sfd: head.txt parts.txt foot.txt engine makeglyph.js makettf.pl
 	./makettf.pl . work mincho #{$weightNum}
 work2.sfd: work.sfd
-	../merge-contours.py $< $@
+	../merge-contours.py $< /dev/stdout | ../fixup-layers.py /dev/stdin $@
 work.otf: work2.sfd
 	../width.py $< $@
 

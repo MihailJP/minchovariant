@@ -2,7 +2,6 @@
 
 import fontforge
 from sys import argv, stderr
-import re
 
 if len(argv) < 3:
 	stderr.write("Usage: "+argv[0]+" infile outfile\n")
@@ -67,11 +66,3 @@ for glyph in font.glyphs():
 font.save(argv[2])
 font.close()
 
-# Workaround: make sure only the foreground layer exists
-filetxt = ''
-with open(argv[2]) as sfd:
-	for line in sfd.readlines():
-		if not re.match('Back', line):
-			filetxt += line
-with open(argv[2], 'w') as sfd:
-	sfd.write(filetxt)
