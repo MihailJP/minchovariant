@@ -29,19 +29,19 @@ table head {
 table hhea {
 	Ascender           800;
 	Descender         -200;
-	LineGap           1000;
+	LineGap              0;
 } hhea;
 table OS/2 {
 	TypoAscender       800;
 	TypoDescender     -200;
-	TypoLineGap       1000;
+	TypoLineGap          0;
 	winAscent         1000;
 	winDescent         300;
 } OS/2;
 table vhea {
 	VertTypoAscender   500;
 	VertTypoDescender -500;
-	VertTypoLineGap   1000;
+	VertTypoLineGap      0;
 } vhea;
 table name {
 	nameid 0 "#{FontCopyright.gsub(/\(C\)/, "\\\\00a9").gsub(/\n/, "\\\\000a")}";
