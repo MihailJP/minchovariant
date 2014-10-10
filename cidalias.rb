@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
-$stdin.each_line() {|line|
+indat = STDIN.read
+indat.each_line() {|line|
 	m = /^ aj1-(\d+)\s/.match(line)
 	begin
 		gNum = m[1].to_s
