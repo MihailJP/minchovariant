@@ -53,7 +53,7 @@ MERGEFONTS=$(AFD_BINDIR)/mergeFonts
 MAKEOTF=#{iscygwin ? 'cmd /c ' : ''}#{cygPath "$(AFD_BINDIR)/makeotf#{iscygwin ? '.cmd' : ''}"}
 
 TARGETS=head.txt parts.txt foot.txt engine makeglyph.js makettf.pl \
-work.sfd work2.sfd work.otf #{target.sub(/\..+?$/, '.raw')} cidfontinfo #{target}
+work.sfd work2.sfd work3.sfd work.otf #{target.sub(/\..+?$/, '.raw')} cidfontinfo #{target}
 
 .PHONY: all clean font
 all: $(TARGETS)
@@ -88,7 +88,9 @@ makettf.pl:
 work.sfd: head.txt parts.txt foot.txt engine makeglyph.js makettf.pl
 	./makettf.pl . work mincho #{$weightNum}
 work2.sfd: work.sfd
-	../merge-contours.py $< /dev/stdout | ../fixup-layers.py /dev/stdin $@
+	../merge-contours.py $< $@
+work3.sfd: work2.sfd
+	../fixup-layers.py $< $@
 work.otf: work2.sfd
 	../width.py $< $@
 
