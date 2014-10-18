@@ -52,7 +52,7 @@ CMAP_VERTICAL=#{cygPath "$(AFD_CMAPDIR)/UniJIS2004-UTF32-V"}
 MERGEFONTS=$(AFD_BINDIR)/mergeFonts
 MAKEOTF=#{iscygwin ? 'cmd /c ' : ''}#{cygPath "$(AFD_BINDIR)/makeotf#{iscygwin ? '.cmd' : ''}"}
 
-TARGETS=head.txt parts.txt foot.txt engine makeglyph.js makettf.pl \
+TARGETS=head.txt parts.txt foot.txt engine makeglyph.js kagecd.js makettf.pl \
 work.sfd work2.sfd work3.sfd work.otf #{target.sub(/\..+?$/, '.raw')} cidfontinfo #{target}
 
 .PHONY: all clean font
@@ -79,8 +79,9 @@ foot.txt:
 engine:
 	ln -s ../kage/engine $@
 makeglyph.js:
-	echo 'load(\"engine/2d.js\");' > $@
-	cat ../kage/makettf/makeglyph.js | sed -f ../makeglyph-patch.sed >> $@
+	cat ../kage/makettf/makeglyph.js | sed -f ../makeglyph-patch.sed > $@
+kagecd.js:
+	perl ../kagecd-patch.pl ../kage/engine/kagecd.js > $@
 makettf.pl:
 	cat ../kage/makettf/makettf.pl | sed -f ../makettf-patch.sed > $@
 	chmod +x $@
