@@ -1,8 +1,11 @@
 my $urokoOcc = 0;
 my $urokoL = 0;
+my $a14Occ = 0;
+my $a14L = 0;
 my $cr = '';
 while (<>) {
 	$cr = "\r" if (/\r$/);
+	++$urokoL; ++$a14L;
 	if (/\/\/UROKO/) {
 		++$urokoOcc;
 		$urokoL = 0;
@@ -18,8 +21,16 @@ while (<>) {
 		print "          poly.push(x2 - Math.cos(rad) * kage.kAdjustUrokoX[opt2] * urokoScale, y2 - Math.sin(rad) * kage.kAdjustUrokoX[opt2] * urokoScale);$cr";
 	} elsif ($urokoOcc == 2 and $urokoL == 5) {
 		print "          poly.push(x2 - Math.cos(rad) * kage.kAdjustUrokoX[opt2] * urokoScale / 2 + Math.sin(rad) * kage.kAdjustUrokoX[opt2] * urokoScale / 2, y2 - Math.sin(rad) * kage.kAdjustUrokoY[opt2] * urokoScale - Math.cos(rad) * kage.kAdjustUrokoY[opt2] * urokoScale);$cr";
+	} elsif (/if\(a2 == 14\)/) {
+		++$a14Occ;
+		$a14L = 0;
+		print;
+	} elsif ($a14Occ == 1 and $a14L == 4) {
+		print "      var jumpFactor = (kMinWidthT > 6 ? 6.0 / kMinWidthT : 1.0);$cr";
+		print "      poly.push(x2 - kage.kWidth * 4 * Math.min(1 - opt2 / 10, Math.pow(kMinWidthT / kage.kMinWidthT, 3)) * jumpFactor, y2 - kMinWidthT);$cr";
+	} elsif ($a14Occ == 1 and $a14L == 5) {
+		print "      poly.push(x2 - kage.kWidth * 4 * Math.min(1 - opt2 / 10, Math.pow(kMinWidthT / kage.kMinWidthT, 3)) * jumpFactor, y2 - kMinWidthT * 0.5);$cr";
 	} else {
 		print;
 	}
-	++$urokoL;
 }
