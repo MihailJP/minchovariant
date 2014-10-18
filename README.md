@@ -119,6 +119,10 @@ M+ font is free for any use.
 Version History
 ---------------
 
+### Version 1.003, October 18, 2014
+* KAGE data update
+* Have narrowed line gaps.
+
 ### Version 1.002, February 7, 2014
 * KAGE data update
 * Search glyph parts from all versions during build
