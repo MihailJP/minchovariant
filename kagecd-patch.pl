@@ -35,8 +35,10 @@ while (<>) {
 	} elsif (/hosomi = 0.5;/ and $hosomiOcc == 0) {
 		++$hosomiOcc;
 		print "    var cornerOffset = 0;$cr";
-		print "    if(a1 == 22 && a2 == 7){$cr";
-		print "        cornerOffset = (kMinWidthT > 6) ? (kMinWidthT - 6) / 1.5 : 0;$cr";
+		print "    function hypot() {return Math.sqrt(arguments[0] * arguments[0] + arguments[1] * arguments[1]);}$cr";
+		print "    var contourLength = hypot(sx1-x1, sy1-y1) + hypot(sx2-sx1, sy2-sy1) + hypot(x2-sx2, y2-sy2);$cr";
+		print "    if(a1 == 22 && a2 == 7 && contourLength < 100){$cr";
+		print "        cornerOffset = (kMinWidthT > 6) ? (kMinWidthT - 6) * ((100 - contourLength) / 100) : 0;$cr";
 		print "        x1 += cornerOffset;$cr";
 		print "    }$cr";
 		print "    $cr";
