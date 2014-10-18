@@ -1,0 +1,11 @@
+#!/usr/bin/env fontforge
+
+if ( $argc < 3 )
+	PostNotice(StrJoin(["Usage:", $0, "infont outfont"], " "))
+	Quit(1)
+endif
+
+Open($1)
+SelectWorthOutputting()
+FindIntersections()
+Save($2)
