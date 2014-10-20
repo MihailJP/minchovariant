@@ -54,7 +54,7 @@ MAKEOTF=#{iscygwin ? 'cmd /c ' : ''}#{cygPath "$(AFD_BINDIR)/makeotf#{iscygwin ?
 
 TARGETS=head.txt parts.txt foot.txt engine makeglyph.js kagecd.js makettf.pl \
 work.sfd work2.sfd work3.sfd work4.sfd \
-work_.sfd work2_.sfd work3_.sfd work4_.sfd work.otf \
+work2_.sfd work3_.sfd work4_.sfd work.otf \
 #{target.sub(/\..+?$/, '.raw')} cidfontinfo #{target}
 
 .PHONY: all clean font
