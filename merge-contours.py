@@ -49,7 +49,7 @@ def separateSelfIntersect(layer):
 font = fontforge.open(argv[1])
 for glyph in font.glyphs():
 	if glyph.isWorthOutputting():
-		glyph.transform(psMat.scale(2.0))
+		glyph.transform(psMat.scale(4.0))
 		layer = separateSelfIntersect(glyph.layers[1])
 		if not layer.isEmpty():
 			newLayer = fontforge.layer()
@@ -63,7 +63,7 @@ for glyph in font.glyphs():
 				if ex.args[0] != "Empty contour":
 					raise
 			glyph.layers[1] = newLayer
-		glyph.transform(psMat.scale(0.5))
+		glyph.transform(psMat.scale(0.25))
 #font.generate(argv[2])
 font.save(argv[2])
 font.close()
