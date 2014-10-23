@@ -125,7 +125,7 @@ kanavp.otf: kanavp-base.otf work.otf
 	$(MERGEFONTS) -cid cidfontinfo $@ #{cidmap.gsub(/\r?\n/, " ")}
 
 #{target}: #{target.sub(/\..+?$/, '.raw')}
-	$(MAKEOTF) -f $< -ff ../otf-features -mf ../fontMenuDB -o $@ -ch $(CMAP_HORIZONTAL) -cv $(CMAP_VERTICAL)
+	$(MAKEOTF) -f $< -ff ../otf-features -mf ../fontMenuDB -o $@ -ch $(CMAP_HORIZONTAL)
 	stat #{target} > /dev/null
 
 cidfontinfo:
