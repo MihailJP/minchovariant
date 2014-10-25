@@ -47,3 +47,53 @@ s=3,1,0x411,\6975\592a
 
 f=1,1,11,HZ \96\be\92\a9
 s=1,1,11,\8b\c9\91\be
+
+[HZMincoo-Light]
+f=HZ Mincho
+s=Light
+
+f=3,1,0x411,HZ \660e\671d
+s=3,1,0x411,\7d30
+
+f=1,1,11,HZ \96\be\92\a9
+s=1,1,11,\8d\d7
+
+[HZMincoo-Book]
+f=HZ Mincho
+s=Book
+
+f=3,1,0x411,HZ \660e\671d
+s=3,1,0x411,\6a19\6e96
+
+f=1,1,11,HZ \96\be\92\a9
+s=1,1,11,\95\57\8f\80
+
+[HZMincoo-Demi]
+f=HZ Mincho
+s=Demi
+
+f=3,1,0x411,HZ \660e\671d
+s=3,1,0x411,\4e2d\592a
+
+f=1,1,11,HZ \96\be\92\a9
+s=1,1,11,\92\86\91\be
+
+[HZMincoo-Bold]
+f=HZ Mincho
+s=Bold
+
+f=3,1,0x411,HZ \660e\671d
+s=3,1,0x411,\592a
+
+f=1,1,11,HZ \96\be\92\a9
+s=1,1,11,\91\be
+
+[HZMincoo-Heavy]
+f=HZ Mincho
+s=Heavy
+
+f=3,1,0x411,HZ \660e\671d
+s=3,1,0x411,\6975\592a
+
+f=1,1,11,HZ \96\be\92\a9
+s=1,1,11,\8b\c9\91\be
