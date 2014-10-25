@@ -119,6 +119,12 @@ M+ font is free for any use.
 Version History
 ---------------
 
+### Version 1.004, October 26, 2014
+* Beta release
+* Smoothed contours
+* Adjusted design
+* Workaround for build on Linux
+
 ### Version 1.003, October 18, 2014
 * KAGE data update
 * Have narrowed line gaps.
