@@ -39,12 +39,12 @@ def cygPath(path)
 	if iscygwin then
 		return "\"`cygpath -w \"#{path}\"`\""
 	else
-		return path
+		return "\"#{path}\""
 	end
 end
 
 print <<FINIS
-AFD_DIR=#{iscygwin ? AFD_DIR : '~/bin/FDK'}
+AFD_DIR=#{iscygwin ? AFD_DIR : "#{ENV["HOME"]}/bin/FDK"}
 AFD_BINDIR=$(AFD_DIR)/Tools/#{iscygwin ? 'win' : 'linux'}
 AFD_CMAPDIR=$(AFD_DIR)/Tools/SharedData/Adobe Cmaps/Adobe-Japan1
 CMAP_HORIZONTAL=#{cygPath "$(AFD_CMAPDIR)/UniJIS2004-UTF32-H"}
@@ -52,8 +52,10 @@ CMAP_VERTICAL=#{cygPath "$(AFD_CMAPDIR)/UniJIS2004-UTF32-V"}
 MERGEFONTS=$(AFD_BINDIR)/mergeFonts
 MAKEOTF=#{iscygwin ? 'cmd /c ' : ''}#{cygPath "$(AFD_BINDIR)/makeotf#{iscygwin ? '.cmd' : ''}"}
 
-TARGETS=head.txt parts.txt foot.txt engine makeglyph.js makettf.pl \
-work.sfd work2.sfd work3.sfd work.otf #{target.sub(/\..+?$/, '.raw')} cidfontinfo #{target}
+TARGETS=head.txt parts.txt foot.txt engine makeglyph.js kagecd.js makettf.pl \
+work.sfd work2.sfd work3.sfd work4.sfd \
+work2_.sfd work3_.sfd work4_.sfd work.otf \
+#{target.sub(/\..+?$/, '.raw')} cidfontinfo #{iscygwin ? "" : "tmpcid.otf tmpcid.ttx " + target.sub(/\..+?$/, '.ttx')} #{target}
 
 .PHONY: all clean font
 all: $(TARGETS)
@@ -79,19 +81,28 @@ foot.txt:
 engine:
 	ln -s ../kage/engine $@
 makeglyph.js:
-	echo 'load(\"engine/2d.js\");' > $@
-	cat ../kage/makettf/makeglyph.js | sed -f ../makeglyph-patch.sed >> $@
+	cat ../kage/makettf/makeglyph.js | sed -f ../makeglyph-patch.sed > $@
+kagecd.js:
+	perl ../kagecd-patch.pl ../kage/engine/kagecd.js > $@
 makettf.pl:
 	cat ../kage/makettf/makettf.pl | sed -f ../makettf-patch.sed > $@
 	chmod +x $@
 
 work.sfd: head.txt parts.txt foot.txt engine makeglyph.js makettf.pl
 	./makettf.pl . work mincho #{$weightNum}
-work2.sfd: work.sfd
-	../merge-contours.py $< $@
-work3.sfd: work2.sfd
+work2_.sfd: work.sfd
+	../smooth-contours.py $< $@
+work2.sfd: work2_.sfd
 	../fixup-layers.py $< $@
-work.otf: work2.sfd
+work3_.sfd: work2.sfd
+	../intersect.pe $< $@
+work3.sfd: work3_.sfd
+	../fixup-layers.py $< $@
+work4_.sfd: work3.sfd
+	../merge-contours.py $< $@
+work4.sfd: work4_.sfd
+	../fixup-layers.py $< $@
+work.otf: work4.sfd
 	../width.py $< $@
 
 rotcjk.sfd: work.otf
@@ -113,10 +124,25 @@ kanavp.otf: kanavp-base.otf work.otf
 #{target.sub(/\..+?$/, '.raw')}: work.otf cidfontinfo enclosed.otf rotcjk.otf #{fontDB.execute("SELECT fontFile FROM subFont WHERE lgcFontTag IS NOT NULL").flatten.join(" ")}
 	$(MERGEFONTS) -cid cidfontinfo $@ #{cidmap.gsub(/\r?\n/, " ")}
 
+#{iscygwin ? <<CYGWIN
 #{target}: #{target.sub(/\..+?$/, '.raw')}
-	$(MAKEOTF) -f $< -ff ../otf-features -mf ../fontMenuDB -o $@ -ch $(CMAP_HORIZONTAL) -cv $(CMAP_VERTICAL)
+	$(MAKEOTF) -f $< -ff ../otf-features -mf ../fontMenuDB -o $@ -ch $(CMAP_HORIZONTAL)
 	stat #{target} > /dev/null
-
+CYGWIN
+: <<LINUX
+tmpcid.otf: #{target.sub(/\..+?$/, '.raw')}
+	$(MAKEOTF) -f $< -ff ../otf-features -mf ../fontMenuDB -o $@ -ch $(CMAP_HORIZONTAL)
+	stat $@ > /dev/null
+tmpcid.ttx: tmpcid.otf
+	ttx -o $@ $<
+	stat $@ > /dev/null
+#{target.sub(/\..+?$/, '.ttx')}: tmpcid.ttx
+	sed -f ../fixotf.sed $< > $@
+#{target}: #{target.sub(/\..+?$/, '.ttx')}
+	ttx -o $@ $<
+	stat $@ > /dev/null
+LINUX
+}
 cidfontinfo:
 	../makecfi.rb '#{enName}' '#{enWeight}' > $@
 
