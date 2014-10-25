@@ -55,7 +55,7 @@ MAKEOTF=#{iscygwin ? 'cmd /c ' : ''}#{cygPath "$(AFD_BINDIR)/makeotf#{iscygwin ?
 TARGETS=head.txt parts.txt foot.txt engine makeglyph.js kagecd.js makettf.pl \
 work.sfd work2.sfd work3.sfd work4.sfd \
 work2_.sfd work3_.sfd work4_.sfd work.otf \
-#{target.sub(/\..+?$/, '.raw')} cidfontinfo #{target}
+#{target.sub(/\..+?$/, '.raw')} cidfontinfo #{iscygwin ? "" : "tmpcid.otf tmpcid.ttx " + target.sub(/\..+?$/, '.ttx')} #{target}
 
 .PHONY: all clean font
 all: $(TARGETS)
@@ -124,10 +124,25 @@ kanavp.otf: kanavp-base.otf work.otf
 #{target.sub(/\..+?$/, '.raw')}: work.otf cidfontinfo enclosed.otf rotcjk.otf #{fontDB.execute("SELECT fontFile FROM subFont WHERE lgcFontTag IS NOT NULL").flatten.join(" ")}
 	$(MERGEFONTS) -cid cidfontinfo $@ #{cidmap.gsub(/\r?\n/, " ")}
 
+#{iscygwin ? <<CYGWIN
 #{target}: #{target.sub(/\..+?$/, '.raw')}
-	$(MAKEOTF) -f $< -ff ../otf-features -mf ../fontMenuDB -o $@ -ch $(CMAP_HORIZONTAL) -cv $(CMAP_VERTICAL)
+	$(MAKEOTF) -f $< -ff ../otf-features -mf ../fontMenuDB -o $@ -ch $(CMAP_HORIZONTAL)
 	stat #{target} > /dev/null
-
+CYGWIN
+: <<LINUX
+tmpcid.otf: #{target.sub(/\..+?$/, '.raw')}
+	$(MAKEOTF) -f $< -ff ../otf-features -mf ../fontMenuDB -o $@ -ch $(CMAP_HORIZONTAL)
+	stat $@ > /dev/null
+tmpcid.ttx: tmpcid.otf
+	ttx -o $@ $<
+	stat $@ > /dev/null
+#{target.sub(/\..+?$/, '.ttx')}: tmpcid.ttx
+	sed -f ../fixotf.sed $< > $@
+#{target}: #{target.sub(/\..+?$/, '.ttx')}
+	ttx -o $@ $<
+	stat $@ > /dev/null
+LINUX
+}
 cidfontinfo:
 	../makecfi.rb '#{enName}' '#{enWeight}' > $@
 
