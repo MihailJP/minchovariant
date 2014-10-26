@@ -49,11 +49,22 @@ if len(argv) < 3:
 
 fontforge.setPrefs('CoverageFormatsAllowed', 1)
 
+def getClockwiseContour(contour):
+	if contour.isClockwise() == 0:
+		newContour = fontforge.contour()
+		for k in range(0, -len(contour), -1):
+			newContour += contour[k]
+		newContour.closed = True
+		return newContour
+	else:
+		return contour.dup()
+
 font = fontforge.open(argv[1])
 for glyph in font.glyphs():
 	if glyph.isWorthOutputting():
 		newLayer = fontforge.layer()
-		for contour in glyph.layers[1]:
+		for origContour in glyph.layers[1]:
+			contour = getClockwiseContour(origContour)
 			newContour = contour.dup()
 			angles = analyzeAngles(contour)
 			obtusityLimit = 135 if len(contour) == 5 else 150
