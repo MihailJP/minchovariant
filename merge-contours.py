@@ -55,8 +55,8 @@ def ensureNoSelfIntersection(layer):
 	for contour in layer:
 		if not contour.closed:
 			raise RuntimeError, "Open contour detected"
-		elif contour.isClockwise() == -1:
-			raise RuntimeError, "Contour self-intersection detected"
+		#elif contour.isClockwise() == -1:
+		#	raise RuntimeError, "Contour self-intersection detected"
 
 def doRemoveOverlaps(glyph, scaleFactor):
 	try:
@@ -73,7 +73,12 @@ def doRemoveOverlaps(glyph, scaleFactor):
 				print glyph.glyphname, ex
 				if ex.args[0] != "Empty contour":
 					raise
-			if scaleFactor < 1024: ensureNoSelfIntersection(newLayer)
+			if scaleFactor < 1024:
+				ensureNoSelfIntersection(newLayer)
+			else:
+				stderr.write(glyph.glyphname + " ensuring all contours are closed...\n")
+				for contour in newLayer:
+					contour.closed = True
 			glyph.layers[1] = newLayer
 	finally:
 		glyph.transform(psMat.scale(1.0/scaleFactor))
