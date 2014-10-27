@@ -104,6 +104,7 @@ def removeOverlaps(glyph):
 font = fontforge.open(argv[1])
 for glyph in font.glyphs():
 	if glyph.isWorthOutputting():
+		glyph.round()
 		removeOverlaps(glyph)
 #font.generate(argv[2])
 font.save(argv[2])
