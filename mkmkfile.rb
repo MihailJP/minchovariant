@@ -53,8 +53,8 @@ MERGEFONTS=$(AFD_BINDIR)/mergeFonts
 MAKEOTF=#{iscygwin ? 'cmd /c ' : ''}#{cygPath "$(AFD_BINDIR)/makeotf#{iscygwin ? '.cmd' : ''}"}
 
 TARGETS=head.txt parts.txt foot.txt engine makeglyph.js kagecd.js makettf.pl \
-work.sfd work2.sfd work3.sfd work4.sfd \
-work2_.sfd work3_.sfd work4_.sfd work.otf \
+work.sfd work2.sfd work3.sfd work4.sfd work5.sfd \
+work2_.sfd work3_.sfd work4_.sfd work5_.sfd work.otf \
 #{target.sub(/\..+?$/, '.raw')} cidfontinfo #{iscygwin ? "" : "tmpcid.otf tmpcid.ttx " + target.sub(/\..+?$/, '.ttx')} #{target}
 
 .PHONY: all clean font
@@ -99,10 +99,14 @@ work3_.sfd: work2.sfd
 work3.sfd: work3_.sfd
 	../fixup-layers.py $< $@
 work4_.sfd: work3.sfd
-	../merge-contours.py $< $@
+	../intersect.pe $< $@
 work4.sfd: work4_.sfd
 	../fixup-layers.py $< $@
-work.otf: work4.sfd
+work5_.sfd: work4.sfd
+	../merge-contours.py $< $@
+work5.sfd: work5_.sfd
+	../fixup-layers.py $< $@
+work.otf: work5.sfd
 	../width.py $< $@
 
 rotcjk.sfd: work.otf
