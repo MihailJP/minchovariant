@@ -59,11 +59,39 @@ def getClockwiseContour(contour):
 	else:
 		return contour.dup()
 
+def separateSelfIntersections(contour):
+	layer = fontforge.layer()
+	for i in range(0, len(contour) - 1):
+		for j in range(len(contour) - 1, i, -1):
+			if contour[i] == contour[j] and contour[i].on_curve and contour[j].on_curve:
+				c1 = fontforge.contour()
+				c2 = fontforge.contour()
+				c1 += contour[0:i]
+				c1 += contour[j:len(contour)]
+				c2 += contour[i:j]
+				c1.closed = c2.closed = True
+				try:
+					c1 = getClockwiseContour(c1)
+				except AttributeError:
+					pass
+				try:
+					c2 = getClockwiseContour(c2)
+				except AttributeError:
+					pass
+				layer += c1
+				return layer + separateSelfIntersections(c2)
+	if layer.isEmpty():
+		layer += contour
+	return layer
+
 font = fontforge.open(argv[1])
 for glyph in font.glyphs():
 	if glyph.isWorthOutputting():
+		layer = fontforge.layer()
 		newLayer = fontforge.layer()
-		for origContour in glyph.layers[1]:
+		for contour in glyph.layers[1]:
+			layer += separateSelfIntersections(contour)
+		for origContour in layer:
 			contour = getClockwiseContour(origContour)
 			newContour = contour.dup()
 			angles = analyzeAngles(contour)

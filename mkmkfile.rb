@@ -91,11 +91,11 @@ makettf.pl:
 work.sfd: head.txt parts.txt foot.txt engine makeglyph.js makettf.pl
 	./makettf.pl . work mincho #{$weightNum}
 work2_.sfd: work.sfd
-	../smooth-contours.py $< $@
+	../intersect.pe $< $@
 work2.sfd: work2_.sfd
 	../fixup-layers.py $< $@
 work3_.sfd: work2.sfd
-	../intersect.pe $< $@
+	../smooth-contours.py $< $@
 work3.sfd: work3_.sfd
 	../fixup-layers.py $< $@
 work4_.sfd: work3.sfd
