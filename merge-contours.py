@@ -12,6 +12,9 @@ if len(argv) < 3:
 
 fontforge.setPrefs('CoverageFormatsAllowed', 1)
 
+class ContourError(RuntimeError):
+	pass
+
 def determineMinDist(glyph):
 	minDist = float('inf')
 	for contour in glyph.layers[1]:
@@ -56,9 +59,9 @@ def ensureContourIsClockwise(layer):
 def ensureNoSelfIntersection(layer):
 	for contour in layer:
 		if not contour.closed:
-			raise RuntimeError, "Open contour detected"
+			raise ContourError, "Open contour detected"
 		#elif contour.isClockwise() == -1:
-		#	raise RuntimeError, "Contour self-intersection detected"
+		#	raise ContourError, "Contour self-intersection detected"
 
 def doRemoveOverlaps(glyph, scaleFactor):
 	try:
@@ -101,15 +104,9 @@ def removeOverlaps(glyph, f = doRemoveOverlaps, factor = None):
 	while True:
 		try:
 			f(glyph, scaleFactor)
-		except RuntimeError, ex:
-			if ex.args[0] == "Open contour detected":
-				stderr.write(glyph.glyphname + " open contour detected (scale factor: " + str(scaleFactor) + ")\n")
-				scaleFactor *= 2
-			elif ex.args[0] == "Contour self-intersection detected":
-				stderr.write(glyph.glyphname + " contour self-intersection detected (scale factor: " + str(scaleFactor) + ")\n")
-				scaleFactor *= 2
-			else:
-				raise
+		except ContourError, ex:
+			stderr.write(str(ex) + " while processing " + glyph.glyphname + " (scale factor: " + str(scaleFactor) + ")\n")
+			scaleFactor *= 2
 			if scaleFactor >= 512:
 				stderr.write("Aborting...\n")
 				quit(4)
