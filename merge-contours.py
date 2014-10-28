@@ -108,8 +108,7 @@ def removeOverlaps(glyph, f = doRemoveOverlaps, factor = None):
 			stderr.write(str(ex) + " while processing " + glyph.glyphname + " (scale factor: " + str(scaleFactor) + ")\n")
 			scaleFactor *= 2
 			if scaleFactor >= 512:
-				stderr.write("Aborting...\n")
-				quit(4)
+				raise
 		else:
 			break
 
@@ -137,33 +136,38 @@ virginFound = False
 font = fontforge.open(argv[1])
 for glyph in font.glyphs():
 	if glyph.isWorthOutputting():
-		try:
-			if glyph.glyphname not in cache:
-				virginFound = True
-				cache[glyph.glyphname] = 1; cache.sync()
-				glyph.round()
-				removeOverlaps(glyph, doRemoveOverlapsSimply, 1)
-				cache[glyph.glyphname] = dumpGlyph(glyph); cache.sync()
-			elif isinstance(cache[glyph.glyphname], tuple):
-				if virginFound:
-					stderr.write("!!! Hash collision detected while processing " + glyph.glyphname + " !!!\nRemoving cache\n")
-					del cache[glyph.glyphname]
-					quit(5)
-				glyph.layers[1] = restoreGlyph(cache[glyph.glyphname])
-			elif cache[glyph.glyphname] == 1:
-				virginFound = True
-				stderr.write("Previous failure (glyph " + glyph.glyphname + ", code 1) detected\n")
-				cache[glyph.glyphname] = 2; cache.sync()
-				glyph.round()
-				removeOverlaps(glyph)
-				cache[glyph.glyphname] = dumpGlyph(glyph); cache.sync()
+		while True:
+			try:
+				if glyph.glyphname not in cache:
+					virginFound = True
+					cache[glyph.glyphname] = 1; cache.sync()
+					glyph.round()
+					removeOverlaps(glyph, doRemoveOverlapsSimply, 1)
+					cache[glyph.glyphname] = dumpGlyph(glyph); cache.sync()
+				elif isinstance(cache[glyph.glyphname], tuple):
+					if virginFound:
+						stderr.write("!!! Hash collision detected while processing " + glyph.glyphname + " !!!\nRemoving cache\n")
+						del cache[glyph.glyphname]
+						quit(5)
+					glyph.layers[1] = restoreGlyph(cache[glyph.glyphname])
+				elif cache[glyph.glyphname] == 1:
+					virginFound = True
+					stderr.write("Previous failure (glyph " + glyph.glyphname + ", code 1) detected\n")
+					cache[glyph.glyphname] = 2; cache.sync()
+					glyph.round()
+					removeOverlaps(glyph)
+					cache[glyph.glyphname] = dumpGlyph(glyph); cache.sync()
+				else:
+					stderr.write("Previous failure (glyph " + glyph.glyphname + ", code " + str(cache[glyph.glyphname]) + ") detected!!\n")
+					quit(1)
+			except KeyboardInterrupt:
+				stderr.write("Interrupt. Removing " + glyph.glyphname + " from cache\n")
+				del cache[glyph.glyphname]
+				quit(130)
+			except ContourError:
+				pass
 			else:
-				stderr.write("Previous failure (glyph " + glyph.glyphname + ", code " + str(cache[glyph.glyphname]) + ") detected!!\n")
-				quit(1)
-		except KeyboardInterrupt:
-			stderr.write("Interrupt. Removing " + glyph.glyphname + " from cache\n")
-			del cache[glyph.glyphname]
-			quit(130)
+				break
 #font.generate(argv[2])
 font.save(argv[2])
 font.close()
