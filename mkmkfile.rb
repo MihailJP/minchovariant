@@ -99,7 +99,7 @@ work3_.sfd: work2.sfd
 work3.sfd: work3_.sfd
 	../fixup-layers.py $< $@
 work4_.sfd: work3.sfd
-	../merge-contours.py $< $@
+	../merge-contours.rb $< $@
 work4.sfd: work4_.sfd
 	../fixup-layers.py $< $@
 work.otf: work4.sfd
