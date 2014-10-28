@@ -147,5 +147,5 @@ cidfontinfo:
 	../makecfi.rb '#{enName}' '#{enWeight}' > $@
 
 clean:
-	-rm -rf $(TARGETS) work.scr work.log build *.otf
+	-rm -rf $(TARGETS) work.scr work.log build *.otf _WORKDATA_*
 FINIS

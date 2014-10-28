@@ -3,6 +3,8 @@
 import fontforge, psMat
 from sys import argv, stderr
 from math import hypot
+from os.path import splitext
+import shelve
 
 if len(argv) < 3:
 	stderr.write("Usage: "+argv[0]+" infile outfile\n")
@@ -101,12 +103,58 @@ def removeOverlaps(glyph):
 		else:
 			break
 
+def dumpGlyph(glyph):
+	contours = []
+	for contour in glyph.layers[1]:
+		points = []
+		for point in contour:
+			points += [(point.x, point.y, point.on_curve)]
+		contours += [tuple(points)]
+	return tuple(contours)
+
+def restoreGlyph(glyphDump):
+	layer = fontforge.layer()
+	for contourDump in glyphDump:
+		contour = fontforge.contour()
+		for pointDump in contourDump:
+			contour += fontforge.point(pointDump[0], pointDump[1], pointDump[2])
+		contour.closed = True
+		layer += contour
+	return layer
+
+cache = shelve.open("_WORKDATA_" + splitext(argv[2])[0])
+virginFound = False
 font = fontforge.open(argv[1])
 for glyph in font.glyphs():
 	if glyph.isWorthOutputting():
-		glyph.round()
-		removeOverlaps(glyph)
+		try:
+			if glyph.glyphname not in cache:
+				virginFound = True
+				cache[glyph.glyphname] = 1; cache.sync()
+				glyph.round()
+				removeOverlaps(glyph)
+				cache[glyph.glyphname] = dumpGlyph(glyph); cache.sync()
+			elif isinstance(cache[glyph.glyphname], tuple):
+				if virginFound:
+					stderr.write("!!! Hash collision detected while processing " + glyph.glyphname + " !!!\nRemoving cache\n")
+					del cache[glyph.glyphname]
+					quit(5)
+				glyph.layers[1] = restoreGlyph(cache[glyph.glyphname])
+			elif cache[glyph.glyphname] == 1:
+				virginFound = True
+				stderr.write("Previous failure (glyph " + glyph.glyphname + ", code 1) detected\n")
+				cache[glyph.glyphname] = 2; cache.sync()
+				glyph.round()
+				glyph.removeOverlap()
+				cache[glyph.glyphname] = dumpGlyph(glyph); cache.sync()
+			else:
+				stderr.write("Previous failure (glyph " + glyph.glyphname + ", code " + str(cache[glyph.glyphname]) + ") detected!!\n")
+				quit(1)
+		except KeyboardInterrupt:
+			stderr.write("Interrupt. Removing " + glyph.glyphname + " from cache\n")
+			del cache[glyph.glyphname]
+			quit(130)
 #font.generate(argv[2])
 font.save(argv[2])
 font.close()
-
+cache.close()
