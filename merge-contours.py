@@ -3,12 +3,17 @@
 import fontforge, psMat
 from sys import argv, stderr
 from math import hypot
+from os.path import splitext
+import shelve
 
 if len(argv) < 3:
 	stderr.write("Usage: "+argv[0]+" infile outfile\n")
 	quit(1)
 
 fontforge.setPrefs('CoverageFormatsAllowed', 1)
+
+class ContourError(RuntimeError):
+	pass
 
 def determineMinDist(glyph):
 	minDist = float('inf')
@@ -51,17 +56,45 @@ def ensureContourIsClockwise(layer):
 			l += contour
 	return l
 
+def separateSelfIntersections(contour):
+	layer = fontforge.layer()
+	for i in range(0, len(contour) - 1):
+		for j in range(len(contour) - 1, i, -1):
+			if contour[i] == contour[j] and contour[i].on_curve and contour[j].on_curve:
+				c1 = fontforge.contour()
+				c2 = fontforge.contour()
+				c1 += contour[0:i]
+				c1 += contour[j:len(contour)]
+				c2 += contour[i:j]
+				c1.closed = c2.closed = True
+				try:
+					c1 = ensureContourIsClockwise(c1)
+				except AttributeError:
+					pass
+				try:
+					c2 = ensureContourIsClockwise(c2)
+				except AttributeError:
+					pass
+				layer += c1
+				return layer + separateSelfIntersections(c2)
+	if layer.isEmpty():
+		layer += contour
+	return layer
+
 def ensureNoSelfIntersection(layer):
 	for contour in layer:
 		if not contour.closed:
-			raise RuntimeError, "Open contour detected"
+			raise ContourError, "Open contour detected"
 		#elif contour.isClockwise() == -1:
-		#	raise RuntimeError, "Contour self-intersection detected"
+		#	raise ContourError, "Contour self-intersection detected"
 
-def doRemoveOverlaps(glyph, scaleFactor):
+def doRemoveOverlaps(glyph, scaleFactor, scaleLimit):
 	try:
 		glyph.transform(psMat.scale(scaleFactor))
-		layer = ensureContourIsClockwise(glyph.layers[1])
+		origLayer = fontforge.layer()
+		for contour in glyph.layers[1]:
+			origLayer += separateSelfIntersections(contour)
+		layer = ensureContourIsClockwise(origLayer)
 		if not layer.isEmpty():
 			newLayer = fontforge.layer()
 			newLayer += layer[0]
@@ -73,7 +106,7 @@ def doRemoveOverlaps(glyph, scaleFactor):
 				print glyph.glyphname, ex
 				if ex.args[0] != "Empty contour":
 					raise
-			if scaleFactor < 1024:
+			if scaleFactor < 256:
 				ensureNoSelfIntersection(newLayer)
 			else:
 				stderr.write(glyph.glyphname + " ensuring all contours are closed...\n")
@@ -83,30 +116,87 @@ def doRemoveOverlaps(glyph, scaleFactor):
 	finally:
 		glyph.transform(psMat.scale(1.0/scaleFactor))
 
-def removeOverlaps(glyph):
+def doRemoveOverlapsSimply(glyph, scaleFactor, scaleLimit):
+	try:
+		glyph.transform(psMat.scale(scaleFactor))
+		layer = ensureContourIsClockwise(glyph.layers[1])
+		layer.removeOverlap()
+		ensureNoSelfIntersection(layer)
+		glyph.layers[1] = layer
+	finally:
+		glyph.transform(psMat.scale(1.0/scaleFactor))
+
+def removeOverlaps(glyph, f = doRemoveOverlaps, factor = None, scaleLimit = 256):
 	minDist = determineMinDist(glyph)
-	scaleFactor = determineScaleFactor(minDist)
+	scaleFactor = factor or determineScaleFactor(minDist)
 	while True:
 		try:
-			doRemoveOverlaps(glyph, scaleFactor)
-		except RuntimeError, ex:
-			if ex.args[0] == "Open contour detected":
-				stderr.write(glyph.glyphname + " open contour detected (scale factor: " + str(scaleFactor) + ")\n")
-				scaleFactor *= 2
-			elif ex.args[0] == "Contour self-intersection detected":
-				stderr.write(glyph.glyphname + " contour self-intersection detected (scale factor: " + str(scaleFactor) + ")\n")
-				scaleFactor *= 2
-			else:
+			f(glyph, scaleFactor, scaleLimit)
+		except ContourError, ex:
+			stderr.write(str(ex) + " while processing " + glyph.glyphname + " (scale factor: " + str(scaleFactor) + ")\n")
+			scaleFactor *= 2
+			if scaleFactor >= scaleLimit * 2:
 				raise
 		else:
 			break
 
+def dumpGlyph(glyph):
+	contours = []
+	for contour in glyph.layers[1]:
+		points = []
+		for point in contour:
+			points += [(point.x, point.y, point.on_curve)]
+		contours += [tuple(points)]
+	return tuple(contours)
+
+def restoreGlyph(glyphDump):
+	layer = fontforge.layer()
+	for contourDump in glyphDump:
+		contour = fontforge.contour()
+		for pointDump in contourDump:
+			contour += fontforge.point(pointDump[0], pointDump[1], pointDump[2])
+		contour.closed = True
+		layer += contour
+	return layer
+
+cache = shelve.open("_WORKDATA_" + splitext(argv[2])[0])
+virginFound = False
 font = fontforge.open(argv[1])
 for glyph in font.glyphs():
 	if glyph.isWorthOutputting():
-		glyph.round()
-		removeOverlaps(glyph)
+		while True:
+			try:
+				if glyph.glyphname not in cache:
+					virginFound = True
+					cache[glyph.glyphname] = 1; cache.sync()
+					glyph.round()
+					removeOverlaps(glyph, doRemoveOverlapsSimply, 1, 32)
+					cache[glyph.glyphname] = dumpGlyph(glyph); cache.sync()
+				elif isinstance(cache[glyph.glyphname], tuple):
+					if virginFound:
+						stderr.write("!!! Hash collision detected while processing " + glyph.glyphname + " !!!\nRemoving cache\n")
+						del cache[glyph.glyphname]
+						quit(5)
+					glyph.layers[1] = restoreGlyph(cache[glyph.glyphname])
+				elif cache[glyph.glyphname] == 1:
+					virginFound = True
+					stderr.write("Previous failure (glyph " + glyph.glyphname + ", code 1) detected\n")
+					cache[glyph.glyphname] = 2; cache.sync()
+					glyph.round()
+					removeOverlaps(glyph)
+					cache[glyph.glyphname] = dumpGlyph(glyph); cache.sync()
+				else:
+					stderr.write("Previous failure (glyph " + glyph.glyphname + ", code " + str(cache[glyph.glyphname]) + ") detected!!\n")
+					quit(1)
+			except KeyboardInterrupt:
+				stderr.write("Interrupt. Removing " + glyph.glyphname + " from cache\n")
+				del cache[glyph.glyphname]
+				quit(130)
+			except ContourError:
+				pass
+			else:
+				break
 #font.generate(argv[2])
 font.save(argv[2])
 font.close()
-
+cache.close()
