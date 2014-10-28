@@ -85,12 +85,22 @@ def doRemoveOverlaps(glyph, scaleFactor):
 	finally:
 		glyph.transform(psMat.scale(1.0/scaleFactor))
 
-def removeOverlaps(glyph):
+def doRemoveOverlapsSimply(glyph, scaleFactor):
+	try:
+		glyph.transform(psMat.scale(scaleFactor))
+		layer = ensureContourIsClockwise(glyph.layers[1])
+		layer.removeOverlap()
+		ensureNoSelfIntersection(layer)
+		glyph.layers[1] = layer
+	finally:
+		glyph.transform(psMat.scale(1.0/scaleFactor))
+
+def removeOverlaps(glyph, f = doRemoveOverlaps, factor = None):
 	minDist = determineMinDist(glyph)
-	scaleFactor = determineScaleFactor(minDist)
+	scaleFactor = factor or determineScaleFactor(minDist)
 	while True:
 		try:
-			doRemoveOverlaps(glyph, scaleFactor)
+			f(glyph, scaleFactor)
 		except RuntimeError, ex:
 			if ex.args[0] == "Open contour detected":
 				stderr.write(glyph.glyphname + " open contour detected (scale factor: " + str(scaleFactor) + ")\n")
@@ -100,6 +110,9 @@ def removeOverlaps(glyph):
 				scaleFactor *= 2
 			else:
 				raise
+			if scaleFactor >= 512:
+				stderr.write("Aborting...\n")
+				quit(4)
 		else:
 			break
 
@@ -132,7 +145,7 @@ for glyph in font.glyphs():
 				virginFound = True
 				cache[glyph.glyphname] = 1; cache.sync()
 				glyph.round()
-				removeOverlaps(glyph)
+				removeOverlaps(glyph, doRemoveOverlapsSimply, 1)
 				cache[glyph.glyphname] = dumpGlyph(glyph); cache.sync()
 			elif isinstance(cache[glyph.glyphname], tuple):
 				if virginFound:
@@ -145,7 +158,7 @@ for glyph in font.glyphs():
 				stderr.write("Previous failure (glyph " + glyph.glyphname + ", code 1) detected\n")
 				cache[glyph.glyphname] = 2; cache.sync()
 				glyph.round()
-				glyph.removeOverlap()
+				removeOverlaps(glyph)
 				cache[glyph.glyphname] = dumpGlyph(glyph); cache.sync()
 			else:
 				stderr.write("Previous failure (glyph " + glyph.glyphname + ", code " + str(cache[glyph.glyphname]) + ") detected!!\n")
