@@ -75,7 +75,7 @@ def doRemoveOverlaps(glyph, scaleFactor):
 				print glyph.glyphname, ex
 				if ex.args[0] != "Empty contour":
 					raise
-			if scaleFactor < 1024:
+			if scaleFactor < 256:
 				ensureNoSelfIntersection(newLayer)
 			else:
 				stderr.write(glyph.glyphname + " ensuring all contours are closed...\n")
