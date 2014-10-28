@@ -63,7 +63,7 @@ def ensureNoSelfIntersection(layer):
 		#elif contour.isClockwise() == -1:
 		#	raise ContourError, "Contour self-intersection detected"
 
-def doRemoveOverlaps(glyph, scaleFactor):
+def doRemoveOverlaps(glyph, scaleFactor, scaleLimit):
 	try:
 		glyph.transform(psMat.scale(scaleFactor))
 		layer = ensureContourIsClockwise(glyph.layers[1])
@@ -88,7 +88,7 @@ def doRemoveOverlaps(glyph, scaleFactor):
 	finally:
 		glyph.transform(psMat.scale(1.0/scaleFactor))
 
-def doRemoveOverlapsSimply(glyph, scaleFactor):
+def doRemoveOverlapsSimply(glyph, scaleFactor, scaleLimit):
 	try:
 		glyph.transform(psMat.scale(scaleFactor))
 		layer = ensureContourIsClockwise(glyph.layers[1])
@@ -98,16 +98,16 @@ def doRemoveOverlapsSimply(glyph, scaleFactor):
 	finally:
 		glyph.transform(psMat.scale(1.0/scaleFactor))
 
-def removeOverlaps(glyph, f = doRemoveOverlaps, factor = None):
+def removeOverlaps(glyph, f = doRemoveOverlaps, factor = None, scaleLimit = 256):
 	minDist = determineMinDist(glyph)
 	scaleFactor = factor or determineScaleFactor(minDist)
 	while True:
 		try:
-			f(glyph, scaleFactor)
+			f(glyph, scaleFactor, scaleLimit)
 		except ContourError, ex:
 			stderr.write(str(ex) + " while processing " + glyph.glyphname + " (scale factor: " + str(scaleFactor) + ")\n")
 			scaleFactor *= 2
-			if scaleFactor >= 512:
+			if scaleFactor >= scaleLimit * 2:
 				raise
 		else:
 			break
@@ -142,7 +142,7 @@ for glyph in font.glyphs():
 					virginFound = True
 					cache[glyph.glyphname] = 1; cache.sync()
 					glyph.round()
-					removeOverlaps(glyph, doRemoveOverlapsSimply, 1)
+					removeOverlaps(glyph, doRemoveOverlapsSimply, 1, 32)
 					cache[glyph.glyphname] = dumpGlyph(glyph); cache.sync()
 				elif isinstance(cache[glyph.glyphname], tuple):
 					if virginFound:
