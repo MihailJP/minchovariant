@@ -41,8 +41,10 @@ for glyph in font.glyphs():
 	if glyph.isWorthOutputting():
 		kagename = getfield(glyph, "Kage")
 		if kagename in nsl:
-			glyph.transform(psMat.translate(0, -1000), ("partialRefs", None))
+			glyph.transform(psMat.translate(0, -font.em), ("partialRefs", None))
 			glyph.width = 0
 		elif kagename in hwl:
-			glyph.width /= 2
+			glyph.width = font.em / 2
+		else:
+			glyph.width = font.em
 font.generate(argv[2])
