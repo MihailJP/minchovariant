@@ -88,7 +88,7 @@ makettf.pl:
 	cat ../kage/makettf/makettf.pl | sed -f ../makettf-patch.sed > $@
 	chmod +x $@
 
-work.sfd: head.txt parts.txt foot.txt engine makeglyph.js makettf.pl
+work.sfd: head.txt parts.txt foot.txt engine makeglyph.js kagecd.js makettf.pl
 	./makettf.pl . work mincho #{$weightNum}
 work2_.sfd: work.sfd
 	../intersect.pe $< $@
