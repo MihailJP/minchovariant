@@ -170,9 +170,9 @@ SplineSet
  926 28 l 1
  910 12 l 1
  888 12 l 1
+ 885 15 l 1
+ 884 16 l 1
  883 17 l 1
- 884 18 l 1
- 883 18 l 1
  882 18 l 1
  879 19 l 1
  870 20 l 1
@@ -184,10 +184,6 @@ SplineSet
  746 6 l 1
  716 1 l 1
  714 10 l 1
-883 17 m 1
- 882 18 l 1
- 882 16 l 1
- 883 17 l 1
 EndSplineSet
 Comment: "Kage: u3075+AAoA-Alias: uf037e"
 EndChar
