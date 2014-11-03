@@ -1,0 +1,40 @@
+StartChar: uF0149
+Encoding: 983369 983369 2
+Width: 1000
+VWidth: 0
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+100 -40 m 1
+ 126 -40 l 1
+ 152 -40 l 1
+ 178 -40 l 1
+ 204 -40 l 1
+ 230 -40 l 1
+ 256 -40 l 1
+ 282 -40 l 1
+ 308 -40 l 1
+ 334 -40 l 1
+ 360 -40 l 1
+ 360 -100 l 1
+ 334 -100 l 1
+ 308 -100 l 1
+ 282 -100 l 1
+ 256 -100 l 1
+ 230 -100 l 1
+ 204 -100 l 1
+ 178 -100 l 1
+ 152 -100 l 1
+ 126 -100 l 1
+ 100 -100 l 1
+ 100 -40 l 1
+300 -80 m 1
+ 300 450 l 1
+ 360 450 l 1
+ 360 -80 l 1
+ 300 -80 l 1
+EndSplineSet
+Comment: "Kage: aj1-00329+AAoA-Alias: uf0149"
+Colour: ffff00
+EndChar
