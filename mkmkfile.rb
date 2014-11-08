@@ -119,7 +119,12 @@ kana.otf: kana2.sfd
 rotcjk.sfd: work.otf
 	../LGC/rotate.py $< $@
 rotcjk.otf: rotcjk.sfd
-	../rotcid.py $< $@
+	../rotcid.py 5 $< $@
+
+rotkana.sfd: kana.otf
+	../LGC/rotate.py $< $@
+rotkana.otf: rotkana.sfd
+	../rotcid.py 2 $< $@
 
 #{lgcFiles(fontDB)}
 
@@ -132,7 +137,7 @@ kanap.otf: kanap-base.otf kana.otf work.otf
 kanavp.otf: kanavp-base.otf kana.otf work.otf
 	../proportional-vert.py $^ $@
 
-#{target.sub(/\..+?$/, '.raw')}: work.otf cidfontinfo enclosed.otf rotcjk.otf #{fontDB.execute("SELECT fontFile FROM subFont WHERE lgcFontTag IS NOT NULL").flatten.join(" ")}
+#{target.sub(/\..+?$/, '.raw')}: work.otf cidfontinfo kana.otf enclosed.otf rotcjk.otf rotkana.otf #{fontDB.execute("SELECT fontFile FROM subFont WHERE lgcFontTag IS NOT NULL").flatten.join(" ")}
 	$(MERGEFONTS) -cid cidfontinfo $@ #{cidmap.gsub(/\r?\n/, " ")}
 
 #{iscygwin ? <<CYGWIN
@@ -158,5 +163,5 @@ cidfontinfo:
 	../makecfi.rb '#{enName}' '#{enWeight}' > $@
 
 clean:
-	-rm -rf $(TARGETS) work.scr work.log build *.otf work*.sfd kana*.sfd _WORKDATA_*
+	-rm -rf $(TARGETS) work.scr work.log build *.otf work*.sfd kana*.sfd rot*.sfd _WORKDATA_*
 FINIS
