@@ -1,0 +1,36 @@
+StartChar: uF0149
+Encoding: 983369 983369 2
+Width: 500
+VWidth: 0
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+90 -50 m 1
+ 126 -50 l 1
+ 152 -50 l 1
+ 178 -50 l 1
+ 204 -50 l 1
+ 230 -50 l 1
+ 256 -50 l 1
+ 282 -50 l 1
+ 310 -50 l 1
+ 310 460 l 1
+ 370 460 l 1
+ 370 -40 l 1
+ 374 -80 l 1
+ 370 -110 l 1
+ 334 -114 l 1
+ 308 -110 l 1
+ 282 -110 l 1
+ 256 -110 l 1
+ 230 -110 l 1
+ 204 -110 l 1
+ 178 -110 l 1
+ 152 -110 l 1
+ 126 -110 l 1
+ 90 -110 l 1
+ 90 -50 l 1
+EndSplineSet
+Comment: "Kage: aj1-00329+AAoA-Alias: uf0149"
+EndChar

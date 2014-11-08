@@ -107,8 +107,8 @@ work5.sfd: work5_.sfd
 work.otf: work5.sfd
 	../width.py $< $@
 
-kana.sfd: ../Kana/Kana.sfdir
-	../kana.py #{$weightNum} $^ /dev/null $@
+kana.sfd: ../Kana/Kana.sfdir ../Kana/Kana-Bold.sfdir
+	../kana.py #{$weightNum} $^ $@
 kana2_.sfd: kana.sfd
 	../smooth-contours.py $< $@
 kana2.sfd: kana2_.sfd
