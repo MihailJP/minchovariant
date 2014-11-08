@@ -1,6 +1,7 @@
 #!/usr/bin/env fontforge
 
 import fontforge, psMat
+from re import search
 from sys import argv, stderr
 from math import atan2, degrees, hypot
 
@@ -84,15 +85,20 @@ def separateSelfIntersections(contour):
 		layer += contour
 	return layer
 
+forceClockwiseFlag = (search('clockwise', argv[0]) is not None)
+
 font = fontforge.open(argv[1])
 for glyph in font.glyphs():
 	if glyph.isWorthOutputting():
 		layer = fontforge.layer()
 		newLayer = fontforge.layer()
 		for contour in glyph.layers[1]:
-			layer += separateSelfIntersections(contour)
+			if forceClockwiseFlag:
+				layer += separateSelfIntersections(contour)
+			else:
+				layer += contour.dup()
 		for origContour in layer:
-			contour = getClockwiseContour(origContour)
+			contour = getClockwiseContour(origContour) if forceClockwiseFlag else origContour.dup()
 			newContour = contour.dup()
 			angles = analyzeAngles(contour)
 			obtusityLimit = 135 if len(contour) == 5 else 150

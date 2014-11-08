@@ -53,8 +53,6 @@ MERGEFONTS=$(AFD_BINDIR)/mergeFonts
 MAKEOTF=#{iscygwin ? 'cmd /c ' : ''}#{cygPath "$(AFD_BINDIR)/makeotf#{iscygwin ? '.cmd' : ''}"}
 
 TARGETS=head.txt parts.txt foot.txt engine makeglyph.js kagecd.js makettf.pl \
-work.sfd work2.sfd work3.sfd work4.sfd work5.sfd \
-work2_.sfd work3_.sfd work4_.sfd work5_.sfd work.otf \
 #{target.sub(/\..+?$/, '.raw')} cidfontinfo #{iscygwin ? "" : "tmpcid.otf tmpcid.ttx " + target.sub(/\..+?$/, '.ttx')} #{target}
 
 .PHONY: all clean font
@@ -95,7 +93,7 @@ work2_.sfd: work.sfd
 work2.sfd: work2_.sfd
 	../fixup-layers.py $< $@
 work3_.sfd: work2.sfd
-	../smooth-contours.py $< $@
+	../smooth-clockwise.py $< $@
 work3.sfd: work3_.sfd
 	../fixup-layers.py $< $@
 work4_.sfd: work3.sfd
@@ -109,23 +107,37 @@ work5.sfd: work5_.sfd
 work.otf: work5.sfd
 	../width.py $< $@
 
+kana.sfd: ../Kana/Kana.sfdir ../Kana/Kana-Bold.sfdir
+	../kana.py #{$weightNum} $^ $@
+kana2_.sfd: kana.sfd
+	../smooth-contours.py $< $@
+kana2.sfd: kana2_.sfd
+	../fixup-layers.py $< $@
+kana.otf: kana2.sfd
+	../width.py $< $@
+
 rotcjk.sfd: work.otf
 	../LGC/rotate.py $< $@
 rotcjk.otf: rotcjk.sfd
-	../rotcid.py $< $@
+	../rotcid.py 5 $< $@
+
+rotkana.sfd: kana.otf
+	../LGC/rotate.py $< $@
+rotkana.otf: rotkana.sfd
+	../rotcid.py 2 $< $@
 
 #{lgcFiles(fontDB)}
 
-enclosed.otf: enclosed-base.otf work.otf
+enclosed.otf: enclosed-base.otf kana.otf work.otf
 	../enclose.py $^ $@
-ruby.otf: ruby-base.otf work.otf
+ruby.otf: ruby-base.otf kana.otf work.otf
 	../enclose.py $^ $@
-kanap.otf: kanap-base.otf work.otf
+kanap.otf: kanap-base.otf kana.otf work.otf
 	../proportional.py $^ $@
-kanavp.otf: kanavp-base.otf work.otf
+kanavp.otf: kanavp-base.otf kana.otf work.otf
 	../proportional-vert.py $^ $@
 
-#{target.sub(/\..+?$/, '.raw')}: work.otf cidfontinfo enclosed.otf rotcjk.otf #{fontDB.execute("SELECT fontFile FROM subFont WHERE lgcFontTag IS NOT NULL").flatten.join(" ")}
+#{target.sub(/\..+?$/, '.raw')}: work.otf cidfontinfo kana.otf enclosed.otf rotcjk.otf rotkana.otf #{fontDB.execute("SELECT fontFile FROM subFont WHERE lgcFontTag IS NOT NULL").flatten.join(" ")}
 	$(MERGEFONTS) -cid cidfontinfo $@ #{cidmap.gsub(/\r?\n/, " ")}
 
 #{iscygwin ? <<CYGWIN
@@ -151,5 +163,5 @@ cidfontinfo:
 	../makecfi.rb '#{enName}' '#{enWeight}' > $@
 
 clean:
-	-rm -rf $(TARGETS) work.scr work.log build *.otf _WORKDATA_*
+	-rm -rf $(TARGETS) work.scr work.log build *.otf work*.sfd kana*.sfd rot*.sfd _WORKDATA_*
 FINIS
