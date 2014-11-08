@@ -1,6 +1,6 @@
 StartChar: uF014A
 Encoding: 983370 983370 3
-Width: 1000
+Width: 500
 VWidth: 0
 Flags: MW
 LayerCount: 2
@@ -18,6 +18,9 @@ SplineSet
  296 -14 l 1
  316 -37 l 1
  333 -62 l 1
+ 336 -84 l 1
+ 322 -102 l 1
+ 300 -106 l 1
  282 -92 l 1
  268 -69 l 1
  254 -46 l 1
@@ -29,13 +32,6 @@ SplineSet
  138 76 l 1
  113 94 l 1
  87 114 l 1
-282 -92 m 1
- 333 -62 l 1
- 336 -84 l 1
- 322 -102 l 1
- 300 -106 l 1
- 282 -92 l 1
 EndSplineSet
 Comment: "Kage: aj1-00330+AAoA-Alias: uf014a"
-Colour: ffff00
 EndChar
