@@ -43,6 +43,29 @@ def cygPath(path)
 	end
 end
 
+def workSequence(prefix)
+	return <<FINIS
+#{prefix}2_.sfd: #{prefix}.sfd
+	../intersect.pe $< $@
+#{prefix}2.sfd: #{prefix}2_.sfd
+	../fixup-layers.py $< $@
+#{prefix}3_.sfd: #{prefix}2.sfd
+	../smooth-contours.py $< $@
+#{prefix}3.sfd: #{prefix}3_.sfd
+	../fixup-layers.py $< $@
+#{prefix}4_.sfd: #{prefix}3.sfd
+	../intersect.pe $< $@
+#{prefix}4.sfd: #{prefix}4_.sfd
+	../fixup-layers.py $< $@
+#{prefix}5_.sfd: #{prefix}4.sfd
+	../merge-contours.rb $< $@
+#{prefix}5.sfd: #{prefix}5_.sfd
+	../fixup-layers.py $< $@
+#{prefix}.otf: #{prefix}5.sfd
+	../width.py $< $@
+FINIS
+end
+
 print <<FINIS
 AFD_DIR=#{iscygwin ? AFD_DIR : "#{ENV["HOME"]}/bin/FDK"}
 AFD_BINDIR=$(AFD_DIR)/Tools/#{iscygwin ? 'win' : 'linux'}
@@ -53,8 +76,6 @@ MERGEFONTS=$(AFD_BINDIR)/mergeFonts
 MAKEOTF=#{iscygwin ? 'cmd /c ' : ''}#{cygPath "$(AFD_BINDIR)/makeotf#{iscygwin ? '.cmd' : ''}"}
 
 TARGETS=head.txt parts.txt foot.txt engine makeglyph.js kagecd.js makettf.pl \
-work.sfd work2.sfd work3.sfd work4.sfd work5.sfd \
-work2_.sfd work3_.sfd work4_.sfd work5_.sfd work.otf \
 #{target.sub(/\..+?$/, '.raw')} cidfontinfo #{iscygwin ? "" : "tmpcid.otf tmpcid.ttx " + target.sub(/\..+?$/, '.ttx')} #{target}
 
 .PHONY: all clean font
@@ -90,24 +111,11 @@ makettf.pl:
 
 work.sfd: head.txt parts.txt foot.txt engine makeglyph.js kagecd.js makettf.pl
 	./makettf.pl . work mincho #{$weightNum}
-work2_.sfd: work.sfd
-	../intersect.pe $< $@
-work2.sfd: work2_.sfd
-	../fixup-layers.py $< $@
-work3_.sfd: work2.sfd
-	../smooth-contours.py $< $@
-work3.sfd: work3_.sfd
-	../fixup-layers.py $< $@
-work4_.sfd: work3.sfd
-	../intersect.pe $< $@
-work4.sfd: work4_.sfd
-	../fixup-layers.py $< $@
-work5_.sfd: work4.sfd
-	../merge-contours.rb $< $@
-work5.sfd: work5_.sfd
-	../fixup-layers.py $< $@
-work.otf: work5.sfd
-	../width.py $< $@
+#{workSequence("work")}
+
+kana.sfd: ../Kana/Kana.sfdir
+	../kana.py #{$weightNum} $^ /dev/null $@
+#{workSequence("kana")}
 
 rotcjk.sfd: work.otf
 	../LGC/rotate.py $< $@
@@ -116,13 +124,13 @@ rotcjk.otf: rotcjk.sfd
 
 #{lgcFiles(fontDB)}
 
-enclosed.otf: enclosed-base.otf work.otf
+enclosed.otf: enclosed-base.otf kana.otf work.otf
 	../enclose.py $^ $@
-ruby.otf: ruby-base.otf work.otf
+ruby.otf: ruby-base.otf kana.otf work.otf
 	../enclose.py $^ $@
-kanap.otf: kanap-base.otf work.otf
+kanap.otf: kanap-base.otf kana.otf work.otf
 	../proportional.py $^ $@
-kanavp.otf: kanavp-base.otf work.otf
+kanavp.otf: kanavp-base.otf kana.otf work.otf
 	../proportional-vert.py $^ $@
 
 #{target.sub(/\..+?$/, '.raw')}: work.otf cidfontinfo enclosed.otf rotcjk.otf #{fontDB.execute("SELECT fontFile FROM subFont WHERE lgcFontTag IS NOT NULL").flatten.join(" ")}
@@ -151,5 +159,5 @@ cidfontinfo:
 	../makecfi.rb '#{enName}' '#{enWeight}' > $@
 
 clean:
-	-rm -rf $(TARGETS) work.scr work.log build *.otf _WORKDATA_*
+	-rm -rf $(TARGETS) work.scr work.log build *.otf work*.sfd kana*.sfd _WORKDATA_*
 FINIS
