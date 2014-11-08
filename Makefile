@@ -3,7 +3,7 @@ DOWNLOADABLES=dump.tar.gz
 LGCMAPS=lgc.map lgc-fixed.map lgc-third.map lgc-quarter.map lgc-wide.map lgc-italic.map \
 lgc-rotated.map lgc-rotfixed.map lgc-rotquarter.map lgc-rotthird.map lgc-rotitalic.map
 METAMAKE_DEP_GENERATABLES=HZMincho.db dump_newest_only.txt dump_all_versions.txt glyphs.txt cidalias.sed \
-cidpua.map \
+cidpua.map cidpua-kana.map \
 cidpua-kumimoji.map cidpua-rot.map cidpua-ruby.map cidpua-kanap.map \
 cidpua-kanavertp.map \
 cidpua-symbols.map \
@@ -43,6 +43,8 @@ otf-features: HZMincho.db genfeat.rb
 
 cidpua.map: $(MAPGEN_DEPS)
 	./genmaps.rb 0 > $@
+cidpua-kana.map: $(MAPGEN_DEPS)
+	./genmaps.rb 1 > $@
 cidpua-kumimoji.map: $(MAPGEN_DEPS)
 	./genmaps.rb 4 > $@
 cidpua-rot.map: $(MAPGEN_DEPS)

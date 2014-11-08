@@ -750,6 +750,7 @@ INSERT INTO lgcFont VALUES('SYMBOLFONT', 'Symbols-', '.sfdir', 'syms', NULL);
 INSERT INTO lgcFont VALUES('PROPORTIONALVERTKANA', 'KanaVertP-', '.sfdir', 'pvkn', NULL);
 CREATE TABLE subFont (FontID INTEGER PRIMARY KEY NOT NULL, mapFile TEXT NOT NULL, fontName TEXT NOT NULL, fontFile TEXT NOT NULL, procBaseFont TEXT, lgcFontTag TEXT, FOREIGN KEY(lgcFontTag) REFERENCES lgcFont(fontTag));
 INSERT INTO subFont VALUES(0,'cidpua.map','Japanese','work.otf', NULL, NULL);
+INSERT INTO subFont VALUES(1,'cidpua-kana.map','Kana','kana.otf', NULL, NULL);
 INSERT INTO subFont VALUES(4,'cidpua-kumimoji.map','Kumimoji','kumimoji.otf', NULL, 'KUMIMOJI');
 INSERT INTO subFont VALUES(5,'cidpua-rot.map','RotCJK','rotcjk.otf', NULL, NULL);
 INSERT INTO subFont VALUES(6,'cidpua-ruby.map','Ruby','ruby.otf', 'ruby-base.otf', 'RUBYFONT');
@@ -771,6 +772,36 @@ INSERT INTO subFont VALUES(81,'cidpua-blockelem.map','BlockElem','../mincho3/wor
 INSERT INTO subFont VALUES(82,'cidpua-dingbats.map','Dingbats','../mincho#{($weightNum.to_i % 100) > 7 ? 7 : (($weightNum.to_i % 100) > 3 ? ($weightNum.to_i % 100) : 3)}/work.otf', NULL, NULL);
 INSERT INTO subFont VALUES(83,'cidpua-enclosed.map','Enclosed','enclosed.otf', 'enclosed-base.otf', 'ENCLFONT');
 CREATE TABLE cjkCID (CID INTEGER NOT NULL, fontID INTEGER NOT NULL, FOREIGN KEY(fontID) REFERENCES subFont(FontID));
+-- CJKCID 327 389 1
+-- CJKCID 391 421 1
+-- CJKCID 516 598 1
+-- CJKCID 634 635 1
+-- CJKCID 638 638 1
+-- CJKCID 643 644 1
+-- CJKCID 651 654 1
+-- CJKCID 657 658 1
+-- CJKCID 660 660 1
+-- CJKCID 842 1010 1
+-- CJKCID 7585 7600 1
+-- CJKCID 7887 7888 1
+-- CJKCID 7891 7891 1
+-- CJKCID 7918 7955 1
+-- CJKCID 7958 7960 1
+-- CJKCID 8038 8052 1
+-- CJKCID 8183 8183 1
+-- CJKCID 8264 8265 1
+-- CJKCID 8313 8316 1
+-- CJKCID 8327 8358 1
+-- CJKCID 11871 12040 1
+-- CJKCID 12269 12640 1
+-- CJKCID 16193 16193 1
+-- CJKCID 16195 16195 1
+-- CJKCID 16209 16221 1
+-- CJKCID 16236 16252 1
+-- CJKCID 16333 16349 1
+-- CJKCID 16352 16411 1
+-- CJKCID 20929 20956 1
+-- CJKCID 20959 20960 1
 -- CJKCID 7575 7584 4
 -- CJKCID 7601 7607 4
 -- CJKCID 7610 7612 4
