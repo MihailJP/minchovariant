@@ -43,29 +43,6 @@ def cygPath(path)
 	end
 end
 
-def workSequence(prefix)
-	return <<FINIS
-#{prefix}2_.sfd: #{prefix}.sfd
-	../intersect.pe $< $@
-#{prefix}2.sfd: #{prefix}2_.sfd
-	../fixup-layers.py $< $@
-#{prefix}3_.sfd: #{prefix}2.sfd
-	../smooth-contours.py $< $@
-#{prefix}3.sfd: #{prefix}3_.sfd
-	../fixup-layers.py $< $@
-#{prefix}4_.sfd: #{prefix}3.sfd
-	../intersect.pe $< $@
-#{prefix}4.sfd: #{prefix}4_.sfd
-	../fixup-layers.py $< $@
-#{prefix}5_.sfd: #{prefix}4.sfd
-	../merge-contours.rb $< $@
-#{prefix}5.sfd: #{prefix}5_.sfd
-	../fixup-layers.py $< $@
-#{prefix}.otf: #{prefix}5.sfd
-	../width.py $< $@
-FINIS
-end
-
 print <<FINIS
 AFD_DIR=#{iscygwin ? AFD_DIR : "#{ENV["HOME"]}/bin/FDK"}
 AFD_BINDIR=$(AFD_DIR)/Tools/#{iscygwin ? 'win' : 'linux'}
@@ -111,11 +88,33 @@ makettf.pl:
 
 work.sfd: head.txt parts.txt foot.txt engine makeglyph.js kagecd.js makettf.pl
 	./makettf.pl . work mincho #{$weightNum}
-#{workSequence("work")}
+work2_.sfd: work.sfd
+	../intersect.pe $< $@
+work2.sfd: work2_.sfd
+	../fixup-layers.py $< $@
+work3_.sfd: work2.sfd
+	../smooth-clockwise.py $< $@
+work3.sfd: work3_.sfd
+	../fixup-layers.py $< $@
+work4_.sfd: work3.sfd
+	../intersect.pe $< $@
+work4.sfd: work4_.sfd
+	../fixup-layers.py $< $@
+work5_.sfd: work4.sfd
+	../merge-contours.rb $< $@
+work5.sfd: work5_.sfd
+	../fixup-layers.py $< $@
+work.otf: work5.sfd
+	../width.py $< $@
 
 kana.sfd: ../Kana/Kana.sfdir
 	../kana.py #{$weightNum} $^ /dev/null $@
-#{workSequence("kana")}
+kana2_.sfd: kana.sfd
+	../smooth-contours.py $< $@
+kana2.sfd: kana2_.sfd
+	../fixup-layers.py $< $@
+kana.otf: kana2.sfd
+	../width.py $< $@
 
 rotcjk.sfd: work.otf
 	../LGC/rotate.py $< $@
