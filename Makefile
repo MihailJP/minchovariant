@@ -3,9 +3,11 @@ DOWNLOADABLES=dump.tar.gz
 LGCMAPS=lgc.map lgc-fixed.map lgc-third.map lgc-quarter.map lgc-wide.map lgc-italic.map \
 lgc-rotated.map lgc-rotfixed.map lgc-rotquarter.map lgc-rotthird.map lgc-rotitalic.map
 METAMAKE_DEP_GENERATABLES=HZMincho.db dump_newest_only.txt dump_all_versions.txt glyphs.txt cidalias.sed \
-cidpua.map cidpua-blockelem.map cidpua-dingbats.map cidpua-enclosed.map \
-cidpua-kumimoji.map cidpua-rot.map cidpua-ruby.map cidpua-kanap.map cidpua-symbols.map \
+cidpua.map \
+cidpua-kumimoji.map cidpua-rot.map cidpua-ruby.map cidpua-kanap.map \
 cidpua-kanavertp.map \
+cidpua-symbols.map \
+cidpua-blockelem.map cidpua-dingbats.map cidpua-enclosed.map \
 otf-features HZMincho.db $(LGCMAPS)
 METAMAKE_DEPS=$(METAMAKE_DEP_GENERATABLES) ./mkmkfile.rb
 MAPGEN_DEPS=genmaps.rb HZMincho.db
@@ -41,12 +43,6 @@ otf-features: HZMincho.db genfeat.rb
 
 cidpua.map: $(MAPGEN_DEPS)
 	./genmaps.rb 0 > $@
-cidpua-blockelem.map: $(MAPGEN_DEPS)
-	./genmaps.rb 1 > $@
-cidpua-dingbats.map: $(MAPGEN_DEPS)
-	./genmaps.rb 2 > $@
-cidpua-enclosed.map: $(MAPGEN_DEPS)
-	./genmaps.rb 3 > $@
 cidpua-kumimoji.map: $(MAPGEN_DEPS)
 	./genmaps.rb 4 > $@
 cidpua-rot.map: $(MAPGEN_DEPS)
@@ -55,8 +51,6 @@ cidpua-ruby.map: $(MAPGEN_DEPS)
 	./genmaps.rb 6 > $@
 cidpua-kanap.map: $(MAPGEN_DEPS)
 	./genmaps.rb 7 > $@
-cidpua-symbols.map: $(MAPGEN_DEPS)
-	./genmaps.rb 8 > $@
 cidpua-kanavertp.map: $(MAPGEN_DEPS)
 	./genmaps.rb 9 > $@
 lgc.map: $(MAPGEN_DEPS)
@@ -81,6 +75,14 @@ lgc-rotthird.map: $(MAPGEN_DEPS)
 	./genmaps.rb 33 > $@
 lgc-rotitalic.map: $(MAPGEN_DEPS)
 	./genmaps.rb 40 > $@
+cidpua-symbols.map: $(MAPGEN_DEPS)
+	./genmaps.rb 80 > $@
+cidpua-blockelem.map: $(MAPGEN_DEPS)
+	./genmaps.rb 81 > $@
+cidpua-dingbats.map: $(MAPGEN_DEPS)
+	./genmaps.rb 82 > $@
+cidpua-enclosed.map: $(MAPGEN_DEPS)
+	./genmaps.rb 83 > $@
 
 groups/cidalias.txt: cidalias.txt
 	cat $^ | cut -f 1 > $@
