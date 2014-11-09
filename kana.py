@@ -16,12 +16,12 @@ def getFrac(weight):
 		return 0.0
 	elif weight % 100 == 5:
 		return 0.4
-	elif weight % 100 == 5:
+	elif weight % 100 == 7:
 		return 0.8
 	elif weight % 100 == 9:
 		return 1.2
 	else:
-		raise ValueError, "Unknown weight " + str(weight) + specified"
+		raise ValueError, "Unknown weight " + str(weight) + "specified"
 
 origFont = fontforge.open(argv[2])
 srcFont = origFont.interpolateFonts(getFrac(int(argv[1])), argv[3])
