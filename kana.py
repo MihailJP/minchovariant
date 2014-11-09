@@ -28,6 +28,7 @@ srcFont = origFont.interpolateFonts(getFrac(int(argv[1])), argv[3])
 
 for glyph in srcFont.glyphs():
 	if glyph.isWorthOutputting():
+		glyph.comment = origFont[glyph.glyphname].comment
 		glyph.removeOverlap()
 		glyph.round()
 
