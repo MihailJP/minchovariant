@@ -1,0 +1,32 @@
+StartChar: uF027E
+Encoding: 983678 983678 179
+Width: 1000
+VWidth: 0
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+436 300 m 1
+ 438 318 l 1
+ 446 336 l 1
+ 459 351 l 1
+ 478 362 l 1
+ 500 365 l 1
+ 522 362 l 1
+ 540 351 l 1
+ 554 336 l 1
+ 561 318 l 1
+ 564 300 l 1
+ 561 282 l 1
+ 554 264 l 1
+ 540 250 l 1
+ 522 239 l 1
+ 500 235 l 1
+ 478 239 l 1
+ 459 250 l 1
+ 446 264 l 1
+ 438 282 l 1
+ 436 300 l 1
+EndSplineSet
+Comment: "Kage: u30fb+AAoA-Alias: uf027e"
+EndChar
