@@ -1,0 +1,36 @@
+StartChar: uF0148
+Encoding: 983368 983368 1
+Width: 500
+VWidth: 0
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+230 660 m 1
+ 230 130 l 1
+ 190 130 l 1
+ 190 640 l 1
+ 190 700 l 1
+ 216 700 l 1
+ 242 700 l 1
+ 250 700 l 1
+ 268 700 l 1
+ 294 700 l 1
+ 320 700 l 1
+ 346 700 l 1
+ 372 700 l 1
+ 398 700 l 1
+ 424 700 l 1
+ 450 700 l 1
+ 450 660 l 1
+ 424 660 l 1
+ 398 660 l 1
+ 372 660 l 1
+ 346 660 l 1
+ 320 660 l 1
+ 294 660 l 1
+ 268 660 l 1
+ 230 660 l 1
+EndSplineSet
+Comment: "Kage: aj1-00328+AAoA-Alias: uf0148"
+EndChar
