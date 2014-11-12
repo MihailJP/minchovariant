@@ -1,3 +1,4 @@
+s/\/usr\/bin\/fontforge/env fontforge/
 /^  &addglyph(\$code);/c \ \ my $refGlyph = $target;\
 \ \ if ($buhin{$target} =~ /^99:0:0:0:0:200:200:([\\w\\-]+)(?:\\:\\d+:\\d+:\\d+)?$/) {$refGlyph = $1;}\
 \ \ \&addglyph($code, $refGlyph, $target);
