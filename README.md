@@ -9,7 +9,7 @@ Latin, Greek and Cyrillic glyphs are not derived from GlyphWiki but from
 because GlyphWiki's [Kage engine](http://fonts.jp/kage/index.en.html) is
 intended for Chinese characters and not good at LGC.
 
-A few symbols, namely CIDs 16314, 16323, 16324 and 16325,
+Some symbols, including CIDs 16314, 16323, 16324 and 16325,
 came from [Symbola](http://users.teilar.gr/~g1951d/) font.
 
 Sans-serif Katakana and Figures, namely CIDs 20473 to 20496 and

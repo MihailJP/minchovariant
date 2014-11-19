@@ -4,22 +4,23 @@ FullName: Symbols Bold
 FamilyName: Symbols
 Weight: Bold
 Copyright: 
-UComments: "2014-1-14: Created with FontForge (http://fontforge.org)" 
+UComments: "2014-1-14: Created with FontForge (http://fontforge.org)"
 Version: 001.000
 ItalicAngle: 0
 UnderlinePosition: -100
 UnderlineWidth: 50
 Ascent: 800
 Descent: 200
+InvalidEm: 0
 LayerCount: 2
-Layer: 0 0 "+gMyXYgAA"  1
-Layer: 1 0 "+Uk2XYgAA"  0
+Layer: 0 0 "+gMyXYgAA" 1
+Layer: 1 0 "+Uk2XYgAA" 0
 XUID: [1021 854 -560934592 10134000]
 OS2Version: 0
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1390658773
-ModificationTime: 1390715461
+ModificationTime: 1414916241
 OS2TypoAscent: 0
 OS2TypoAOffset: 1
 OS2TypoDescent: 0
@@ -33,6 +34,8 @@ HheadAscent: 0
 HheadAOffset: 1
 HheadDescent: 0
 HheadDOffset: 1
+OS2CapHeight: 0
+OS2XHeight: 0
 OS2Vendor: 'PfEd'
 MarkAttachClasses: 1
 DEI: 91125
