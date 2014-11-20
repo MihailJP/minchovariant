@@ -86,8 +86,10 @@ makettf.pl:
 	cat ../kage/makettf/makettf.pl | sed -f ../makettf-patch.sed > $@
 	chmod +x $@
 
-work.sfd: head.txt parts.txt foot.txt engine makeglyph.js kagecd.js makettf.pl
-	./makettf.pl . work mincho #{$weightNum}
+work_.sfd: head.txt parts.txt foot.txt engine makeglyph.js kagecd.js makettf.pl
+	./makettf.pl . work_ mincho #{$weightNum}
+work.sfd: work_.sfd
+	../fixup-layers.py $< $@
 work2_.sfd: work.sfd
 	../intersect.pe $< $@
 work2.sfd: work2_.sfd
@@ -107,8 +109,10 @@ work5.sfd: work5_.sfd
 work.otf: work5.sfd
 	../width.py $< $@
 
-kana.sfd: ../Kana/Kana.sfdir ../Kana/Kana-Bold.sfdir
+kana_.sfd: ../Kana/Kana.sfdir ../Kana/Kana-Bold.sfdir
 	../kana.py #{$weightNum} $^ $@
+kana.sfd: kana_.sfd
+	../fixup-layers.py $< $@
 kana2_.sfd: kana.sfd
 	../smooth-contours.py $< $@
 kana2.sfd: kana2_.sfd
