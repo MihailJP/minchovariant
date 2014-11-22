@@ -119,6 +119,10 @@ M+ font is free for any use.
 Version History
 ---------------
 
+### Version 1.007, November 22, 2014
+* Beta release
+* Refined symbol glyphs
+
 ### Version 1.006, November 9, 2014
 * Beta release
 * Refined Kana glyphs
