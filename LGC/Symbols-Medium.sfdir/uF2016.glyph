@@ -1,0 +1,16 @@
+StartChar: uF2016
+Encoding: 991254 991254 221
+Width: 1000
+VWidth: 1000
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+835 293 m 1
+ 707 148 596 -4 501 -165 c 1
+ 405 -4 293 148 165 293 c 1
+ 293 438 405 590 501 751 c 1
+ 596 590 707 438 835 293 c 1
+EndSplineSet
+Colour: ff
+EndChar

@@ -1,0 +1,27 @@
+StartChar: uF2FA5
+Encoding: 995237 995237 333
+Width: 1000
+VWidth: 1000
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+910 361 m 1
+ 649 104 l 1
+ 646 291 l 1
+ 104 291 l 1
+ 104 431 l 1
+ 646 431 l 1
+ 649 618 l 1
+ 910 361 l 1
+834 361 m 1
+ 697 502 l 1
+ 700 377 l 1
+ 158 377 l 1
+ 158 345 l 1
+ 700 345 l 1
+ 697 220 l 1
+ 834 361 l 1
+EndSplineSet
+Colour: ff
+EndChar
