@@ -162,6 +162,7 @@ clean:
 	-cd LGC && $(MAKE) clean
 	-rm -rf $(GENERATABLES)
 	-rm -rf HZMincho
+	-rm -rf intersect*.pe
 
 distclean: clean
 	-rm -rf $(TARGETS)

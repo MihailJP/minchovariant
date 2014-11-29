@@ -91,7 +91,7 @@ work_.sfd: head.txt parts.txt foot.txt engine makeglyph.js kagecd.js makettf.pl
 work.sfd: work_.sfd
 	../fixup-layers.py $< $@
 work2_.sfd: work.sfd
-	../intersect.pe $< $@
+	../intersect.rb $< $@
 work2.sfd: work2_.sfd
 	../fixup-layers.py $< $@
 work3_.sfd: work2.sfd
@@ -99,7 +99,7 @@ work3_.sfd: work2.sfd
 work3.sfd: work3_.sfd
 	../fixup-layers.py $< $@
 work4_.sfd: work3.sfd
-	../intersect.pe $< $@
+	../intersect.rb $< $@
 work4.sfd: work4_.sfd
 	../fixup-layers.py $< $@
 work5_.sfd: work4.sfd
