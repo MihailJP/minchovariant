@@ -95,7 +95,7 @@ work2_.sfd: work.sfd
 work2.sfd: work2_.sfd
 	../fixup-layers.py $< $@
 work3_.sfd: work2.sfd
-	../intersect.pe $< $@
+	../intersect.rb $< $@
 work3.sfd: work3_.sfd
 	../fixup-layers.py $< $@
 work4_.sfd: work3.sfd
@@ -103,7 +103,7 @@ work4_.sfd: work3.sfd
 work4.sfd: work4_.sfd
 	../fixup-layers.py $< $@
 work5_.sfd: work4.sfd
-	../intersect.pe $< $@
+	../intersect.rb $< $@
 work5.sfd: work5_.sfd
 	../fixup-layers.py $< $@
 work6_.sfd: work5.sfd
