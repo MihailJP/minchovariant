@@ -73,7 +73,7 @@ head.txt:
 	echo 'SetTTFName(0x411,2,\"#{jaWeight}\")' >> $@
 	echo 'SetTTFName(0x411,4,\"#{jaName} #{jaWeight}\")' >> $@
 parts.txt:
-	cat ../dump_newest_only.txt ../dump_all_versions.txt | ../mkparts.pl | sed -f #{glyphFilter} #{$weightNum.to_i % 100 == 9 ? "| ../kage-width.rb -n2 -d3 " : ""}> $@
+	cat ../dump_newest_only.txt ../dump_all_versions.txt | ../mkparts.pl | sed -f #{glyphFilter} #{$weightNum.to_i % 100 == 9 ? "| ../kage-width.rb -n5 -d6 " : ""}> $@
 foot.txt:
 	touch $@
 engine:
@@ -91,7 +91,7 @@ work_.sfd: head.txt parts.txt foot.txt engine makeglyph.js kagecd.js makettf.pl
 work.sfd: work_.sfd
 	../fixup-layers.py $< $@
 work2_.sfd: work.sfd
-	../fix-contour-width.py #{$weightNum.to_i % 100 == 9 ? "1.25" : "1.0"} $< $@
+	../fix-contour-width.py #{$weightNum.to_i % 100 == 9 ? "1.2" : "1.0"} $< $@
 work2.sfd: work2_.sfd
 	../fixup-layers.py $< $@
 work3_.sfd: work2.sfd

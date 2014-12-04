@@ -48,13 +48,13 @@ a \ \ kage.kMage = 17;\
   kage.kAdjustMageStep = 7;\
 } else if(arguments[3] == 109){\
   kage.kMinWidthY = 2;\
-  kage.kMinWidthU = 5;\
-  kage.kMinWidthT = 12;\
-  kage.kWidth = 9;\
+  kage.kMinWidthU = 4;\
+  kage.kMinWidthT = 10;\
+  kage.kWidth = 8;\
   kage.kKakato = 0.3;\
-  kage.kMage = 20;\
-  kage.kAdjustTateStep = 7;\
-  kage.kAdjustMageStep = 8;
+  kage.kMage = 17;\
+  kage.kAdjustTateStep = 5;\
+  kage.kAdjustMageStep = 7;
 n
 n
 a \ \ kage.kMinWidthU = 2;
