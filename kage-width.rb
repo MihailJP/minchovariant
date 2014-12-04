@@ -15,7 +15,7 @@ while l = gets()
 	if l =~ /^uf([0-9a-f]{4})\t/ then
 		arg = l.split(":")
 		for i in [3, 5]
-			arg[i] = (arg[i].to_i * $numerator / $denominator).to_s
+			arg[i] = (arg[i].to_f * $numerator / $denominator).round.to_s
 		end
 		l = arg.join(":")
 	end
