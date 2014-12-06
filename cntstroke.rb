@@ -40,6 +40,6 @@ glyphs = @kagedat.keys.select {|x| x =~ /^uf[0-9abcdef]{4}$/}
 
 for glyph in glyphs
 	numOfStrokes = strokes(glyph)
-	ratio = (3.0 / (1.0 + numOfStrokes * 2)) * ((4.0 / 3.0) - 1.25) + 1.25
+	ratio = (1.0 - (1.0 / (1.0 + Math::E ** (3.0 - 0.5 * numOfStrokes)))) * (1.75 - 1.125) + 1.125
 	print "#{glyph}\t#{numOfStrokes}\t#{1.0 / ratio}\t#{ratio}\n"
 end
