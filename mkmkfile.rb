@@ -81,7 +81,7 @@ ratio.txt:
 	cat ../dump_newest_only.txt ../dump_all_versions.txt | ../mkparts.pl | sed -f #{glyphFilter} | ../cntstroke.rb > $@
 SUBRECIPE
 : ""}parts.txt:#{heavyFont? ? " ratio.txt" : ""}
-	cat ../dump_newest_only.txt ../dump_all_versions.txt | ../mkparts.pl | sed -f #{glyphFilter} #{heavyFont? ? "| ../kage-width.rb -f $< " : ""}> $@
+	cat ../dump_newest_only.txt ../dump_all_versions.txt | ../mkparts.pl | sed -f #{glyphFilter} | sed -f ../fudeosae.sed #{heavyFont? ? "| ../kage-width.rb -f $< " : ""}> $@
 foot.txt:
 	touch $@
 engine:
@@ -89,7 +89,7 @@ engine:
 makeglyph.js:
 	cat ../kage/makettf/makeglyph.js | sed -f ../makeglyph-patch.sed > $@
 kagecd.js:
-	perl ../kagecd-patch.pl ../kage/engine/kagecd.js > $@
+	perl ../kagecd-patch.pl ../kage/engine/kagecd.js | sed -f ../kagecd-fudeosae.sed > $@
 makettf.pl:
 	cat ../kage/makettf/makettf.pl | sed -f ../makettf-patch.sed > $@
 	chmod +x $@
