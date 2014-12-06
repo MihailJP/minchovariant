@@ -73,7 +73,7 @@ head.txt:
 	echo 'SetTTFName(0x411,2,\"#{jaWeight}\")' >> $@
 	echo 'SetTTFName(0x411,4,\"#{jaName} #{jaWeight}\")' >> $@
 parts.txt:
-	cat ../dump_newest_only.txt ../dump_all_versions.txt | ../mkparts.pl | sed -f #{glyphFilter} > $@
+	cat ../dump_newest_only.txt ../dump_all_versions.txt | ../mkparts.pl | sed -f #{glyphFilter} | sed -f ../fudeosae.sed > $@
 foot.txt:
 	touch $@
 engine:
@@ -81,7 +81,7 @@ engine:
 makeglyph.js:
 	cat ../kage/makettf/makeglyph.js | sed -f ../makeglyph-patch.sed > $@
 kagecd.js:
-	perl ../kagecd-patch.pl ../kage/engine/kagecd.js > $@
+	perl ../kagecd-patch.pl ../kage/engine/kagecd.js | sed -f ../kagecd-fudeosae.sed > $@
 makettf.pl:
 	cat ../kage/makettf/makettf.pl | sed -f ../makettf-patch.sed > $@
 	chmod +x $@
