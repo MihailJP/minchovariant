@@ -43,6 +43,10 @@ def cygPath(path)
 	end
 end
 
+def heavyFont?
+	$weightNum.to_i % 100 == 9
+end
+
 print <<FINIS
 AFD_DIR=#{iscygwin ? AFD_DIR : "#{ENV["HOME"]}/bin/FDK"}
 AFD_BINDIR=$(AFD_DIR)/Tools/#{iscygwin ? 'win' : 'linux'}
@@ -52,7 +56,7 @@ CMAP_VERTICAL=#{cygPath "$(AFD_CMAPDIR)/UniJIS2004-UTF32-V"}
 MERGEFONTS=$(AFD_BINDIR)/mergeFonts
 MAKEOTF=#{iscygwin ? 'cmd /c ' : ''}#{cygPath "$(AFD_BINDIR)/makeotf#{iscygwin ? '.cmd' : ''}"}
 
-TARGETS=head.txt parts.txt foot.txt engine makeglyph.js kagecd.js makettf.pl \
+TARGETS=#{heavyFont? ? "ratio.txt " : ""}head.txt parts.txt foot.txt engine makeglyph.js kagecd.js makettf.pl \
 #{target.sub(/\..+?$/, '.raw')} cidfontinfo #{iscygwin ? "" : "tmpcid.otf tmpcid.ttx " + target.sub(/\..+?$/, '.ttx')} #{target}
 
 .PHONY: all clean font
@@ -72,8 +76,12 @@ head.txt:
 	echo 'SetTTFName(0x411,1,\"#{jaName}\")' >> $@
 	echo 'SetTTFName(0x411,2,\"#{jaWeight}\")' >> $@
 	echo 'SetTTFName(0x411,4,\"#{jaName} #{jaWeight}\")' >> $@
-parts.txt:
-	cat ../dump_newest_only.txt ../dump_all_versions.txt | ../mkparts.pl | sed -f #{glyphFilter} | sed -f ../fudeosae.sed #{$weightNum.to_i % 100 == 9 ? "| ../kage-width.rb -n5 -d6 " : ""}> $@
+#{heavyFont? ? <<SUBRECIPE
+ratio.txt:
+	cat ../dump_newest_only.txt ../dump_all_versions.txt | ../mkparts.pl | sed -f #{glyphFilter} | ../cntstroke.rb > $@
+SUBRECIPE
+: ""}parts.txt:#{heavyFont? ? " ratio.txt" : ""}
+	cat ../dump_newest_only.txt ../dump_all_versions.txt | ../mkparts.pl | sed -f #{glyphFilter} | sed -f ../fudeosae.sed #{heavyFont? ? "| ../kage-width.rb -f $< " : ""}> $@
 foot.txt:
 	touch $@
 engine:
@@ -90,8 +98,8 @@ work_.sfd: head.txt parts.txt foot.txt engine makeglyph.js kagecd.js makettf.pl
 	./makettf.pl . work_ mincho #{$weightNum}
 work.sfd: work_.sfd
 	../fixup-layers.py $< $@
-work2_.sfd: work.sfd
-	../fix-contour-width.py #{$weightNum.to_i % 100 == 9 ? "1.2" : "1.0"} $< $@
+work2_.sfd: work.sfd#{heavyFont? ? " ratio.txt" : ""}
+	../fix-contour-width.py #{heavyFont? ? "ratio.txt" : "1.0"} $< $@
 work2.sfd: work2_.sfd
 	../fixup-layers.py $< $@
 work3_.sfd: work2.sfd
