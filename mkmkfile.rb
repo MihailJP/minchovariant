@@ -106,8 +106,10 @@ work5_.sfd: work4.sfd
 	../merge-contours.rb $< $@
 work5.sfd: work5_.sfd
 	../fixup-layers.py $< $@
-work.otf: work5.sfd
+temp.otf: work5.sfd
 	../width.py $< $@
+work.otf: temp.otf
+	fontforge -lang=ff -c 'Open("$<"); Generate("$@")'
 
 kana_.sfd: ../Kana/Kana.sfdir ../Kana/Kana-Bold.sfdir
 	../kana.py #{$weightNum} $^ $@
