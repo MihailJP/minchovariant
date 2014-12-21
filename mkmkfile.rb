@@ -118,8 +118,10 @@ work6_.sfd: work5.sfd
 	../merge-contours.rb $< $@
 work6.sfd: work6_.sfd
 	../fixup-layers.py $< $@
-work.otf: work6.sfd
+temp.otf: work6.sfd
 	../width.py $< $@
+work.otf: temp.otf
+	fontforge -lang=ff -c 'Open("$<"); Generate("$@")'
 
 kana_.sfd: ../Kana/Kana.sfdir ../Kana/Kana-Bold.sfdir
 	../kana.py #{$weightNum} $^ $@
@@ -179,5 +181,5 @@ cidfontinfo:
 	../makecfi.rb '#{enName}' '#{enWeight}' > $@
 
 clean:
-	-rm -rf $(TARGETS) work.scr work.log build *.otf work*.sfd kana*.sfd rot*.sfd _WORKDATA_*
+	-rm -rf $(TARGETS) work.scr work.log build *.otf work*.sfd kana*.sfd rot*.sfd _WORKDATA_* _WATCHDOG_*
 FINIS
