@@ -30,12 +30,18 @@ KAGE engine is referred as a Git submodule. Do not forget
 * [Perl][3]
 * [Ruby][4]
 * [SQLite3][5]
+* [Inkscape][6]
+* [ImageMagick][7]
+* [Potrace][8]
 
 [1]: http://fontforge.github.io/
 [2]: http://www.adobe.com/devnet/opentype/afdko.html
 [3]: http://www.perl.org/
 [4]: https://www.ruby-lang.org/
 [5]: http://www.sqlite.org/
+[6]: https://inkscape.org/ja/
+[7]: http://www.imagemagick.org/
+[8]: http://potrace.sourceforge.net/
 
 Authors
 -------

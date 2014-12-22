@@ -90,23 +90,7 @@ work_.sfd: head.txt parts.txt foot.txt engine makeglyph.js kagecd.js makettf.pl
 	./makettf.pl . work_ mincho #{$weightNum}
 work.sfd: work_.sfd
 	../fixup-layers.py $< $@
-work2_.sfd: work.sfd
-	../intersect.rb $< $@
-work2.sfd: work2_.sfd
-	../fixup-layers.py $< $@
-work3_.sfd: work2.sfd
-	../smooth-clockwise.py $< $@
-work3.sfd: work3_.sfd
-	../fixup-layers.py $< $@
-work4_.sfd: work3.sfd
-	../intersect.rb $< $@
-work4.sfd: work4_.sfd
-	../fixup-layers.py $< $@
-work5_.sfd: work4.sfd
-	../merge-contours.rb $< $@
-work5.sfd: work5_.sfd
-	../fixup-layers.py $< $@
-temp.otf: work5.sfd
+temp.otf: work.sfd
 	../width.py $< $@
 work.otf: temp.otf
 	fontforge -lang=ff -c 'Open("$<"); Generate("$@")'

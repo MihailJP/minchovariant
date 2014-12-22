@@ -1,12 +1,17 @@
 s/\/usr\/bin\/fontforge/env fontforge/
 /^  &addglyph(\$code);/c \
+  system("inkscape -z -a 0:0:200:200 -e $svgBaseName.png -w 1024 -h 1024 -d 1200 $svgBaseName.raw.svg") and die;\
+  unlink "$svgBaseName.raw.svg";\
+  system("convert $svgBaseName.png $svgBaseName.bmp") and die;\
+  unlink "$svgBaseName.png";\
+  system("potrace -s $svgBaseName.bmp -o $svgBaseName.svg") and die;\
+  unlink "$svgBaseName.bmp";\
   my $refGlyph = $target;\
   if ($buhin{$target} =~ /^99:0:0:0:0:200:200:([\\w\\-]+)(?:\\:\\d+:\\d+:\\d+)?$/) {$refGlyph = $1;}\
   &addglyph($code, $refGlyph, $target);
 /^Move(400, -400)/d
 /^Move(0, 50)/d
 /^RemoveOverlap()/d
-/^Simplify()/d
 /^SetWidth(1000)/i \
 Scale(20)
 /^Scale(500)/a \
@@ -32,3 +37,6 @@ close GLYPHLIST;
 	/^  close/a \
 }
 }
+/\$WORKDIR\/build\/\$code/c \
+  my $svgBaseName = "$WORKDIR/build/$code";\
+  open FH, ">$svgBaseName.raw.svg";
