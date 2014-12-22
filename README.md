@@ -16,6 +16,27 @@ Sans-serif Katakana and Figures, namely CIDs 20473 to 20496 and
 20513 to 20522 are from
 [M+ 2m](http://mplus-fonts.sourceforge.jp/mplus-outline-fonts/) font.
 
+Build-time dependencies
+-----------------------
+These softwares are required in order to build the font.
+Of course no special softwares required after once the font is built.
+
+KAGE engine is referred as a Git submodule. Do not forget
+`git submodule init && git submodule update` before you build.
+
+* [Fontforge][1] with Python and native script feature enabled
+* [Adobe Font Development Kit for OpenType][2]
+* JavaScript
+* [Perl][3]
+* [Ruby][4]
+* [SQLite3][5]
+
+[1]: http://fontforge.github.io/
+[2]: http://www.adobe.com/devnet/opentype/afdko.html
+[3]: http://www.perl.org/
+[4]: https://www.ruby-lang.org/
+[5]: http://www.sqlite.org/
+
 Authors
 -------
 * Merged by MihailJP <mihailjp@gmail.com>.
