@@ -163,6 +163,7 @@ clean:
 	-rm -rf $(GENERATABLES)
 	-rm -rf HZMincho
 	-rm -rf intersect*.pe
+	-rm -rf *.pyc
 
 distclean: clean
 	-rm -rf $(TARGETS)
