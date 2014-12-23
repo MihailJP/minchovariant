@@ -1,22 +1,29 @@
-/load("engine\/polygon.js");/i load("engine/2d.js");
-/load("engine\/kagecd.js");/c load("kagecd.js");
+/load("engine\/polygon.js");/i \
+load("engine/2d.js");
+/load("engine\/kagecd.js");/c \
+load("kagecd.js");
 /if(arguments\[3\] == 1){/ {
 n
-a \ \ kage.kMinWidthU = 1;
+a \
+  kage.kMinWidthU = 1;
 }
 /} else if(arguments\[3\] == 5){/ {
 n
-a \ \ kage.kMinWidthU = 3;
+a \
+  kage.kMinWidthU = 3;
 }
 /} else if(arguments\[3\] == 7){/ {
-i \ \ kage.kMage = 13;\
+i \
+  kage.kMage = 13;\
   kage.kAdjustTateStep = 5;\
   kage.kAdjustMageStep = 6;
 n
-a \ \ kage.kMinWidthU = 4;
+a \
+  kage.kMinWidthU = 4;
 }
 /  kage.kKakato = 1;/ {
-a \ \ kage.kMage = 17;\
+a \
+  kage.kMage = 17;\
   kage.kAdjustTateStep = 6;\
   kage.kAdjustMageStep = 7;\
 } else if(arguments[3] == 9){\
@@ -57,5 +64,6 @@ a \ \ kage.kMage = 17;\
   kage.kAdjustMageStep = 7;
 n
 n
-a \ \ kage.kMinWidthU = 2;
+a \
+  kage.kMinWidthU = 2;
 }

@@ -102,23 +102,7 @@ work2_.sfd: work.sfd#{heavyFont? ? " ratio.txt" : ""}
 	../fix-contour-width.py #{heavyFont? ? "ratio.txt" : "1.0"} $< $@
 work2.sfd: work2_.sfd
 	../fixup-layers.py $< $@
-work3_.sfd: work2.sfd
-	../intersect.rb $< $@
-work3.sfd: work3_.sfd
-	../fixup-layers.py $< $@
-work4_.sfd: work3.sfd
-	../smooth-clockwise.py $< $@
-work4.sfd: work4_.sfd
-	../fixup-layers.py $< $@
-work5_.sfd: work4.sfd
-	../intersect.rb $< $@
-work5.sfd: work5_.sfd
-	../fixup-layers.py $< $@
-work6_.sfd: work5.sfd
-	../merge-contours.rb $< $@
-work6.sfd: work6_.sfd
-	../fixup-layers.py $< $@
-temp.otf: work6.sfd
+temp.otf: work2.sfd
 	../width.py $< $@
 work.otf: temp.otf
 	fontforge -lang=ff -c 'Open("$<"); Generate("$@")'
@@ -181,5 +165,5 @@ cidfontinfo:
 	../makecfi.rb '#{enName}' '#{enWeight}' > $@
 
 clean:
-	-rm -rf $(TARGETS) work.scr work.log build *.otf work*.sfd kana*.sfd rot*.sfd _WORKDATA_* _WATCHDOG_*
+	-rm -rf $(TARGETS) *.scr *.log build *.otf work*.sfd kana*.sfd rot*.sfd _WORKDATA_* _WATCHDOG_*
 FINIS
