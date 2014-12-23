@@ -6,7 +6,7 @@ DBFileName = 'HZMincho.db'
 if not File.exist?(DBFileName) then raise IOError, "Database '#{DBFileName}' not found" end
 fontDB = SQLite3::Database.new(DBFileName)
 
-(target, $weightNum, enName, enWeight, jaName, jaWeight, glyphFilter) = ARGV
+(target, $font, $weightNum, enName, enWeight, jaName, jaWeight, glyphFilter) = ARGV
 license = 'Created by KAGE system. (http://fonts.jp/) / Alphabet glyphs by Andrey V. Panov (C) 2005 All rights reserved. / A few symbol glyphs are from George Doulos\\\' Symbola font. / AJ1-6 sans-serif glyphs from M+ fonts.'
 psName = "#{enName} #{enWeight}".gsub(/\s/, "-")
 cidmap = ""
@@ -44,7 +44,7 @@ def cygPath(path)
 end
 
 def heavyFont?
-	$weightNum.to_i % 100 == 9
+	($font != "socho") and ($weightNum.to_i % 100 == 9)
 end
 
 print <<FINIS
@@ -88,19 +88,29 @@ engine:
 	ln -s ../kage/engine $@
 makeglyph.js:
 	cat ../kage/makettf/makeglyph.js | sed -f ../makeglyph-patch.sed > $@
+kage.js:
+	cat ../kage/engine/kage.js | sed -f ../kage-patch.sed > $@
 kagecd.js:
 	perl ../kagecd-patch.pl ../kage/engine/kagecd.js | sed -f ../kagecd-fudeosae.sed > $@
+kagedf.js:
+	cat ../kage/engine/kagedf.js | sed -f ../kagedf-patch.sed > $@
 makettf.pl:
 	cat ../kage/makettf/makettf.pl | sed -f ../makettf-patch.sed > $@
 	chmod +x $@
 
-work_.sfd: head.txt parts.txt foot.txt engine makeglyph.js kagecd.js makettf.pl
-	./makettf.pl . work_ mincho #{$weightNum}
+work_.sfd: head.txt parts.txt foot.txt engine makeglyph.js kage.js kagecd.js kagedf.js makettf.pl
+	./makettf.pl . work_ #{$font} #{$weightNum}
 work.sfd: work_.sfd
 	../fixup-layers.py $< $@
+#{$font == "socho" ? <<SOCHO
+work2_.sfd: work.sfd
+	../socho.py $< $@
+SOCHO
+: <<MINCHO
 work2_.sfd: work.sfd#{heavyFont? ? " ratio.txt" : ""}
 	../fix-contour-width.py #{heavyFont? ? "ratio.txt" : "1.0"} $< $@
-work2.sfd: work2_.sfd
+MINCHO
+}work2.sfd: work2_.sfd
 	../fixup-layers.py $< $@
 temp.otf: work2.sfd
 	../width.py $< $@

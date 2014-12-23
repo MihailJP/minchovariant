@@ -1,7 +1,15 @@
 /load("engine\/polygon.js");/i \
 load("engine/2d.js");
+/load("engine\/kage.js");/c \
+load("kage.js");
 /load("engine\/kagecd.js");/c \
 load("kagecd.js");
+/load("engine\/kagedf.js");/c \
+load("kagedf.js");
+/if(arguments\[2\] == "gothic"){/c \
+if(arguments[2] == "socho"){\
+  kage.kShotai = kage.kSocho;\
+}else if(arguments[2] == "gothic"){
 /if(arguments\[3\] == 1){/ {
 n
 a \
@@ -61,7 +69,13 @@ a \
   kage.kKakato = 0.3;\
   kage.kMage = 17;\
   kage.kAdjustTateStep = 5;\
-  kage.kAdjustMageStep = 7;
+  kage.kAdjustMageStep = 7;\
+} else if(arguments[3] == 203){\
+  kage.kMinWidthY = 3;\
+  kage.kMinWidthU = 3;\
+  kage.kMinWidthT = 6;\
+  kage.kWidth = 5;\
+  kage.kKakato = 3;
 n
 n
 a \
