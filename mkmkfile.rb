@@ -43,6 +43,10 @@ def cygPath(path)
 	end
 end
 
+def heavyFont?
+	$weightNum.to_i % 100 == 9
+end
+
 print <<FINIS
 AFD_DIR=#{iscygwin ? AFD_DIR : "#{ENV["HOME"]}/bin/FDK"}
 AFD_BINDIR=$(AFD_DIR)/Tools/#{iscygwin ? 'win' : 'linux'}
@@ -52,7 +56,7 @@ CMAP_VERTICAL=#{cygPath "$(AFD_CMAPDIR)/UniJIS2004-UTF32-V"}
 MERGEFONTS=$(AFD_BINDIR)/mergeFonts
 MAKEOTF=#{iscygwin ? 'cmd /c ' : ''}#{cygPath "$(AFD_BINDIR)/makeotf#{iscygwin ? '.cmd' : ''}"}
 
-TARGETS=head.txt parts.txt foot.txt engine makeglyph.js kagecd.js makettf.pl \
+TARGETS=#{heavyFont? ? "ratio.txt " : ""}head.txt parts.txt foot.txt engine makeglyph.js kagecd.js makettf.pl \
 #{target.sub(/\..+?$/, '.raw')} cidfontinfo #{iscygwin ? "" : "tmpcid.otf tmpcid.ttx " + target.sub(/\..+?$/, '.ttx')} #{target}
 
 .PHONY: all clean font
@@ -72,8 +76,12 @@ head.txt:
 	echo 'SetTTFName(0x411,1,\"#{jaName}\")' >> $@
 	echo 'SetTTFName(0x411,2,\"#{jaWeight}\")' >> $@
 	echo 'SetTTFName(0x411,4,\"#{jaName} #{jaWeight}\")' >> $@
-parts.txt:
-	cat ../dump_newest_only.txt ../dump_all_versions.txt | ../mkparts.pl | sed -f #{glyphFilter} > $@
+#{heavyFont? ? <<SUBRECIPE
+ratio.txt:
+	cat ../dump_newest_only.txt ../dump_all_versions.txt | ../mkparts.pl | sed -f #{glyphFilter} | ../cntstroke.rb > $@
+SUBRECIPE
+: ""}parts.txt:#{heavyFont? ? " ratio.txt" : ""}
+	cat ../dump_newest_only.txt ../dump_all_versions.txt | ../mkparts.pl | sed -f #{glyphFilter} | sed -f ../fudeosae.sed #{heavyFont? ? "| ../kage-width.rb -f $< " : ""}> $@
 foot.txt:
 	touch $@
 engine:
@@ -81,7 +89,7 @@ engine:
 makeglyph.js:
 	cat ../kage/makettf/makeglyph.js | sed -f ../makeglyph-patch.sed > $@
 kagecd.js:
-	perl ../kagecd-patch.pl ../kage/engine/kagecd.js > $@
+	perl ../kagecd-patch.pl ../kage/engine/kagecd.js | sed -f ../kagecd-fudeosae.sed > $@
 makettf.pl:
 	cat ../kage/makettf/makettf.pl | sed -f ../makettf-patch.sed > $@
 	chmod +x $@
@@ -90,24 +98,14 @@ work_.sfd: head.txt parts.txt foot.txt engine makeglyph.js kagecd.js makettf.pl
 	./makettf.pl . work_ mincho #{$weightNum}
 work.sfd: work_.sfd
 	../fixup-layers.py $< $@
-work2_.sfd: work.sfd
-	../intersect.pe $< $@
+work2_.sfd: work.sfd#{heavyFont? ? " ratio.txt" : ""}
+	../fix-contour-width.py #{heavyFont? ? "ratio.txt" : "1.0"} $< $@
 work2.sfd: work2_.sfd
 	../fixup-layers.py $< $@
-work3_.sfd: work2.sfd
-	../smooth-clockwise.py $< $@
-work3.sfd: work3_.sfd
-	../fixup-layers.py $< $@
-work4_.sfd: work3.sfd
-	../intersect.pe $< $@
-work4.sfd: work4_.sfd
-	../fixup-layers.py $< $@
-work5_.sfd: work4.sfd
-	../merge-contours.rb $< $@
-work5.sfd: work5_.sfd
-	../fixup-layers.py $< $@
-work.otf: work5.sfd
+temp.otf: work2.sfd
 	../width.py $< $@
+work.otf: temp.otf
+	fontforge -lang=ff -c 'Open("$<"); Generate("$@")'
 
 kana_.sfd: ../Kana/Kana.sfdir ../Kana/Kana-Bold.sfdir
 	../kana.py #{$weightNum} $^ $@
@@ -167,5 +165,5 @@ cidfontinfo:
 	../makecfi.rb '#{enName}' '#{enWeight}' > $@
 
 clean:
-	-rm -rf $(TARGETS) work.scr work.log build *.otf work*.sfd kana*.sfd rot*.sfd _WORKDATA_*
+	-rm -rf $(TARGETS) *.scr *.log build *.otf work*.sfd kana*.sfd rot*.sfd _WORKDATA_* _WATCHDOG_*
 FINIS

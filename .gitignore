@@ -35,3 +35,5 @@ mincho7m
 mincho9m
 LGC/Makefile
 HZMincho.zip
+intersect*.pe
+*.pyc

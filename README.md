@@ -16,6 +16,33 @@ Sans-serif Katakana and Figures, namely CIDs 20473 to 20496 and
 20513 to 20522 are from
 [M+ 2m](http://mplus-fonts.sourceforge.jp/mplus-outline-fonts/) font.
 
+Build-time dependencies
+-----------------------
+These softwares are required in order to build the font.
+Of course no special softwares required after once the font is built.
+
+KAGE engine is referred as a Git submodule. Do not forget
+`git submodule init && git submodule update` before you build.
+
+* [Fontforge][1] with Python and native script feature enabled
+* [Adobe Font Development Kit for OpenType][2]
+* JavaScript
+* [Perl][3]
+* [Ruby][4]
+* [SQLite3][5]
+* [Inkscape][6]
+* [ImageMagick][7]
+* [Potrace][8]
+
+[1]: http://fontforge.github.io/
+[2]: http://www.adobe.com/devnet/opentype/afdko.html
+[3]: http://www.perl.org/
+[4]: https://www.ruby-lang.org/
+[5]: http://www.sqlite.org/
+[6]: https://inkscape.org/ja/
+[7]: http://www.imagemagick.org/
+[8]: http://potrace.sourceforge.net/
+
 Authors
 -------
 * Merged by MihailJP <mihailjp@gmail.com>.
@@ -118,6 +145,11 @@ M+ font is free for any use.
 
 Version History
 ---------------
+
+### Version 1.008, December 24, 2014
+* Beta release
+* New overlap removal routine (rasterize then re-vectorize)
+* Make extra-bold font bolder
 
 ### Version 1.007, November 22, 2014
 * Beta release

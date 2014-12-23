@@ -3,6 +3,7 @@
 import fontforge
 import psMat
 from sys import argv, stderr
+from GlyphComment import getfield
 
 fontforge.setPrefs('CoverageFormatsAllowed', 1)
 
@@ -22,17 +23,6 @@ class GlyphList:
 			hwl.add(nwl.sub('', line))
 		os.chdir(currdir)
 		self.listDat = frozenset(hwl)
-
-def getfield(glyph, key):
-	import re
-	nwl = re.compile('\r?\n')
-	field = re.compile(r'^\s*([\w\-]+)\s*:\s*(.+?)\s*$')
-	rawlist = nwl.split(glyph.comment)
-	fields = {}
-	for line in rawlist:
-		(name, value) = field.match(line).group(1, 2)
-		fields[name] = value
-	return fields[key]
 
 font = fontforge.open(argv[1])
 hwl = GlyphList("groups/HALFWIDTH.txt").listDat
