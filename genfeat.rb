@@ -6,12 +6,12 @@ if not File.exist?(DBFileName) then raise IOError, "Database '#{DBFileName}' not
 fontDB = SQLite3::Database.new(DBFileName)
 Features = fontDB.execute("SELECT featTag, isLarge, aalt FROM featureCode")
 
-FontVersion = '1.007'
+FontVersion = '1.008'
 FontCopyright = "Created by KAGE system. (http://fonts.jp/)
 Alphabet glyphs by Andrey V. Panov (C) 2005 All rights reserved.
 Some symbol glyphs are from George Doulos' Symbola font.
 AJ1-6 sans-serif glyphs from M+ fonts.
-Merged by MihailJP, October 2014."
+Merged by MihailJP, December 2014."
 FontLicense = "X11 License with exception:
 As a special exception, if you create a document which uses these fonts, \
 and embed these fonts or unaltered portions of these fonts into the \

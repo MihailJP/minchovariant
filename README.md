@@ -146,6 +146,11 @@ M+ font is free for any use.
 Version History
 ---------------
 
+### Version 1.008, December 24, 2014
+* Beta release
+* New overlap removal routine (rasterize then re-vectorize)
+* Make extra-bold font bolder
+
 ### Version 1.007, November 22, 2014
 * Beta release
 * Refined symbol glyphs
