@@ -139,7 +139,7 @@ while (<>) {
     var cornerOffset = 0;
     function hypot() {return Math.sqrt(arguments[0] * arguments[0] + arguments[1] * arguments[1]);}
     var contourLength = hypot(sx1-x1, sy1-y1) + hypot(sx2-sx1, sy2-sy1) + hypot(x2-sx2, y2-sy2);
-    if((a1 == 22 || a1 == 27) && a2 == 7 && contourLength < 100){
+    if(((a1 == 22 || a1 == 27) || a1 == 27) && a2 == 7 && contourLength < 100){
         cornerOffset = (kMinWidthT > 6) ? (kMinWidthT - 6) * ((100 - contourLength) / 100) : 0;
         x1 += cornerOffset;
     }
@@ -197,15 +197,27 @@ while (<>) {
         // generating fatten curve -- end
       } else {
         for(tt = 0; tt <= 1000; tt = tt + kage.kRate){
+          var x1a = x1; var y1a = y1;
+          var sx1a = sx1; var sy1a = sy1;
+          var sx2a = sx2; var sy2a = sy2;
+          var x2a = x2; var y2a = y2;
+          if ((a1 == 7 || a1 == 27) && a2 == 0 && (sy2a < y2a)) {//L2RD-HARAI
+            sx1a = (sx1 - x1) / x2 * (x2 + kMinWidthT) + x1;
+            sy1a = (sy1 - y1) / y2 * (y2 + kMinWidthT * 2) + y1;
+            sx2a = (sx2 - x1) / x2 * (x2 + kMinWidthT) + x1;
+            sy2a = (sy2 - y1) / y2 * (y2 + kMinWidthT * 2) + y1;
+            x2a = x2 + kMinWidthT * 2; y2a = y2 + kMinWidthT * 2;
+          }
+          
           t = tt / 1000;
           
           // calculate a dot
-          x = ((1.0 - t) * (1.0 - t) * x1 + 2.0 * t * (1.0 - t) * sx1 + t * t * x2);
-          y = ((1.0 - t) * (1.0 - t) * y1 + 2.0 * t * (1.0 - t) * sy1 + t * t * y2);
+          x = ((1.0 - t) * (1.0 - t) * x1a + 2.0 * t * (1.0 - t) * sx1a + t * t * x2a);
+          y = ((1.0 - t) * (1.0 - t) * y1a + 2.0 * t * (1.0 - t) * sy1a + t * t * y2a);
           
           // KATAMUKI of vector by BIBUN
-          ix = (x1 - 2.0 * sx1 + x2) * 2.0 * t + (-2.0 * x1 + 2.0 * sx1);
-          iy = (y1 - 2.0 * sy1 + y2) * 2.0 * t + (-2.0 * y1 + 2.0 * sy1);
+          ix = (x1a - 2.0 * sx1a + x2a) * 2.0 * t + (-2.0 * x1a + 2.0 * sx1a);
+          iy = (y1a - 2.0 * sy1a + y2a) * 2.0 * t + (-2.0 * y1a + 2.0 * sy1a);
           
           // line SUICHOKU by vector
           if(ix != 0 && iy != 0){
@@ -222,10 +234,10 @@ while (<>) {
             ib = kMinWidthT;
           }
           
-          if((a1 == 7 || a1 == 27) && a2 == 0){ // L2RD: fatten
+          if(((a1 == 7 || a1 == 27) || a1 == 27) && a2 == 0){ // L2RD: fatten
             deltad = Math.pow(t, hosomi) * kage.kL2RDfatten;
           }
-          else if((a1 == 7 || a1 == 27)){
+          else if(((a1 == 7 || a1 == 27) || a1 == 27)){
             deltad = Math.pow(t, hosomi);
           }
           else if(a2 == 7){
@@ -250,7 +262,13 @@ while (<>) {
           
           //copy to polygon structure
           poly.push(x - ia, y - ib);
-          poly2.push(x + ia, y + ib);
+          if ((a1 == 7 || a1 == 27) && a2 == 0 && (sy2a < y2a) && (y + ib > y2a)) {//L2RD-HARAI
+            //poly2.push(x + ia, y2a);
+          }else if ((a1 == 7 || a1 == 27) && a2 == 0 && (sy2a < y2a)) {//L2RD-HARAI
+            poly2.push(x + ia - kMinWidthT * 2 * t * t * t, y + ib);
+          }else{
+            poly2.push(x + ia, y + ib);
+          }
         }
         
         // suiheisen ni setsuzoku
@@ -305,14 +323,26 @@ while (<>) {
       }
     } else { // Bezier
       for(tt = 0; tt <= 1000; tt = tt + kage.kRate){
+        var x1a = x1; var y1a = y1;
+        var sx1a = sx1; var sy1a = sy1;
+        var sx2a = sx2; var sy2a = sy2;
+        var x2a = x2; var y2a = y2;
+        if ((a1 == 7 || a1 == 27) && a2 == 0 && (sy2a < y2a)) {//L2RD-HARAI
+          sx1a = (sx1 - x1) / x2 * (x2 + kMinWidthT) + x1;
+          sy1a = (sy1 - y1) / y2 * (y2 + kMinWidthT * 2) + y1;
+          sx2a = (sx2 - x1) / x2 * (x2 + kMinWidthT) + x1;
+          sy2a = (sy2 - y1) / y2 * (y2 + kMinWidthT * 2) + y1;
+          x2a = x2 + kMinWidthT * 2; y2a = y2 + kMinWidthT * 2;
+        }
+          
         t = tt / 1000;
         
         // calculate a dot
-        x = (1.0 - t) * (1.0 - t) * (1.0 - t) * x1 + 3.0 * t * (1.0 - t) * (1.0 - t) * sx1 + 3 * t * t * (1.0 - t) * sx2 + t * t * t * x2;
-        y = (1.0 - t) * (1.0 - t) * (1.0 - t) * y1 + 3.0 * t * (1.0 - t) * (1.0 - t) * sy1 + 3 * t * t * (1.0 - t) * sy2 + t * t * t * y2;
+        x = (1.0 - t) * (1.0 - t) * (1.0 - t) * x1a + 3.0 * t * (1.0 - t) * (1.0 - t) * sx1a + 3 * t * t * (1.0 - t) * sx2a + t * t * t * x2a;
+        y = (1.0 - t) * (1.0 - t) * (1.0 - t) * y1a + 3.0 * t * (1.0 - t) * (1.0 - t) * sy1a + 3 * t * t * (1.0 - t) * sy2a + t * t * t * y2a;
         // KATAMUKI of vector by BIBUN
-        ix = t * t * (-3 * x1 + 9 * sx1 + -9 * sx2 + 3 * x2) + t * (6 * x1 + -12 * sx1 + 6 * sx2) + -3 * x1 + 3 * sx1;
-        iy = t * t * (-3 * y1 + 9 * sy1 + -9 * sy2 + 3 * y2) + t * (6 * y1 + -12 * sy1 + 6 * sy2) + -3 * y1 + 3 * sy1;
+        ix = t * t * (-3 * x1a + 9 * sx1a + -9 * sx2a + 3 * x2a) + t * (6 * x1a + -12 * sx1a + 6 * sx2a) + -3 * x1a + 3 * sx1a;
+        iy = t * t * (-3 * y1a + 9 * sy1a + -9 * sy2a + 3 * y2a) + t * (6 * y1a + -12 * sy1a + 6 * sy2a) + -3 * y1a + 3 * sy1a;
         
         // line SUICHOKU by vector
         if(ix != 0 && iy != 0){
@@ -329,10 +359,10 @@ while (<>) {
           ib = kMinWidthT;
         }
         
-        if((a1 == 7 || a1 == 27) && a2 == 0){ // L2RD: fatten
+        if(((a1 == 7 || a1 == 27) || a1 == 27) && a2 == 0){ // L2RD: fatten
           deltad = Math.pow(t, hosomi) * kage.kL2RDfatten;
         }
-        else if((a1 == 7 || a1 == 27)){
+        else if(((a1 == 7 || a1 == 27) || a1 == 27)){
           deltad = Math.pow(t, hosomi);
           deltad = Math.pow(deltad, 0.7); // make fatten
         }
@@ -355,7 +385,13 @@ while (<>) {
         
         //copy to polygon structure
         poly.push(x - ia, y - ib);
-        poly2.push(x + ia, y + ib);
+        if ((a1 == 7 || a1 == 27) && a2 == 0 && (sy2a < y2a) && (y + ib > y2a)) {//L2RD-HARAI
+          //poly2.push(x + ia, y2a);
+        }else if ((a1 == 7 || a1 == 27) && a2 == 0 && (sy2a < y2a)) {//L2RD-HARAI
+          poly2.push(x + ia - kMinWidthT * 2 * t * t * t, y + ib);
+        }else{
+          poly2.push(x + ia, y + ib);
+        }
       }
       
       // suiheisen ni setsuzoku
@@ -491,7 +527,7 @@ while (<>) {
       }
     }
     
-    if((a1 == 22 || a1 == 27)){ //box's up-right corner, any time same degree
+    if(((a1 == 22 || a1 == 27) || a1 == 27)){ //box's up-right corner, any time same degree
       poly = new Polygon();
       poly.push(x1 - cornerOffset - kMinWidthT, y1 - kage.kMinWidthY);
       poly.push(x1 - cornerOffset, y1 - kage.kMinWidthY - kage.kWidth);
@@ -624,7 +660,7 @@ while (<>) {
       }
     }
     
-    if(a2 == 9 || ((a1 == 7 || a1 == 27) && a2 == 0)){ // Math.sinnyu & L2RD Harai ... no need for a2=9
+    if(a2 == 9 || ((a1 == 7 || a1 == 27) && a2 == 0 && (sy2a >= y2a))){ // Math.sinnyu & L2RD Harai ... no need for a2=9
       var type = (Math.atan2(Math.abs(y2 - sy2), Math.abs(x2 - sx2)) / Math.PI * 2 - 0.6);
       if(type > 0){
         type = type * 8;
