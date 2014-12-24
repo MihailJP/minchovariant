@@ -1,4 +1,5 @@
 /load("engine\/polygon.js");/i \
+load("../rotate.js");\
 load("engine/2d.js");
 /load("engine\/kage.js");/c \
 load("kage.js");

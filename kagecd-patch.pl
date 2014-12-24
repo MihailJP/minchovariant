@@ -919,20 +919,27 @@ FINIS
       rad = Math.atan((y2 - y1) / (x2 - x1));
       if((Math.abs(y2 - y1) < Math.abs(x2 - x1)) && (a1 != 6) && (a2 != 6) && !(x1 > x2)){ //ASAI KAUDO
         //always same
-        poly = new Polygon(4);
-        poly.set(0, x1 + Math.sin(rad) * kage.kMinWidthY, y1 - Math.cos(rad) * kage.kMinWidthY);
-        poly.set(1, x2 + Math.sin(rad) * kage.kMinWidthY, y2 - Math.cos(rad) * kage.kMinWidthY);
-        poly.set(2, x2 - Math.sin(rad) * kage.kMinWidthY, y2 + Math.cos(rad) * kage.kMinWidthY);
-        poly.set(3, x1 - Math.sin(rad) * kage.kMinWidthY, y1 + Math.cos(rad) * kage.kMinWidthY);
+        poly = new Polygon(8);
+        setRotated(poly, rad, 0, x1, y1, - kage.kMinWidthY     , - kage.kMinWidthY * 2);
+        setRotated(poly, rad, 1, x1, y1, 0                     , - kage.kMinWidthY * 1.5);
+        setRotated(poly, rad, 2, x1, y1, + kage.kMinWidthY * 8 , - kage.kMinWidthY);
+        setRotated(poly, rad, 3, x2, y2, - kage.kMinWidthY     , - kage.kMinWidthY);
+        setRotated(poly, rad, 4, x2, y2, 0                     , + kage.kMinWidthY);
+        setRotated(poly, rad, 5, x1, y1, + kage.kMinWidthY * 10, + kage.kMinWidthY);
+        setRotated(poly, rad, 6, x1, y1, + kage.kMinWidthY     , + kage.kMinWidthY * 1.5);
+        setRotated(poly, rad, 7, x1, y1, 0                     , + kage.kMinWidthY * 2);
         polygons.push(poly);
         
         //UROKO
         if(a2 == 0){
           var urokoScale = (kage.kMinWidthU / kage.kMinWidthY - 1.0) / 4.0 + 1.0;
           poly = new Polygon();
-          poly.push(x2 + Math.sin(rad) * kage.kMinWidthY, y2 - Math.cos(rad) * kage.kMinWidthY);
-          poly.push(x2 - Math.cos(rad) * kage.kAdjustUrokoX[opt2] * urokoScale, y2 - Math.sin(rad) * kage.kAdjustUrokoX[opt2] * urokoScale);
-          poly.push(x2 - Math.cos(rad) * kage.kAdjustUrokoX[opt2] * urokoScale / 2 + Math.sin(rad) * kage.kAdjustUrokoX[opt2] * urokoScale / 2, y2 - Math.sin(rad) * kage.kAdjustUrokoY[opt2] * urokoScale - Math.cos(rad) * kage.kAdjustUrokoY[opt2] * urokoScale);
+          pushRotated(poly, rad, x2, y2, - kage.kMinWidthY * 0.875                  , - kage.kMinWidthY);
+          pushRotated(poly, rad, x2, y2, - kage.kMinWidthY * 0.5                    , 0);
+          pushRotated(poly, rad, x2, y2, 0                                          , + kage.kMinWidthY);
+          pushRotated(poly, rad, x2, y2, - kage.kAdjustUrokoX[opt2] * urokoScale * 2, - kage.kMinWidthY);
+          pushRotated(poly, rad, x2, y2, - kage.kAdjustUrokoX[opt2] * urokoScale    , - kage.kAdjustUrokoY[opt2] * urokoScale / 2);
+          pushRotated(poly, rad, x2, y2, - kage.kAdjustUrokoX[opt2] * urokoScale / 2, - kage.kAdjustUrokoY[opt2] * urokoScale * 0.75);
           polygons.push(poly);
         }
       }
