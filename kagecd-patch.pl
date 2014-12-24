@@ -730,8 +730,9 @@ FINIS
     y2 = ty2;
     a1 = ta1 % 1000;
     a2 = ta2 % 100;
-    opt1 = Math.floor(ta1 / 1000);
+    opt1 = Math.floor(ta1 / 1000) % 100;
     opt2 = Math.floor(ta2 / 100);
+    var opt3 = Math.floor(ta1 / 100000);
     
     kMinWidthT = kage.kMinWidthT - opt1 / 2;
     
@@ -739,8 +740,8 @@ FINIS
       poly = new Polygon(4);
       switch(a1){
       case 0:
-        poly.set(3, x1 - kMinWidthT, y1 - kage.kMinWidthY / 2);
-        poly.set(0, x1 + kMinWidthT, y1 + kage.kMinWidthY / 2);
+        poly.set(3, x1 - kMinWidthT, y1 + kage.kMinWidthY * 0.5);
+        poly.set(0, x1 + kMinWidthT, y1 + kage.kMinWidthY * 1.5);
         break;
       case 1:
       case 6: //... no need
@@ -749,8 +750,8 @@ FINIS
         poly.set(0, x1 + kMinWidthT, y1);
         break;
       case 12:
-        poly.set(3, x1 - kMinWidthT, y1 - kage.kMinWidthY - kMinWidthT);
-        poly.set(0, x1 + kMinWidthT, y1 - kage.kMinWidthY);
+        poly.set(3, x1 - kMinWidthT, y1 - kage.kMinWidthY);
+        poly.set(0, x1 + kMinWidthT, y1);
         break;
       case 32:
         poly.set(3, x1 - kMinWidthT, y1 - kage.kMinWidthY);
@@ -765,8 +766,8 @@ FINIS
           poly.set(1, x2 + kMinWidthT, y2);
         }
         else{
-          poly.set(2, x2 - kMinWidthT, y2 + kMinWidthT / 2);
-          poly.set(1, x2 + kMinWidthT, y2 - kMinWidthT / 2);
+          poly.set(2, x2 - kMinWidthT, y2 - kMinWidthT * 2);
+          poly.set(1, x2 + kMinWidthT, y2);
         }
         break;
       case 1:
@@ -774,11 +775,11 @@ FINIS
         poly.set(1, x2 + kMinWidthT, y2);
         break;
       case 13:
-        poly.set(2, x2 - kMinWidthT, y2 + kage.kAdjustKakatoL[opt2] + kMinWidthT);
+        poly.set(2, x2 - kMinWidthT, y2 + kage.kAdjustKakatoL[opt2] - kMinWidthT * 2);
         poly.set(1, x2 + kMinWidthT, y2 + kage.kAdjustKakatoL[opt2]);
         break;
       case 23:
-        poly.set(2, x2 - kMinWidthT, y2 + kage.kAdjustKakatoR[opt2] + kMinWidthT);
+        poly.set(2, x2 - kMinWidthT, y2 + kage.kAdjustKakatoR[opt2] - kMinWidthT * 2);
         poly.set(1, x2 + kMinWidthT, y2 + kage.kAdjustKakatoR[opt2]);
         break;
       case 32:
@@ -789,7 +790,7 @@ FINIS
       
       polygons.push(poly);
       
-      if((a1 == 22 || a1 == 27)){ //box's right top corner
+      if(((a1 == 22 || a1 == 27) || a1 == 27)){ //box's right top corner
         poly = new Polygon();
         poly.push(x1 - kMinWidthT, y1 - kage.kMinWidthY);
         poly.push(x1, y1 - kage.kMinWidthY - kage.kWidth);
@@ -799,17 +800,26 @@ FINIS
         polygons.push(poly);
       }
       
-      if(a1 == 0){ //beginning of the stroke
+      if(a1 == 0 || a1 == 12){ //beginning of the stroke
         poly = new Polygon();
-        poly.push(x1 + kMinWidthT, y1 + kage.kMinWidthY * 0.5);
-        poly.push(x1 + kMinWidthT + kMinWidthT * 0.5, y1 + kage.kMinWidthY * 0.5 + kage.kMinWidthY);
-        poly.push(x1 + kMinWidthT - 2, y1 + kage.kMinWidthY * 0.5 + kage.kMinWidthY * 2 + 1);
+        if (opt3 > 0) {
+          poly.push(x1 - kMinWidthT, y1 - kage.kMinWidthY * (a1 == 12 ? 1.5 : 2));
+          poly.push(x1 - kMinWidthT / 2, y1 - kage.kMinWidthY * (a1 == 12 ? 2 : 2.5));
+        } else {
+          poly.push(x1 - kMinWidthT - kage.kMinWidthY, y1 - kage.kMinWidthY * (a1 == 12 ? 4 : 2.5));
+          poly.push(x1 - kMinWidthT - kage.kMinWidthY, y1 - kage.kMinWidthY * (a1 == 12 ? 4.5 : 3));
+        }
+        poly.push(x1, y1 - kage.kMinWidthY * (a1 == 12 ? 1.5 : 0));
+        poly.push(x1 + kMinWidthT, y1 + kage.kMinWidthY * (a1 == 12 ? 0 : 1.5));
+        poly.push(x1 + kMinWidthT + kMinWidthT * 0.5, y1 + kage.kMinWidthY * (a1 == 12 ? 1 : 2.5));
+        poly.push(x1 + kMinWidthT - 2, y1 + kage.kMinWidthY * (a1 == 12 ? 2 : 3.5) + 1);
+        poly.push(x1 - kMinWidthT, y1 + kage.kMinWidthY * (a1 == 12 ? -0.5 : 1));
         polygons.push(poly);
       }
       
       if((a1 == 6 && a2 == 0) || a2 == 1){ //KAGI NO YOKO BOU NO SAIGO NO MARU ... no need only used at 1st=yoko
         poly = new Polygon();
-	if(kage.kUseCurve){
+        if(kage.kUseCurve){
           poly.push(x2 - kMinWidthT, y2);
           poly.push(x2 - kMinWidthT * 0.9, y2 + kMinWidthT * 0.9, 1);
           poly.push(x2, y2 + kMinWidthT);
@@ -823,6 +833,19 @@ FINIS
           poly.push(x2 + kMinWidthT, y2);
         }
         //poly.reverse(); // for fill-rule
+        polygons.push(poly);
+      } else if (a2 == 0 || a2 == 13 || a2 == 23) {
+        var yOffset = 0;
+        if (a2 == 13) {yOffset = kage.kAdjustKakatoL[opt2];}
+        if (a2 == 23) {yOffset = kage.kAdjustKakatoR[opt2];}
+        poly = new Polygon();
+        poly.push(x2 + kMinWidthT, y2 + yOffset);
+        poly.push(x2 + kMinWidthT / 2, y2 + yOffset + kMinWidthT * 0.375);
+        poly.push(x2, y2 + yOffset + kMinWidthT / 2);
+        poly.push(x2 - kMinWidthT / 2, y2 + yOffset);
+        poly.push(x2 - kMinWidthT, y2 + yOffset - kMinWidthT);
+        poly.push(x2 - kMinWidthT - kage.kMinWidthY * (a2 == 0 ? 1 : 0.5), y2 + yOffset - kMinWidthT * (a2 == 23 ? 2 : 3));
+        poly.push(x2 - kMinWidthT, y2 + yOffset - kMinWidthT * (a2 == 23 ? 3 : 4));
         polygons.push(poly);
       }
     }

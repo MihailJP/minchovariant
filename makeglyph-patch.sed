@@ -76,7 +76,9 @@ a \
   kage.kMinWidthU = 3;\
   kage.kMinWidthT = 6;\
   kage.kWidth = 5;\
-  kage.kKakato = 3;
+  kage.kKakato = 3;\
+  kage.kAdjustKakatoL = ([14, 12, 10, 8]);\
+  kage.kAdjustKakatoR = ([8, 6.5, 5, 3.5]);
 n
 n
 a \

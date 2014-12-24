@@ -22,7 +22,7 @@
           ty1 = y2 - kage.kMage * Math.sin(rad) * v;\
         }\
         cdDrawLine(kage, polygons, x1, y1, tx1, ty1, a2, 1);\
-        cdDrawCurve(kage, polygons, tx1, ty1, x2, y2, x2 - kage.kMage * (((kage.kAdjustTateStep + 4) - Math.floor(a2 / 1000)) / (kage.kAdjustTateStep + 4)), y2, 1 + (a2 - a2 % 1000), a3 + 10);\
+        cdDrawCurve(kage, polygons, tx1, ty1, x2, y2, x2 - kage.kMage * (((kage.kAdjustTateStep + 4) - Math.floor((a2 % 100000) / 1000)) / (kage.kAdjustTateStep + 4)), y2, 1 + (a2 - a2 % 1000), a3 + 10);\
       }\
       else{\
         cdDrawLine(kage, polygons, x1, y1, x2, y2, a2, a3);\
