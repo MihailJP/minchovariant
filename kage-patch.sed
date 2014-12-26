@@ -2,8 +2,8 @@
   Kage.prototype.kSocho = 2;
 
 /this\.drawStrokesArray(polygons, / {
-s/polygons, /polygons, this.adjustLeftTop(/
-s/;/);/
+s/polygons, /polygons, this.adjustRoof(this.adjustLeftTop(/
+s/;/));/
 }
 
 /function drawStrokesArray/i \
@@ -40,5 +40,36 @@ s/;/);/
     return strokesArray;\
   }\
   Kage.prototype.adjustLeftTop = adjustLeftTop;\
+\
+  function adjustRoof(strokesArray){ // strokesArray\
+    if (this.kShotai == this.kSocho) {\
+      var horizLines = new Array();\
+      for(var i = 0; i < strokesArray.length; i++){\
+        if ((strokesArray[i][0] == 1) && (strokesArray[i][4] == strokesArray[i][6])) {\
+          horizLines.push(\
+            [strokesArray[i][3], strokesArray[i][4], strokesArray[i][5], strokesArray[i][6]]);\
+        }\
+      }\
+      for(var i = 0; i < strokesArray.length; i++){\
+        if ((strokesArray[i][0] == 2) && (strokesArray[i][1] == 0) && (strokesArray[i][2] == 7)) {\
+          for (var lineIndex = 0; lineIndex < horizLines.length; lineIndex++) {\
+            var xx0 = strokesArray[i][3];\
+            var yy0 = strokesArray[i][4];\
+            var xx1 = horizLines[lineIndex][0];\
+            var yy1 = horizLines[lineIndex][1];\
+            var xx2 = horizLines[lineIndex][2];\
+            var yy2 = horizLines[lineIndex][3];\
+            if ((xx1 <= xx0) && (xx0 <= xx2)) {\
+              if ((yy0 < (yy1 + this.kMinWidthY * 4)) && (yy0 > (yy1 - this.kMinWidthY * 2))) {\
+                strokesArray[i][1] += 1000000; break;\
+              }\
+            }\
+          }\
+        }\
+      }\
+    }\
+    return strokesArray;\
+  }\
+  Kage.prototype.adjustRoof = adjustRoof;\
 \
 

@@ -61,8 +61,9 @@ while (<>) {
     a2 = ta2 % 100;
     opt1 = Math.floor((ta1 % 10000) / 1000);
     opt2 = Math.floor((ta2 % 1000) / 100);
-    opt3 = Math.floor(ta1 / 10000);
+    opt3 = Math.floor((ta1 % 1000000) / 10000);
     opt4 = Math.floor(ta2 / 1000);
+    var opt5 = Math.floor(ta1 / 1000000);
     
     kMinWidthT = kage.kMinWidthT - opt1 / 2;
     kMinWidthT2 = kage.kMinWidthT - opt4 / 2;
@@ -485,45 +486,6 @@ while (<>) {
         } else {
           pm = 1;
         }
-        if(x1 == sx1){
-          poly = new Polygon();
-          poly.push(x1 - kMinWidthT, y1 + 1);
-          poly.push(x1 + kMinWidthT, y1);
-          poly.push(x1 - kMinWidthT * pm, y1 - kage.kMinWidthY * type * pm);
-          //if(x1 > x2){
-          //  poly.reverse();
-          //}
-          polygons.push(poly);
-        }
-        else{
-          poly = new Polygon();
-          poly.push(x1 - kMinWidthT * XX + 1 * YX, y1 - kMinWidthT * XY + 1 * YY);
-          poly.push(x1 + kMinWidthT * XX, y1 + kMinWidthT * XY);
-          poly.push(x1 - kMinWidthT * pm * XX - kage.kMinWidthY * type * pm * YX, y1 - kMinWidthT * pm * XY - kage.kMinWidthY * type * pm * YY);
-          //if(x1 > x2){
-          //  poly.reverse();
-          //}
-          polygons.push(poly);
-        }
-      }
-      else{ //bottom to up
-        if(x1 == sx1){
-          poly = new Polygon();
-          poly.push(x1 - kMinWidthT, y1);
-          poly.push(x1 + kMinWidthT, y1);
-          poly.push(x1 + kMinWidthT, y1 - kage.kMinWidthY);
-          polygons.push(poly);
-        }
-        else{
-          poly = new Polygon();
-          poly.push(x1 - kMinWidthT * XX, y1 - kMinWidthT * XY);
-          poly.push(x1 + kMinWidthT * XX, y1 + kMinWidthT * XY);
-          poly.push(x1 + kMinWidthT * XX - kage.kMinWidthY * YX, y1 + kMinWidthT * XY - kage.kMinWidthY * YY);
-          //if(x1 < x2){
-          //  poly.reverse();
-          //}
-          polygons.push(poly);
-        }
       }
     }
     
@@ -550,19 +512,34 @@ while (<>) {
         var move = kage.kMinWidthY * type * pm;
         if(x1 == sx1){
           poly = new Polygon();
-          poly.push(x1 + kMinWidthT, y1 - move);
-          poly.push(x1 + kMinWidthT * 1.5, y1 + kage.kMinWidthY - move);
-          poly.push(x1 + kMinWidthT - 2, y1 + kage.kMinWidthY * 2 + 1);
+          if (opt5 > 0) {
+            poly.push(x1 - kMinWidthT * 1.5,             y1);
+            poly.push(x1,                                y1 + kMinWidthT / 2);
+            poly.push(x1 + kMinWidthT,                   y1 + kMinWidthT);
+          } else {
+            poly.push(x1 - kMinWidthT * 1.5,             y1 - kMinWidthT);
+            poly.push(x1,                                y1 - kMinWidthT / 2);
+            poly.push(x1 + kMinWidthT + kage.kMinWidthY, y1);
+          }
+          poly.push(  x1 + kMinWidthT,                   y1 + kage.kMinWidthY * 3);
+          poly.push(  x1,                                y1 + kage.kMinWidthY * 8);
           polygons.push(poly);
         }
         else{
           poly = new Polygon();
-          poly.push(x1 + kMinWidthT * XX - move * YX,
-                    y1 + kMinWidthT * XY - move * YY);
-          poly.push(x1 + kMinWidthT * 1.5 * XX + (kage.kMinWidthY - move * 1.2) * YX,
-                    y1 + kMinWidthT * 1.5 * XY + (kage.kMinWidthY - move * 1.2) * YY);
-          poly.push(x1 + (kMinWidthT - 2) * XX + (kage.kMinWidthY * 2 - move * 0.8 + 1) * YX,
-                    y1 + (kMinWidthT - 2) * XY + (kage.kMinWidthY * 2 - move * 0.8 + 1) * YY);
+          var baseDirection = x1 > sx1 ? rad + (Math.PI) / 2 : rad - (Math.PI) / 2
+          var angleOffset = x1 > sx1 ? kMinWidthT * Math.abs(baseDirection) : 0
+          if (opt5 > 0) {
+            pushRotated(poly, baseDirection, x1, y1, - kMinWidthT * 1.5,             0);
+            pushRotated(poly, baseDirection, x1, y1, 0,                              + kMinWidthT / 2);
+            pushRotated(poly, baseDirection, x1, y1, + kMinWidthT,                   + kMinWidthT);
+          } else {
+            pushRotated(poly, baseDirection, x1, y1, - kMinWidthT * 1.5,             - kMinWidthT);
+            pushRotated(poly, baseDirection, x1, y1, 0,                              - kMinWidthT / 2 - angleOffset / 2);
+            pushRotated(poly, baseDirection, x1, y1, + kMinWidthT + kage.kMinWidthY,                  - angleOffset);
+          }
+          pushRotated(  poly, baseDirection, x1, y1, + kMinWidthT,                   + kage.kMinWidthY * 3);
+          pushRotated(  poly, baseDirection, x1, y1, 0,                              + kage.kMinWidthY * 8);
           //if(x1 < x2){
           //  poly.reverse();
           //}
@@ -572,17 +549,21 @@ while (<>) {
       else{ //from bottom to up
         if(x1 == sx1){
           poly = new Polygon();
-          poly.push(x1 - kMinWidthT, y1);
-          poly.push(x1 - kMinWidthT * 1.5, y1 + kage.kMinWidthY);
-          poly.push(x1 - kMinWidthT * 0.5, y1 + kage.kMinWidthY * 3);
+          poly.push(x1 + kMinWidthT * 1.5,             y1 - kMinWidthT);
+          poly.push(x1,                                y1 - kMinWidthT / 2);
+          poly.push(x1 - kMinWidthT - kage.kMinWidthY, y1);
+          poly.push(x1 - kMinWidthT,                   y1 + kage.kMinWidthY * 3);
+          poly.push(x1,                                y1 + kage.kMinWidthY * 8);
           polygons.push(poly);
         }
         else{
           poly = new Polygon();
-          poly.push(x1 - kMinWidthT * XX, y1 - kMinWidthT * XY);
-          poly.push(x1 - kMinWidthT * 1.5 * XX + kage.kMinWidthY * YX, y1 + kage.kMinWidthY * YY - kMinWidthT * 1.5 * XY);
-          poly.push(x1 - kMinWidthT * 0.5 * XX + kage.kMinWidthY * 3 * YX, y1 + kage.kMinWidthY * 3 * YY - kMinWidthT * 0.5 * XY);
-          //if(x1 < x2){
+          pushRotated(poly, rad - (Math.PI) / 2, x1, y1, + kMinWidthT * 1.5,             - kMinWidthT);
+          pushRotated(poly, rad - (Math.PI) / 2, x1, y1, 0,                              - kMinWidthT / 2);
+          pushRotated(poly, rad - (Math.PI) / 2, x1, y1, - kMinWidthT - kage.kMinWidthY, 0);
+          pushRotated(poly, rad - (Math.PI) / 2, x1, y1, - kMinWidthT,                   + kage.kMinWidthY * 3);
+          pushRotated(poly, rad - (Math.PI) / 2, x1, y1, 0,                              + kage.kMinWidthY * 8);
+           //if(x1 < x2){
           //  poly.reverse();
           //}
           polygons.push(poly);
