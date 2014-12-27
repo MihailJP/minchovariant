@@ -140,7 +140,7 @@ while (<>) {
     var cornerOffset = 0;
     function hypot() {return Math.sqrt(arguments[0] * arguments[0] + arguments[1] * arguments[1]);}
     var contourLength = hypot(sx1-x1, sy1-y1) + hypot(sx2-sx1, sy2-sy1) + hypot(x2-sx2, y2-sy2);
-    if(((a1 == 22 || a1 == 27) || a1 == 27) && a2 == 7 && contourLength < 100){
+    if((a1 == 22 || a1 == 27) && a2 == 7 && contourLength < 100){
         cornerOffset = (kMinWidthT > 6) ? (kMinWidthT - 6) * ((100 - contourLength) / 100) : 0;
         x1 += cornerOffset;
     }
@@ -235,10 +235,10 @@ while (<>) {
             ib = kMinWidthT;
           }
           
-          if(((a1 == 7 || a1 == 27) || a1 == 27) && a2 == 0){ // L2RD: fatten
+          if((a1 == 7 || a1 == 27) && a2 == 0){ // L2RD: fatten
             deltad = Math.pow(t, hosomi) * kage.kL2RDfatten;
           }
-          else if(((a1 == 7 || a1 == 27) || a1 == 27)){
+          else if(a1 == 7 || a1 == 27){
             deltad = Math.pow(t, hosomi);
           }
           else if(a2 == 7){
@@ -360,10 +360,10 @@ while (<>) {
           ib = kMinWidthT;
         }
         
-        if(((a1 == 7 || a1 == 27) || a1 == 27) && a2 == 0){ // L2RD: fatten
+        if((a1 == 7 || a1 == 27) && a2 == 0){ // L2RD: fatten
           deltad = Math.pow(t, hosomi) * kage.kL2RDfatten;
         }
-        else if(((a1 == 7 || a1 == 27) || a1 == 27)){
+        else if(a1 == 7 || a1 == 27){
           deltad = Math.pow(t, hosomi);
           deltad = Math.pow(deltad, 0.7); // make fatten
         }
@@ -489,7 +489,7 @@ while (<>) {
       }
     }
     
-    if(((a1 == 22 || a1 == 27) || a1 == 27)){ //box's up-right corner, any time same degree
+    if(a1 == 22 || a1 == 27){ //box's up-right corner, any time same degree
       poly = new Polygon();
       poly.push(x1 - cornerOffset - kMinWidthT, y1 - kage.kMinWidthY);
       poly.push(x1 - cornerOffset, y1 - kage.kMinWidthY - kage.kWidth);
@@ -771,7 +771,7 @@ FINIS
       
       polygons.push(poly);
       
-      if(((a1 == 22 || a1 == 27) || a1 == 27)){ //box's right top corner
+      if(a1 == 22 || a1 == 27){ //box's right top corner
         poly = new Polygon();
         poly.push(x1 - kMinWidthT, y1 - kage.kMinWidthY);
         poly.push(x1, y1 - kage.kMinWidthY - kage.kWidth);
@@ -1063,7 +1063,7 @@ FINIS
           polygons.push(poly);
         }
         
-        if((a1 == 22 || a1 == 27)){ //SHIKAKU MIGIUE UROKO NANAME DEMO MASSUGU MUKI
+        if(a1 == 22 || a1 == 27){ //SHIKAKU MIGIUE UROKO NANAME DEMO MASSUGU MUKI
           poly = new Polygon();
           poly.push(x1 - kMinWidthT, y1 - kage.kMinWidthY);
           poly.push(x1, y1 - kage.kMinWidthY - kage.kWidth);
