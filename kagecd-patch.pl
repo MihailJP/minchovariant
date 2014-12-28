@@ -527,8 +527,8 @@ while (<>) {
         }
         else{
           poly = new Polygon();
-          var baseDirection = x1 > sx1 ? rad + (Math.PI) / 2 : rad - (Math.PI) / 2
-          var angleOffset = x1 > sx1 ? kMinWidthT * Math.abs(baseDirection) : 0
+          var baseDirection = x1 > sx1 ? rad + (Math.PI) / 2 : rad - (Math.PI) / 2;
+          var angleOffset = x1 > sx1 ? kMinWidthT * Math.abs(baseDirection) : 0;
           if (opt5 > 0) {
             pushRotated(poly, baseDirection, x1, y1, - kMinWidthT * 1.5,             0);
             pushRotated(poly, baseDirection, x1, y1, 0,                              + kMinWidthT / 2);
@@ -547,13 +547,15 @@ while (<>) {
         }
       }
       else{ //from bottom to up
+        var pLength = Math.sqrt((sx1 - x1) * (sx1 - x1) + (sy1 - y1) * (sy1 - y1));
+        var wedgeFact = (pLength > kage.kMinWidthY * 16) ? 1.0 : pLength / (kage.kMinWidthY * 16);
         if(x1 == sx1){
           poly = new Polygon();
           poly.push(x1 + kMinWidthT * 1.5,             y1 - kMinWidthT);
           poly.push(x1,                                y1 - kMinWidthT / 2);
           poly.push(x1 - kMinWidthT - kage.kMinWidthY, y1);
-          poly.push(x1 - kMinWidthT,                   y1 + kage.kMinWidthY * 3);
-          poly.push(x1,                                y1 + kage.kMinWidthY * 8);
+          poly.push(x1 - kMinWidthT,                   y1 + kage.kMinWidthY * 3 * wedgeFact);
+          poly.push(x1,                                y1 + kage.kMinWidthY * 8 * wedgeFact);
           polygons.push(poly);
         }
         else{
@@ -561,8 +563,8 @@ while (<>) {
           pushRotated(poly, rad - (Math.PI) / 2, x1, y1, + kMinWidthT * 1.5,             - kMinWidthT);
           pushRotated(poly, rad - (Math.PI) / 2, x1, y1, 0,                              - kMinWidthT / 2);
           pushRotated(poly, rad - (Math.PI) / 2, x1, y1, - kMinWidthT - kage.kMinWidthY, 0);
-          pushRotated(poly, rad - (Math.PI) / 2, x1, y1, - kMinWidthT,                   + kage.kMinWidthY * 3);
-          pushRotated(poly, rad - (Math.PI) / 2, x1, y1, 0,                              + kage.kMinWidthY * 8);
+          pushRotated(poly, rad - (Math.PI) / 2, x1, y1, - kMinWidthT,                   + kage.kMinWidthY * 3 * wedgeFact);
+          pushRotated(poly, rad - (Math.PI) / 2, x1, y1, 0,                              + kage.kMinWidthY * 8 * wedgeFact);
            //if(x1 < x2){
           //  poly.reverse();
           //}
