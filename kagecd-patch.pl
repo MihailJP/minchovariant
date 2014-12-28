@@ -677,12 +677,12 @@ while (<>) {
       // anytime same degree
       poly = new Polygon();
       if(y1 < y2){
-        poly.push(x2, y2 - kMinWidthT + 1);
+        poly.push(x2 + kMinWidthT, y2);
         poly.push(x2 + 2, y2 - kMinWidthT - kage.kWidth * 5);
         poly.push(x2, y2 - kMinWidthT - kage.kWidth * 5);
         poly.push(x2 - kMinWidthT, y2 - kMinWidthT + 1);
       } else {
-        poly.push(x2, y2 + kMinWidthT - 1);
+        poly.push(x2 - kMinWidthT, y2);
         poly.push(x2 - 2, y2 + kMinWidthT + kage.kWidth * 5);
         poly.push(x2, y2 + kMinWidthT + kage.kWidth * 5);
         poly.push(x2 + kMinWidthT, y2 + kMinWidthT - 1);
@@ -692,11 +692,11 @@ while (<>) {
     
     if(a2 == 14){ //jump to left, allways go left
       poly = new Polygon();
-      poly.push(x2, y2);
+      poly.push(x2, y2 + kMinWidthT);
       poly.push(x2, y2 - kMinWidthT);
       var jumpFactor = (kMinWidthT > 6 ? 6.0 / kMinWidthT : 1.0);
-      poly.push(x2 - kage.kWidth * 4 * Math.min(1 - opt2 / 10, Math.pow(kMinWidthT / kage.kMinWidthT, 3)) * jumpFactor, y2 - kMinWidthT);
-      poly.push(x2 - kage.kWidth * 4 * Math.min(1 - opt2 / 10, Math.pow(kMinWidthT / kage.kMinWidthT, 3)) * jumpFactor, y2 - kMinWidthT * 0.5);
+      poly.push(x2 - kage.kWidth * 4 * Math.min(1 - opt2 / 10, Math.pow(kMinWidthT / kage.kMinWidthT, 3)) * jumpFactor, y2 - kMinWidthT * 1.5 - 2);
+      poly.push(x2 - kage.kWidth * 4 * Math.min(1 - opt2 / 10, Math.pow(kMinWidthT / kage.kMinWidthT, 3)) * jumpFactor, y2 - kMinWidthT * 1.5);
       //poly.reverse();
       polygons.push(poly);
     }
@@ -880,12 +880,12 @@ FINIS
           //KAGI NO YOKO BOU NO HANE
           poly = new Polygon();
           if(x1 < x2){
-            poly.push(x2, y2 - kMinWidthT + 1);
+            poly.push(x2 + kMinWidthT, y2);
             poly.push(x2 + 2, y2 - kMinWidthT - kage.kWidth * (4 * (1 - opt1 / kage.kAdjustMageStep) + 1));
             poly.push(x2, y2 - kMinWidthT - kage.kWidth * (4 * (1 - opt1 / kage.kAdjustMageStep) + 1));
             poly.push(x2 - kMinWidthT, y2 - kMinWidthT + 1);
           } else {
-            poly.push(x2, y2 - kMinWidthT + 1);
+            poly.push(x2 - kMinWidthT, y2);
             poly.push(x2 - 2, y2 - kMinWidthT - kage.kWidth * (4 * (1 - opt1 / kage.kAdjustMageStep) + 1));
             poly.push(x2, y2 - kMinWidthT - kage.kWidth * (4 * (1 - opt1 / kage.kAdjustMageStep) + 1));
             poly.push(x2 + kMinWidthT, y2 - kMinWidthT + 1);
