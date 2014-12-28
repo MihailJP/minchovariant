@@ -6,7 +6,8 @@ while l = ARGF.gets
 	l.chomp!
 	glyph = Kage::Glyph.new(l)
 	stat = {
-		'walkRadical' => {'index' => nil, 'type' => nil, 'stat' => 0, 'tmpPos' => [nil, nil]}
+		'walkRadical' => {'index' => nil, 'type' => nil, 'stat' => 0, 'tmpPos' => [nil, nil]},
+		'specialL2RD' => {'index' => nil}
 	}
 	if not glyph.ref_only? then
 		# 特定部首検出
@@ -31,6 +32,10 @@ while l = ARGF.gets
 			else
 				stat['walkRadical']['stat'] = 0
 				stat['walkRadical']['tmpPos'] = [nil, nil]
+			end
+			if stroke[0..2] == [6, 7, 0] and stroke.control2Y >= stroke.endY and stat['walkRadical']['index'].nil? then # 特殊型右はらい
+				stat['specialL2RD']['index'] = index
+				STDERR.write("#{glyph.name}: 特殊型右はらいをインデックス#{index}で検出！\n")
 			end
 		end
 		# 特定部首を宋朝体字形に置換え
@@ -94,6 +99,33 @@ while l = ARGF.gets
 				glyph[index] = stroke0
 				glyph[index + 1] = stroke1
 				glyph.insert(index + 2, stroke2, stroke3)
+			end
+		end
+		if not stat['specialL2RD']['index'].nil? then # 特殊型右はらい
+			index = stat['specialL2RD']['index']
+			stroke = glyph[index]
+			stroke.endY = stroke.control2Y
+			stroke.controlPoint2 = stroke.controlPoint1
+			stroke.strokeType = 2
+			glyph[index] = stroke
+			for xStroke, xIndex in glyph.each_with_index
+				if xIndex != index then
+					xStroke = glyph[xIndex]
+					if (not xStroke.ref?) and ((stroke.control1X)..(stroke.endX)).cover?(xStroke.endX) and ((stroke.control1Y)..(stroke.endY)).cover?(xStroke.endY) then
+						slope = (stroke.endY - stroke.control1Y).to_f / (stroke.endX - stroke.control1X).to_f
+						yIntercept = stroke.control1Y.to_f - slope * stroke.control1X.to_f
+						xStroke.endY = (xStroke.endX * slope + yIntercept - 3).round
+						glyph[xIndex] = xStroke
+					end
+				end
+			end
+			if index > 0 then
+				xStroke = glyph[index - 1]
+				if xStroke[0..2] == [2, 0, 7] and Kage.dist(xStroke.endPoint, stroke.startPoint) < 12 then
+					xStroke.startY = (xStroke.startY - xStroke.endY) / 2 + xStroke.endY
+					xStroke.control1Y = (xStroke.control1Y - xStroke.endY) / 2 + xStroke.endY
+					glyph[index - 1] = xStroke
+				end
 			end
 		end
 	end
