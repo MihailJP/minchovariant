@@ -2,6 +2,14 @@
 
 require "#{File.dirname(__FILE__)}/Kage.rb"
 
+convertGlyphList = {
+	'u8a00'    => ['u8a00-t',   0, 0, 200, 200],
+	'u8a00-02' => ['u8a00-t02', 0, 0, 200, 200],
+	'u8a00-04' => ['u8a00-t04', 0, 0, 200, 200],
+	'u8a01'    => ['u8a01-g',   0, 0, 200, 200],
+	'u8a01-01' => ['u8a01-g01', 0, 0, 179, 200]
+}
+
 while l = ARGF.gets
 	l.chomp!
 	glyph = Kage::Glyph.new(l)
@@ -9,7 +17,12 @@ while l = ARGF.gets
 		'walkRadical' => {'index' => nil, 'type' => nil, 'stat' => 0, 'tmpPos' => [nil, nil]},
 		'specialL2RD' => {'index' => nil}
 	}
-	if not glyph.ref_only? then
+	if convertGlyphList.has_key?(glyph.name) then
+		# 特定のグリフ置き換え
+		repGlyph = convertGlyphList[glyph.name][0]
+		STDERR.write("#{glyph.name}: 置き換え対照グリフ→#{repGlyph}\n")
+		glyph = Kage::Glyph.new("#{glyph.name}\t99:0:0:#{convertGlyphList[glyph.name][1..4].join(":")}:#{repGlyph}")
+	elsif not glyph.ref_only? then
 		# 特定部首検出
 		for stroke, index in glyph.each_with_index
 			# 之繞
