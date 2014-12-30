@@ -20,6 +20,7 @@ module Kage
 				}
 				@data = value
 			end
+			@data = (@data + ([0] * 11))[0..10]
 		end
 		def [](index)
 			@data[index]
@@ -106,7 +107,7 @@ module Kage
 		end
 		def startPoint
 			case @data[0]
-			when 1, 2, 3, 4, 6, 7
+			when 1, 2, 3, 4, 6, 7, 99
 				return @data[3..4]
 			else
 				return nil
@@ -142,7 +143,7 @@ module Kage
 		end
 		def endPoint
 			case @data[0]
-			when 1
+			when 1, 99
 				return @data[5..6]
 			when 2, 3, 4
 				return @data[7..8]
@@ -237,6 +238,13 @@ module Kage
 		def endY=(val)
 			self.endPoint = [self.endX, val]
 		end
+		def link_to
+			if @data[0] == 99 then
+				return @data[7]
+			else
+				return nil
+			end
+		end
 		alias :at :[]
 		alias :inspect :to_s
 	end
@@ -287,6 +295,20 @@ module Kage
 		end
 		def ref_only?
 			@strokes.all? {|stroke| stroke[0] == 99}
+		end
+		def replace_with(arg)
+			if arg.is_a? Array then
+				tmpStrokes = []
+				for stroke in arg
+					tmpStrokes.push(stroke.is_a?(Stroke) ? stroke : Stroke.new(stroke))
+				end
+				@strokes = tmpStrokes
+			elsif arg.is_a? String then
+				@strokes = (arg.split(/\$/)).map {|elem| Stroke.new(elem)}
+			else
+				raise TypeError, "Invalid argument"
+			end
+			self
 		end
 		attr_reader :name
 		attr_reader :strokes

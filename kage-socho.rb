@@ -2,7 +2,12 @@
 
 require "#{File.dirname(__FILE__)}/Kage.rb"
 
+preInputGlyph = {
+	'u5196-03' => Kage::Glyph.new("u5196-03\t2:7:8:31:16:32:53:16:65$1:0:2:32:31:176:31$2:22:7:176:31:170:43:156:63")
+}
 convertGlyphList = {
+	'u5b80'    => ['u5b80-t07', 0, 0, 200, 200],
+	'u5b80-03' => ['u5b80-t03', 0, 0, 200, 200],
 	'u8a00'    => ['u8a00-t',   0, 0, 200, 200],
 	'u8a00-02' => ['u8a00-t02', 0, 0, 200, 200],
 	'u8a00-04' => ['u8a00-t04', 0, 0, 200, 200],
@@ -14,15 +19,40 @@ while l = ARGF.gets
 	l.chomp!
 	glyph = Kage::Glyph.new(l)
 	stat = {
-		'walkRadical' => {'index' => nil, 'type' => nil, 'stat' => 0, 'tmpPos' => [nil, nil]},
-		'specialL2RD' => {'index' => nil}
+		'dereference'  => {},
+		'walkRadical'  => {'index' => nil, 'type' => nil, 'stat' => 0, 'tmpPos' => [nil, nil]},
+		'specialL2RD'  => {'index' => nil},
+		'pointOnHoriz' => {'horiz' => [], 'point' => [], 'diagonal' => []}
 	}
 	if convertGlyphList.has_key?(glyph.name) then
 		# 特定のグリフ置き換え
 		repGlyph = convertGlyphList[glyph.name][0]
 		STDERR.write("#{glyph.name}: 置き換え対照グリフ→#{repGlyph}\n")
-		glyph = Kage::Glyph.new("#{glyph.name}\t99:0:0:#{convertGlyphList[glyph.name][1..4].join(":")}:#{repGlyph}")
+		glyph.replace_with("99:0:0:#{convertGlyphList[glyph.name][1..4].join(":")}:#{repGlyph}")
 	elsif not glyph.ref_only? then
+		# 特定の参照を解体
+		begin
+			tmpGlyph = glyph.to_a
+			for stroke, index in glyph.each_with_index.reverse_each
+				if stroke.ref? and preInputGlyph.include?(stroke.link_to) then
+					refDat = preInputGlyph[stroke.link_to].dup
+					tmpRefDat = refDat.to_a
+					for tmpStrokeRaw, k in tmpRefDat.each_with_index
+						tmpStroke = tmpStrokeRaw.to_a
+						for i in [4, 6, 8, 10].reject {|x| x >= tmpStroke.to_a.length}
+							tmpStroke[i - 1] = tmpStroke[i - 1] * (stroke.endX - stroke.startX) / 200 + stroke.startX
+							tmpStroke[i    ] = tmpStroke[i    ] * (stroke.endY - stroke.startY) / 200 + stroke.startY
+						end
+						tmpRefDat[k] = Kage::Stroke.new(tmpStroke)
+					end
+					refDat.replace_with tmpRefDat
+					derefRange = (index)...(index + refDat.length)
+					stat['dereference'][derefRange] = stroke.dup
+					tmpGlyph[index..index] = refDat.to_a
+				end
+			end
+			glyph.replace_with(tmpGlyph)
+		end
 		# 特定部首検出
 		for stroke, index in glyph.each_with_index
 			# 之繞
@@ -46,9 +76,18 @@ while l = ARGF.gets
 				stat['walkRadical']['stat'] = 0
 				stat['walkRadical']['tmpPos'] = [nil, nil]
 			end
+			
 			if stroke[0..2] == [6, 7, 0] and stroke.control2Y >= stroke.endY and stat['walkRadical']['index'].nil? then # 特殊型右はらい
 				stat['specialL2RD']['index'] = index
 				STDERR.write("#{glyph.name}: 特殊型右はらいをインデックス#{index}で検出！\n")
+			end
+			
+			if stroke[0] == 1 and stroke.startY == stroke.endY then #なべぶた・ウ冠
+				stat['pointOnHoriz']['horiz'].push([index, stroke.dup])
+			elsif stroke[0..1] == [1, 0] and stroke.startX == stroke.endX then
+				stat['pointOnHoriz']['point'].push([index, stroke.dup])
+			elsif (stroke[0..2] == [2, 7, 8] or stroke[0..2] == [2, 0, 7])and stroke.startY < stroke.endY then
+				stat['pointOnHoriz']['diagonal'].push([index, stroke.dup])
 			end
 		end
 		# 特定部首を宋朝体字形に置換え
@@ -141,6 +180,60 @@ while l = ARGF.gets
 				end
 			end
 		end
+		if not (stat['pointOnHoriz']['horiz'].empty? or stat['pointOnHoriz']['point'].empty?) #なべぶた・ウ冠
+			intersectThreshold = 10
+			for pointCandidate, index in stat['pointOnHoriz']['point'].each_with_index
+				for horizCandidate in stat['pointOnHoriz']['horiz']
+					if ((horizCandidate[1].startX)..(horizCandidate[1].endX)).cover?(pointCandidate[1].endX) and
+							((pointCandidate[1].startY + intersectThreshold)..(pointCandidate[1].endY - intersectThreshold)).cover?(horizCandidate[1].endY) and
+							pointCandidate[1].strokelength < 60 then
+						stat['pointOnHoriz']['point'][index] = nil
+						break
+					end
+				end
+			end
+			stat['pointOnHoriz']['point'].compact!
+			for horizCandidate in stat['pointOnHoriz']['horiz']
+				hits = []
+				for pointCandidate in stat['pointOnHoriz']['point']
+					if ((horizCandidate[1].startX)..(horizCandidate[1].endX)).cover?(pointCandidate[1].endX) and
+							((pointCandidate[1].endY - intersectThreshold)..(pointCandidate[1].endY + intersectThreshold)).cover?(horizCandidate[1].endY) then
+						hits.push(pointCandidate)
+					end
+				end
+				if hits.length == 1 then
+					for diagonalCandidate in stat['pointOnHoriz']['diagonal']
+						if ((horizCandidate[1].startX)..(horizCandidate[1].endX)).cover?(diagonalCandidate[1].endX) and
+								((((hits[0][1].endY + hits[0][1].startY) / 2)..(hits[0][1].endY + intersectThreshold)).cover?(diagonalCandidate[1].endY) or
+								(((hits[0][1].startY)..(hits[0][1].endY + hits[0][1].startY) / 2)).cover?(diagonalCandidate[1].startY)) then
+							hits.push(diagonalCandidate)
+						end
+					end
+				end
+				if hits.length == 1 and hits[0][1].strokelength < 60 then
+					index = hits[0][0]
+					baseLength = [horizCandidate[1].endX - horizCandidate[1].startX, 100].min
+					STDERR.write("#{glyph.name}: 鍋蓋・ウ冠の点をインデックス#{index}で検出！\n")
+					stroke = hits[0][1]
+					stroke.strokeType = 2
+					stroke.startType = 7
+					stroke.endType = 8
+					stroke.startX -= (baseLength.to_f / 4).ceil
+					stroke.control1Y -= ((stroke.endY - stroke.startY).to_f / 8).round
+					stroke.endX += (baseLength.to_f / 20).ceil
+					stroke.endY -= ((stroke.endY - stroke.startY).to_f / 5).round
+					glyph[index] = stroke
+				end
+			end
+		end
+	end
+	# デリファレンスを元に戻す
+	if not stat['dereference'].empty? then
+		tmpGlyph = glyph.to_a
+		for index, stroke in stat['dereference'].each_pair
+			tmpGlyph[index] = stroke
+		end
+		glyph.replace_with(tmpGlyph)
 	end
 	print "#{glyph.to_s}\n"
 end
