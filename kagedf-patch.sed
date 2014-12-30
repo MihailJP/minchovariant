@@ -21,7 +21,7 @@
           tx1 = x2 - kage.kMage * Math.cos(rad) * v;\
           ty1 = y2 - kage.kMage * Math.sin(rad) * v;\
         }\
-        cdDrawLine(kage, polygons, x1, y1, tx1, ty1, a2, 1);\
+        cdDrawLine(kage, polygons, x1, y1, x2, y2, a2, 1);\
         cdDrawCurve(kage, polygons, tx1, ty1, x2, y2, x2 - kage.kMage * (((kage.kAdjustTateStep + 4) - Math.floor((a2 % 100000) / 1000)) / (kage.kAdjustTateStep + 4)), y2, 1 + (a2 - a2 % 1000), a3 + 10);\
       }\
       else{\
@@ -45,7 +45,7 @@
           tx1 = x3 - kage.kMage * Math.cos(rad) * v;\
           ty1 = y3 - kage.kMage * Math.sin(rad) * v;\
         }\
-        cdDrawCurve(kage, polygons, x1, y1, x2, y2, tx1, ty1, a2, 1);\
+        cdDrawCurve(kage, polygons, x1, y1, x2, y2, x3, y3, a2, 1);\
         cdDrawCurve(kage, polygons, tx1, ty1, x3, y3, x3 - kage.kMage, y3, 1, a3 + 10);\
       }\
       else if(a3 == 5){\
@@ -241,7 +241,7 @@
           tx1 = x4 - kage.kMage * Math.cos(rad) * v;\
           ty1 = y4 - kage.kMage * Math.sin(rad) * v;\
         }\
-        cdDrawBezier(kage, polygons, x1, y1, x2, y2, x3, y3, tx1, ty1, a2, 1);\
+        cdDrawBezier(kage, polygons, x1, y1, x2, y2, x3, y3, x4, y4, a2, 1);\
         cdDrawCurve(kage, polygons, tx1, ty1, x4, y4, x4 - kage.kMage, y4, 1, a3 + 10);\
       }\
       else if(a3 == 5){\

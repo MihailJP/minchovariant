@@ -155,6 +155,7 @@ while (<>) {
     poly = new Polygon();
     poly2 = new Polygon();
     
+    if (a2 != 14) {
     if(sx1 == sx2 && sy1 == sy2){ // Spline
       if(kage.kUseCurve){
         // generating fatten curve -- begin
@@ -445,6 +446,7 @@ while (<>) {
       poly.concat(poly2);
       polygons.push(poly);
     }
+    }
     
     //process for head of stroke
     rad = Math.atan((sy1 - y1) / (sx1 - x1));
@@ -692,8 +694,8 @@ while (<>) {
     
     if(a2 == 14){ //jump to left, allways go left
       poly = new Polygon();
-      poly.push(x2, y2 + kMinWidthT);
-      poly.push(x2, y2 - kMinWidthT);
+      poly.push(x1, y2 + kMinWidthT);
+      poly.push(x1, y2 - kMinWidthT);
       var jumpFactor = (kMinWidthT > 6 ? 6.0 / kMinWidthT : 1.0);
       poly.push(x2 - kage.kWidth * 4 * Math.min(1 - opt2 / 10, Math.pow(kMinWidthT / kage.kMinWidthT, 3)) * jumpFactor, y2 - kMinWidthT * 1.5 - 2);
       poly.push(x2 - kage.kWidth * 4 * Math.min(1 - opt2 / 10, Math.pow(kMinWidthT / kage.kMinWidthT, 3)) * jumpFactor, y2 - kMinWidthT * 1.5);
