@@ -55,6 +55,7 @@ convertGlyphList = {
 	'u8a01'    => ['u8a01-g',           0,   0, 200, 200],
 	'u8a01-01' => ['u8a01-g01',         0,   0, 179, 200]
 }
+ignorePattern = /^u(4e31|6b6f|7247|23d92)($|-|@\d+)/
 
 while l = ARGF.gets
 	l.chomp!
@@ -65,7 +66,9 @@ while l = ARGF.gets
 		'specialL2RD'  => {'index' => nil},
 		'pointOnHoriz' => {'horiz' => [], 'point' => [], 'diagonal' => []}
 	}
-	if convertGlyphList.has_key?(glyph.name) then
+	if glyph.name =~ ignorePattern then
+		# パターンに当てはまるグリフはスルー
+	elsif convertGlyphList.has_key?(glyph.name) then
 		# 特定のグリフ置き換え
 		repGlyph = convertGlyphList[glyph.name][0]
 		STDERR.write("#{glyph.name}: 置き換え対照グリフ→#{repGlyph}\n")
