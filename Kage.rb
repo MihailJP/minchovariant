@@ -5,7 +5,7 @@ module Kage
 				@data = value.split(/:/)
 				@data.each_with_index {|val, index|
 					if @data[0].to_i == 99 and index == 7 then
-						@data[index] = val
+						@data[index] = val.dup
 					else
 						@data[index] = val.to_i
 					end
@@ -18,9 +18,23 @@ module Kage
 						raise TypeError, "Not a Fixnum instance" unless val.is_a? Fixnum
 					end
 				}
-				@data = value
+				@data = value.dup
+				if value[0].to_i == 99 then
+					@data[7] = value[7].dup
+				end
 			end
 			@data = (@data + ([0] * 11))[0..10]
+		end
+		def initialize_copy(stroke)
+			for index in 0..10
+				if @data[index] then
+					begin
+						@data[index] = stroke[index].dup
+					rescue TypeError
+						@data[index] = stroke[index]
+					end
+				end
+			end
 		end
 		def [](index)
 			@data[index]
@@ -32,7 +46,7 @@ module Kage
 			@data.join(":")
 		end
 		def to_a
-			@data.clone
+			@data.dup
 		end
 		def strokelength
 			case @data[0]
@@ -108,7 +122,7 @@ module Kage
 		def startPoint
 			case @data[0]
 			when 1, 2, 3, 4, 6, 7, 99
-				return @data[3..4]
+				return @data[3..4].dup
 			else
 				return nil
 			end
@@ -116,7 +130,7 @@ module Kage
 		def controlPoint1
 			case @data[0]
 			when 2, 3, 4, 6, 7
-				return @data[5..6]
+				return @data[5..6].dup
 			else
 				return nil
 			end
@@ -124,9 +138,9 @@ module Kage
 		def controlPoint2
 			case @data[0]
 			when 2, 3, 4
-				return @data[5..6]
+				return @data[5..6].dup
 			when 6, 7
-				return @data[7..8]
+				return @data[7..8].dup
 			else
 				return nil
 			end
@@ -134,9 +148,9 @@ module Kage
 		def controlPoint
 			case @data[0]
 			when 2, 3, 4
-				return @data[5..6]
+				return @data[5..6].dup
 			when 6, 7
-				return [@data[5..6], @data[7..8]]
+				return [@data[5..6].dup, @data[7..8].dup]
 			else
 				return nil
 			end
@@ -240,7 +254,7 @@ module Kage
 		end
 		def link_to
 			if @data[0] == 99 then
-				return @data[7]
+				return @data[7].dup
 			else
 				return nil
 			end
@@ -254,13 +268,18 @@ module Kage
 			(@name, gStr) = str.split(/\t/)
 			@strokes = (gStr.split(/\$/)).map {|elem| Stroke.new(elem)}
 		end
+		def initialize_copy(glyph)
+			for stroke, index in glyph.each_with_index
+				@strokes[index] = stroke.dup
+			end
+		end
 		def each
 			for stroke in @strokes
 				yield stroke
 			end
 		end
 		def [](index)
-			@strokes[index]
+			@strokes[index].dup
 		end
 		def []=(index, val)
 			@strokes[index] = checkType(val)
