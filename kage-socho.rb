@@ -76,11 +76,11 @@ while l = ARGF.gets
 	}
 	if glyph.name =~ ignorePattern then
 		# パターンに当てはまるグリフはスルー
-	elsif convertGlyphList.has_key?(glyph.name) then
+	elsif convertGlyphList.has_key?(glyph.unversioned_name) then
 		# 特定のグリフ置き換え
-		repGlyph = convertGlyphList[glyph.name][0]
+		repGlyph = convertGlyphList[glyph.unversioned_name][0]
 		STDERR.write("#{glyph.name}: 置き換え対照グリフ→#{repGlyph}\n")
-		glyph.replace_with("99:0:0:#{convertGlyphList[glyph.name][1..4].join(":")}:#{repGlyph}")
+		glyph.replace_with("99:0:0:#{convertGlyphList[glyph.unversioned_name][1..4].join(":")}:#{repGlyph}")
 	elsif not glyph.ref_only? then
 		# 特定の参照を解体
 		begin

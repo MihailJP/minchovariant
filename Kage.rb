@@ -329,6 +329,9 @@ module Kage
 			end
 			self
 		end
+		def unversioned_name
+			return @name.gsub(/@\d+$/, "")
+		end
 		attr_reader :name
 		attr_reader :strokes
 		alias :at :[]
