@@ -414,7 +414,12 @@ while l = ARGF.gets
 		find_point_on_horiz(stat, glyph)
 		find_hook(stat, glyph)
 		# 特定部首を宋朝体字形に置換え
-		replace_radical_walk(stat, glyph)
+		if replace_radical_walk(stat, glyph) then
+			STDERR.write("#{glyph.name}: 再計算を行います\n")
+			find_special_l2rd(stat, glyph)
+			find_point_on_horiz(stat, glyph)
+			find_hook(stat, glyph)
+		end
 		replace_special_l2rd(stat, glyph)
 		replace_point_on_horiz(stat, glyph)
 		replace_hook(stat, glyph)
