@@ -45,6 +45,13 @@ convertGlyphList = {
 	'u7384-02' => ['u7384-02-var-003',  0,   0, 200, 200],
 	'u7384-03' => ['u7384-03-var-001',  0,   0, 200, 200],
 	'u7384-05' => ['u7384-t05',         0,   0, 200, 200],
+	'u74e6'    => ['u74e6-g',           0,   0, 200, 200],
+	'u74e6-01' => ['u74e6-g',           6,   0, 107, 200],
+	'u74e6-02' => ['u74e6-t02',         0,   0, 200, 200],
+	'u74e6-04' => ['u74e6-t04',         0,   0, 200, 200],
+	'u74e6-05' => ['u74e6-05-var-001',  0,   0, 200, 200],
+	'u74e6-10' => ['u74e6-10-var-002',  0,   0, 200, 200],
+	'u74e6-14' => ['u74e6-14-var-007',  0, -22, 200, 203],
 	'u7cf8'    => ['u7cf8-g',           0,   0, 200, 200],
 	'u7cf8-01' => ['u7cf8-01-var-001',  0,   0, 200, 200],
 	'u7cf8-02' => ['u7cf8-02-var-002',  0,   0, 200, 200],
@@ -55,7 +62,7 @@ convertGlyphList = {
 	'u8a01'    => ['u8a01-g',           0,   0, 200, 200],
 	'u8a01-01' => ['u8a01-g01',         0,   0, 179, 200]
 }
-ignorePattern = /^u(4e31|6b6f|7247|23d92)($|-|@\d+)/
+ignorePattern = /^u(4e31|4ee5|53e2|5de5|6b6f|7247|8033|23d92)($|-|@\d+)/
 
 while l = ARGF.gets
 	l.chomp!
@@ -64,7 +71,8 @@ while l = ARGF.gets
 		'dereference'  => {},
 		'walkRadical'  => {'index' => nil, 'type' => nil, 'stat' => 0, 'tmpPos' => [nil, nil]},
 		'specialL2RD'  => {'index' => nil},
-		'pointOnHoriz' => {'horiz' => [], 'point' => [], 'diagonal' => []}
+		'pointOnHoriz' => {'horiz' => [], 'point' => [], 'diagonal' => []},
+		'hook'         => {'hook' => [], 'stem' => [], 'horiz' => []}
 	}
 	if glyph.name =~ ignorePattern then
 		# パターンに当てはまるグリフはスルー
@@ -120,18 +128,28 @@ while l = ARGF.gets
 				stat['walkRadical']['stat'] = 0
 				stat['walkRadical']['tmpPos'] = [nil, nil]
 			end
-			
-			if stroke[0..2] == [6, 7, 0] and stroke.control2Y >= stroke.endY and stat['walkRadical']['index'].nil? then # 特殊型右はらい
+			# 特殊型右はらい
+			if stroke[0..2] == [6, 7, 0] and stroke.control2Y >= stroke.endY and stat['walkRadical']['index'].nil? then
 				stat['specialL2RD']['index'] = index
 				STDERR.write("#{glyph.name}: 特殊型右はらいをインデックス#{index}で検出！\n")
 			end
-			
-			if stroke[0] == 1 and stroke.startY == stroke.endY then #なべぶた・ウ冠
+			# なべぶた・ウ冠
+			if stroke[0] == 1 and stroke.startY == stroke.endY then
 				stat['pointOnHoriz']['horiz'].push([index, stroke.dup])
 			elsif stroke[0..1] == [1, 0] and stroke.startX == stroke.endX then
 				stat['pointOnHoriz']['point'].push([index, stroke.dup])
 			elsif (stroke[0..2] == [2, 7, 8] or stroke[0..2] == [2, 0, 7])and stroke.startY < stroke.endY then
 				stat['pointOnHoriz']['diagonal'].push([index, stroke.dup])
+			end
+			# 鈎（レの字）
+			if stroke.strokeType == 1 and stroke.startX == stroke.endX then
+				stat['hook']['stem'].push([index, stroke.dup])
+			elsif stroke.strokeType == 2 and stroke.endType == 7 and stroke.startY < stroke.endY then
+				stat['hook']['stem'].push([index, stroke.dup])
+			elsif stroke.strokeType == 1 and stroke.startY == stroke.endY then
+				stat['hook']['horiz'].push([index, stroke.dup])
+			elsif stroke[0..2] == [2, 0, 7] and stroke.startY > stroke.endY and stroke.startX < stroke.endX then
+				stat['hook']['hook'].push([index, stroke.dup])
 			end
 		end
 		# 特定部首を宋朝体字形に置換え
@@ -267,6 +285,67 @@ while l = ARGF.gets
 					stroke.endX += (baseLength.to_f / 20).ceil
 					stroke.endY -= ((stroke.endY - stroke.startY).to_f / 5).round
 					glyph[index] = stroke
+				end
+			end
+		end
+		if not (stat['hook']['hook'].empty? or stat['hook']['stem'].empty?) # 鈎（レの字）
+			intersectThreshold = 8
+			for hookCandidate, index in stat['hook']['hook'].each_with_index
+				intersectCount = 0
+				slope = (hookCandidate[1].endY - hookCandidate[1].startY).to_f / (hookCandidate[1].endX - hookCandidate[1].startX).to_f
+				yIntercept = hookCandidate[1].endY - slope * hookCandidate[1].endX
+				for stemCandidate in stat['hook']['stem']
+					intersectY = stemCandidate[1].endX * slope + yIntercept
+					if ((hookCandidate[1].startX)..(hookCandidate[1].endX)).cover?(stemCandidate[1].endX) and
+							((intersectY - intersectThreshold)..(intersectY + intersectThreshold)).cover?(stemCandidate[1].endY) then
+						intersectCount += 1
+					end
+				end
+				if intersectCount != 1 then
+					stat['hook']['hook'][index] = nil
+				end
+			end
+			stat['hook']['hook'].compact!
+			for stemCandidate in stat['hook']['stem']
+				hits = []
+				for hookCandidate in stat['hook']['hook']
+					slope = (hookCandidate[1].endY - hookCandidate[1].startY).to_f / (hookCandidate[1].endX - hookCandidate[1].startX).to_f
+					yIntercept = hookCandidate[1].endY - slope * hookCandidate[1].endX
+					intersectY = stemCandidate[1].endX * slope + yIntercept
+					if ((hookCandidate[1].startX)..(hookCandidate[1].endX)).cover?(stemCandidate[1].endX) and
+							((intersectY - intersectThreshold)..(intersectY + intersectThreshold)).cover?(stemCandidate[1].endY) then
+						hits.push(hookCandidate)
+					end
+				end
+				if hits.length == 1 and stemCandidate[1].strokeType == 1 then
+					for horizCandidate in stat['hook']['horiz']
+						if ((stemCandidate[1].startY + intersectThreshold)..(stemCandidate[1].endY - intersectThreshold)).cover?(horizCandidate[1].endY) and
+								((horizCandidate[1].startX + intersectThreshold)..(horizCandidate[1].endX - intersectThreshold)).cover?(stemCandidate[1].endX) then
+							hits.push(horizCandidate)
+						end
+					end
+				end
+				if hits.length == 1 and 
+						(stemCandidate[1].endX - hits[0][1].startX).to_f / (hits[0][1].endX - hits[0][1].startX).to_f <= (stemCandidate[1].strokeType == 1 ? 0.5 : 0.333) then
+					stroke = hits[0][1].dup
+					stem   = stemCandidate[1].dup
+					index  = hits[0][0]
+					sIndex = stemCandidate[0]
+					STDERR.write("#{glyph.name}: 鈎（レの字）をインデックス#{index}で検出！\n")
+					if stem.strokeType == 1 then
+						stroke.startX = (stem.endX - 8).round
+					end
+					slope = (stroke.endY - stroke.startY).to_f / (stroke.endX - stroke.startX).to_f
+					yIntercept = stroke.endY - slope * stroke.endX
+					stroke.control1Y = (stroke.control1X * slope + yIntercept).round + 1
+					stem.endY = (stem.endX * slope + yIntercept).round
+					if stem.strokeType == 1 then
+						stem.endType = 32
+					elsif stem.strokeType == 2 and stem.endX - stroke.startX > 8 then
+						stem.endX = stroke.startX + 8
+					end
+					glyph[index] = stroke
+					glyph[sIndex] = stem
 				end
 			end
 		end
