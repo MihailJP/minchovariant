@@ -309,7 +309,9 @@ def replace_point_on_horiz(stat, glyph) # なべぶた・ウ冠
 				stroke.startType = 7
 				stroke.endType = 8
 				stroke.startX -= (baseLength.to_f / 4).ceil
-				stroke.control1Y -= ((stroke.endY - stroke.startY).to_f / 8).round
+				stroke.startY -= ((stroke.endY - stroke.startY).to_f / 5).round
+				stroke.startY = 0 if stroke.startY < 0
+				stroke.control1Y -= ((stroke.endY - stroke.startY).to_f / 5).round
 				stroke.endX += (baseLength.to_f / 20).ceil
 				stroke.endY -= ((stroke.endY - stroke.startY).to_f / 5).round
 				glyph[index] = stroke
