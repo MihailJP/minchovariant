@@ -81,7 +81,7 @@ ratio.txt:
 	cat ../dump_newest_only.txt ../dump_all_versions.txt | ../mkparts.pl | sed -f #{glyphFilter} | ../cntstroke.rb > $@
 SUBRECIPE
 : ""}parts.txt:#{heavyFont? ? " ratio.txt" : ""}
-	cat ../dump_newest_only.txt ../dump_all_versions.txt | ../mkparts.pl | sed -f #{glyphFilter} | sed -f ../fudeosae.sed #{heavyFont? ? "| ../kage-width.rb -f $< " : ""}#{$font == "socho" ? "| ../kage-socho.rb " : ""}> $@
+	cat ../dump_newest_only.txt ../dump_all_versions.txt | ../mkparts.pl | sed -f #{glyphFilter} | ../kage-roofed-l2rd.rb #{heavyFont? ? "| ../kage-width.rb -f $< " : ""}#{$font == "socho" ? "| ../kage-socho.rb " : ""}> $@
 foot.txt:
 	touch $@
 engine:
