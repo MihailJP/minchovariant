@@ -240,6 +240,16 @@ def find_hook(stat, glyph) # 鈎（レの字）
 		end
 	end
 end
+def find_roofed_l2rd(stat, glyph) # 屋根付き右はらい
+	stat['l2rd'] = {'l2rd' => [], 'horiz' => []}
+	for stroke, index in glyph.each_with_index
+		if stroke.startType == 27 then
+			stat['l2rd']['l2rd'].push([index, stroke.dup])
+		elsif stroke.strokeType == 1 and stroke.startY == stroke.endY then
+			stat['l2rd']['horiz'].push([index, stroke.dup])
+		end
+	end
+end
 
 # 特定部首を宋朝体字形に置換え
 def replace_radical_walk(stat, glyph) # 之繞
@@ -449,6 +459,24 @@ def replace_hook(stat, glyph) # 鈎（レの字）
 		end
 	end
 end
+def replace_roofed_l2rd(stat, glyph) # 屋根付き右はらい
+	if not (stat['l2rd']['l2rd'].empty? or stat['l2rd']['horiz'].empty?) then
+		for horizCandidate in stat['l2rd']['horiz']
+			for downCandidate in stat['l2rd']['l2rd']
+				if horizCandidate[1].endPoint == downCandidate[1].startPoint then
+					roof  = horizCandidate[1].dup
+					index = horizCandidate[0]
+					roofLength = roof.endX - roof.startX
+					STDERR.write("#{glyph.name}: 屋根付き右はらいをインデックス#{index}で検出！\n")
+					if roofLength > 25 then
+						roof.startX = roof.endX - 25
+						glyph[index] = roof
+					end
+				end
+			end
+		end
+	end
+end
 
 # デリファレンスを元に戻す
 def undo_dereference(stat, glyph)
@@ -488,16 +516,19 @@ while l = ARGF.gets
 		find_special_l2rd(stat, glyph)
 		find_point_on_horiz(stat, glyph)
 		find_hook(stat, glyph)
+		find_roofed_l2rd(stat, glyph)
 		# 特定部首を宋朝体字形に置換え
 		if replace_radical_walk(stat, glyph) then
 			STDERR.write("#{glyph.name}: 再計算を行います\n")
 			find_special_l2rd(stat, glyph)
 			find_point_on_horiz(stat, glyph)
 			find_hook(stat, glyph)
+			find_roofed_l2rd(stat, glyph)
 		end
 		replace_special_l2rd(stat, glyph)
 		replace_point_on_horiz(stat, glyph)
 		replace_hook(stat, glyph)
+		replace_roofed_l2rd(stat, glyph)
 	end
 	# デリファレンスを元に戻す
 	undo_dereference(stat, glyph)
