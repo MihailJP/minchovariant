@@ -154,6 +154,14 @@ convertGlyphList = {
 # U+23D92 [淵-氵]  U+27D2A [瑣-王]
 ignorePattern = /^(u(4e(0f|31|e5)|53d6|53e2|5433|5de[59]|5f0f|6b6[23f]|6b7[23]|723f|7247|80(33|85|96)|8207|898d|9f52|23d92|27d2a)|aj1-13760|cdp-89cd|j90-4c6c|u2ff1-cdp-8cfa-u5bf8)($|-|@\d+)/
 
+# 仮名
+for i in (0..255).to_a.map{|x| "%02x" % x}
+	if i =~ /[4a][2468abdf]|[5b][13579bdf]|[6c][1468abcdef]|[7d][258bef]|[8e][0124689abcdf]|[9f][0123f]|fc/ then
+		convertGlyphList["u30#{i}"] = ["mihail-jp_mingkana-u30#{i}", 0, 0, 200, 200]
+	end
+end
+convertGlyphList["u30fc-vert"] = ["mihail-jp_mingkana-u30fc-vert", 0, 0, 200, 200]
+
 ############################################################################
 
 # 特定の参照を解体
