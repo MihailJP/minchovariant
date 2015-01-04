@@ -14,12 +14,14 @@ fontDB.execute("SELECT mapFile, fontFile FROM subFont") {|subFont|
 	cidmap += "../#{subFont[0]} #{eval("\"#{subFont[1]}\"")}\n"
 }
 
+$LGCdir = ($font == "socho" ? "FS-LGC" : "LGC")
+
 def lgcFile(file, suffix)
 	return <<FINIS
-#{file}: ../LGC/lgc#{$weightNum.to_i % 100}#{suffix}.otf
+#{file}: ../#{$LGCdir}/lgc#{$weightNum.to_i % 100}#{suffix}.otf
 	cp $^ $@
-../LGC/lgc#{$weightNum.to_i % 100}#{suffix}.otf:
-	cd ../LGC && $(MAKE) lgc#{$weightNum.to_i % 100}#{suffix}.otf
+../#{$LGCdir}/lgc#{$weightNum.to_i % 100}#{suffix}.otf:
+	cd ../#{$LGCdir} && $(MAKE) lgc#{$weightNum.to_i % 100}#{suffix}.otf
 FINIS
 end
 
@@ -129,12 +131,12 @@ kana.otf: kana2.sfd
 	../width.py $< $@
 
 rotcjk.sfd: work.otf
-	../LGC/rotate.py $< $@
+	../#{$LGCdir}/rotate.py $< $@
 rotcjk.otf: rotcjk.sfd
 	../rotcid.py 5 $< $@
 
 rotkana.sfd: kana.otf
-	../LGC/rotate.py $< $@
+	../#{$LGCdir}/rotate.py $< $@
 rotkana.otf: rotkana.sfd
 	../rotcid.py 2 $< $@
 
