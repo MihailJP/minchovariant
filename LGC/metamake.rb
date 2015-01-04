@@ -97,5 +97,5 @@ end
 print <<FINIS
 
 clean:
-	-rm -f $(TARGETS) Third-Medium.sfd Third-Bold.sfd Quarter-Medium.sfd Quarter-Bold.sfd
+	-rm -f $(TARGETS) *.sfd
 FINIS
