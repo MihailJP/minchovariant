@@ -264,6 +264,14 @@ def find_roofed_l2rd(stat, glyph) # 屋根付き右はらい
 		end
 	end
 end
+def find_l2rd_bended_up(stat, glyph) # 上に反った右はらい
+	stat['l2rd_up'] = []
+	for stroke, index in glyph.each_with_index
+		if stroke.strokeType == 2 and stroke.startY < stroke.endY and stroke.endY < stroke.control1Y then
+			stat['l2rd_up'].push([index, stroke.dup])
+		end
+	end
+end
 
 # 特定部首を宋朝体字形に置換え
 def replace_radical_walk(stat, glyph) # 之繞
@@ -491,6 +499,17 @@ def replace_roofed_l2rd(stat, glyph) # 屋根付き右はらい
 		end
 	end
 end
+def replace_l2rd_bended_up(stat, glyph) # 上に反った右はらい
+	if not stat['l2rd_up'].empty? then
+		for downStroke in stat['l2rd_up']
+			stroke  = downStroke[1].dup
+			index = downStroke[0]
+			STDERR.write("#{glyph.name}: 上に反った右はらいをインデックス#{index}で検出！\n")
+			stroke.control2Y, stroke.endY = stroke.endY, stroke.control2Y
+			glyph[index] = stroke
+		end
+	end
+end
 
 # デリファレンスを元に戻す
 def undo_dereference(stat, glyph)
@@ -531,6 +550,7 @@ while l = ARGF.gets
 		find_point_on_horiz(stat, glyph)
 		find_hook(stat, glyph)
 		find_roofed_l2rd(stat, glyph)
+		find_l2rd_bended_up(stat, glyph)
 		# 特定部首を宋朝体字形に置換え
 		if replace_radical_walk(stat, glyph) then
 			STDERR.write("#{glyph.name}: 再計算を行います\n")
@@ -538,11 +558,13 @@ while l = ARGF.gets
 			find_point_on_horiz(stat, glyph)
 			find_hook(stat, glyph)
 			find_roofed_l2rd(stat, glyph)
+			find_l2rd_bended_up(stat, glyph)
 		end
 		replace_special_l2rd(stat, glyph)
 		replace_point_on_horiz(stat, glyph)
 		replace_hook(stat, glyph)
 		replace_roofed_l2rd(stat, glyph)
+		replace_l2rd_bended_up(stat, glyph)
 	end
 	# デリファレンスを元に戻す
 	undo_dereference(stat, glyph)
