@@ -1,0 +1,15 @@
+StartChar: halflength
+Encoding: 721 721 635
+Width: 277
+Flags: MW
+LayerCount: 2
+Back
+Fore
+SplineSet
+89 454 m 1
+ 189 454 l 1
+ 145 354 l 1
+ 133 354 l 1
+ 89 454 l 1
+EndSplineSet
+EndChar
