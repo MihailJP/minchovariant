@@ -1,0 +1,18 @@
+StartChar: commaturnedmod
+Encoding: 699 699 97
+Width: 464
+Flags: MW
+LayerCount: 2
+Back
+Fore
+SplineSet
+168 552 m 0
+ 168 653 255 695 274 695 c 0
+ 282 695 285 687 285 684 c 0
+ 285 669 243 664 243 602 c 0
+ 243 536 295 542 295 512 c 0
+ 295 506 284 497 270 485 c 0
+ 259 476 249 459 233 459 c 0
+ 226 459 168 484 168 552 c 0
+EndSplineSet
+EndChar

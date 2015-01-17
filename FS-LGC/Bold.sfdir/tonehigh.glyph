@@ -1,0 +1,19 @@
+StartChar: tonehigh
+Encoding: 742 742 681
+Width: 421
+Flags: MW
+LayerCount: 2
+Back
+Fore
+SplineSet
+73 440 m 1
+ 73 556 l 1
+ 233 556 l 1
+ 233 716 l 1
+ 349 716 l 1
+ 349 0 l 1
+ 233 0 l 1
+ 233 440 l 1
+ 73 440 l 1
+EndSplineSet
+EndChar

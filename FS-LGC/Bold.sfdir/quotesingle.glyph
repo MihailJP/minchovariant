@@ -1,0 +1,18 @@
+StartChar: quotesingle
+Encoding: 39 39 7
+Width: 297
+Flags: MW
+LayerCount: 2
+Back
+Fore
+SplineSet
+56 689 m 0
+ 56 701 73 717 90 738 c 0
+ 105 756 118 785 140 785 c 0
+ 150 785 223 740 223 617 c 0
+ 223 434 111 355 86 355 c 0
+ 76 355 69 368 69 373 c 0
+ 69 402 125 413 125 526 c 0
+ 125 646 56 635 56 689 c 0
+EndSplineSet
+EndChar

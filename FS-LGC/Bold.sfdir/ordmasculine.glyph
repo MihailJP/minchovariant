@@ -1,0 +1,20 @@
+StartChar: ordmasculine
+Encoding: 186 186 134
+Width: 422
+Flags: MW
+LayerCount: 2
+Back
+Fore
+SplineSet
+29 518 m 0
+ 29 590 91 663 213 663 c 0
+ 304 663 393 614 393 521 c 0
+ 393 425 300 377 207 377 c 0
+ 89 377 29 447 29 518 c 0
+118 539 m 0
+ 118 457 175 413 226 413 c 0
+ 268 413 307 442 307 506 c 0
+ 307 566 272 632 198 632 c 0
+ 163 632 118 608 118 539 c 0
+EndSplineSet
+EndChar

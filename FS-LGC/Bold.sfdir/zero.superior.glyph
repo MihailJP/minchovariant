@@ -1,0 +1,20 @@
+StartChar: zero.superior
+Encoding: 8304 8304 637
+Width: 381
+Flags: MW
+LayerCount: 2
+Back
+Fore
+SplineSet
+26 591 m 0
+ 26 743 108 836 203 836 c 0
+ 305 836 355 737 355 616 c 0
+ 355 490 298 379 186 379 c 0
+ 61 379 26 482 26 591 c 0
+88 630 m 0
+ 88 536 137 425 205 425 c 0
+ 263 425 292 501 292 581 c 0
+ 292 672 249 774 178 774 c 0
+ 116 774 88 706 88 630 c 0
+EndSplineSet
+EndChar

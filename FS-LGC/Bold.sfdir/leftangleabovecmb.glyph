@@ -1,0 +1,18 @@
+StartChar: leftangleabovecmb
+Encoding: 794 794 707
+Width: 29
+Flags: MW
+LayerCount: 2
+Back
+Fore
+SplineSet
+-253 672 m 1
+ -253 760 l 1
+ 29 760 l 1
+ 29 476 l 1
+ -58 476 l 1
+ -58 672 l 1
+ -253 672 l 1
+EndSplineSet
+Colour: ffff00
+EndChar

@@ -1,0 +1,20 @@
+StartChar: uptackbelowcmb
+Encoding: 797 797 700
+Width: 25
+Flags: MW
+LayerCount: 2
+Back
+Fore
+SplineSet
+-339 -153 m 1
+ -279 -153 l 1
+ -279 -41 l 1
+ -204 -41 l 1
+ -204 -153 l 1
+ -143 -153 l 1
+ -143 -229 l 1
+ -339 -229 l 1
+ -339 -153 l 1
+EndSplineSet
+Colour: ffff00
+EndChar

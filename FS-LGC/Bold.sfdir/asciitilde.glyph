@@ -1,0 +1,19 @@
+StartChar: asciitilde
+Encoding: 126 126 94
+Width: 541
+Flags: MW
+LayerCount: 2
+Back
+Fore
+SplineSet
+29 164 m 0
+ 29 168 102 301 186 301 c 0
+ 255 301 293 234 362 234 c 0
+ 434 234 466 305 482 305 c 0
+ 502 305 512 295 512 283 c 0
+ 512 276 434 149 336 149 c 0
+ 256 149 230 219 167 219 c 0
+ 98 219 73 141 59 141 c 0
+ 39 141 29 146 29 164 c 0
+EndSplineSet
+EndChar
