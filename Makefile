@@ -142,6 +142,12 @@ mincho9: LGC/Makefile mincho9/Makefile mincho3/work.otf LGC/lgc9.otf
 LGC/lgc9.otf: LGC/Makefile
 	cd LGC && $(MAKE) lgc9.otf
 
+socho1/Makefile: $(METAMAKE_DEPS)
+	mkdir -p socho1
+	./mkmkfile.rb socho1.otf socho 201 "HZ Socho" "Light" "HZ 宋朝" "細" ../cidalias.sed > $@
+socho1: LGC/Makefile socho1/Makefile LGC/lgc1.otf
+	cd $@ && $(MAKE)
+
 socho3/Makefile: $(METAMAKE_DEPS)
 	mkdir -p socho3
 	./mkmkfile.rb socho3.otf socho 203 "HZ Socho" "Book" "HZ 宋朝" "標準" ../cidalias.sed > $@

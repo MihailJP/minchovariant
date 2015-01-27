@@ -71,6 +71,14 @@ a \
   kage.kMage = 17;\
   kage.kAdjustTateStep = 5;\
   kage.kAdjustMageStep = 7;\
+} else if(arguments[3] == 201){\
+  kage.kMinWidthY = 2;\
+  kage.kMinWidthU = 2;\
+  kage.kMinWidthT = 3;\
+  kage.kWidth = 3;\
+  kage.kKakato = 5;\
+  kage.kAdjustKakatoL = ([12, 10, 8, 6]);\
+  kage.kAdjustKakatoR = ([6, 5, 4, 3]);\
 } else if(arguments[3] == 203){\
   kage.kMinWidthY = 3;\
   kage.kMinWidthU = 3;\
