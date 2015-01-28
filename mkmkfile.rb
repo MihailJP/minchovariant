@@ -14,6 +14,8 @@ fontDB.execute("SELECT mapFile, fontFile FROM subFont") {|subFont|
 	cidmap += "../#{subFont[0]} #{eval("\"#{subFont[1]}\"")}\n"
 }
 
+$KanaDir = ($font == "socho" ? "FS-Kana" : "Kana")
+
 def lgcFile(file, suffix)
 	return <<FINIS
 #{file}: ../LGC/lgc#{$weightNum.to_i % 100}#{suffix}.otf
@@ -117,7 +119,7 @@ temp.otf: work2.sfd
 work.otf: temp.otf
 	fontforge -lang=ff -c 'Open("$<"); Generate("$@")'
 
-kana_.sfd: ../Kana/Kana.sfdir ../Kana/Kana-Bold.sfdir
+kana_.sfd: ../#{$KanaDir}/Kana.sfdir ../#{$KanaDir}/Kana-Bold.sfdir
 	../kana.py #{$weightNum} $^ $@
 kana.sfd: kana_.sfd
 	../fixup-layers.py $< $@
