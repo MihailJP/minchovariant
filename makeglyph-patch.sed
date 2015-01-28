@@ -86,7 +86,25 @@ a \
   kage.kWidth = 5;\
   kage.kKakato = 3;\
   kage.kAdjustKakatoL = ([14, 12, 10, 8]);\
-  kage.kAdjustKakatoR = ([8, 6.5, 5, 3.5]);
+  kage.kAdjustKakatoR = ([8, 6.5, 5, 3.5]);\
+} else if(arguments[3] == 205){\
+  kage.kMinWidthY = 4;\
+  kage.kMinWidthU = 4;\
+  kage.kMinWidthT = 8;\
+  kage.kWidth = 7;\
+  kage.kKakato = 1;\
+  kage.kMage = 13;\
+  kage.kAdjustTateStep = 5;\
+  kage.kAdjustMageStep = 6;\
+} else if(arguments[3] == 207){\
+  kage.kMinWidthY = 5;\
+  kage.kMinWidthU = 5;\
+  kage.kMinWidthT = 10;\
+  kage.kWidth = 9;\
+  kage.kKakato = 0.5;\
+  kage.kMage = 17;\
+  kage.kAdjustTateStep = 6;\
+  kage.kAdjustMageStep = 7;
 n
 n
 a \

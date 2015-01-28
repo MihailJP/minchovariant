@@ -154,6 +154,18 @@ socho3/Makefile: $(METAMAKE_DEPS)
 socho3: LGC/Makefile socho3/Makefile LGC/lgc3.otf
 	cd $@ && $(MAKE)
 
+socho5/Makefile: $(METAMAKE_DEPS)
+	mkdir -p socho5
+	./mkmkfile.rb socho5.otf socho 205 "HZ Socho" "Demi" "HZ 宋朝" "中太" ../cidalias.sed > $@
+socho5: LGC/Makefile socho5/Makefile LGC/lgc5.otf
+	cd $@ && $(MAKE)
+
+socho7/Makefile: $(METAMAKE_DEPS)
+	mkdir -p socho7
+	./mkmkfile.rb socho7.otf socho 207 "HZ Socho" "Bold" "HZ 宋朝" "太" ../cidalias.sed > $@
+socho7: LGC/Makefile socho7/Makefile LGC/lgc7.otf
+	cd $@ && $(MAKE)
+
 mincho1/mincho1.otf: mincho1
 mincho3/mincho3.otf: mincho3
 mincho5/mincho5.otf: mincho5
