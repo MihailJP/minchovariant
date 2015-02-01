@@ -1,0 +1,21 @@
+StartChar: minute
+Encoding: 8242 8242 226
+Width: 247
+Flags: MW
+LayerCount: 2
+Back
+Fore
+SplineSet
+59 367 m 0
+ 59 370 61 374 64 379 c 2
+ 223 725 l 2
+ 231 742 247 751 272 751 c 0
+ 285 751 297 748 306 741 c 0
+ 318 734 323 724 322 712 c 0
+ 321 707 319 701 315 696 c 2
+ 88 371 l 2
+ 82 363 76 359 71 358 c 0
+ 62 358 58 361 59 367 c 0
+EndSplineSet
+Colour: ffff00
+EndChar
