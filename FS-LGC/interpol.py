@@ -1,1 +1,0 @@
-../LGC/interpol.py
