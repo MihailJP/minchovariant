@@ -1,0 +1,17 @@
+StartChar: figuredash
+Encoding: 8210 8210 113
+Width: 508
+Flags: MW
+LayerCount: 2
+Back
+Fore
+SplineSet
+0 214 m 0
+ 0 236 10 238 34 238 c 2
+ 486 238 l 2
+ 501 238 508 236 508 208 c 0
+ 508 195 499 185 486 185 c 2
+ 38 185 l 2
+ 0 185 0 186 0 214 c 0
+EndSplineSet
+EndChar

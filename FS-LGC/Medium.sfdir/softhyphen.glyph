@@ -1,0 +1,19 @@
+StartChar: softhyphen
+Encoding: 173 173 141
+Width: 340
+Flags: MW
+LayerCount: 2
+Back
+Fore
+SplineSet
+44 145 m 2
+ 44 156 l 2
+ 44 198 56 199 101 212 c 0
+ 229 250 252 268 274 268 c 0
+ 292 268 296 252 296 234 c 2
+ 296 228 l 2
+ 296 189 286 196 199 168 c 0
+ 108 138 84 124 60 124 c 0
+ 45 124 44 133 44 145 c 2
+EndSplineSet
+EndChar
