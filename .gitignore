@@ -38,6 +38,7 @@ FS-LGC/Makefile
 HZMincho.zip
 intersect*.pe
 *.pyc
+ChangeLog
 socho1
 socho3
 socho5

@@ -14,6 +14,9 @@ MAPGEN_DEPS=genmaps.rb HZMincho.db
 GENERATABLES=$(METAMAKE_DEP_GENERATABLES) $(SUBDIRS) \
 groups/cidalias.txt cidalias1.txt cidalias2.txt
 TARGETS=$(GENERATABLES) $(DOWNLOADABLES)
+ARCHIVE_CONTENTS=README.md ChangeLog \
+mincho1/mincho1.otf mincho3/mincho3.otf mincho5/mincho5.otf \
+mincho7/mincho7.otf mincho9/mincho9.otf
 
 .PHONY: all fetch clean distclean $(SUBDIRS) dist
 all: $(TARGETS)
@@ -172,15 +175,26 @@ mincho5/mincho5.otf: mincho5
 mincho7/mincho7.otf: mincho7
 mincho9/mincho9.otf: mincho9
 
-HZMincho.zip: README.md \
-mincho1/mincho1.otf mincho3/mincho3.otf mincho5/mincho5.otf \
-mincho7/mincho7.otf mincho9/mincho9.otf
-	rm -f $@
-	mkdir HZMincho
-	cp $^ HZMincho
+ChangeLog: .git
+	./mkchglog.rb > $@
+
+HZMincho.zip: $(ARCHIVE_CONTENTS)
+	rm -f $@; mkdir -p HZMincho; cp $^ HZMincho
 	zip -m9r $@ HZMincho
 
-dist: HZMincho.zip
+HZMincho.tar.gz: $(ARCHIVE_CONTENTS)
+	rm -f $@; mkdir -p HZMincho; cp $^ HZMincho
+	tar cfvz $@ HZMincho
+
+HZMincho.tar.bz2: $(ARCHIVE_CONTENTS)
+	rm -f $@; mkdir -p HZMincho; cp $^ HZMincho
+	tar cfvj $@ HZMincho
+
+HZMincho.tar.xz: $(ARCHIVE_CONTENTS)
+	rm -f $@; mkdir -p HZMincho; cp $^ HZMincho
+	tar cfvJ $@ HZMincho
+
+dist: HZMincho.xz
 
 clean:
 	-cd LGC && $(MAKE) clean
