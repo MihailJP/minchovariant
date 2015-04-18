@@ -14,7 +14,7 @@ MAPGEN_DEPS=genmaps.rb HZMincho.db
 GENERATABLES=$(METAMAKE_DEP_GENERATABLES) $(SUBDIRS) \
 groups/cidalias.txt cidalias1.txt cidalias2.txt
 TARGETS=$(GENERATABLES) $(DOWNLOADABLES)
-ARCHIVE_CONTENTS=README.md \
+ARCHIVE_CONTENTS=README.md ChangeLog \
 mincho1/mincho1.otf mincho3/mincho3.otf mincho5/mincho5.otf \
 mincho7/mincho7.otf mincho9/mincho9.otf
 
@@ -150,6 +150,9 @@ mincho3/mincho3.otf: mincho3
 mincho5/mincho5.otf: mincho5
 mincho7/mincho7.otf: mincho7
 mincho9/mincho9.otf: mincho9
+
+ChangeLog: .git
+	./mkchglog.rb > $@
 
 HZMincho.zip: $(ARCHIVE_CONTENTS)
 	rm -f $@; mkdir -p HZMincho; cp $^ HZMincho
