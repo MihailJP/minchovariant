@@ -157,6 +157,7 @@ convertGlyphList = {
 # U+8085 肅  U+8096 肖  U+8207 與  U+898D 覍  U+9F52 齒
 # U+23D92 [淵-氵]  U+27D2A [瑣-王]
 ignorePattern = /^(u(4e(0f|31|e5)|53d6|53e2|5433|5de[59]|5f0f|6b6[23f]|6b7[23]|723f|7247|80(33|85|96)|8207|898d|9f52|23d92|27d2a)|aj1-13760|cdp-89cd|j90-4c6c|u2ff1-cdp-8cfa-u5bf8)($|-|@\d+)/
+nonKanjiPattern = /^u([01a-e][0-9a-f]{3}|(2[0-9a-d]|3[023]|f[0-8b-f])[0-9a-f]{2}|(2e[0-7]|2f[ef]|31[0-8abf]|4d[c-f])[0-9a-f]|([13-f]|10)[0-9a-f]{4})($|-|@\d+)/
 
 # 仮名
 for i in (0..255).to_a.map{|x| "%02x" % x}
@@ -536,6 +537,8 @@ while l = ARGF.gets
 	stat = {}
 	if glyph.name =~ ignorePattern then
 		# パターンに当てはまるグリフはスルー
+	elsif glyph.name =~ nonKanjiPattern then
+		# 非漢字は無視
 	elsif convertGlyphList.has_key?(glyph.unversioned_name) then
 		# 特定のグリフ置き換え
 		repGlyph = convertGlyphList[glyph.unversioned_name][0]
