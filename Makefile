@@ -102,6 +102,8 @@ glyphs.txt: groups/cidalias.txt
 
 LGC/Makefile: HZMincho.db LGC/metamake.rb
 	cd LGC && (./metamake.rb > Makefile)
+FS-LGC/Makefile: HZMincho.db FS-LGC/metamake.rb
+	cd FS-LGC && (./metamake.rb > Makefile)
 
 mincho1/Makefile: $(METAMAKE_DEPS)
 	mkdir -p mincho1
