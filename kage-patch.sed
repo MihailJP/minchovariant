@@ -1,12 +1,12 @@
 /  Kage\.prototype\.kGothic = /a \
   Kage.prototype.kSocho = 2;
 
-/this\.drawStrokesArray(polygons, / {
-s/polygons, /polygons, this.adjustRoof(this.adjustLeftTop(/
+/var strokesArray = this\.adjustKirikuchi/ {
+s/var strokesArray = /var strokesArray = this.adjustRoof(this.adjustLeftTop(/
 s/;/));/
 }
 
-/function drawStrokesArray/i \
+/function getBox/i \
   function adjustLeftTop(strokesArray){ // strokesArray\
     if (this.kShotai == this.kSocho) {\
       var R2LDlines = new Array();\
