@@ -60,36 +60,36 @@ cidpua-kanap.map: $(MAPGEN_DEPS)
 	./genmaps.rb 7 > $@
 cidpua-kanavertp.map: $(MAPGEN_DEPS)
 	./genmaps.rb 9 > $@
-lgc.map: $(MAPGEN_DEPS)
-	./genmaps.rb 10 > $@
-lgc-fixed.map: $(MAPGEN_DEPS)
-	./genmaps.rb 11 > $@
-lgc-third.map: $(MAPGEN_DEPS)
-	./genmaps.rb 12 > $@
-lgc-quarter.map: $(MAPGEN_DEPS)
-	./genmaps.rb 13 > $@
-lgc-wide.map: $(MAPGEN_DEPS)
-	./genmaps.rb 14 > $@
-lgc-italic.map: $(MAPGEN_DEPS)
-	./genmaps.rb 20 > $@
-lgc-rotated.map: $(MAPGEN_DEPS)
-	./genmaps.rb 30 > $@
-lgc-rotfixed.map: $(MAPGEN_DEPS)
-	./genmaps.rb 31 > $@
-lgc-rotquarter.map: $(MAPGEN_DEPS)
-	./genmaps.rb 32 > $@
-lgc-rotthird.map: $(MAPGEN_DEPS)
-	./genmaps.rb 33 > $@
-lgc-rotitalic.map: $(MAPGEN_DEPS)
-	./genmaps.rb 40 > $@
 cidpua-symbols.map: $(MAPGEN_DEPS)
-	./genmaps.rb 80 > $@
+	./genmaps.rb 10 > $@
 cidpua-blockelem.map: $(MAPGEN_DEPS)
-	./genmaps.rb 81 > $@
+	./genmaps.rb 11 > $@
 cidpua-dingbats.map: $(MAPGEN_DEPS)
-	./genmaps.rb 82 > $@
+	./genmaps.rb 12 > $@
 cidpua-enclosed.map: $(MAPGEN_DEPS)
-	./genmaps.rb 83 > $@
+	./genmaps.rb 13 > $@
+lgc.map: $(MAPGEN_DEPS)
+	./genmaps.rb 30 > $@
+lgc-fixed.map: $(MAPGEN_DEPS)
+	./genmaps.rb 31 > $@
+lgc-third.map: $(MAPGEN_DEPS)
+	./genmaps.rb 32 > $@
+lgc-quarter.map: $(MAPGEN_DEPS)
+	./genmaps.rb 33 > $@
+lgc-wide.map: $(MAPGEN_DEPS)
+	./genmaps.rb 34 > $@
+lgc-italic.map: $(MAPGEN_DEPS)
+	./genmaps.rb 37 > $@
+lgc-rotated.map: $(MAPGEN_DEPS)
+	./genmaps.rb 50 > $@
+lgc-rotfixed.map: $(MAPGEN_DEPS)
+	./genmaps.rb 51 > $@
+lgc-rotquarter.map: $(MAPGEN_DEPS)
+	./genmaps.rb 52 > $@
+lgc-rotthird.map: $(MAPGEN_DEPS)
+	./genmaps.rb 53 > $@
+lgc-rotitalic.map: $(MAPGEN_DEPS)
+	./genmaps.rb 57 > $@
 
 groups/cidalias.txt: cidalias.txt
 	cat $^ | cut -f 1 > $@
