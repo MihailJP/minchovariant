@@ -757,21 +757,21 @@ INSERT INTO subFont VALUES(5,'cidpua-rot.map','RotCJK','rotcjk.otf', NULL, NULL)
 INSERT INTO subFont VALUES(6,'cidpua-ruby.map','Ruby','ruby.otf', 'ruby-base.otf', 'RUBYFONT');
 INSERT INTO subFont VALUES(7,'cidpua-kanap.map','KanaP','kanap.otf', 'kanap-base.otf', 'PROPORTIONALKANA');
 INSERT INTO subFont VALUES(9,'cidpua-kanavertp.map','KanaVertP','kanavp.otf', 'kanavp-base.otf', 'PROPORTIONALVERTKANA');
-INSERT INTO subFont VALUES(10,'lgc.map','LGC','lgc.otf', NULL, 'SRCFONT');
-INSERT INTO subFont VALUES(11,'lgc-fixed.map','Fixed','fixed.otf', NULL, 'FIXEDFONT');
-INSERT INTO subFont VALUES(12,'lgc-third.map','ThirdWidth','third.otf', NULL, 'THIRDWIDTH');
-INSERT INTO subFont VALUES(13,'lgc-quarter.map','QuarterWidth','quarter.otf', NULL, 'QUARTERWIDTH');
-INSERT INTO subFont VALUES(14,'lgc-wide.map','Fullwidth','wide.otf', NULL, 'WIDEFONT');
-INSERT INTO subFont VALUES(20,'lgc-italic.map','Italic','italic.otf', NULL, 'ITALICFONT');
-INSERT INTO subFont VALUES(30,'lgc-rotated.map','Rotated','rotated.otf', NULL, 'ROTATED');
-INSERT INTO subFont VALUES(31,'lgc-rotfixed.map','RotFixed','rotfixed.otf', NULL, 'ROTATEDFIXED');
-INSERT INTO subFont VALUES(32,'lgc-rotquarter.map','RotQuarter','rotquart.otf', NULL, 'ROTATEDQUARTER');
-INSERT INTO subFont VALUES(33,'lgc-rotthird.map','RotThird','rotthird.otf', NULL, 'ROTATEDTHIRD');
-INSERT INTO subFont VALUES(40,'lgc-rotitalic.map','RotItalic','rotital.otf', NULL, 'ROTATEDITALIC');
-INSERT INTO subFont VALUES(80,'cidpua-symbols.map','Symbols','symbols.otf', NULL, 'SYMBOLFONT');
-INSERT INTO subFont VALUES(81,'cidpua-blockelem.map','BlockElem','../mincho3/work.otf', NULL, NULL);
-INSERT INTO subFont VALUES(82,'cidpua-dingbats.map','Dingbats','../mincho#{($weightNum.to_i % 100) > 7 ? 7 : (($weightNum.to_i % 100) > 3 ? ($weightNum.to_i % 100) : 3)}/work.otf', NULL, NULL);
-INSERT INTO subFont VALUES(83,'cidpua-enclosed.map','Enclosed','enclosed.otf', 'enclosed-base.otf', 'ENCLFONT');
+INSERT INTO subFont VALUES(10,'cidpua-symbols.map','Symbols','symbols.otf', NULL, 'SYMBOLFONT');
+INSERT INTO subFont VALUES(11,'cidpua-blockelem.map','BlockElem','../mincho3/work.otf', NULL, NULL);
+INSERT INTO subFont VALUES(12,'cidpua-dingbats.map','Dingbats','../mincho#{($weightNum.to_i % 100) > 7 ? 7 : (($weightNum.to_i % 100) > 3 ? ($weightNum.to_i % 100) : 3)}/work.otf', NULL, NULL);
+INSERT INTO subFont VALUES(13,'cidpua-enclosed.map','Enclosed','enclosed.otf', 'enclosed-base.otf', 'ENCLFONT');
+INSERT INTO subFont VALUES(30,'lgc.map','LGC','lgc.otf', NULL, 'SRCFONT');
+INSERT INTO subFont VALUES(31,'lgc-fixed.map','Fixed','fixed.otf', NULL, 'FIXEDFONT');
+INSERT INTO subFont VALUES(32,'lgc-third.map','ThirdWidth','third.otf', NULL, 'THIRDWIDTH');
+INSERT INTO subFont VALUES(33,'lgc-quarter.map','QuarterWidth','quarter.otf', NULL, 'QUARTERWIDTH');
+INSERT INTO subFont VALUES(34,'lgc-wide.map','Fullwidth','wide.otf', NULL, 'WIDEFONT');
+INSERT INTO subFont VALUES(37,'lgc-italic.map','Italic','italic.otf', NULL, 'ITALICFONT');
+INSERT INTO subFont VALUES(50,'lgc-rotated.map','Rotated','rotated.otf', NULL, 'ROTATED');
+INSERT INTO subFont VALUES(51,'lgc-rotfixed.map','RotFixed','rotfixed.otf', NULL, 'ROTATEDFIXED');
+INSERT INTO subFont VALUES(52,'lgc-rotquarter.map','RotQuarter','rotquart.otf', NULL, 'ROTATEDQUARTER');
+INSERT INTO subFont VALUES(53,'lgc-rotthird.map','RotThird','rotthird.otf', NULL, 'ROTATEDTHIRD');
+INSERT INTO subFont VALUES(57,'lgc-rotitalic.map','RotItalic','rotital.otf', NULL, 'ROTATEDITALIC');
 CREATE TABLE cjkCID (CID INTEGER NOT NULL, fontID INTEGER NOT NULL, FOREIGN KEY(fontID) REFERENCES subFont(FontID));
 -- CJKCID 327 389 1
 -- CJKCID 391 421 1
@@ -844,85 +844,85 @@ CREATE TABLE cjkCID (CID INTEGER NOT NULL, fontID INTEGER NOT NULL, FOREIGN KEY(
 -- CJKCID 16683 16685 9
 -- CJKCID 16704 16710 9
 -- CJKCID 16716 16716 9
--- CJKCID 703 706 80
--- CJKCID 721 734 80
--- CJKCID 736 739 80
--- CJKCID 741 750 80
--- CJKCID 752 760 80
--- CJKCID 763 770 80
--- CJKCID 773 775 80
--- CJKCID 779 779 80
--- CJKCID 7478 7478 80
--- CJKCID 7624 7632 80
--- CJKCID 8008 8014 80
--- CJKCID 8016 8019 80
--- CJKCID 8056 8056 80
--- CJKCID 8166 8181 80
--- CJKCID 8184 8185 80
--- CJKCID 8195 8195 80
--- CJKCID 8206 8214 80
--- CJKCID 8219 8222 80
--- CJKCID 8309 8312 80
--- CJKCID 9780 9871 80
--- CJKCID 12089 12093 80
--- CJKCID 12097 12100 80
--- CJKCID 12102 12105 80
--- CJKCID 12111 12122 80
--- CJKCID 12143 12168 80
--- CJKCID 12175 12178 80
--- CJKCID 12183 12191 80
--- CJKCID 12194 12215 80
--- CJKCID 12220 12227 80
--- CJKCID 15444 15448 80
--- CJKCID 16203 16203 80
--- CJKCID 16233 16234 80
--- CJKCID 16274 16277 80
--- CJKCID 16312 16314 80
--- CJKCID 16323 16325 80
--- CJKCID 16350 16351 80
--- CJKCID 20473 20496 80
--- CJKCID 20513 20522 80
--- CJKCID 20957 20957 80
--- CJKCID 425 500 81
--- CJKCID 7479 7554 81
--- CJKCID 8230 8258 81
--- CJKCID 8261 8263 81
--- CJKCID 690 691 82
--- CJKCID 740 740 82
--- CJKCID 7915 7916 82
--- CJKCID 8058 8058 82
--- CJKCID 8215 8218 82
--- CJKCID 12238 12239 82
--- CJKCID 12259 12259 82
--- CJKCID 16200 16200 82
--- CJKCID 7555 7574 83
--- CJKCID 7613 7620 83
--- CJKCID 8015 8015 83
--- CJKCID 8071 8091 83
--- CJKCID 8102 8165 83
--- CJKCID 8191 8191 83
--- CJKCID 8196 8205 83
--- CJKCID 8223 8224 83
--- CJKCID 8227 8227 83
--- CJKCID 8286 8294 83
--- CJKCID 8317 8320 83
--- CJKCID 9884 11845 83
--- CJKCID 16223 16232 83
--- CJKCID 16328 16328 83
--- CJKCID 20497 20512 83
--- CJKCID 20553 20586 83
+-- CJKCID 703 706 10
+-- CJKCID 721 734 10
+-- CJKCID 736 739 10
+-- CJKCID 741 750 10
+-- CJKCID 752 760 10
+-- CJKCID 763 770 10
+-- CJKCID 773 775 10
+-- CJKCID 779 779 10
+-- CJKCID 7478 7478 10
+-- CJKCID 7624 7632 10
+-- CJKCID 8008 8014 10
+-- CJKCID 8016 8019 10
+-- CJKCID 8056 8056 10
+-- CJKCID 8166 8181 10
+-- CJKCID 8184 8185 10
+-- CJKCID 8195 8195 10
+-- CJKCID 8206 8214 10
+-- CJKCID 8219 8222 10
+-- CJKCID 8309 8312 10
+-- CJKCID 9780 9871 10
+-- CJKCID 12089 12093 10
+-- CJKCID 12097 12100 10
+-- CJKCID 12102 12105 10
+-- CJKCID 12111 12122 10
+-- CJKCID 12143 12168 10
+-- CJKCID 12175 12178 10
+-- CJKCID 12183 12191 10
+-- CJKCID 12194 12215 10
+-- CJKCID 12220 12227 10
+-- CJKCID 15444 15448 10
+-- CJKCID 16203 16203 10
+-- CJKCID 16233 16234 10
+-- CJKCID 16274 16277 10
+-- CJKCID 16312 16314 10
+-- CJKCID 16323 16325 10
+-- CJKCID 16350 16351 10
+-- CJKCID 20473 20496 10
+-- CJKCID 20513 20522 10
+-- CJKCID 20957 20957 10
+-- CJKCID 425 500 11
+-- CJKCID 7479 7554 11
+-- CJKCID 8230 8258 11
+-- CJKCID 8261 8263 11
+-- CJKCID 690 691 12
+-- CJKCID 740 740 12
+-- CJKCID 7915 7916 12
+-- CJKCID 8058 8058 12
+-- CJKCID 8215 8218 12
+-- CJKCID 12238 12239 12
+-- CJKCID 12259 12259 12
+-- CJKCID 16200 16200 12
+-- CJKCID 7555 7574 13
+-- CJKCID 7613 7620 13
+-- CJKCID 8015 8015 13
+-- CJKCID 8071 8091 13
+-- CJKCID 8102 8165 13
+-- CJKCID 8191 8191 13
+-- CJKCID 8196 8205 13
+-- CJKCID 8223 8224 13
+-- CJKCID 8227 8227 13
+-- CJKCID 8286 8294 13
+-- CJKCID 8317 8320 13
+-- CJKCID 9884 11845 13
+-- CJKCID 16223 16232 13
+-- CJKCID 16328 16328 13
+-- CJKCID 20497 20512 13
+-- CJKCID 20553 20586 13
 CREATE VIEW lgcCID AS
-SELECT pwid AS CID, 10 AS fontID, glyphName FROM lgcGlyphs WHERE pwid IS NOT NULL
-UNION SELECT hwid AS CID, 11 AS fontID, glyphName FROM lgcGlyphs WHERE hwid IS NOT NULL
-UNION SELECT twid AS CID, 12 AS fontID, glyphName FROM lgcGlyphs WHERE twid IS NOT NULL
-UNION SELECT qwid AS CID, 13 AS fontID, glyphName FROM lgcGlyphs WHERE qwid IS NOT NULL
-UNION SELECT fwid AS CID, 14 AS fontID, glyphName FROM lgcGlyphs WHERE fwid IS NOT NULL
-UNION SELECT ital AS CID, 20 AS fontID, glyphName FROM lgcGlyphs WHERE ital IS NOT NULL
-UNION SELECT rotPwid AS CID, 30 AS fontID, glyphName FROM lgcGlyphs WHERE rotPwid IS NOT NULL
-UNION SELECT rotHwid AS CID, 31 AS fontID, glyphName FROM lgcGlyphs WHERE rotHwid IS NOT NULL
-UNION SELECT rotQwid AS CID, 32 AS fontID, glyphName FROM lgcGlyphs WHERE rotQwid IS NOT NULL
-UNION SELECT rotTwid AS CID, 33 AS fontID, glyphName FROM lgcGlyphs WHERE rotTwid IS NOT NULL
-UNION SELECT rotItal AS CID, 40 AS fontID, glyphName FROM lgcGlyphs WHERE rotItal IS NOT NULL
+SELECT pwid AS CID, 30 AS fontID, glyphName FROM lgcGlyphs WHERE pwid IS NOT NULL
+UNION SELECT hwid AS CID, 31 AS fontID, glyphName FROM lgcGlyphs WHERE hwid IS NOT NULL
+UNION SELECT twid AS CID, 32 AS fontID, glyphName FROM lgcGlyphs WHERE twid IS NOT NULL
+UNION SELECT qwid AS CID, 33 AS fontID, glyphName FROM lgcGlyphs WHERE qwid IS NOT NULL
+UNION SELECT fwid AS CID, 34 AS fontID, glyphName FROM lgcGlyphs WHERE fwid IS NOT NULL
+UNION SELECT ital AS CID, 37 AS fontID, glyphName FROM lgcGlyphs WHERE ital IS NOT NULL
+UNION SELECT rotPwid AS CID, 50 AS fontID, glyphName FROM lgcGlyphs WHERE rotPwid IS NOT NULL
+UNION SELECT rotHwid AS CID, 51 AS fontID, glyphName FROM lgcGlyphs WHERE rotHwid IS NOT NULL
+UNION SELECT rotQwid AS CID, 52 AS fontID, glyphName FROM lgcGlyphs WHERE rotQwid IS NOT NULL
+UNION SELECT rotTwid AS CID, 53 AS fontID, glyphName FROM lgcGlyphs WHERE rotTwid IS NOT NULL
+UNION SELECT rotItal AS CID, 57 AS fontID, glyphName FROM lgcGlyphs WHERE rotItal IS NOT NULL
 ORDER BY CID;
 CREATE VIEW symbolCID AS
 SELECT CID, fontID, 'uF'
