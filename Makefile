@@ -8,6 +8,7 @@ cidpua-kumimoji.map cidpua-rot.map cidpua-ruby.map cidpua-kanap.map \
 cidpua-kanavertp.map \
 cidpua-symbols.map \
 cidpua-blockelem.map cidpua-dingbats.map cidpua-enclosed.map \
+cidpua-uprightsym.map \
 otf-features HZMincho.db $(LGCMAPS)
 METAMAKE_DEPS=$(METAMAKE_DEP_GENERATABLES) ./mkmkfile.rb
 MAPGEN_DEPS=genmaps.rb HZMincho.db
@@ -68,6 +69,8 @@ cidpua-dingbats.map: $(MAPGEN_DEPS)
 	./genmaps.rb 12 > $@
 cidpua-enclosed.map: $(MAPGEN_DEPS)
 	./genmaps.rb 13 > $@
+cidpua-uprightsym.map: $(MAPGEN_DEPS)
+	./genmaps.rb 14 > $@
 lgc.map: $(MAPGEN_DEPS)
 	./genmaps.rb 30 > $@
 lgc-fixed.map: $(MAPGEN_DEPS)

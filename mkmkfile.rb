@@ -107,7 +107,7 @@ work.sfd: work_.sfd
 	../fixup-layers.py $< $@
 #{$font == "socho" ? <<SOCHO
 work2_.sfd: work.sfd
-	../socho.py $< $@
+	../socho.py 1 $< $@
 SOCHO
 : <<MINCHO
 work2_.sfd: work.sfd#{heavyFont? ? " ratio.txt" : ""}
@@ -152,6 +152,21 @@ kanap.otf: kanap-base.otf kana.otf work.otf
 kanavp.otf: kanavp-base.otf kana.otf work.otf
 	../proportional-vert.py $^ $@
 
+#{$font == "socho" ? <<SOCHO
+upright_.sfd: work.sfd
+	../socho.py 0 $< $@
+upright.sfd: upright_.sfd
+	../fixup-layers.py $< $@
+upright_.otf: upright.sfd
+	../width.py $< $@
+upright.otf: upright_.otf
+	fontforge -lang=ff -c 'Open("$<"); Generate("$@")'
+SOCHO
+: <<MINCHO
+upright.otf: work.otf
+	ln -s $< $@
+MINCHO
+}
 #{target.sub(/\..+?$/, '.raw')}: work.otf cidfontinfo kana.otf enclosed.otf rotcjk.otf rotkana.otf #{fontDB.execute("SELECT fontFile FROM subFont WHERE lgcFontTag IS NOT NULL").flatten.join(" ")}
 	$(MERGEFONTS) -cid cidfontinfo $@ #{cidmap.gsub(/\r?\n/, " ")}
 
