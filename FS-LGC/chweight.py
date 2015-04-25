@@ -18,4 +18,4 @@ for glyph in font.glyphs():
 		if amount != 0:
 			glyph.changeWeight(amount, "auto", 0, 0, chwType)
 		glyph.round()
-font.generate(argv[1])
+font.generate(argv[1], flags=('PfEd-colors',))
