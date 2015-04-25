@@ -167,6 +167,8 @@ upright.otf: work.otf
 	ln -s $< $@
 MINCHO
 }
+uprightruby.otf: ruby-base.otf kana.otf upright.otf
+	../enclose.py $^ $@
 uprightp.otf: kanap-base.otf kana.otf upright.otf
 	../proportional.py $^ $@
 uprightvp.otf: kanavp-base.otf kana.otf upright.otf
