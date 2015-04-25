@@ -169,6 +169,8 @@ MINCHO
 }
 uprightp.otf: kanap-base.otf kana.otf upright.otf
 	../proportional.py $^ $@
+uprightvp.otf: kanavp-base.otf kana.otf upright.otf
+	../proportional-vert.py $^ $@
 
 rotming.sfd: ../mincho3/work.otf
 	../#{$LGCdir}/rotate.py $< $@

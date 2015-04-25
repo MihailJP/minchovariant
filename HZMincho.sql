@@ -763,6 +763,7 @@ INSERT INTO subFont VALUES(12,'cidpua-dingbats.map','Dingbats','../mincho#{($wei
 INSERT INTO subFont VALUES(13,'cidpua-enclosed.map','Enclosed','enclosed.otf', 'enclosed-base.otf', 'ENCLFONT');
 INSERT INTO subFont VALUES(14,'cidpua-uprightsym.map','UprightSym','upright.otf', NULL, NULL);
 INSERT INTO subFont VALUES(15,'cidpua-uprightsymp.map','UprightSymP','uprightp.otf', NULL, NULL);
+INSERT INTO subFont VALUES(16,'cidpua-uprightsymvp.map','UprightSymVertP','uprightvp.otf', NULL, NULL);
 INSERT INTO subFont VALUES(18,'cidpua-rblockelem.map','RotBlockElem','rotming.otf', NULL, NULL);
 INSERT INTO subFont VALUES(30,'lgc.map','LGC','lgc.otf', NULL, 'SRCFONT');
 INSERT INTO subFont VALUES(31,'lgc-fixed.map','Fixed','fixed.otf', NULL, 'FIXEDFONT');
@@ -836,13 +837,7 @@ CREATE TABLE cjkCID (CID INTEGER NOT NULL, fontID INTEGER NOT NULL, FOREIGN KEY(
 -- CJKCID 15516 15724 7
 -- CJKCID 15913 15913 7
 -- CJKCID 15976 16192 9
--- CJKCID 16469 16525 9
--- CJKCID 16527 16529 9
--- CJKCID 16531 16531 9
--- CJKCID 16652 16652 9
--- CJKCID 16683 16685 9
--- CJKCID 16704 16710 9
--- CJKCID 16716 16716 9
+-- CJKCID 16475 16476 9
 -- CJKCID 703 706 10
 -- CJKCID 721 734 10
 -- CJKCID 736 739 10
@@ -961,6 +956,14 @@ CREATE TABLE cjkCID (CID INTEGER NOT NULL, fontID INTEGER NOT NULL, FOREIGN KEY(
 -- CJKCID 15464 15514 15
 -- CJKCID 15880 15882 15
 -- CJKCID 15901 15907 15
+-- CJKCID 16469 16474 16
+-- CJKCID 16477 16525 16
+-- CJKCID 16527 16529 16
+-- CJKCID 16531 16531 16
+-- CJKCID 16652 16652 16
+-- CJKCID 16683 16685 16
+-- CJKCID 16704 16710 16
+-- CJKCID 16716 16716 16
 -- CJKCID 9276 9352 18
 CREATE VIEW lgcCID AS
 SELECT pwid AS CID, 30 AS fontID, glyphName FROM lgcGlyphs WHERE pwid IS NOT NULL
