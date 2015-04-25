@@ -131,7 +131,7 @@ kana2.sfd: kana2_.sfd
 kana.otf: kana2.sfd
 	../width.py $< $@
 
-rotcjk.sfd: work.otf
+rotcjk.sfd: upright.otf
 	../#{$LGCdir}/rotate.py $< $@
 rotcjk.otf: rotcjk.sfd
 	../rotcid.py 5 $< $@
