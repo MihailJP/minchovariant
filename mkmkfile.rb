@@ -167,6 +167,14 @@ upright.otf: work.otf
 	ln -s $< $@
 MINCHO
 }
+uprightp.otf: kanap-base.otf kana.otf upright.otf
+	../proportional.py $^ $@
+
+rotming.sfd: ../mincho3/work.otf
+	../#{$LGCdir}/rotate.py $< $@
+rotming.otf: rotming.sfd
+	../rotcid.py 18 $< $@
+
 #{target.sub(/\..+?$/, '.raw')}: cidfontinfo #{
 	fontDB.execute("SELECT fontFile FROM subFont WHERE fontFile IS NOT NULL").flatten.map {|i| i =~ /#/ ? eval("\"#{i}\"") : i}.uniq.join(" ")
 }
