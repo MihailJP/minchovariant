@@ -13,7 +13,8 @@ cidalias.sed
 cidalias.txt
 cidalias1.txt
 cidalias2.txt
-groups/cidalias.txt
+groups/*.txt
+groups/_*
 cidpua.map
 cidpua-*.map
 lgc.map
