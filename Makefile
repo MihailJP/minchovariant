@@ -162,7 +162,7 @@ LGC/lgc9.otf: LGC/Makefile
 socho1/Makefile: $(METAMAKE_DEPS)
 	mkdir -p socho1
 	./mkmkfile.rb socho1.otf socho 201 "HZ Socho" "Light" "HZ 宋朝" "細" ../cidalias.sed > $@
-socho1: FS-LGC/Makefile socho1/Makefile socho3/work.otf FS-LGC/lgc1.otf mincho3/work.otf
+socho1: FS-LGC/Makefile socho1/Makefile socho3/work.otf FS-LGC/lgc1.otf mincho3/work.otf mincho1/work.otf
 	cd $@ && $(MAKE)
 FS-LGC/lgc1.otf: FS-LGC/Makefile
 	cd FS-LGC && $(MAKE) lgc1.otf
@@ -180,7 +180,7 @@ FS-LGC/lgc3.otf: FS-LGC/Makefile
 socho5/Makefile: $(METAMAKE_DEPS)
 	mkdir -p socho5
 	./mkmkfile.rb socho5.otf socho 205 "HZ Socho" "Demi" "HZ 宋朝" "中太" ../cidalias.sed > $@
-socho5: FS-LGC/Makefile socho5/Makefile socho3/work.otf FS-LGC/lgc5.otf mincho3/work.otf
+socho5: FS-LGC/Makefile socho5/Makefile socho3/work.otf FS-LGC/lgc5.otf mincho3/work.otf mincho5/work.otf
 	cd $@ && $(MAKE)
 FS-LGC/lgc5.otf: FS-LGC/Makefile
 	cd FS-LGC && $(MAKE) lgc5.otf
@@ -188,7 +188,7 @@ FS-LGC/lgc5.otf: FS-LGC/Makefile
 socho7/Makefile: $(METAMAKE_DEPS)
 	mkdir -p socho7
 	./mkmkfile.rb socho7.otf socho 207 "HZ Socho" "Bold" "HZ 宋朝" "太" ../cidalias.sed > $@
-socho7: FS-LGC/Makefile socho7/Makefile socho3/work.otf FS-LGC/lgc7.otf mincho3/work.otf
+socho7: FS-LGC/Makefile socho7/Makefile socho3/work.otf FS-LGC/lgc7.otf mincho3/work.otf mincho7/work.otf
 	cd $@ && $(MAKE)
 FS-LGC/lgc7.otf: FS-LGC/Makefile
 	cd FS-LGC && $(MAKE) lgc7.otf

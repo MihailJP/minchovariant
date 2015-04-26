@@ -153,7 +153,7 @@ kanavp.otf: kanavp-base.otf kana.otf work.otf
 	../proportional-vert.py $^ $@
 
 #{$font == "socho" ? <<SOCHO
-upright_.sfd: work.sfd
+upright_.sfd: ../mincho#{($weightNum.to_i % 100)}/work.sfd
 	../socho.py 0 $< $@
 upright.sfd: upright_.sfd
 	../fixup-layers.py $< $@
