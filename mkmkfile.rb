@@ -56,7 +56,7 @@ CMAP_VERTICAL=#{cygPath "$(AFD_CMAPDIR)/UniJIS2004-UTF32-V"}
 MERGEFONTS=$(AFD_BINDIR)/mergeFonts
 MAKEOTF=#{iscygwin ? 'cmd /c ' : ''}#{cygPath "$(AFD_BINDIR)/makeotf#{iscygwin ? '.cmd' : ''}"}
 
-TARGETS=#{heavyFont? ? "ratio.txt " : ""}head.txt parts.txt foot.txt engine makeglyph.js kagecd.js makettf.pl \
+TARGETS=#{heavyFont? ? "ratio.txt " : ""}head.txt parts.txt foot.txt engine makeglyph.js kagecd.js \
 #{target.sub(/\..+?$/, '.raw')} cidfontinfo #{iscygwin ? "" : "tmpcid.otf tmpcid.ttx " + target.sub(/\..+?$/, '.ttx')} #{target}
 
 .PHONY: all clean font
@@ -90,12 +90,9 @@ makeglyph.js:
 	cat ../kage/makettf/makeglyph.js | sed -f ../makeglyph-patch.sed > $@
 kagecd.js:
 	perl ../kagecd-patch.pl ../kage/engine/kagecd.js | sed -f ../kagecd-fudeosae.sed > $@
-makettf.pl:
-	cat ../kage/makettf/makettf.pl | sed -f ../makettf-patch.sed > $@
-	chmod +x $@
 
-work_.sfd: head.txt parts.txt foot.txt engine makeglyph.js kagecd.js makettf.pl
-	./makettf.pl . work_ mincho #{$weightNum}
+work_.sfd: head.txt parts.txt foot.txt engine makeglyph.js kagecd.js
+	../makettf.py . work_ mincho #{$weightNum}
 work.sfd: work_.sfd
 	../fixup-layers.py $< $@
 work2_.sfd: work.sfd#{heavyFont? ? " ratio.txt" : ""}
