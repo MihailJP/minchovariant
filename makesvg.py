@@ -14,7 +14,6 @@ from os import system
 from os.path import exists
 from commands import getoutput
 import re
-import threading
 import urllib
 
 if len(ARGV) != 5:
@@ -44,9 +43,6 @@ unlink(WORKDIR+"/"+WORKNAME+".scr")
 unlink(WORKDIR+"/"+WORKNAME+".ttf")
 mkdir(WORKDIR+"/build")
 
-threads = []
-semaphore = threading.Semaphore(max(1, int(getoutput('nproc'))))
-
 LOG = open(WORKDIR+"/"+WORKNAME+".log", "a")
 
 buhin = {}
@@ -55,22 +51,28 @@ targetDict = {}
 ##############################################################################
 
 def render(target, partsdata, code):
-	try:
-		semaphore.acquire()
-		svg = getoutput(" ".join([MAKEGLYPH, target, partsdata, SHOTAI, WEIGHT]))
-		LOG.write(code+" : "+(" ".join([MAKEGLYPH, target, partsdata, SHOTAI, WEIGHT]))+"\n")
-		svgBaseName = WORKDIR+"/build/"+code
-		FH = open(svgBaseName+".raw.svg", "w")
-		FH.write(svg)
-		FH.close()
-		if system("inkscape -z -a 0:0:200:200 -e {0}.png -w 1024 -h 1024 -d 1200 {0}.raw.svg".format(svgBaseName)): raise RuntimeError
-		if system("convert {0}.png {0}.bmp".format(svgBaseName)): raise RuntimeError
-		if system("potrace -s {0}.bmp -o {0}.svg".format(svgBaseName)): raise RuntimeError
-	finally:
-		unlink(svgBaseName+".raw.svg")
-		unlink(svgBaseName+".png")
-		unlink(svgBaseName+".bmp")
-		semaphore.release()
+	LOG.write(code+" : "+(" ".join([MAKEGLYPH, target, partsdata, SHOTAI, WEIGHT]))+"\n")
+	svgBaseName = WORKDIR+"/build/"+code
+	svgcmd = "cd ..; " + (" ".join([MAKEGLYPH, target, partsdata, SHOTAI, WEIGHT])) + " > build/" + code + ".raw.svg; cd build"
+	needsUpdate = False
+	if not exists(svgBaseName+".sh"):
+		needsUpdate = True
+	else:
+		with open(svgBaseName+".sh", "r") as FH:
+			if FH.readline().rstrip('\n') != svgcmd:
+				needsUpdate = True
+	if needsUpdate:
+		with open(svgBaseName+".sh", "w") as FH:
+			FH.write(svgcmd + "\n")
+			FH.write("inkscape -z -a 0:0:200:200 -e {0}.png -w 1024 -h 1024 -d 1200 {0}.raw.svg > /dev/null\n".format(code))
+			FH.write("if [ $? -ne 0 ]; then exit 2; fi\n")
+			FH.write("convert {0}.png {0}.bmp\n".format(code))
+			FH.write("if [ $? -ne 0 ]; then exit 2; fi\n")
+			FH.write("potrace -s {0}.bmp -o {0}.svg\n".format(code))
+			FH.write("if [ $? -ne 0 ]; then exit 2; fi\n")
+			FH.write("rm -f " + code+".raw.svg\n")
+			FH.write("rm -f " + code+".png\n")
+			FH.write("rm -f " + code+".bmp\n")
 
 ##############################################################################
 
@@ -104,11 +106,8 @@ AutoHint()
 def makefont():
 	textbuf = "Save(\""+WORKDIR+"/"+WORKNAME+".sfd\")\n"
 	textbuf += "Quit()\n"
-	FH = open(WORKDIR+"/"+WORKNAME+".scr", "a")
-	FH.write(textbuf)
-	FH.close()
-	
-	system("export LANG=utf-8; {0} -script {1}/{2}.scr >> {1}/{2}.log 2>&1".format(FONTFORGE, WORKDIR, WORKNAME))
+	with open(WORKDIR+"/"+WORKNAME+".scr", "a") as FH:
+		FH.write(textbuf)
 
 ##############################################################################
 
@@ -123,12 +122,10 @@ def addsubset(subset, target):
 
 # initialize
 if exists(WORKDIR+"/"+HEADER_FILENAME):
-	FH = open(WORKDIR+"/"+HEADER_FILENAME, "r")
-	FH2 = open(WORKDIR+"/"+WORKNAME+".scr", "a")
-	for line in FH:
-		FH2.write(line)
-	FH.close()
-	FH2.close()
+	with open(WORKDIR+"/"+HEADER_FILENAME, "r") as FH:
+		with open(WORKDIR+"/"+WORKNAME+".scr", "a") as FH2:
+			for line in FH:
+				FH2.write(line)
 
 	LOG.write("Prepare header file ... done.\n")
 else:
@@ -139,9 +136,8 @@ else:
 # parse buhin
 temp = []
 if exists(WORKDIR+"/"+PARTS_FILENAME):
-	FH = open(WORKDIR+"/"+PARTS_FILENAME, "r")
-	temp = FH.readlines()
-	FH.close()
+	with open(WORKDIR+"/"+PARTS_FILENAME, "r") as FH:
+		temp = FH.readlines()
 	LOG.write("Prepare parts file ... done.\n")
 else:
 	LOG.write("No parts file.\n")
@@ -155,18 +151,33 @@ for tmpdat in temp:
 LOG.write("Prepare parts data ... done.\n")
 
 # parse target code point
-GLYPHLIST = open("../glyphs.txt", "r") # or die "Cannot read the glyph list"
-for line in GLYPHLIST:
-	name = re.sub(r"\r?\n$", "", line)
-	target = re.sub(r"^[uU]0*", "", name) # delete zero for the beginning
-	targetDict[target] = name
-GLYPHLIST.close()
+with open("../glyphs.txt", "r") as GLYPHLIST: # or die "Cannot read the glyph list"
+	for line in GLYPHLIST:
+		name = re.sub(r"\r?\n$", "", line)
+		target = re.sub(r"^[uU]0*", "", name) # delete zero for the beginning
+		targetDict[target] = name
 LOG.write("Prepare target code point ... done.\n")
 
 # make glyph for each target
 LOG.write("Prepare each glyph.\n")
 
-targets = targetDict.keys(); targets.sort()
+targets = sorted(list(set(targetDict.keys())))
+with open(WORKDIR+"/build/Makefile", "w") as FH:
+	FH.write("TARGETS=\\\n")
+	for code in targets:
+		FH.write(code + ".svg \\\n")
+	FH.write("""
+.PHONY: all clean
+
+all: $(TARGETS)
+
+.SUFFIXES: .svg .sh
+.sh.svg:
+	sh $^
+
+clean:
+	rm -f *.svg *.bmp *.png
+""")
 for code in targets:
 	#LOG.write(code+" : ")
 	refGlyph = targetDict[code]
@@ -177,22 +188,16 @@ for code in targets:
 		partsdata += subsetKey+" "+subset[subsetKey]+"\n"
 	target = urllib.quote_plus(refGlyph.encode('utf-8'))
 	partsdata = urllib.quote_plus(partsdata.encode('utf-8'))
-	thread = threading.Thread(target=render, args=(target, partsdata, code))
-	thread.start()
-	threads += [thread]
+	render(target, partsdata, code)
 	addglyph(code, refGlyph, target)
-for thread in threads:
-	thread.join()
 LOG.write("Prepare each glyph ... done.\n")
 
 # scripts footer
 if exists(WORKDIR+"/"+FOOTER_FILENAME):
-	FH = open(WORKDIR+"/"+FOOTER_FILENAME, "r")
-	FH2 = open(WORKDIR+"/"+WORKNAME+".scr", "a")
-	for txtbuf in FH:
-		FH2.write(txtbuf)
-	FH.close()
-	FH2.close()
+	with open(WORKDIR+"/"+FOOTER_FILENAME, "r") as FH:
+		with open(WORKDIR+"/"+WORKNAME+".scr", "a") as FH2:
+			for txtbuf in FH:
+				FH2.write(txtbuf)
 	
 	LOG.write("Prepare footer file ... done.\n")
 else:
