@@ -99,7 +99,9 @@ kagedf.js:
 	cat ../kage/engine/kagedf.js | sed -f ../kagedf-patch.sed > $@
 
 work_.sfd: head.txt parts.txt foot.txt engine makeglyph.js kage.js kagecd.js kagedf.js
-	../makettf.py . work_ #{$font} #{$weightNum}
+	../makesvg.py . work_ #{$font} #{$weightNum}
+	cd build; $(MAKE) -j`nproc`
+	export LANG=utf-8; fontforge -script work_.scr >> work_.log 2>&1
 work.sfd: work_.sfd
 	../fixup-layers.py $< $@
 #{$font == "socho" ? <<SOCHO
