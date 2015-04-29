@@ -1,4 +1,5 @@
-SUBDIRS=mincho1 mincho3 mincho5 mincho7 mincho9
+SUBDIRS=mincho1 mincho3 mincho5 mincho7 mincho9 \
+socho1 socho3 socho5 socho7
 DOWNLOADABLES=dump.tar.gz
 CIDMAPS=cidpua.map cidpua-kana.map cidpua-rkana.map \
 cidpua-kumimoji.map cidpua-rot.map cidpua-ruby.map cidpua-kanap.map \
