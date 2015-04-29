@@ -1,5 +1,5 @@
 /  else{ \/\/ gothic/i \
-  if(kage.kShotai == kage.kSocho){\
+  else if(kage.kShotai == kage.kSocho){\
     switch(a1 % 100){ // ... no need to divide\
     case 0:\
       break;\
