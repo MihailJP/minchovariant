@@ -92,7 +92,9 @@ kagecd.js:
 	perl ../kagecd-patch.pl ../kage/engine/kagecd.js | sed -f ../kagecd-fudeosae.sed > $@
 
 work_.sfd: head.txt parts.txt foot.txt engine makeglyph.js kagecd.js
-	../makettf.py . work_ mincho #{$weightNum}
+	../makesvg.py . work_ mincho #{$weightNum}
+	cd build; $(MAKE) -j`nproc`
+	export LANG=utf-8; fontforge -script work_.scr >> work_.log 2>&1
 work.sfd: work_.sfd
 	../fixup-layers.py $< $@
 work2_.sfd: work.sfd#{heavyFont? ? " ratio.txt" : ""}
