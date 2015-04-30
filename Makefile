@@ -228,6 +228,7 @@ dist: HZMincho.xz
 
 clean:
 	-cd LGC && $(MAKE) clean
+	-cd FS-LGC && $(MAKE) clean
 	-cd groups && $(MAKE) clean
 	-rm -rf $(GENERATABLES)
 	-rm -rf HZMincho
