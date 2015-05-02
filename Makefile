@@ -16,7 +16,8 @@ groups/HALFWIDTH.txt groups/NONSPACING.txt
 METAMAKE_DEPS=$(METAMAKE_DEP_GENERATABLES) ./mkmkfile.rb
 MAPGEN_DEPS=genmaps.rb HZMincho.db
 GENERATABLES=$(METAMAKE_DEP_GENERATABLES) $(SUBDIRS) \
-groups/cidalias.txt cidalias1.txt cidalias2.txt
+groups/cidalias.txt cidalias1.txt cidalias2.txt \
+ChangeLog
 TARGETS=$(GENERATABLES) $(DOWNLOADABLES)
 ARCHIVE_CONTENTS=README.md ChangeLog \
 mincho1/mincho1.otf mincho3/mincho3.otf mincho5/mincho5.otf \
