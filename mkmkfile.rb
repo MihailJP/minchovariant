@@ -78,7 +78,7 @@ head.txt:
 	echo 'SetTTFName(0x411,4,\"#{jaName} #{jaWeight}\")' >> $@
 #{heavyFont? ? <<SUBRECIPE
 ratio.txt:
-	cat ../dump_newest_only.txt ../dump_all_versions.txt | ../mkparts.pl | sed -f #{glyphFilter} | ../cntstroke.rb > $@
+	cat ../dump_newest_only.txt ../dump_all_versions.txt | ../mkparts.pl | sed -f #{glyphFilter} | sed -e 's/\\\\@/@/g' | ../cntstroke.rb > $@
 SUBRECIPE
 : ""}parts.txt:#{heavyFont? ? " ratio.txt" : ""}
 	cat ../dump_newest_only.txt ../dump_all_versions.txt | ../mkparts.pl | sed -f #{glyphFilter} | ../kage-roofed-l2rd.rb #{heavyFont? ? "| ../kage-width.rb -f $< " : ""}> $@
