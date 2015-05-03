@@ -1,18 +1,20 @@
 SUBDIRS=mincho1 mincho3 mincho5 mincho7 mincho9
 DOWNLOADABLES=dump.tar.gz
-LGCMAPS=lgc.map lgc-fixed.map lgc-third.map lgc-quarter.map lgc-wide.map lgc-italic.map \
-lgc-rotated.map lgc-rotfixed.map lgc-rotquarter.map lgc-rotthird.map lgc-rotitalic.map
-METAMAKE_DEP_GENERATABLES=HZMincho.db dump_newest_only.txt dump_all_versions.txt glyphs.txt cidalias.sed \
-cidpua.map cidpua-kana.map cidpua-rkana.map \
+CIDMAPS=cidpua.map cidpua-kana.map cidpua-rkana.map \
 cidpua-kumimoji.map cidpua-rot.map cidpua-ruby.map cidpua-kanap.map \
 cidpua-kanavertp.map \
 cidpua-symbols.map \
-cidpua-blockelem.map cidpua-dingbats.map cidpua-enclosed.map \
-otf-features HZMincho.db $(LGCMAPS)
+cidpua-blockelem.map cidpua-dingbats.map cidpua-enclosed.map
+LGCMAPS=lgc.map lgc-fixed.map lgc-third.map lgc-quarter.map lgc-wide.map lgc-italic.map \
+lgc-rotated.map lgc-rotfixed.map lgc-rotquarter.map lgc-rotthird.map lgc-rotitalic.map
+METAMAKE_DEP_GENERATABLES=HZMincho.db dump_newest_only.txt dump_all_versions.txt glyphs.txt cidalias.sed \
+otf-features HZMincho.db $(CIDMAPS) $(LGCMAPS) \
+groups/HALFWIDTH.txt groups/NONSPACING.txt
 METAMAKE_DEPS=$(METAMAKE_DEP_GENERATABLES) ./mkmkfile.rb
 MAPGEN_DEPS=genmaps.rb HZMincho.db
 GENERATABLES=$(METAMAKE_DEP_GENERATABLES) $(SUBDIRS) \
-groups/cidalias.txt cidalias1.txt cidalias2.txt
+groups/cidalias.txt cidalias1.txt cidalias2.txt \
+ChangeLog
 TARGETS=$(GENERATABLES) $(DOWNLOADABLES)
 ARCHIVE_CONTENTS=README.md ChangeLog \
 mincho1/mincho1.otf mincho3/mincho3.otf mincho5/mincho5.otf \
@@ -20,6 +22,8 @@ mincho7/mincho7.otf mincho9/mincho9.otf
 
 .PHONY: all fetch clean distclean $(SUBDIRS) dist
 all: $(TARGETS)
+
+.DELETE_ON_ERROR: $(GENERATABLES) $(DOWNLOADABLES)
 
 fetch: $(DOWNLOADABLES)
 
@@ -60,39 +64,43 @@ cidpua-kanap.map: $(MAPGEN_DEPS)
 	./genmaps.rb 7 > $@
 cidpua-kanavertp.map: $(MAPGEN_DEPS)
 	./genmaps.rb 9 > $@
-lgc.map: $(MAPGEN_DEPS)
-	./genmaps.rb 10 > $@
-lgc-fixed.map: $(MAPGEN_DEPS)
-	./genmaps.rb 11 > $@
-lgc-third.map: $(MAPGEN_DEPS)
-	./genmaps.rb 12 > $@
-lgc-quarter.map: $(MAPGEN_DEPS)
-	./genmaps.rb 13 > $@
-lgc-wide.map: $(MAPGEN_DEPS)
-	./genmaps.rb 14 > $@
-lgc-italic.map: $(MAPGEN_DEPS)
-	./genmaps.rb 20 > $@
-lgc-rotated.map: $(MAPGEN_DEPS)
-	./genmaps.rb 30 > $@
-lgc-rotfixed.map: $(MAPGEN_DEPS)
-	./genmaps.rb 31 > $@
-lgc-rotquarter.map: $(MAPGEN_DEPS)
-	./genmaps.rb 32 > $@
-lgc-rotthird.map: $(MAPGEN_DEPS)
-	./genmaps.rb 33 > $@
-lgc-rotitalic.map: $(MAPGEN_DEPS)
-	./genmaps.rb 40 > $@
 cidpua-symbols.map: $(MAPGEN_DEPS)
-	./genmaps.rb 80 > $@
+	./genmaps.rb 10 > $@
 cidpua-blockelem.map: $(MAPGEN_DEPS)
-	./genmaps.rb 81 > $@
+	./genmaps.rb 11 > $@
 cidpua-dingbats.map: $(MAPGEN_DEPS)
-	./genmaps.rb 82 > $@
+	./genmaps.rb 12 > $@
 cidpua-enclosed.map: $(MAPGEN_DEPS)
-	./genmaps.rb 83 > $@
+	./genmaps.rb 13 > $@
+lgc.map: $(MAPGEN_DEPS)
+	./genmaps.rb 30 > $@
+lgc-fixed.map: $(MAPGEN_DEPS)
+	./genmaps.rb 31 > $@
+lgc-third.map: $(MAPGEN_DEPS)
+	./genmaps.rb 32 > $@
+lgc-quarter.map: $(MAPGEN_DEPS)
+	./genmaps.rb 33 > $@
+lgc-wide.map: $(MAPGEN_DEPS)
+	./genmaps.rb 34 > $@
+lgc-italic.map: $(MAPGEN_DEPS)
+	./genmaps.rb 37 > $@
+lgc-rotated.map: $(MAPGEN_DEPS)
+	./genmaps.rb 50 > $@
+lgc-rotfixed.map: $(MAPGEN_DEPS)
+	./genmaps.rb 51 > $@
+lgc-rotquarter.map: $(MAPGEN_DEPS)
+	./genmaps.rb 52 > $@
+lgc-rotthird.map: $(MAPGEN_DEPS)
+	./genmaps.rb 53 > $@
+lgc-rotitalic.map: $(MAPGEN_DEPS)
+	./genmaps.rb 57 > $@
 
 groups/cidalias.txt: cidalias.txt
-	cat $^ | cut -f 1 > $@
+	cd groups; $(MAKE) cidalias.txt
+groups/HALFWIDTH.txt:
+	cd groups; $(MAKE) HALFWIDTH.txt
+groups/NONSPACING.txt:
+	cd groups; $(MAKE) NONSPACING.txt
 
 cidalias.sed: cidalias.txt
 	cat $^ | ./cidalias_sed.rb > $@
@@ -174,6 +182,7 @@ dist: HZMincho.xz
 
 clean:
 	-cd LGC && $(MAKE) clean
+	-cd groups && $(MAKE) clean
 	-rm -rf $(GENERATABLES)
 	-rm -rf HZMincho
 	-rm -rf intersect*.pe
@@ -181,3 +190,4 @@ clean:
 
 distclean: clean
 	-rm -rf $(TARGETS)
+	-cd groups && $(MAKE) distclean

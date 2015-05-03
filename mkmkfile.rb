@@ -26,6 +26,7 @@ end
 def lgcFiles(db)
 	result = ""
 	db.execute("SELECT fontFile, procBaseFont, tSuffix FROM subFont JOIN lgcFont ON lgcFontTag = fontTag WHERE lgcFontTag IS NOT NULL") {|subFont|
+		result += ".DELETE_ON_ERROR: #{subFont[1] or subFont[0]}\n"
 		result += lgcFile((subFont[1] or subFont[0]), subFont[2])
 	}
 	return result
@@ -56,11 +57,13 @@ CMAP_VERTICAL=#{cygPath "$(AFD_CMAPDIR)/UniJIS2004-UTF32-V"}
 MERGEFONTS=$(AFD_BINDIR)/mergeFonts
 MAKEOTF=#{iscygwin ? 'cmd /c ' : ''}#{cygPath "$(AFD_BINDIR)/makeotf#{iscygwin ? '.cmd' : ''}"}
 
-TARGETS=#{heavyFont? ? "ratio.txt " : ""}head.txt parts.txt foot.txt engine makeglyph.js kagecd.js makettf.pl \
+TARGETS=#{heavyFont? ? "ratio.txt " : ""}head.txt parts.txt foot.txt engine makeglyph.js kagecd.js \
 #{target.sub(/\..+?$/, '.raw')} cidfontinfo #{iscygwin ? "" : "tmpcid.otf tmpcid.ttx " + target.sub(/\..+?$/, '.ttx')} #{target}
 
 .PHONY: all clean font
 all: $(TARGETS)
+
+.DELETE_ON_ERROR: $(TARGETS)
 
 Makefile: ../dump_all_versions.txt ../glyphs.txt ../cidalias.sed ../HZMincho.sql ../mkmkfile.rb
 	env MYDIR=$$(basename $$PWD) bash -c 'cd .. && $(MAKE) $$MYDIR/Makefile'
@@ -78,7 +81,7 @@ head.txt:
 	echo 'SetTTFName(0x411,4,\"#{jaName} #{jaWeight}\")' >> $@
 #{heavyFont? ? <<SUBRECIPE
 ratio.txt:
-	cat ../dump_newest_only.txt ../dump_all_versions.txt | ../mkparts.pl | sed -f #{glyphFilter} | ../cntstroke.rb > $@
+	cat ../dump_newest_only.txt ../dump_all_versions.txt | ../mkparts.pl | sed -f #{glyphFilter} | sed -e 's/\\\\@/@/g' | ../cntstroke.rb > $@
 SUBRECIPE
 : ""}parts.txt:#{heavyFont? ? " ratio.txt" : ""}
 	cat ../dump_newest_only.txt ../dump_all_versions.txt | ../mkparts.pl | sed -f #{glyphFilter} | ../kage-roofed-l2rd.rb #{heavyFont? ? "| ../kage-width.rb -f $< " : ""}> $@
@@ -90,12 +93,12 @@ makeglyph.js:
 	cat ../kage/makettf/makeglyph.js | sed -f ../makeglyph-patch.sed > $@
 kagecd.js:
 	perl ../kagecd-patch.pl ../kage/engine/kagecd.js | sed -f ../kagecd-fudeosae.sed > $@
-makettf.pl:
-	cat ../kage/makettf/makettf.pl | sed -f ../makettf-patch.sed > $@
-	chmod +x $@
 
-work_.sfd: head.txt parts.txt foot.txt engine makeglyph.js kagecd.js makettf.pl
-	./makettf.pl . work_ mincho #{$weightNum}
+.DELETE_ON_ERROR: work_.sfd work.sfd work_.sfd work2_.sfd work2.sfd temp.otf work.otf
+work_.sfd: head.txt parts.txt foot.txt engine makeglyph.js kagecd.js
+	../makesvg.py . work_ mincho #{$weightNum}
+	cd build; $(MAKE) -j`nproc`
+	export LANG=utf-8; fontforge -script work_.scr >> work_.log 2>&1
 work.sfd: work_.sfd
 	../fixup-layers.py $< $@
 work2_.sfd: work.sfd#{heavyFont? ? " ratio.txt" : ""}
@@ -107,6 +110,7 @@ temp.otf: work2.sfd
 work.otf: temp.otf
 	fontforge -lang=ff -c 'Open("$<"); Generate("$@")'
 
+.DELETE_ON_ERROR: kana_.sfd kana.sfd kana2_.sfd kana2.sfd kana.otf
 kana_.sfd: ../Kana/Kana.sfdir ../Kana/Kana-Bold.sfdir
 	../kana.py #{$weightNum} $^ $@
 kana.sfd: kana_.sfd
@@ -118,11 +122,13 @@ kana2.sfd: kana2_.sfd
 kana.otf: kana2.sfd
 	../width.py $< $@
 
+.DELETE_ON_ERROR: rotcjk.sfd rotcjk.otf
 rotcjk.sfd: work.otf
 	../LGC/rotate.py $< $@
 rotcjk.otf: rotcjk.sfd
 	../rotcid.py 5 $< $@
 
+.DELETE_ON_ERROR: rotkana.sfd rotkana.otf
 rotkana.sfd: kana.otf
 	../LGC/rotate.py $< $@
 rotkana.otf: rotkana.sfd
@@ -130,6 +136,7 @@ rotkana.otf: rotkana.sfd
 
 #{lgcFiles(fontDB)}
 
+.DELETE_ON_ERROR: enclosed.otf ruby.otf kanap.otf kanavp.otf
 enclosed.otf: enclosed-base.otf kana.otf work.otf
 	../enclose.py $^ $@
 ruby.otf: ruby-base.otf kana.otf work.otf

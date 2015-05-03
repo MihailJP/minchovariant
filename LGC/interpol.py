@@ -20,4 +20,4 @@ font = srcFont.interpolateFonts(val(argv[2]), argv[4])
 for glyph in font.glyphs():
 	if glyph.isWorthOutputting():
 		glyph.round()
-font.generate(argv[1])
+font.generate(argv[1], flags=('PfEd-colors',))

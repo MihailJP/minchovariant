@@ -266,7 +266,13 @@ module Kage
 		include Enumerable
 		def initialize(str)
 			(@name, gStr) = str.split(/\t/)
+			@name.gsub!(/\\@/, '@')
 			@strokes = (gStr.split(/\$/)).map {|elem| Stroke.new(elem)}
+			if (@strokes.reject {|stroke| stroke.strokeType == 0}).empty? then
+				@strokes = @strokes.take(1)
+			else
+				@strokes.reject! {|stroke| stroke.strokeType == 0}
+			end
 		end
 		def initialize_copy(glyph)
 			for stroke, index in glyph.each_with_index

@@ -36,6 +36,16 @@ for target in Targets
 	print "#{target[0]}=#{prefix}Medium#{suffix} #{prefix}Bold#{suffix}\n"
 end
 
+# .DELETE_ON_ERROR
+print "\n.DELETE_ON_ERROR: $(TARGETS)"
+for target in Targets
+	suffix=target[1]["srcSuffix"]
+	if suffix == ".sfd" then
+		print " $(#{target[0]})"
+	end
+end
+print "\n"
+
 # all
 print <<FINIS
 
