@@ -29,6 +29,7 @@ end
 def lgcFiles(db)
 	result = ""
 	db.execute("SELECT fontFile, procBaseFont, tSuffix FROM subFont JOIN lgcFont ON lgcFontTag = fontTag WHERE lgcFontTag IS NOT NULL") {|subFont|
+		result += ".DELETE_ON_ERROR: #{subFont[1] or subFont[0]}\n"
 		result += lgcFile((subFont[1] or subFont[0]), subFont[2])
 	}
 	return result
@@ -65,6 +66,8 @@ TARGETS=#{heavyFont? ? "ratio.txt " : ""}head.txt parts.txt foot.txt engine make
 .PHONY: all clean font
 all: $(TARGETS)
 
+.DELETE_ON_ERROR: $(TARGETS)
+
 Makefile: ../dump_all_versions.txt ../glyphs.txt ../cidalias.sed ../HZMincho.sql ../mkmkfile.rb
 	env MYDIR=$$(basename $$PWD) bash -c 'cd .. && $(MAKE) $$MYDIR/Makefile'
 
@@ -81,7 +84,7 @@ head.txt:
 	echo 'SetTTFName(0x411,4,\"#{jaName} #{jaWeight}\")' >> $@
 #{heavyFont? ? <<SUBRECIPE
 ratio.txt:
-	cat ../dump_newest_only.txt ../dump_all_versions.txt | ../mkparts.pl | sed -f #{glyphFilter} | ../cntstroke.rb > $@
+	cat ../dump_newest_only.txt ../dump_all_versions.txt | ../mkparts.pl | sed -f #{glyphFilter} | sed -e 's/\\\\@/@/g' | ../cntstroke.rb > $@
 SUBRECIPE
 : ""}parts.txt:#{heavyFont? ? " ratio.txt" : ""}
 	cat ../dump_newest_only.txt ../dump_all_versions.txt | ../mkparts.pl | sed -f #{glyphFilter} | ../kage-roofed-l2rd.rb #{heavyFont? ? "| ../kage-width.rb -f $< " : ""}#{$font == "socho" ? "| ../kage-socho.rb " : ""}> $@
@@ -98,6 +101,7 @@ kagecd.js:
 kagedf.js:
 	cat ../kage/engine/kagedf.js | sed -f ../kagedf-patch.sed > $@
 
+.DELETE_ON_ERROR: work_.sfd work.sfd work_.sfd work2_.sfd work2.sfd temp.otf work.otf
 work_.sfd: head.txt parts.txt foot.txt engine makeglyph.js kage.js kagecd.js kagedf.js
 	../makesvg.py . work_ #{$font} #{$weightNum}
 	cd build; $(MAKE) -j`nproc`
@@ -119,6 +123,7 @@ temp.otf: work2.sfd
 work.otf: temp.otf
 	fontforge -lang=ff -c 'Open("$<"); Generate("$@")'
 
+.DELETE_ON_ERROR: kana_.sfd kana.sfd kana2_.sfd kana2.sfd kana.otf
 kana_.sfd: ../#{$KanaDir}/Kana.sfdir ../#{$KanaDir}/Kana-Bold.sfdir
 	../kana.py #{$weightNum} $^ $@
 kana.sfd: kana_.sfd
@@ -130,11 +135,13 @@ kana2.sfd: kana2_.sfd
 kana.otf: kana2.sfd
 	../width.py $< $@
 
+.DELETE_ON_ERROR: rotcjk.sfd rotcjk.otf
 rotcjk.sfd: upright.otf
 	../#{$LGCdir}/rotate.py $< $@
 rotcjk.otf: rotcjk.sfd
 	../rotcid.py 5 $< $@
 
+.DELETE_ON_ERROR: rotkana.sfd rotkana.otf
 rotkana.sfd: kana.otf
 	../#{$LGCdir}/rotate.py $< $@
 rotkana.otf: rotkana.sfd
@@ -142,6 +149,7 @@ rotkana.otf: rotkana.sfd
 
 #{lgcFiles(fontDB)}
 
+.DELETE_ON_ERROR: enclosed.otf ruby.otf kanap.otf kanavp.otf
 enclosed.otf: enclosed-base.otf kana.otf work.otf
 	../enclose.py $^ $@
 ruby.otf: ruby-base.otf kana.otf work.otf
@@ -152,6 +160,8 @@ kanavp.otf: kanavp-base.otf kana.otf work.otf
 	../proportional-vert.py $^ $@
 
 #{$font == "socho" ? <<SOCHO
+.DELETE_ON_ERROR: upright_.sfd upright.sfd upright_.otf upright.otf
+.DELETE_ON_ERROR: uprightruby.otf uprightp.otf uprightvp.otf
 upright_.sfd: ../mincho#{($weightNum.to_i % 100)}/work.sfd
 	../socho.py 0 $< $@
 upright.sfd: upright_.sfd
@@ -162,6 +172,8 @@ upright.otf: upright_.otf
 	fontforge -lang=ff -c 'Open("$<"); Generate("$@")'
 SOCHO
 : <<MINCHO
+.DELETE_ON_ERROR: upright.otf
+.DELETE_ON_ERROR: uprightruby.otf uprightp.otf uprightvp.otf
 upright.otf: work.otf
 	ln -s $< $@
 MINCHO
@@ -173,6 +185,7 @@ uprightp.otf: kanap-base.otf kana.otf upright.otf
 uprightvp.otf: kanavp-base.otf kana.otf upright.otf
 	../proportional-vert.py $^ $@
 
+.DELETE_ON_ERROR: rotming.sfd rotming.otf
 rotming.sfd: ../mincho3/work.otf
 	../#{$LGCdir}/rotate.py $< $@
 rotming.otf: rotming.sfd

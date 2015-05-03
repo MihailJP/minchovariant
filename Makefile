@@ -26,6 +26,8 @@ mincho7/mincho7.otf mincho9/mincho9.otf
 .PHONY: all fetch clean distclean $(SUBDIRS) dist
 all: $(TARGETS)
 
+.DELETE_ON_ERROR: $(GENERATABLES) $(DOWNLOADABLES)
+
 fetch: $(DOWNLOADABLES)
 
 dump.tar.gz:
@@ -225,7 +227,7 @@ HZMincho.tar.xz: $(ARCHIVE_CONTENTS)
 	rm -f $@; mkdir -p HZMincho; cp $^ HZMincho
 	tar cfvJ $@ HZMincho
 
-dist: HZMincho.xz
+dist: HZMincho.tar.xz
 
 clean:
 	-cd LGC && $(MAKE) clean
