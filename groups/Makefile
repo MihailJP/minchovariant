@@ -8,6 +8,8 @@ fetch: $(DOWNLOADABLES)
 
 GNAMEFILTER=grep -h 'class="thumb"' $^ | ruby -p -e '$$_.gsub!(/<.+?>/,"")'
 
+.DELETE_ON_ERROR: $(DOWNLOADABLES) $(TARGETS)
+
 ../cidalias.txt:
 	cd ..; $(MAKE) cidalias.txt
 

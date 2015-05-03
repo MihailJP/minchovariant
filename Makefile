@@ -23,6 +23,8 @@ mincho7/mincho7.otf mincho9/mincho9.otf
 .PHONY: all fetch clean distclean $(SUBDIRS) dist
 all: $(TARGETS)
 
+.DELETE_ON_ERROR: $(GENERATABLES) $(DOWNLOADABLES)
+
 fetch: $(DOWNLOADABLES)
 
 dump.tar.gz:
