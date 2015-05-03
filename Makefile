@@ -178,7 +178,7 @@ HZMincho.tar.xz: $(ARCHIVE_CONTENTS)
 	rm -f $@; mkdir -p HZMincho; cp $^ HZMincho
 	tar cfvJ $@ HZMincho
 
-dist: HZMincho.xz
+dist: HZMincho.tar.xz
 
 clean:
 	-cd LGC && $(MAKE) clean

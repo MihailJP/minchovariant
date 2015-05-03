@@ -146,6 +146,20 @@ M+ font is free for any use.
 Version History
 ---------------
 
+### Version 1.010, May 3, 2015
+* Switch distribution package type to tar.xz
+* Add ChangeLog which was automatically generated
+* Re-allocate already fullwidth glyph
+* Update Kage engine
+* Correct rotation of glyphs in subfont KanaVertP
+* Correct GID assignation of subfont KanaVertP
+* Widen halfwidth glyphs in subfonts KanaP and KanaVertP
+* Use advance width data from GlyphWiki and internal database
+* Use LGC font for proportional glyph of Celsius
+* Use LGC font for proportional italic glyph of hbar
+* Use Symbol font for plastic recycle symbols
+* Modify halfwidth Kana glyphs
+
 ### Version 1.009, January 6, 2015
 * Modify left-to-right roofed down-stroke
 
