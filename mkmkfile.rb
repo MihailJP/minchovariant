@@ -133,7 +133,7 @@ kana2_.sfd: kana.sfd
 kana2.sfd: kana2_.sfd
 	../fixup-layers.py $< $@
 kana.otf: kana2.sfd
-	../width.py $< $@
+	fontforge -lang=ff -c 'Open("$<"); Generate("$@")'
 
 .DELETE_ON_ERROR: rotcjk.sfd rotcjk.otf
 rotcjk.sfd: upright.otf
