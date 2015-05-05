@@ -37,6 +37,9 @@ mincho9m
 LGC/Makefile
 HZMincho.zip
 HZMincho.tar.*
+HZMincho-*.zip
+HZMincho-*.tar.*
+HZMincho/
 intersect*.pe
 *.pyc
 ChangeLog
