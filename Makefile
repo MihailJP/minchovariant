@@ -11,12 +11,13 @@ cidpua-rblockelem.map cidpua-uprightruby.map
 LGCMAPS=lgc.map lgc-fixed.map lgc-third.map lgc-quarter.map lgc-wide.map lgc-italic.map \
 lgc-rotated.map lgc-rotfixed.map lgc-rotquarter.map lgc-rotthird.map lgc-rotitalic.map
 METAMAKE_DEP_GENERATABLES=HZMincho.db dump_newest_only.txt dump_all_versions.txt glyphs.txt cidalias.sed \
-otf-features HZMincho.db $(CIDMAPS) $(LGCMAPS) \
+otf-features parts.txt parts-socho.txt $(CIDMAPS) $(LGCMAPS) \
 groups/HALFWIDTH.txt groups/NONSPACING.txt
 METAMAKE_DEPS=$(METAMAKE_DEP_GENERATABLES) ./mkmkfile.rb
 MAPGEN_DEPS=genmaps.rb HZMincho.db
 GENERATABLES=$(METAMAKE_DEP_GENERATABLES) $(SUBDIRS) \
 groups/cidalias.txt cidalias1.txt cidalias2.txt \
+parts.txt parts-socho.txt \
 ChangeLog
 TARGETS=$(GENERATABLES) $(DOWNLOADABLES)
 ARCHIVE_CONTENTS=README.md ChangeLog \
@@ -129,9 +130,14 @@ LGC/Makefile: HZMincho.db LGC/metamake.rb
 FS-LGC/Makefile: HZMincho.db FS-LGC/metamake.rb
 	cd FS-LGC && (./metamake.rb > Makefile)
 
+parts.txt: dump_newest_only.txt dump_all_versions.txt cidalias.sed
+	cat dump_newest_only.txt dump_all_versions.txt | ./mkparts.pl | sed -f cidalias.sed | ./kage-roofed-l2rd.rb > $@
+parts-socho.txt: parts.txt
+	cat parts.txt | ./kage-socho.rb > $@
+
 mincho1/Makefile: $(METAMAKE_DEPS)
 	mkdir -p mincho1
-	./mkmkfile.rb mincho1.otf mincho 1 "HZ Mincho" "Light" "HZ 明朝" "細" ../cidalias.sed > $@
+	./mkmkfile.rb mincho1.otf mincho 1 "HZ Mincho" "Light" "HZ 明朝" "細" > $@
 mincho1: LGC/Makefile mincho1/Makefile mincho3/work.otf LGC/lgc1.otf
 	cd $@ && $(MAKE)
 LGC/lgc1.otf: LGC/Makefile
@@ -139,7 +145,7 @@ LGC/lgc1.otf: LGC/Makefile
 
 mincho3/Makefile: $(METAMAKE_DEPS)
 	mkdir -p mincho3
-	./mkmkfile.rb mincho3.otf mincho 3 "HZ Mincho" "Book" "HZ 明朝" "標準" ../cidalias.sed > $@
+	./mkmkfile.rb mincho3.otf mincho 3 "HZ Mincho" "Book" "HZ 明朝" "標準" > $@
 mincho3: LGC/Makefile mincho3/Makefile LGC/lgc3.otf
 	cd $@ && $(MAKE)
 mincho3/work.otf: mincho3
@@ -149,7 +155,7 @@ LGC/lgc3.otf: LGC/Makefile
 
 mincho5/Makefile: $(METAMAKE_DEPS)
 	mkdir -p mincho5
-	./mkmkfile.rb mincho5.otf mincho 105 "HZ Mincho" "Demi" "HZ 明朝" "中太" ../cidalias.sed > $@
+	./mkmkfile.rb mincho5.otf mincho 105 "HZ Mincho" "Demi" "HZ 明朝" "中太" > $@
 mincho5: LGC/Makefile mincho5/Makefile mincho3/work.otf LGC/lgc5.otf
 	cd $@ && $(MAKE)
 LGC/lgc5.otf: LGC/Makefile
@@ -157,7 +163,7 @@ LGC/lgc5.otf: LGC/Makefile
 
 mincho7/Makefile: $(METAMAKE_DEPS)
 	mkdir -p mincho7
-	./mkmkfile.rb mincho7.otf mincho 107 "HZ Mincho" "Bold" "HZ 明朝" "太" ../cidalias.sed > $@
+	./mkmkfile.rb mincho7.otf mincho 107 "HZ Mincho" "Bold" "HZ 明朝" "太" > $@
 mincho7: LGC/Makefile mincho7/Makefile mincho3/work.otf LGC/lgc7.otf
 	cd $@ && $(MAKE)
 LGC/lgc7.otf: LGC/Makefile
@@ -165,7 +171,7 @@ LGC/lgc7.otf: LGC/Makefile
 
 mincho9/Makefile: $(METAMAKE_DEPS)
 	mkdir -p mincho9
-	./mkmkfile.rb mincho9.otf mincho 109 "HZ Mincho" "Heavy" "HZ 明朝" "極太" ../cidalias.sed > $@
+	./mkmkfile.rb mincho9.otf mincho 109 "HZ Mincho" "Heavy" "HZ 明朝" "極太" > $@
 mincho9: LGC/Makefile mincho9/Makefile mincho3/work.otf LGC/lgc9.otf
 	cd $@ && $(MAKE)
 LGC/lgc9.otf: LGC/Makefile
@@ -173,7 +179,7 @@ LGC/lgc9.otf: LGC/Makefile
 
 socho1/Makefile: $(METAMAKE_DEPS)
 	mkdir -p socho1
-	./mkmkfile.rb socho1.otf socho 201 "HZ Socho" "Light" "HZ 宋朝" "細" ../cidalias.sed > $@
+	./mkmkfile.rb socho1.otf socho 201 "HZ Socho" "Light" "HZ 宋朝" "細" > $@
 socho1: FS-LGC/Makefile socho1/Makefile socho3/work.otf FS-LGC/lgc1.otf mincho3/work.otf mincho1/work.otf
 	cd $@ && $(MAKE)
 FS-LGC/lgc1.otf: FS-LGC/Makefile
@@ -181,7 +187,7 @@ FS-LGC/lgc1.otf: FS-LGC/Makefile
 
 socho3/Makefile: $(METAMAKE_DEPS)
 	mkdir -p socho3
-	./mkmkfile.rb socho3.otf socho 203 "HZ Socho" "Book" "HZ 宋朝" "標準" ../cidalias.sed > $@
+	./mkmkfile.rb socho3.otf socho 203 "HZ Socho" "Book" "HZ 宋朝" "標準" > $@
 socho3: FS-LGC/Makefile socho3/Makefile FS-LGC/lgc3.otf mincho3/work.otf
 	cd $@ && $(MAKE)
 socho3/work.otf: socho3
@@ -191,7 +197,7 @@ FS-LGC/lgc3.otf: FS-LGC/Makefile
 
 socho5/Makefile: $(METAMAKE_DEPS)
 	mkdir -p socho5
-	./mkmkfile.rb socho5.otf socho 205 "HZ Socho" "Demi" "HZ 宋朝" "中太" ../cidalias.sed > $@
+	./mkmkfile.rb socho5.otf socho 205 "HZ Socho" "Demi" "HZ 宋朝" "中太" > $@
 socho5: FS-LGC/Makefile socho5/Makefile socho3/work.otf FS-LGC/lgc5.otf mincho3/work.otf mincho5/work.otf
 	cd $@ && $(MAKE)
 FS-LGC/lgc5.otf: FS-LGC/Makefile
@@ -199,7 +205,7 @@ FS-LGC/lgc5.otf: FS-LGC/Makefile
 
 socho7/Makefile: $(METAMAKE_DEPS)
 	mkdir -p socho7
-	./mkmkfile.rb socho7.otf socho 207 "HZ Socho" "Bold" "HZ 宋朝" "太" ../cidalias.sed > $@
+	./mkmkfile.rb socho7.otf socho 207 "HZ Socho" "Bold" "HZ 宋朝" "太" > $@
 socho7: FS-LGC/Makefile socho7/Makefile socho3/work.otf FS-LGC/lgc7.otf mincho3/work.otf mincho7/work.otf
 	cd $@ && $(MAKE)
 FS-LGC/lgc7.otf: FS-LGC/Makefile
