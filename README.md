@@ -149,6 +149,7 @@ Version History
 ### Version 1.011, May 5, 2015
 * Correct advance width of some glyphs
 * Add fullwidth LGC glyphs
+* Verbose ChangeLog
 
 ### Version 1.010, May 3, 2015
 * Switch distribution package type to tar.xz
