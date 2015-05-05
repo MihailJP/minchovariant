@@ -18,12 +18,12 @@ MAPGEN_DEPS=genmaps.rb HZMincho.db
 GENERATABLES=$(METAMAKE_DEP_GENERATABLES) $(SUBDIRS) \
 groups/cidalias.txt cidalias1.txt cidalias2.txt \
 parts.txt parts-socho.txt \
-ChangeLog
+ChangeLog README-Socho.md
 TARGETS=$(GENERATABLES) $(DOWNLOADABLES)
 ARCHIVE_CONTENTS=README.md ChangeLog \
 mincho1/mincho1.otf mincho3/mincho3.otf mincho5/mincho5.otf \
 mincho7/mincho7.otf mincho9/mincho9.otf
-SOCHO_ARCHIVE_CONTENTS=README.md ChangeLog \
+SOCHO_ARCHIVE_CONTENTS=README-Socho.md ChangeLog \
 socho1/socho1.otf socho3/socho3.otf socho5/socho5.otf \
 socho7/socho7.otf
 
@@ -224,6 +224,8 @@ socho7/socho7.otf: socho7
 
 ChangeLog: .git
 	./mkchglog.rb > $@
+README-Socho.md: README.md readme-socho.diff
+	patch -o $@ -r /dev/null $^ && touch $@
 
 HZMincho.zip: $(ARCHIVE_CONTENTS)
 	rm -f $@; mkdir -p HZMincho; cp $^ HZMincho
@@ -239,16 +241,16 @@ HZMincho.tar.xz: $(ARCHIVE_CONTENTS)
 	tar cfvJ $@ HZMincho
 
 HZSocho.zip: $(SOCHO_ARCHIVE_CONTENTS)
-	rm -f $@; mkdir -p HZSocho; cp $^ HZSocho
+	rm -f $@; mkdir -p HZSocho; cp $^ HZSocho; mv HZSocho/README-Socho.md HZSocho/README.md
 	zip -m9r $@ HZSocho
 HZSocho.tar.gz: $(SOCHO_ARCHIVE_CONTENTS)
-	rm -f $@; mkdir -p HZSocho; cp $^ HZSocho
+	rm -f $@; mkdir -p HZSocho; cp $^ HZSocho; mv HZSocho/README-Socho.md HZSocho/README.md
 	tar cfvz $@ HZSocho
 HZSocho.tar.bz2: $(SOCHO_ARCHIVE_CONTENTS)
-	rm -f $@; mkdir -p HZSocho; cp $^ HZSocho
+	rm -f $@; mkdir -p HZSocho; cp $^ HZSocho; mv HZSocho/README-Socho.md HZSocho/README.md
 	tar cfvj $@ HZSocho
 HZSocho.tar.xz: $(SOCHO_ARCHIVE_CONTENTS)
-	rm -f $@; mkdir -p HZSocho; cp $^ HZSocho
+	rm -f $@; mkdir -p HZSocho; cp $^ HZSocho; mv HZSocho/README-Socho.md HZSocho/README.md
 	tar cfvJ $@ HZSocho
 
 dist: HZMincho.tar.xz HZSocho.tar.xz
