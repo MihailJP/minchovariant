@@ -6,7 +6,7 @@ DBFileName = 'HZMincho.db'
 if not File.exist?(DBFileName) then raise IOError, "Database '#{DBFileName}' not found" end
 fontDB = SQLite3::Database.new(DBFileName)
 
-(target, $weightNum, enName, enWeight, jaName, jaWeight, glyphFilter) = ARGV
+(target, $weightNum, enName, enWeight, jaName, jaWeight) = ARGV
 license = 'Created by KAGE system. (http://fonts.jp/) / Alphabet glyphs by Andrey V. Panov (C) 2005 All rights reserved. / A few symbol glyphs are from George Doulos\\\' Symbola font. / AJ1-6 sans-serif glyphs from M+ fonts.'
 psName = "#{enName} #{enWeight}".gsub(/\s/, "-")
 cidmap = ""
@@ -80,11 +80,13 @@ head.txt:
 	echo 'SetTTFName(0x411,2,\"#{jaWeight}\")' >> $@
 	echo 'SetTTFName(0x411,4,\"#{jaName} #{jaWeight}\")' >> $@
 #{heavyFont? ? <<SUBRECIPE
-ratio.txt:
-	cat ../dump_newest_only.txt ../dump_all_versions.txt | ../mkparts.pl | sed -f #{glyphFilter} | sed -e 's/\\\\@/@/g' | ../cntstroke.rb > $@
+ratio.txt: ../parts.txt
+	cat ../parts.txt | sed -e 's/\\\\@/@/g' | ../cntstroke.rb > $@
 SUBRECIPE
-: ""}parts.txt:#{heavyFont? ? " ratio.txt" : ""}
-	cat ../dump_newest_only.txt ../dump_all_versions.txt | ../mkparts.pl | sed -f #{glyphFilter} | ../kage-roofed-l2rd.rb #{heavyFont? ? "| ../kage-width.rb -f $< " : ""}> $@
+: ""}../parts.txt:
+	cd .. && $(MAKE) parts.txt
+parts.txt:#{heavyFont? ? " ratio.txt" : ""} ../parts.txt
+	cat ../parts.txt #{heavyFont? ? "| ../kage-width.rb -f $< " : ""}> $@
 foot.txt:
 	touch $@
 engine:
