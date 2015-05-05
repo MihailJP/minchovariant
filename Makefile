@@ -22,6 +22,9 @@ TARGETS=$(GENERATABLES) $(DOWNLOADABLES)
 ARCHIVE_CONTENTS=README.md ChangeLog \
 mincho1/mincho1.otf mincho3/mincho3.otf mincho5/mincho5.otf \
 mincho7/mincho7.otf mincho9/mincho9.otf
+SOCHO_ARCHIVE_CONTENTS=README.md ChangeLog \
+socho1/socho1.otf socho3/socho3.otf socho5/socho5.otf \
+socho7/socho7.otf
 
 .PHONY: all fetch clean distclean $(SUBDIRS) dist
 all: $(TARGETS)
@@ -208,33 +211,48 @@ mincho5/mincho5.otf: mincho5
 mincho7/mincho7.otf: mincho7
 mincho9/mincho9.otf: mincho9
 
+socho1/socho1.otf: socho1
+socho3/socho3.otf: socho3
+socho5/socho5.otf: socho5
+socho7/socho7.otf: socho7
+
 ChangeLog: .git
 	./mkchglog.rb > $@
 
 HZMincho.zip: $(ARCHIVE_CONTENTS)
 	rm -f $@; mkdir -p HZMincho; cp $^ HZMincho
 	zip -m9r $@ HZMincho
-
 HZMincho.tar.gz: $(ARCHIVE_CONTENTS)
 	rm -f $@; mkdir -p HZMincho; cp $^ HZMincho
 	tar cfvz $@ HZMincho
-
 HZMincho.tar.bz2: $(ARCHIVE_CONTENTS)
 	rm -f $@; mkdir -p HZMincho; cp $^ HZMincho
 	tar cfvj $@ HZMincho
-
 HZMincho.tar.xz: $(ARCHIVE_CONTENTS)
 	rm -f $@; mkdir -p HZMincho; cp $^ HZMincho
 	tar cfvJ $@ HZMincho
 
-dist: HZMincho.tar.xz
+HZSocho.zip: $(SOCHO_ARCHIVE_CONTENTS)
+	rm -f $@; mkdir -p HZSocho; cp $^ HZSocho
+	zip -m9r $@ HZSocho
+HZSocho.tar.gz: $(SOCHO_ARCHIVE_CONTENTS)
+	rm -f $@; mkdir -p HZSocho; cp $^ HZSocho
+	tar cfvz $@ HZSocho
+HZSocho.tar.bz2: $(SOCHO_ARCHIVE_CONTENTS)
+	rm -f $@; mkdir -p HZSocho; cp $^ HZSocho
+	tar cfvj $@ HZSocho
+HZSocho.tar.xz: $(SOCHO_ARCHIVE_CONTENTS)
+	rm -f $@; mkdir -p HZSocho; cp $^ HZSocho
+	tar cfvJ $@ HZSocho
+
+dist: HZMincho.tar.xz HZSocho.tar.xz
 
 clean:
 	-cd LGC && $(MAKE) clean
 	-cd FS-LGC && $(MAKE) clean
 	-cd groups && $(MAKE) clean
 	-rm -rf $(GENERATABLES)
-	-rm -rf HZMincho
+	-rm -rf HZMincho HZSocho
 	-rm -rf intersect*.pe
 	-rm -rf *.pyc
 
