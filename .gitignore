@@ -38,6 +38,9 @@ LGC/Makefile
 FS-LGC/Makefile
 HZMincho.zip
 HZMincho.tar.*
+HZMincho-*.zip
+HZMincho-*.tar.*
+HZMincho/
 intersect*.pe
 *.pyc
 ChangeLog
@@ -47,3 +50,6 @@ socho5
 socho7
 HZSocho.zip
 HZSocho.tar.*
+HZSocho-*.zip
+HZSocho-*.tar.*
+HZSocho/
