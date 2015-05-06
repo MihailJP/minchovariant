@@ -1,0 +1,17 @@
+StartChar: acute
+Encoding: 180 180 132
+Width: 500
+Flags: MW
+LayerCount: 2
+Back
+Fore
+SplineSet
+176 491 m 0
+ 176 505 199 518 251 643 c 0
+ 258 659 268 662 272 662 c 0
+ 276 662 324 657 324 636 c 0
+ 324 615 268 554 227 511 c 0
+ 212 495 196 480 188 480 c 0
+ 182 480 176 485 176 491 c 0
+EndSplineSet
+EndChar

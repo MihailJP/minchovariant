@@ -1,0 +1,19 @@
+StartChar: tonerising
+Encoding: 65559 -1 685
+Width: 382
+Flags: MW
+LayerCount: 2
+Back
+Fore
+SplineSet
+54 0 m 1
+ 233 716 l 1
+ 310 716 l 1
+ 310 0 l 1
+ 233 0 l 1
+ 233 411 l 1
+ 137 0 l 1
+ 54 0 l 1
+EndSplineSet
+Colour: ffff00
+EndChar

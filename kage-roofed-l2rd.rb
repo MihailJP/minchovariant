@@ -43,7 +43,14 @@ end
 # グリフごとにループ
 while l = ARGF.gets
 	l.chomp!
-	glyph = Kage::Glyph.new(l)
+	glyph = nil
+	begin
+		glyph = Kage::Glyph.new(l)
+	rescue NoMethodError
+		STDERR.write("\e[33m\e[1m\e[41m#{l.split(/\t/)[0]}: 異常データ！！→#{l.split(/\t/)[1]}\n\e[0m")
+		print "#{l}\n"
+		next
+	end
 	stat = {}
 	if not glyph.ref_only? then
 		# 屋根付き右はらい検出
