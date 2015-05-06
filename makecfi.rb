@@ -1,7 +1,8 @@
 #!/usr/bin/env ruby
 
+require "#{File.dirname(__FILE__)}/credits.rb"
+
 (enName, enWeight) = ARGV
-license = 'Created by KAGE system. (http://fonts.jp/)'
 psName = "#{enName.gsub(/\s/, "")}-#{enWeight}"
 
 print <<FINIS
@@ -13,5 +14,5 @@ version        (1.100)
 Registry       (Adobe)
 Ordering       (Japan1)
 Supplement     6
-AdobeCopyright (Japanese glyphs #{license} / Alphabet glyphs by Andrey V. Panov (C) 2005 All rights reserved.)
+AdobeCopyright (#{fontCopyrightOf(enName).gsub(/\n/, " / ").gsub(/\s*\(.*?\)/, "")})
 FINIS
