@@ -66,15 +66,7 @@ languagesystem latn dflt;
 languagesystem grek dflt;
 languagesystem cyrl dflt;
 
-feature aalt {
 FINIS
-
-Features.each {|featName|
-	if featName[2] != 0 then
-		print("\tfeature #{featName[0]};\n")
-	end
-}
-print("} aalt;\n")
 
 Features.each {|featName|
 	if featName[1] != 0 then
@@ -105,3 +97,12 @@ fontDB.execute("SELECT * FROM glyphLabels NATURAL JOIN enclosed ORDER BY CID;") 
 	print "\tsub \\#{cid[1]} from [#{subExpr[0..-2]}];\n"
 }
 print("} nalt;\n")
+
+print("feature aalt {\n")
+Features.each {|featName|
+	if featName[2] != 0 then
+		print("\tfeature #{featName[0]};\n")
+	end
+}
+print("} aalt;\n")
+
