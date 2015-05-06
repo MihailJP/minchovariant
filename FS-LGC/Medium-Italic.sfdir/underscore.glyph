@@ -1,0 +1,17 @@
+StartChar: underscore
+Encoding: 95 95 63
+Width: 213
+Flags: MW
+LayerCount: 2
+Back
+Fore
+SplineSet
+0 -38 m 0
+ 0 -25 1 -17 19 -17 c 2
+ 197 -17 l 2
+ 213 -17 213 -24 213 -38 c 0
+ 213 -55 213 -62 192 -62 c 2
+ 18 -62 l 2
+ 0 -62 0 -55 0 -38 c 0
+EndSplineSet
+EndChar

@@ -1,0 +1,17 @@
+StartChar: apostrophemod
+Encoding: 700 700 98
+Width: 439
+Flags: MW
+LayerCount: 2
+Back
+Fore
+SplineSet
+172 707 m 1
+ 172 707 206 739 220 739 c 0
+ 224 739 269 724 269 680 c 0
+ 269 615 202 587 189 587 c 0
+ 186 587 183 589 183 591 c 0
+ 183 599 224 606 224 647 c 0
+ 224 692 172 690 172 707 c 1
+EndSplineSet
+EndChar

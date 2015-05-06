@@ -1,0 +1,18 @@
+StartChar: uF27BC
+Encoding: 993212 993212 2090
+Width: 1000
+Flags: MW
+LayerCount: 2
+Back
+Fore
+SplineSet
+510 -192 m 0
+ 510 -163 708 -65 708 281 c 0
+ 708 599 513 726 513 753 c 0
+ 513 766 527 772 533 772 c 0
+ 566 772 753 558 753 280 c 0
+ 753 -35 552 -214 531 -214 c 0
+ 513 -214 510 -203 510 -192 c 0
+EndSplineSet
+Colour: ffff
+EndChar

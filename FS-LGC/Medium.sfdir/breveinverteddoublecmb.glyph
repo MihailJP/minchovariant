@@ -1,0 +1,20 @@
+StartChar: breveinverteddoublecmb
+Encoding: 865 865 678
+Width: 0
+Flags: MW
+LayerCount: 2
+Back
+Fore
+SplineSet
+-438 592 m 1
+ -299 685 -153 731 0 731 c 256
+ 153 731 299 685 438 592 c 1
+ 423 570 l 1
+ 365 604 297 631 218 651 c 0
+ 142 670 69 680 0 680 c 256
+ -69 680 -142 670 -218 651 c 0
+ -296 631 -364 604 -423 570 c 1
+ -438 592 l 1
+EndSplineSet
+Colour: ffff00
+EndChar

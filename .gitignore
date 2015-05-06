@@ -9,6 +9,7 @@ glyphs.txt
 head.txt
 makeglyph.js
 parts.txt
+parts-socho.txt
 cidalias.sed
 cidalias.txt
 cidalias1.txt
@@ -35,6 +36,7 @@ mincho5m
 mincho7m
 mincho9m
 LGC/Makefile
+FS-LGC/Makefile
 HZMincho.zip
 HZMincho.tar.*
 HZMincho-*.zip
@@ -43,3 +45,13 @@ HZMincho/
 intersect*.pe
 *.pyc
 ChangeLog
+socho1
+socho3
+socho5
+socho7
+HZSocho.zip
+HZSocho.tar.*
+HZSocho-*.zip
+HZSocho-*.tar.*
+HZSocho/
+README-Socho.md

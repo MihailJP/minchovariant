@@ -1,0 +1,24 @@
+StartChar: xabovecmb
+Encoding: 829 829 693
+Width: 0
+Flags: MW
+LayerCount: 2
+Back
+Fore
+SplineSet
+-362 575 m 1
+ -299 638 l 1
+ -362 701 l 1
+ -317 746 l 1
+ -254 683 l 1
+ -191 746 l 1
+ -146 701 l 1
+ -209 638 l 1
+ -146 575 l 1
+ -191 530 l 1
+ -254 593 l 1
+ -317 530 l 1
+ -362 575 l 1
+EndSplineSet
+Colour: ffff00
+EndChar
