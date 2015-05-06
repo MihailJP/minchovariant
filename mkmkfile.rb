@@ -58,7 +58,7 @@ MERGEFONTS=$(AFD_BINDIR)/mergeFonts
 MAKEOTF=#{iscygwin ? 'cmd /c ' : ''}#{cygPath "$(AFD_BINDIR)/makeotf#{iscygwin ? '.cmd' : ''}"}
 
 TARGETS=#{heavyFont? ? "ratio.txt " : ""}head.txt parts.txt foot.txt engine makeglyph.js kagecd.js \
-#{target.sub(/\..+?$/, '.raw')} cidfontinfo #{iscygwin ? "" : "tmpcid.otf tmpcid.ttx " + target.sub(/\..+?$/, '.ttx')} #{target}
+#{target.sub(/\..+?$/, '.raw')} cidfontinfo #{iscygwin ? "_" : "tmpcid.otf tmpcid.ttx _" + target.sub(/\..+?$/, '.ttx')} _#{target} #{target}
 
 .PHONY: all clean font
 all: $(TARGETS)
@@ -163,11 +163,13 @@ tmpcid.otf: #{target.sub(/\..+?$/, '.raw')}
 tmpcid.ttx: tmpcid.otf
 	ttx -o $@ $<
 	stat $@ > /dev/null
-#{target.sub(/\..+?$/, '.ttx')}: tmpcid.ttx
+_#{target.sub(/\..+?$/, '.ttx')}: tmpcid.ttx
 	sed -f ../fixotf.sed $< > $@
-#{target}: #{target.sub(/\..+?$/, '.ttx')}
+_#{target}: _#{target.sub(/\..+?$/, '.ttx')}
 	ttx -o $@ $<
 	stat $@ > /dev/null
+#{target}: _#{target}
+	../fix-table.py $< $@
 LINUX
 }
 cidfontinfo:
