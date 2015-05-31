@@ -221,7 +221,7 @@ tmpcid.ttx: tmpcid.otf
 	ttx -o $@ $<
 	stat $@ > /dev/null
 _#{target.sub(/\..+?$/, '.ttx')}: tmpcid.ttx
-	sed -f ../fixotf.sed $< > $@
+	../fixotf.rb -w #{enWeight} $< > $@
 _#{target}: _#{target.sub(/\..+?$/, '.ttx')}
 	ttx -o $@ $<
 	stat $@ > /dev/null
