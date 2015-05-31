@@ -12,7 +12,6 @@ if len(argv) != 3:
 
 font = fontforge.open(InFont)
 
-font.cidfontname = "LGC"
 font["space"].unicode = 0x0020
 
 font.generate(OutFont)

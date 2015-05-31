@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+require "#{File.dirname(__FILE__)}/credits.rb"
+
 AFD_DIR='/cygdrive/c/Apps/FDK' # Needed for Cygwin, otherwise meaningless
 require 'sqlite3'
 DBFileName = 'HZMincho.db'
@@ -7,7 +9,7 @@ if not File.exist?(DBFileName) then raise IOError, "Database '#{DBFileName}' not
 fontDB = SQLite3::Database.new(DBFileName)
 
 (target, $font, $weightNum, enName, enWeight, jaName, jaWeight) = ARGV
-license = 'Created by KAGE system. (http://fonts.jp/) / Alphabet glyphs by Andrey V. Panov (C) 2005 All rights reserved. / A few symbol glyphs are from George Doulos\\\' Symbola font. / AJ1-6 sans-serif glyphs from M+ fonts.'
+license = fontCopyrightOf(enName).gsub(/\n/, " / ").gsub(/'/, "\\\\'")
 psName = "#{enName} #{enWeight}".gsub(/\s/, "-")
 cidmap = ""
 fontDB.execute("SELECT mapFile, fontFile FROM subFont") {|subFont|
@@ -208,12 +210,12 @@ rotming.otf: rotming.sfd
 
 #{iscygwin ? <<CYGWIN
 #{target}: #{target.sub(/\..+?$/, '.raw')}
-	$(MAKEOTF) -f $< -ff ../otf-features -mf ../fontMenuDB -o $@ -ch $(CMAP_HORIZONTAL)
+	$(MAKEOTF) -f $< -ff ../otf-features#{$font == "mincho" ? "" : "-#{$font}"} -mf ../fontMenuDB -o $@ -ch $(CMAP_HORIZONTAL)
 	stat #{target} > /dev/null
 CYGWIN
 : <<LINUX
 tmpcid.otf: #{target.sub(/\..+?$/, '.raw')}
-	$(MAKEOTF) -f $< -ff ../otf-features -mf ../fontMenuDB -o $@ -ch $(CMAP_HORIZONTAL)
+	$(MAKEOTF) -f $< -ff ../otf-features#{$font == "mincho" ? "" : "-#{$font}"} -mf ../fontMenuDB -o $@ -ch $(CMAP_HORIZONTAL)
 	stat $@ > /dev/null
 tmpcid.ttx: tmpcid.otf
 	ttx -o $@ $<

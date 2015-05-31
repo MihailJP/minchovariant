@@ -1,30 +1,21 @@
 #!/usr/bin/env ruby
 
+require "#{File.dirname(__FILE__)}/credits.rb"
+
 require 'sqlite3'
 DBFileName = 'HZMincho.db'
 if not File.exist?(DBFileName) then raise IOError, "Database '#{DBFileName}' not found" end
 fontDB = SQLite3::Database.new(DBFileName)
 Features = fontDB.execute("SELECT featTag, isLarge, aalt FROM featureCode")
 
-FontVersion = '1.011'
-FontCopyright = "Created by KAGE system. (http://fonts.jp/)
-Alphabet glyphs by Andrey V. Panov (C) 2005 All rights reserved.
-Some symbol glyphs are from George Doulos' Symbola font.
-AJ1-6 sans-serif glyphs from M+ fonts.
-Merged by MihailJP, January 2015."
-FontLicense = "X11 License with exception:
-As a special exception, if you create a document which uses these fonts, \
-and embed these fonts or unaltered portions of these fonts into the \
-document, these fonts does not by itself cause the resulting document to \
-be covered by the X11 License. This exception does not however \
-invalidate any other reasons why the document might be covered by the \
-X11 License. If you modify these fonts, you may extend this exception to \
-your version of the fonts, but you are not obligated to do so. If you do \
-not wish to do so, delete this exception statement from your version."
+font = ARGV[0]
+
+fontCopyright = fontCopyrightOf font
+fontLicense = fontLicenseOf font
 
 print <<FINIS
 table head {
-	FontRevision     #{FontVersion};
+	FontRevision     #{fontVersion};
 } head;
 table hhea {
 	Ascender           800;
@@ -44,19 +35,19 @@ table vhea {
 	VertTypoLineGap      0;
 } vhea;
 table name {
-	nameid 0 "#{FontCopyright.gsub(/\(C\)/, "\\\\00a9").gsub(/\n/, "\\\\000a")}";
-	nameid 0 1 "#{FontCopyright.gsub(/\(C\)/, "\\a9").gsub(/\n/, "\\\\0a")}";
-	nameid 0 3 "#{FontCopyright.gsub(/\(C\)/, "\\\\00a9").gsub(/\n/, "\\\\000d\\\\000a")}";
-	nameid 0 1 1 11 "#{FontCopyright.gsub(/\(C\)/, "\\fd").gsub(/\n/, "\\\\0d")}";
+	nameid 0 "#{fontCopyright.gsub(/\(C\)/, "\\\\00a9").gsub(/\n/, "\\\\000a")}";
+	nameid 0 1 "#{fontCopyright.gsub(/\(C\)/, "\\a9").gsub(/\n/, "\\\\0a")}";
+	nameid 0 3 "#{fontCopyright.gsub(/\(C\)/, "\\\\00a9").gsub(/\n/, "\\\\000d\\\\000a")}";
+	nameid 0 1 1 11 "#{fontCopyright.gsub(/\(C\)/, "\\fd").gsub(/\n/, "\\\\0d")}";
 	nameid 1 "HZ Mincho";
 	nameid 1 1 1 11 "HZ \\96\\be\\92\\a9";
 	nameid 1 3 1 0x411 "HZ \\660e\\671d";
-	nameid 5 "#{FontVersion}";
-	nameid 5 1 "#{FontVersion}";
-	nameid 5 3 "#{FontVersion}";
-	nameid 13 "#{FontLicense.gsub(/\n/, "\\\\000a")}";
-	nameid 13 1 "#{FontLicense.gsub(/\n/, "\\\\0a")}";
-	nameid 13 3 "#{FontLicense.gsub(/\n/, "\\\\000d\\\\000a")}";
+	nameid 5 "#{fontVersion}";
+	nameid 5 1 "#{fontVersion}";
+	nameid 5 3 "#{fontVersion}";
+	nameid 13 "#{fontLicense.gsub(/\n/, "\\\\000a")}";
+	nameid 13 1 "#{fontLicense.gsub(/\n/, "\\\\0a")}";
+	nameid 13 3 "#{fontLicense.gsub(/\n/, "\\\\000d\\\\000a")}";
 } name;
 
 languagesystem DFLT dflt;

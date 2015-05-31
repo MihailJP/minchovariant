@@ -146,6 +146,10 @@ M+ font is free for any use.
 Version History
 ---------------
 
+### Version 1.100, May 6, 2015
+* First release for HZ Socho fonts
+* Fix vertical typesetting features
+
 ### Version 1.011, May 5, 2015
 * Correct advance width of some glyphs
 * Add fullwidth LGC glyphs

@@ -11,7 +11,7 @@ cidpua-rblockelem.map cidpua-uprightruby.map
 LGCMAPS=lgc.map lgc-fixed.map lgc-third.map lgc-quarter.map lgc-wide.map lgc-italic.map \
 lgc-rotated.map lgc-rotfixed.map lgc-rotquarter.map lgc-rotthird.map lgc-rotitalic.map
 METAMAKE_DEP_GENERATABLES=HZMincho.db dump_newest_only.txt dump_all_versions.txt glyphs.txt cidalias.sed \
-otf-features parts.txt parts-socho.txt $(CIDMAPS) $(LGCMAPS) \
+otf-features otf-features-socho parts.txt parts-socho.txt $(CIDMAPS) $(LGCMAPS) \
 groups/HALFWIDTH.txt groups/NONSPACING.txt
 METAMAKE_DEPS=$(METAMAKE_DEP_GENERATABLES) ./mkmkfile.rb
 MAPGEN_DEPS=genmaps.rb HZMincho.db
@@ -53,7 +53,9 @@ HZMincho.db: HZMincho.sql gensql.rb
 	rm -f $@; cat $< | ./gensql.rb | sqlite3 $@
 
 otf-features: HZMincho.db genfeat.rb
-	./genfeat.rb > $@
+	./genfeat.rb mincho > $@
+otf-features-socho: HZMincho.db genfeat.rb
+	./genfeat.rb socho > $@
 
 cidpua.map: $(MAPGEN_DEPS)
 	./genmaps.rb 0 > $@
