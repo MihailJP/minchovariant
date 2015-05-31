@@ -14,8 +14,8 @@ def fontCopyrightOf(fontname)
 	elsif fontname =~ /Socho/i then
 		"#{kage}\n" \
 		"Latin alphabet glyphs Copyright (c) 2010 Barry Schwartz.\n" \
-		"Greek and Cyrillic glyphs by George Doulos.\n" \
-		"#{symbol}\n#{aj16Sans}\n#{merge}"
+		"Greek, Cyrillic and " \
+		"#{symbol[0].upcase}#{symbol[1..-1]}\n#{aj16Sans}\n#{merge}"
 	else
 		"#{kage}"
 	end
