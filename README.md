@@ -147,7 +147,7 @@ Version History
 ---------------
 
 ### Version 1.101, June 1, 2015
-* Fix style names (issue on Windows)
+* Fix subfamily and full name (issue on Windows)
 
 ### Version 1.100, May 6, 2015
 * First release for HZ Socho fonts
