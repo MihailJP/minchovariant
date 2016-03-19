@@ -1,6 +1,13 @@
 /load("engine\/polygon.js");/i \
 load("../rotate.js");\
 load("engine/2d.js");
+/kage = new Kage();/ a \
+\
+if (arguments === undefined) {\
+  if (scriptArgs !== undefined) { // workaround for newer mozjs\
+    var arguments = scriptArgs;\
+  }\
+}
 /if(arguments\[2\] == "gothic"){/c \
 if(arguments[2] == "socho"){\
   kage.kShotai = kage.kSocho;\
