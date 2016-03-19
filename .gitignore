@@ -56,3 +56,4 @@ HZSocho-*.zip
 HZSocho-*.tar.*
 HZSocho/
 README-Socho.md
+!/engine
