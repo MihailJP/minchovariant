@@ -66,7 +66,7 @@ def render(target, partsdata, code):
 			FH.write(svgcmd + "\n")
 			FH.write("inkscape -z -a 0:0:200:200 -e {0}.png -w 1024 -h 1024 -d 1200 {0}.raw.svg > /dev/null\n".format(code))
 			FH.write("if [ $? -ne 0 ]; then exit 2; fi\n")
-			FH.write("convert {0}.png {0}.bmp\n".format(code))
+			FH.write("convert {0}.png -background white -flatten -alpha off {0}.bmp\n".format(code))
 			FH.write("if [ $? -ne 0 ]; then exit 2; fi\n")
 			FH.write("potrace -s {0}.bmp -o {0}.svg\n".format(code))
 			FH.write("if [ $? -ne 0 ]; then exit 2; fi\n")
