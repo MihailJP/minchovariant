@@ -1,12 +1,6 @@
 /load("engine\/polygon.js");/i \
 load("../rotate.js");\
 load("engine/2d.js");
-/load("engine\/kage.js");/c \
-load("kage.js");
-/load("engine\/kagecd.js");/c \
-load("kagecd.js");
-/load("engine\/kagedf.js");/c \
-load("kagedf.js");
 /if(arguments\[2\] == "gothic"){/c \
 if(arguments[2] == "socho"){\
   kage.kShotai = kage.kSocho;\
