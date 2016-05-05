@@ -2,34 +2,41 @@
 
 import fontforge, psMat
 from sys import argv, stderr
+from os import path
+import sqlite3
 
-if len(argv) < 5:
-	stderr.write("Usage: "+argv[0]+" weight source-kana-1 source-kana-2 outfile\n")
+if len(argv) < 3:
+	stderr.write("Usage: "+argv[0]+" source target\n")
 	quit(1)
+
+dbFileName = path.join(path.dirname(argv[0]), "HZMincho.db")
+if not path.exists(dbFileName):
+	raise IOError(2, "Database '%s' not found" % (dbFileName,))
+
+KanaGlyphs = set()
+with sqlite3.connect(dbFileName) as db:
+	for cid in db.execute('select CID from cjkCID where fontID=1;'):
+		KanaGlyphs.add(cid[0])
 
 fontforge.setPrefs('CoverageFormatsAllowed', 1)
 
-def getFrac(weight):
-	if weight % 100 == 1:
-		return -.4
-	elif weight % 100 == 3:
-		return 0.0
-	elif weight % 100 == 5:
-		return 0.4
-	elif weight % 100 == 7:
-		return 0.8
-	elif weight % 100 == 9:
-		return 1.2
-	else:
-		raise ValueError, "Unknown weight " + str(weight) + "specified"
+srcFont = fontforge.open(argv[1])
+targetFont = fontforge.font()
+targetFont.encoding = 'UnicodeFull'
 
-origFont = fontforge.open(argv[2])
-srcFont = origFont.interpolateFonts(getFrac(int(argv[1])), argv[3])
+srcFont.selection.none()
+targetFont.selection.none()
 
-for glyph in srcFont.glyphs():
+for cid in KanaGlyphs:
+	srcFont.selection.select(('more',), cid + 0xf0000)
+	targetFont.selection.select(('more',), cid + 0xf0000)
+srcFont.copy()
+targetFont.paste()
+
+for glyph in targetFont.glyphs():
 	if glyph.isWorthOutputting():
-		glyph.comment = origFont[glyph.glyphname].comment
+		glyph.comment = srcFont[glyph.glyphname].comment
 		glyph.removeOverlap()
 		glyph.round()
 
-srcFont.save(argv[4])
+targetFont.save(argv[2])

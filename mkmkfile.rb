@@ -17,7 +17,6 @@ fontDB.execute("SELECT mapFile, fontFile FROM subFont") {|subFont|
 }
 
 $LGCdir = ($font == "socho" ? "FS-LGC" : "LGC")
-$KanaDir = ($font == "socho" ? "FS-Kana" : "Kana")
 
 def lgcFile(file, suffix)
 	return <<FINIS
@@ -130,8 +129,8 @@ work.otf: temp.otf
 	fontforge -lang=ff -c 'Open("$<"); Generate("$@")'
 
 .DELETE_ON_ERROR: kana_.sfd kana.sfd kana2_.sfd kana2.sfd kana.otf
-kana_.sfd: ../#{$KanaDir}/Kana.sfdir ../#{$KanaDir}/Kana-Bold.sfdir
-	../kana.py #{$weightNum} $^ $@
+kana_.sfd: work_.sfd
+	../kana.py $^ $@
 kana.sfd: kana_.sfd
 	../fixup-layers.py $< $@
 kana2_.sfd: kana.sfd

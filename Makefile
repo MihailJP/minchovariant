@@ -133,7 +133,7 @@ FS-LGC/Makefile: HZMincho.db FS-LGC/metamake.rb
 	cd FS-LGC && (./metamake.rb > Makefile)
 
 parts.txt: dump_newest_only.txt dump_all_versions.txt cidalias.sed
-	cat dump_newest_only.txt dump_all_versions.txt | ./mkparts.pl | sed -f cidalias.sed | ./kage-roofed-l2rd.rb > $@
+	cat dump_newest_only.txt dump_all_versions.txt | ./mkparts.pl | sed -f cidalias.sed | sed -f kage-handakuten.sed | ./kage-roofed-l2rd.rb > $@
 parts-socho.txt: parts.txt
 	cat parts.txt | ./kage-socho.rb > $@
 
