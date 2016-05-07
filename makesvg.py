@@ -68,16 +68,24 @@ def adjustWeight(weight, code):
 		return weight
 	elif weight == 3:
 		return 1
-	elif weight == 5 or weight == 205:
+	elif weight == 5 or weight == 105:
 		return 3
 	elif weight == 7:
 		return 5
-	elif weight == 207:
-		return 205
+	elif weight == 107:
+		return 105
 	elif weight == 9:
 		return 7
-	elif weight == 209:
-		return 207
+	elif weight == 109:
+		return 107
+	elif weight == 201:
+		return 201
+	elif weight == 203:
+		return 201
+	elif weight == 205:
+		return 203
+	elif weight == 207:
+		return 205
 	else:
 		return weight
 
