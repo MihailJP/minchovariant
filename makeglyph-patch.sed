@@ -45,6 +45,12 @@ a \
   kage.kMage = 20;\
   kage.kAdjustTateStep = 7;\
   kage.kAdjustMageStep = 8;\
+} else if(arguments[3] == 0){\
+  kage.kMinWidthY = 1;\
+  kage.kMinWidthU = 1;\
+  kage.kMinWidthT = 3;\
+  kage.kWidth = 2;\
+  kage.kKakato = 4;\
 } else if(arguments[3] == 105){\
   kage.kMinWidthY = 2;\
   kage.kMinWidthU = 3;\
@@ -72,6 +78,14 @@ a \
   kage.kMage = 17;\
   kage.kAdjustTateStep = 5;\
   kage.kAdjustMageStep = 7;\
+} else if(arguments[3] == 200){\
+  kage.kMinWidthY = 1.5;\
+  kage.kMinWidthU = 1.5;\
+  kage.kMinWidthT = 2;\
+  kage.kWidth = 2;\
+  kage.kKakato = 5;\
+  kage.kAdjustKakatoL = ([12, 10, 8, 6]);\
+  kage.kAdjustKakatoR = ([6, 5, 4, 3]);\
 } else if(arguments[3] == 201){\
   kage.kMinWidthY = 2;\
   kage.kMinWidthU = 2;\

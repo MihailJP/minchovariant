@@ -66,6 +66,8 @@ targetDict = {}
 def adjustWeight(weight, code):
 	if (int(code, 16) - 0xf0000) not in KumimojiGlyphs:
 		return weight
+	elif weight == 1:
+		return 0
 	elif weight == 3:
 		return 1
 	elif weight == 5 or weight == 105:
@@ -79,7 +81,7 @@ def adjustWeight(weight, code):
 	elif weight == 109:
 		return 107
 	elif weight == 201:
-		return 201
+		return 200
 	elif weight == 203:
 		return 201
 	elif weight == 205:
