@@ -38,6 +38,7 @@ mincho7m
 mincho9m
 LGC/Makefile
 FS-LGC/Makefile
+Goth-LGC/Makefile
 HZMincho.zip
 HZMincho.tar.*
 HZMincho-*.zip
