@@ -1,0 +1,48 @@
+SplineFontDB: 3.0
+FontName: Sans-Bold
+FullName: Sans Bold
+FamilyName: Sans
+Weight: Bold
+Copyright: 
+Version: 
+ItalicAngle: 0
+UnderlinePosition: -99
+UnderlineWidth: 49
+Ascent: 800
+Descent: 200
+InvalidEm: 0
+LayerCount: 2
+Layer: 0 0 "+gMyXYgAA" 1
+Layer: 1 0 "+Uk2XYgAA" 0
+XUID: [1021 562 -354799692 5669473]
+OS2Version: 0
+OS2_WeightWidthSlopeOnly: 0
+OS2_UseTypoMetrics: 1
+CreationTime: 1390651632
+ModificationTime: 1462690041
+OS2TypoAscent: 0
+OS2TypoAOffset: 1
+OS2TypoDescent: 0
+OS2TypoDOffset: 1
+OS2TypoLinegap: 0
+OS2WinAscent: 0
+OS2WinAOffset: 1
+OS2WinDescent: 0
+OS2WinDOffset: 1
+HheadAscent: 0
+HheadAOffset: 1
+HheadDescent: 0
+HheadDOffset: 1
+OS2Vendor: 'PfEd'
+MarkAttachClasses: 1
+DEI: 91125
+Encoding: UnicodeBmp
+UnicodeInterp: none
+NameList: AGL For New Fonts
+DisplaySize: -48
+AntiAlias: 1
+FitToEm: 1
+WinInfo: 64 16 4
+BeginPrivate: 0
+EndPrivate
+EndSplineFont
