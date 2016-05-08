@@ -1,0 +1,18 @@
+StartChar: ncommaaccent
+Encoding: 326 326 315
+Width: 517
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+234 -48 m 1
+ 292 -48 l 1
+ 292 -97 l 2
+ 287 -134 272 -161 263 -194 c 1
+ 234 -194 l 1
+ 252 -107 l 1
+ 234 -107 l 1
+ 234 -48 l 1
+EndSplineSet
+Refer: 78 110 N 1 0 0 1 0 0 2
+EndChar

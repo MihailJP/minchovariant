@@ -1,0 +1,26 @@
+StartChar: Uhungarumlaut
+Encoding: 368 368 253
+Width: 764
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+380 765 m 1
+ 502 863 l 1
+ 695 863 l 1
+ 498 771 l 1
+ 485 767 l 1
+ 470 765 l 9
+ 410 765 l 1
+ 380 765 l 1
+197 765 m 1
+ 319 863 l 1
+ 512 863 l 1
+ 315 771 l 1
+ 302 767 l 1
+ 287 765 l 9
+ 227 765 l 1
+ 197 765 l 1
+EndSplineSet
+Refer: 53 85 N 1 0 0 1 0 0 2
+EndChar

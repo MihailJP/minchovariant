@@ -1,0 +1,15 @@
+StartChar: umacron
+Encoding: 363 363 205
+Width: 517
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+78 551 m 1
+ 78 615 l 1
+ 438 615 l 1
+ 438 551 l 1
+ 78 551 l 1
+EndSplineSet
+Refer: 85 117 N 1 0 0 1 0 0 3
+EndChar

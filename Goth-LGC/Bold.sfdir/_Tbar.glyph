@@ -1,0 +1,26 @@
+StartChar: Tbar
+Encoding: 358 358 287
+Width: 733
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+39 584 m 1
+ 39 689 l 1
+ 693 689 l 1
+ 693 584 l 1
+ 440 588 l 1
+ 440 356 l 1
+ 588 356 l 1
+ 588 283 l 1
+ 440 283 l 1
+ 440 0 l 1
+ 292 0 l 1
+ 292 283 l 1
+ 134 283 l 1
+ 134 356 l 1
+ 292 356 l 1
+ 292 588 l 1
+ 39 584 l 1
+EndSplineSet
+EndChar

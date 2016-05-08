@@ -1,0 +1,19 @@
+StartChar: tcaron
+Encoding: 357 357 237
+Width: 361
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+273 488 m 1
+ 299 571 l 1
+ 273 571 l 1
+ 273 655 l 1
+ 357 655 l 1
+ 357 586 l 2
+ 357 580 356 575 355 571 c 0
+ 351 558 315 488 315 488 c 1
+ 273 488 l 1
+EndSplineSet
+Refer: 84 116 N 1 0 0 1 0 0 2
+EndChar

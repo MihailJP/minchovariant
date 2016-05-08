@@ -1,0 +1,16 @@
+StartChar: breve
+Encoding: 728 728 225
+Width: 550
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+85 680 m 1
+ 158 680 l 1
+ 164 616 245 611 275 611 c 0
+ 303 611 384 617 390 680 c 1
+ 463 680 l 1
+ 460 576 368 517 274 517 c 0
+ 182 517 88 576 85 680 c 1
+EndSplineSet
+EndChar
