@@ -1,0 +1,20 @@
+StartChar: Odieresis
+Encoding: 214 214 152
+Width: 794
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+234 788 m 1
+ 234 900 l 1
+ 346 900 l 1
+ 346 788 l 1
+ 234 788 l 1
+447 788 m 1
+ 447 900 l 1
+ 559 900 l 1
+ 559 788 l 1
+ 447 788 l 1
+EndSplineSet
+Refer: 47 79 N 1 0 0 1 0 0 2
+EndChar

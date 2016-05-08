@@ -1,0 +1,18 @@
+StartChar: Yacute
+Encoding: 221 221 158
+Width: 733
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+273 765 m 1
+ 395 863 l 1
+ 588 863 l 1
+ 391 771 l 1
+ 378 767 l 1
+ 363 765 l 9
+ 303 765 l 1
+ 273 765 l 1
+EndSplineSet
+Refer: 57 89 N 1 0 0 1 0 0 2
+EndChar
