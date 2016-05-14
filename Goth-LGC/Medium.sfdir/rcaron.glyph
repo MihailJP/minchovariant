@@ -1,9 +1,9 @@
 StartChar: rcaron
-Encoding: 345 345 281
+Encoding: 345 345 290
 Width: 342
 Flags: MW
 LayerCount: 2
 Fore
-Refer: 251 711 S 1 0 0 1 -28 0 2
+Refer: 260 711 S 1 0 0 1 -28 0 2
 Refer: 82 114 S 1 0 0 1 0 0 2
 EndChar

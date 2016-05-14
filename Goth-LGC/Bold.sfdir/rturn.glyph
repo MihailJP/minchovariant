@@ -1,0 +1,20 @@
+StartChar: rturn
+Encoding: 633 633 356
+Width: 372
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+15 -11 m 1
+ 15 91 l 1
+ 127 93 172 164 176 213 c 2
+ 177 240 l 1
+ 177 472 l 1xe0
+ 311 472 l 1xe0
+ 311 -5 l 1
+ 182 -5 l 1
+ 182 70 l 5
+ 182 116 l 1xd0
+ 165 70 117 -9 15 -11 c 1
+EndSplineSet
+EndChar

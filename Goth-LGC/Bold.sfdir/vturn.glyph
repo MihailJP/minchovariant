@@ -1,0 +1,18 @@
+StartChar: vturn
+Encoding: 652 652 240
+Width: 500
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+15 -0 m 1
+ 164 472 l 1
+ 335 472 l 1
+ 484 -0 l 1
+ 360 -0 l 1
+ 282 247 l 5
+ 248 355 l 1
+ 136 -0 l 1
+ 15 -0 l 1
+EndSplineSet
+EndChar

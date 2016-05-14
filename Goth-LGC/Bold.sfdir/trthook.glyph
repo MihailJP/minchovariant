@@ -1,0 +1,26 @@
+StartChar: trthook
+Encoding: 648 648 357
+Width: 404
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+20 400 m 1
+ 20 472 l 1
+ 90 472 l 1
+ 90 607 l 1
+ 218 607 l 1
+ 218 472 l 1xd0
+ 324 472 l 1
+ 324 400 l 1
+ 218 400 l 1
+ 218 -46 l 2xe0
+ 218 -82 223 -116 265 -116 c 0
+ 325 -116 338 -50 340 -49 c 1
+ 373 -139 l 1
+ 353 -160 327 -189 259 -189 c 0
+ 96 -189 87 -96 87 -50 c 2
+ 87 400 l 1xe0
+ 20 400 l 1
+EndSplineSet
+EndChar

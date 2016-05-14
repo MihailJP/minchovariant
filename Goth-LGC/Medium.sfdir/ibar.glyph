@@ -1,0 +1,27 @@
+StartChar: ibar
+Encoding: 616 616 382
+Width: 328
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+25 199 m 1xf4
+ 25 258 l 1
+ 125 258 l 1
+ 125 445 l 1
+ 200 445 l 1
+ 200 258 l 1
+ 300 258 l 1
+ 300 199 l 1
+ 200 199 l 1
+ 200 0 l 1
+ 125 0 l 1
+ 125 199 l 1
+ 25 199 l 1xf4
+118 590 m 5
+ 118 679 l 5
+ 208 679 l 5
+ 208 590 l 5
+ 118 590 l 5
+EndSplineSet
+EndChar

@@ -1,0 +1,27 @@
+StartChar: ibar
+Encoding: 616 616 383
+Width: 353
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+0 201 m 1
+ 0 274 l 1
+ 110 274 l 1
+ 110 472 l 1
+ 243 472 l 1
+ 243 274 l 1
+ 353 274 l 1
+ 353 201 l 1
+ 243 201 l 1
+ 243 0 l 1
+ 110 0 l 1
+ 110 201 l 1xf4
+ 0 201 l 1
+102 573 m 1xf8
+ 102 695 l 1
+ 250 695 l 1
+ 250 573 l 1
+ 102 573 l 1xf8
+EndSplineSet
+EndChar

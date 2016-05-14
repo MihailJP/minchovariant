@@ -1,0 +1,14 @@
+StartChar: Ismallcap
+Encoding: 618 618 402
+Width: 191
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+56 0 m 1
+ 56 445 l 1
+ 134 445 l 1
+ 134 0 l 1
+ 56 0 l 1
+EndSplineSet
+EndChar

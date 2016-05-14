@@ -1,0 +1,20 @@
+StartChar: rfishhook
+Encoding: 638 638 353
+Width: 372
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+60 0 m 1
+ 60 360 l 1
+ 65 360 l 1
+ 68 439 129 479 302 483 c 2
+ 356 483 l 1
+ 356 381 l 1
+ 333 381 l 2
+ 202 381 194 370 194 348 c 4
+ 194 345 194 341 194 338 c 2
+ 194 0 l 1
+ 60 0 l 1
+EndSplineSet
+EndChar
