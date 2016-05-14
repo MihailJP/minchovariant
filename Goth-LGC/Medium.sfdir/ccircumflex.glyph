@@ -1,9 +1,9 @@
 StartChar: ccircumflex
-Encoding: 265 265 275
+Encoding: 265 265 291
 Width: 444
 Flags: MW
 LayerCount: 2
 Fore
-Refer: 107 710 N 1 0 0 1 5 2 2
+Refer: 108 710 N 1 0 0 1 5 2 2
 Refer: 67 99 N 1 0 0 1 0 0 3
 EndChar

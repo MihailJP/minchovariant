@@ -1,9 +1,9 @@
 StartChar: ncaron
-Encoding: 328 328 264
+Encoding: 328 328 280
 Width: 561
 Flags: MW
 LayerCount: 2
 Fore
-Refer: 236 711 S 1 0 0 1 -3 0 2
+Refer: 252 711 S 1 0 0 1 -3 0 2
 Refer: 78 110 S 1 0 0 1 0 0 2
 EndChar

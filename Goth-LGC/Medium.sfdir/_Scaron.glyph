@@ -1,5 +1,5 @@
 StartChar: Scaron
-Encoding: 352 352 197
+Encoding: 352 352 198
 Width: 555
 Flags: MW
 LayerCount: 2
@@ -14,5 +14,5 @@ SplineSet
  241 727 l 1
  119 889 l 1
 EndSplineSet
-Refer: 51 83 S 1 0 0 1 0 0 2
+Refer: 51 83 N 1 0 0 1 0 0 2
 EndChar

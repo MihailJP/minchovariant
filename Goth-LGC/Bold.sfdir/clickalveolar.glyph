@@ -1,0 +1,30 @@
+StartChar: clickalveolar
+Encoding: 450 450 343
+Width: 611
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+60 136 m 1
+ 60 220 l 1
+ 236 220 l 1
+ 236 266 l 1
+ 60 266 l 1
+ 60 350 l 1
+ 236 350 l 1
+ 236 695 l 1
+ 373 695 l 1
+ 373 350 l 1
+ 549 350 l 1
+ 549 266 l 1
+ 373 266 l 1
+ 373 220 l 1
+ 549 220 l 1
+ 549 136 l 1
+ 373 136 l 1
+ 373 -167 l 1
+ 236 -167 l 1
+ 236 136 l 1
+ 60 136 l 1
+EndSplineSet
+EndChar

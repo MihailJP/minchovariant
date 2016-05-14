@@ -1,9 +1,9 @@
 StartChar: sacute
-Encoding: 347 347 234
+Encoding: 347 347 250
 Width: 383
 Flags: MW
 LayerCount: 2
 Fore
 Refer: 83 115 N 1 0 0 1 0 0 2
-Refer: 195 180 N 1 0 0 1 -80 0 2
+Refer: 196 180 N 1 0 0 1 -80 0 2
 EndChar
