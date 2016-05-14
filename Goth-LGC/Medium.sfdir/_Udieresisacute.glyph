@@ -1,5 +1,5 @@
 StartChar: Udieresisacute
-Encoding: 471 471 330
+Encoding: 471 471 333
 Width: 687
 Flags: MW
 LayerCount: 2
@@ -14,5 +14,5 @@ SplineSet
  283 910 l 5
  259 910 l 5
 EndSplineSet
-Refer: 162 220 N 1 0 0 1 0 0 2
+Refer: 164 220 N 1 0 0 1 0 0 2
 EndChar

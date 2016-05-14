@@ -1,9 +1,9 @@
 StartChar: itilde
-Encoding: 297 297 226
+Encoding: 297 297 228
 Width: 256
 Flags: MW
 LayerCount: 2
 Fore
 Refer: 95 305 N 1 0 0 1 2 0 2
-Refer: 97 732 N 1 0 0 1 -146 69 2
+Refer: 99 732 N 1 0 0 1 -146 69 2
 EndChar

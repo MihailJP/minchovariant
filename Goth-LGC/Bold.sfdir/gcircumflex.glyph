@@ -1,9 +1,9 @@
 StartChar: gcircumflex
-Encoding: 285 285 302
+Encoding: 285 285 305
 Width: 550
 Flags: MW
 LayerCount: 2
 Fore
-Refer: 108 710 N 1 0 0 1 -7 -2 2
+Refer: 110 710 N 1 0 0 1 -7 -2 2
 Refer: 71 103 N 1 0 0 1 0 0 3
 EndChar

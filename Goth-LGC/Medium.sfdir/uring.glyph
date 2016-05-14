@@ -1,9 +1,9 @@
 StartChar: uring
-Encoding: 367 367 228
+Encoding: 367 367 230
 Width: 517
 Flags: MW
 LayerCount: 2
 Fore
-Refer: 110 730 N 1 0 0 1 -74 0 2
+Refer: 112 730 N 1 0 0 1 -74 0 2
 Refer: 85 117 N 1 0 0 1 0 0 2
 EndChar

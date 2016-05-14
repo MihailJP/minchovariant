@@ -1,0 +1,23 @@
+StartChar: wsuper
+Encoding: 695 695 417
+Width: 372
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+8 629 m 1
+ 68 629 l 1
+ 115 460 l 1
+ 161 629 l 1
+ 208 629 l 1
+ 257 452 l 1
+ 305 629 l 1
+ 364 629 l 1
+ 300 393 l 1
+ 216 393 l 1
+ 198 460 179 527 176 561 c 1
+ 173 527 150 443 137 393 c 1
+ 72 393 l 1
+ 8 629 l 1
+EndSplineSet
+EndChar
