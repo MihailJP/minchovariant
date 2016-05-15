@@ -1,0 +1,19 @@
+StartChar: righttackbelowcmb
+Encoding: 793 793 702
+Width: 0
+VWidth: 620
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+-343 -343 m 5
+ -343 -63 l 5
+ -270 -63 l 5
+ -270 -167 l 5
+ -123 -167 l 5
+ -123 -240 l 5
+ -270 -240 l 5
+ -270 -343 l 5
+ -343 -343 l 5
+EndSplineSet
+EndChar

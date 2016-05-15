@@ -1,0 +1,16 @@
+StartChar: Gamma
+Encoding: 915 915 225
+Width: 581
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+91 0 m 1
+ 91 692 l 1xb0
+ 534 692 l 1
+ 534 587 l 1xd0
+ 239 590 l 1
+ 239 0 l 1xb0
+ 91 0 l 1
+EndSplineSet
+EndChar

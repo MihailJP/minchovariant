@@ -1,0 +1,19 @@
+StartChar: Lsmallcap
+Encoding: 671 671 625
+Width: 472
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+76 0 m 1
+ 76 472 l 1
+ 213 472 l 1
+ 213 82 l 1
+ 275 83 l 1
+ 304 83 l 1
+ 373 84 l 1
+ 427 84 l 1
+ 427 0 l 1
+ 76 0 l 1
+EndSplineSet
+EndChar

@@ -1,0 +1,23 @@
+StartChar: em
+Encoding: 1084 1084 317
+Width: 744
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+65 -0 m 1
+ 65 472 l 1
+ 239 472 l 1
+ 368 151 l 1
+ 498 472 l 1
+ 677 472 l 1
+ 677 -0 l 1
+ 554 -0 l 1
+ 554 336 l 1
+ 425 11 l 1
+ 312 11 l 1
+ 267 124 203 280 188 336 c 1
+ 188 -0 l 1
+ 65 -0 l 1
+EndSplineSet
+EndChar

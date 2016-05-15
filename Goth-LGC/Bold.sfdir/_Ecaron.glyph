@@ -1,0 +1,18 @@
+StartChar: Ecaron
+Encoding: 282 282 353
+Width: 642
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+176 903 m 1
+ 248 903 l 1
+ 356 800 l 1
+ 463 903 l 1
+ 535 903 l 1x25
+ 415 729 l 1
+ 296 729 l 1
+ 176 903 l 1
+EndSplineSet
+Refer: 37 69 N 1 0 0 1 0 0 2
+EndChar

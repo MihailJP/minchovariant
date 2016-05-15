@@ -1,0 +1,18 @@
+StartChar: bracketright
+Encoding: 93 93 61
+Width: 289
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+21 -189 m 1xe0
+ 111 -189 l 1
+ 111 689 l 1xd0
+ 21 689 l 1
+ 21 750 l 1
+ 187 750 l 1
+ 187 -250 l 1
+ 21 -250 l 1
+ 21 -189 l 1xe0
+EndSplineSet
+EndChar

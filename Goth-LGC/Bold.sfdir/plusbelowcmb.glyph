@@ -1,0 +1,23 @@
+StartChar: plusbelowcmb
+Encoding: 799 799 690
+Width: 0
+VWidth: 620
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+-404 -258 m 5
+ -404 -185 l 5
+ -282 -185 l 5
+ -282 -63 l 5
+ -209 -63 l 5
+ -209 -185 l 5
+ -87 -185 l 5
+ -87 -258 l 5
+ -209 -258 l 5
+ -209 -380 l 5
+ -282 -380 l 5
+ -282 -258 l 5
+ -404 -258 l 5
+EndSplineSet
+EndChar

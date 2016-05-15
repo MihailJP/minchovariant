@@ -1,0 +1,23 @@
+StartChar: U.cyr
+Encoding: 1059 1059 291
+Width: 733
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+15 695 m 1
+ 175 695 l 1
+ 175 695 400 336 410 286 c 1
+ 422 317 442 375 465 434 c 2
+ 575 695 l 1
+ 717 695 l 1
+ 519 230 l 2
+ 494 171 454 84 390 34 c 0
+ 346 0 305 0 259 -0 c 2
+ 183 -0 l 1
+ 183 100 l 1
+ 281 100 l 2
+ 311 100 323 114 343 150 c 1
+ 15 695 l 1
+EndSplineSet
+EndChar

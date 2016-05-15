@@ -1,0 +1,18 @@
+StartChar: tilde
+Encoding: 732 732 99
+Width: 500
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+83 529 m 1x58
+ 85 596 131 638 181 638 c 0x38
+ 233 638 271 590 314 590 c 0
+ 341 590 354 613 355 639 c 1
+ 416 639 l 1
+ 414 573 369 529 318 529 c 0x58
+ 267 529 228 577 185 577 c 0x38
+ 169 577 148 568 144 529 c 1x98
+ 83 529 l 1x58
+EndSplineSet
+EndChar

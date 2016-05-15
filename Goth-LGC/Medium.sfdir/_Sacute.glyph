@@ -1,0 +1,18 @@
+StartChar: Sacute
+Encoding: 346 346 460
+Width: 555
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+138 760 m 1
+ 295 850 l 25
+ 405 850 l 1
+ 247 771 l 1
+ 225 761 l 1
+ 210 760 l 1
+ 162 760 l 1
+ 138 760 l 1
+EndSplineSet
+Refer: 51 83 N 1 0 0 1 0 0 2
+EndChar

@@ -1,0 +1,15 @@
+StartChar: yeri
+Encoding: 1099 1099 332
+Width: 744
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+555 0 m 1xbe
+ 555 472 l 1
+ 676 472 l 1
+ 676 0 l 1
+ 555 0 l 1xbe
+EndSplineSet
+Refer: 333 1100 N 1 0 0 1 0 0 2
+EndChar

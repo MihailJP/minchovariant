@@ -1,0 +1,10 @@
+StartChar: yi
+Encoding: 1111 1111 441
+Width: 239
+Flags: MW
+LayerCount: 2
+Fore
+Refer: 95 305 N 1 0 0 1 1 0 2
+Refer: 116 183 N 1 0 0 1 -95 396 2
+Refer: 116 183 N 1 0 0 1 99 395 2
+EndChar

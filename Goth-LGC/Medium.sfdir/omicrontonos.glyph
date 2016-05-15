@@ -1,0 +1,15 @@
+StartChar: omicrontonos
+Encoding: 972 972 418
+Width: 528
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+197 495 m 1
+ 288 694 l 1
+ 367 694 l 1
+ 258 495 l 1
+ 197 495 l 1
+EndSplineSet
+Refer: 261 959 N 1 0 0 1 0 0 2
+EndChar

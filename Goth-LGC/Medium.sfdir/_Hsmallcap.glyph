@@ -1,0 +1,22 @@
+StartChar: Hsmallcap
+Encoding: 668 668 624
+Width: 505
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+56 0 m 1
+ 56 445 l 1
+ 134 445 l 1
+ 134 260 l 1
+ 369 260 l 1
+ 369 445 l 1
+ 447 445 l 1
+ 447 0 l 1
+ 369 0 l 1
+ 369 203 l 1
+ 134 203 l 1
+ 134 0 l 1
+ 56 0 l 1
+EndSplineSet
+EndChar

@@ -1,0 +1,18 @@
+StartChar: Gje
+Encoding: 1027 1027 424
+Width: 542
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+173 760 m 1
+ 330 850 l 25
+ 440 850 l 1
+ 282 771 l 1
+ 260 761 l 1
+ 245 760 l 1
+ 197 760 l 1
+ 173 760 l 1
+EndSplineSet
+Refer: 274 1043 N 1 0 0 1 0 0 2
+EndChar

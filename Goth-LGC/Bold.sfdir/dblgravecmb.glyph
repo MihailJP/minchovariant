@@ -1,0 +1,19 @@
+StartChar: dblgravecmb
+Encoding: 783 783 678
+Width: 0
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+-459 695 m 1
+ -322 695 l 1
+ -300 546 l 1
+ -373 546 l 1
+ -459 695 l 1
+-276 695 m 1
+ -139 695 l 1
+ -117 546 l 1
+ -190 546 l 1
+ -276 695 l 1
+EndSplineSet
+EndChar

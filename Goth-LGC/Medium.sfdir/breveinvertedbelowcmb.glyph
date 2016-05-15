@@ -1,0 +1,17 @@
+StartChar: breveinvertedbelowcmb
+Encoding: 815 815 694
+Width: 0
+VWidth: 220
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+-920 -269 m 5
+ -917 -177 -831 -129 -751 -129 c 4
+ -669 -129 -585 -177 -581 -269 c 5
+ -643 -269 l 5
+ -648 -204 -725 -196 -750 -196 c 4
+ -777 -196 -853 -204 -859 -269 c 5
+ -920 -269 l 5
+EndSplineSet
+EndChar

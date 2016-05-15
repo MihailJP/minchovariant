@@ -1,0 +1,22 @@
+StartChar: Tse
+Encoding: 1062 1062 294
+Width: 807
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+91 0 m 1xf4
+ 91 695 l 1
+ 239 695 l 1
+ 239 106 l 1
+ 524 106 l 1
+ 524 695 l 1
+ 671 695 l 1
+ 671 106 l 1xf8
+ 767 106 l 1
+ 767 -167 l 1
+ 657 -167 l 1
+ 657 0 l 1
+ 91 0 l 1xf4
+EndSplineSet
+EndChar

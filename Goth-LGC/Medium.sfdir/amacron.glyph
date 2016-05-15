@@ -1,0 +1,15 @@
+StartChar: amacron
+Encoding: 257 257 342
+Width: 480
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+74 551 m 1
+ 74 615 l 1
+ 434 615 l 1
+ 434 551 l 1
+ 74 551 l 1
+EndSplineSet
+Refer: 65 97 N 1 0 0 1 0 0 3
+EndChar

@@ -1,0 +1,27 @@
+StartChar: f_l
+Encoding: 64258 64258 112
+Width: 586
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+30 400 m 1
+ 30 472 l 1
+ 86 472 l 1
+ 86 530 l 1
+ 88 641 141 706 255 706 c 0xec
+ 281 706 297 703 324 695 c 1xdc
+ 324 594 l 1
+ 316 606 297 633 257 633 c 0xec
+ 224 633 216 604 216 573 c 2
+ 216 472 l 1
+ 324 472 l 1
+ 324 400 l 1
+ 219 400 l 1
+ 219 0 l 1
+ 86 0 l 1
+ 86 400 l 1
+ 30 400 l 1
+EndSplineSet
+Refer: 76 108 N 1 0 0 1 331 0 2
+EndChar
