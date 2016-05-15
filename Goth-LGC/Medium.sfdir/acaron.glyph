@@ -1,9 +1,9 @@
 StartChar: acaron
-Encoding: 462 462 224
+Encoding: 462 462 272
 Width: 480
 Flags: MW
 LayerCount: 2
 Fore
-Refer: 263 711 N 1 0 0 1 -28 -34 2
+Refer: 332 711 N 1 0 0 1 -28 -34 2
 Refer: 65 97 N 1 0 0 1 0 0 3
 EndChar

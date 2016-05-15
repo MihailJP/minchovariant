@@ -1,0 +1,19 @@
+StartChar: epsilon.alt
+Encoding: 1013 1013 533
+Width: 430
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+48 225 m 0
+ 48 365 194 455 381 455 c 1
+ 381 389 l 1
+ 202 387 144 318 124 263 c 1
+ 326 263 l 1
+ 326 199 l 1
+ 121 199 l 1
+ 144 101 255 57 381 55 c 1
+ 381 -11 l 1
+ 199 -11 48 83 48 225 c 0
+EndSplineSet
+EndChar

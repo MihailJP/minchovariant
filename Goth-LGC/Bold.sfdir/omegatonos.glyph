@@ -1,0 +1,15 @@
+StartChar: omegatonos
+Encoding: 974 974 314
+Width: 733
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+300 517 m 5
+ 357 695 l 5
+ 494 695 l 5
+ 373 517 l 5
+ 300 517 l 5
+EndSplineSet
+Refer: 253 969 N 1 0 0 1 0 0 2
+EndChar

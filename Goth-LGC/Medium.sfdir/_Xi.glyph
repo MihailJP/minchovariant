@@ -1,0 +1,24 @@
+StartChar: Xi
+Encoding: 926 926 218
+Width: 667
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+41 -0 m 1
+ 41 75 l 1
+ 623 75 l 1
+ 623 -0 l 1
+ 41 -0 l 1
+46 614 m 1
+ 46 689 l 1
+ 618 689 l 1
+ 618 614 l 1
+ 46 614 l 1
+110 321 m 1
+ 110 395 l 1
+ 554 395 l 1
+ 554 321 l 1
+ 110 321 l 1
+EndSplineSet
+EndChar

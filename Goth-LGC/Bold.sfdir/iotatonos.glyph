@@ -1,0 +1,15 @@
+StartChar: iotatonos
+Encoding: 943 943 307
+Width: 290
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+53 517 m 5
+ 110 695 l 5
+ 247 695 l 5
+ 126 517 l 5
+ 53 517 l 5
+EndSplineSet
+Refer: 238 953 S 1 0 0 1 0 0 2
+EndChar

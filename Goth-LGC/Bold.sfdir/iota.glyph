@@ -1,0 +1,20 @@
+StartChar: iota
+Encoding: 953 953 238
+Width: 306
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+45 140 m 2
+ 45 473 l 1
+ 182 473 l 1
+ 182 124 l 2
+ 182 120 182 113 183 107 c 0
+ 184 102 184 99 186 99 c 0
+ 190 99 193 101 194 105 c 4
+ 196 111 196 119 195 125 c 5
+ 291 125 l 1
+ 288 39 229 -11 168 -11 c 0
+ 83 -11 45 57 45 140 c 2
+EndSplineSet
+EndChar

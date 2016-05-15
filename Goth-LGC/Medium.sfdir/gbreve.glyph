@@ -1,9 +1,9 @@
 StartChar: gbreve
-Encoding: 287 287 342
+Encoding: 287 287 413
 Width: 500
 Flags: MW
 LayerCount: 2
 Fore
-Refer: 252 728 N 1 0 0 1 0 0 2
+Refer: 321 728 N 1 0 0 1 0 0 2
 Refer: 71 103 N 1 0 0 1 0 0 2
 EndChar

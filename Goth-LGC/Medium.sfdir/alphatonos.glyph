@@ -1,0 +1,15 @@
+StartChar: alphatonos
+Encoding: 940 940 303
+Width: 633
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+230 495 m 5
+ 321 694 l 5
+ 400 694 l 5
+ 291 495 l 5
+ 230 495 l 5
+EndSplineSet
+Refer: 229 945 S 1 0 0 1 0 0 2
+EndChar

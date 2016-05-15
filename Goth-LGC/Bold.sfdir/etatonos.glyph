@@ -1,0 +1,15 @@
+StartChar: etatonos
+Encoding: 942 942 306
+Width: 565
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+290 517 m 5
+ 347 695 l 5
+ 484 695 l 5
+ 363 517 l 5
+ 290 517 l 5
+EndSplineSet
+Refer: 236 951 S 1 0 0 1 0 0 2
+EndChar
