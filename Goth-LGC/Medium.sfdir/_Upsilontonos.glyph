@@ -1,9 +1,9 @@
 StartChar: Upsilontonos
-Encoding: 910 910 365
+Encoding: 910 910 391
 Width: 945
 Flags: MW
 LayerCount: 2
 Fore
-Refer: 469 900 N 1 0 0 1 0 0 2
-Refer: 224 933 N 1 0 0 1 167 0 2
+Refer: 497 900 N 1 0 0 1 0 0 2
+Refer: 226 933 N 1 0 0 1 167 0 2
 EndChar

@@ -1,9 +1,9 @@
 StartChar: zcaron
-Encoding: 382 382 205
+Encoding: 382 382 207
 Width: 476
 Flags: MW
 LayerCount: 2
 Fore
-Refer: 424 711 S 1 0 0 1 -32 0 2
+Refer: 452 711 S 1 0 0 1 -32 0 2
 Refer: 90 122 S 1 0 0 1 0 0 2
 EndChar

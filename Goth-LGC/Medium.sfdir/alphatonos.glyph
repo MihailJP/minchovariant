@@ -1,5 +1,5 @@
 StartChar: alphatonos
-Encoding: 940 940 368
+Encoding: 940 940 394
 Width: 633
 Flags: MW
 LayerCount: 2
@@ -11,5 +11,5 @@ SplineSet
  291 495 l 5
  230 495 l 5
 EndSplineSet
-Refer: 229 945 S 1 0 0 1 0 0 2
+Refer: 231 945 S 1 0 0 1 0 0 2
 EndChar

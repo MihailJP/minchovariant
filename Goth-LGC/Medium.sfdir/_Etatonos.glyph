@@ -1,9 +1,9 @@
 StartChar: Etatonos
-Encoding: 905 905 361
+Encoding: 905 905 387
 Width: 875
 Flags: MW
 LayerCount: 2
 Fore
-Refer: 469 900 N 1 0 0 1 0 0 2
-Refer: 211 919 N 1 0 0 1 167 0 2
+Refer: 497 900 N 1 0 0 1 0 0 2
+Refer: 213 919 N 1 0 0 1 167 0 2
 EndChar

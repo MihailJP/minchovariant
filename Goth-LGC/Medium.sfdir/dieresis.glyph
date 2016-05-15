@@ -1,9 +1,9 @@
 StartChar: dieresis
-Encoding: 168 168 197
+Encoding: 168 168 199
 Width: 500
 Flags: MW
 LayerCount: 2
 Fore
-Refer: 107 183 S 1 0 0 1 229 396 2
-Refer: 107 183 S 1 0 0 1 34 396 2
+Refer: 109 183 S 1 0 0 1 229 396 2
+Refer: 109 183 S 1 0 0 1 34 396 2
 EndChar

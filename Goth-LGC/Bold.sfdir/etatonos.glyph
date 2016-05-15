@@ -1,5 +1,5 @@
 StartChar: etatonos
-Encoding: 942 942 371
+Encoding: 942 942 397
 Width: 565
 Flags: MW
 LayerCount: 2
@@ -11,5 +11,5 @@ SplineSet
  363 517 l 5
  290 517 l 5
 EndSplineSet
-Refer: 236 951 S 1 0 0 1 0 0 2
+Refer: 238 951 S 1 0 0 1 0 0 2
 EndChar

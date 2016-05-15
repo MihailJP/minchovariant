@@ -1,5 +1,5 @@
 StartChar: upsilondieresistonos
-Encoding: 944 944 378
+Encoding: 944 944 404
 Width: 550
 Flags: MW
 LayerCount: 2
@@ -21,5 +21,5 @@ SplineSet
  441 520 l 5
  343 520 l 5xfa
 EndSplineSet
-Refer: 249 965 S 1 0 0 1 0 0 2
+Refer: 251 965 S 1 0 0 1 0 0 2
 EndChar

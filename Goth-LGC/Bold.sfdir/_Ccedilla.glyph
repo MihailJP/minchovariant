@@ -1,9 +1,9 @@
 StartChar: Ccedilla
-Encoding: 199 199 144
+Encoding: 199 199 146
 Width: 703
 Flags: MW
 LayerCount: 2
 Fore
-Refer: 113 184 S 1 0 0 1 183 0 2
+Refer: 115 184 S 1 0 0 1 183 0 2
 Refer: 35 67 S 1 0 0 1 0 0 2
 EndChar

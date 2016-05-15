@@ -1,9 +1,9 @@
 StartChar: aeacute
-Encoding: 509 509 346
+Encoding: 509 509 361
 Width: 722
 Flags: MW
 LayerCount: 2
 Fore
-Refer: 120 230 N 1 0 0 1 0 0 3
-Refer: 198 180 N 1 0 0 1 70 0 2
+Refer: 122 230 N 1 0 0 1 0 0 3
+Refer: 200 180 N 1 0 0 1 70 0 2
 EndChar

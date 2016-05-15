@@ -1,5 +1,5 @@
 StartChar: Udieresismacron
-Encoding: 469 469 499
+Encoding: 469 469 527
 Width: 764
 Flags: MW
 LayerCount: 2
@@ -13,5 +13,5 @@ SplineSet
  96 967 l 6
  51 967 46 995 46 1009 c 4
 EndSplineSet
-Refer: 164 220 N 1 0 0 1 0 0 2
+Refer: 166 220 N 1 0 0 1 0 0 2
 EndChar
