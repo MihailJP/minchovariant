@@ -1,9 +1,9 @@
 StartChar: Alphatonos
-Encoding: 902 902 385
+Encoding: 902 902 402
 Width: 667
 Flags: MW
 LayerCount: 2
 Fore
-Refer: 497 900 N 1 0 0 1 0 0 2
-Refer: 207 913 N 1 0 0 1 0 0 2
+Refer: 514 900 N 1 0 0 1 0 0 2
+Refer: 222 913 N 1 0 0 1 0 0 2
 EndChar

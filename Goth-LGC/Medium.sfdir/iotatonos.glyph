@@ -1,5 +1,5 @@
 StartChar: iotatonos
-Encoding: 943 943 397
+Encoding: 943 943 414
 Width: 264
 Flags: MW
 LayerCount: 2
@@ -11,5 +11,5 @@ SplineSet
  84 495 l 5
  23 495 l 5
 EndSplineSet
-Refer: 239 953 S 1 0 0 1 0 0 2
+Refer: 254 953 S 1 0 0 1 0 0 2
 EndChar

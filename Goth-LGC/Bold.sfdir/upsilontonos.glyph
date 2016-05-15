@@ -1,5 +1,5 @@
 StartChar: upsilontonos
-Encoding: 973 973 402
+Encoding: 973 973 419
 Width: 550
 Flags: MW
 LayerCount: 2
@@ -11,5 +11,5 @@ SplineSet
  262 517 l 5
  189 517 l 5
 EndSplineSet
-Refer: 251 965 S 1 0 0 1 0 0 2
+Refer: 266 965 S 1 0 0 1 0 0 2
 EndChar

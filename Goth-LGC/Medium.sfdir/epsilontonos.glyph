@@ -1,5 +1,5 @@
 StartChar: epsilontonos
-Encoding: 941 941 395
+Encoding: 941 941 412
 Width: 430
 Flags: MW
 LayerCount: 2
@@ -11,5 +11,5 @@ SplineSet
  211 495 l 5
  150 495 l 5
 EndSplineSet
-Refer: 235 949 S 1 0 0 1 0 0 2
+Refer: 250 949 S 1 0 0 1 0 0 2
 EndChar

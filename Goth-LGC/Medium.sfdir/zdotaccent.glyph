@@ -1,9 +1,9 @@
 StartChar: zdotaccent
-Encoding: 380 380 456
+Encoding: 380 380 473
 Width: 435
 Flags: MW
 LayerCount: 2
 Fore
-Refer: 484 729 N 1 0 0 1 83 0 2
+Refer: 501 729 N 1 0 0 1 83 0 2
 Refer: 90 122 N 1 0 0 1 0 0 2
 EndChar

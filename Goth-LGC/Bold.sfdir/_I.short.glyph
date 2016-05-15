@@ -1,5 +1,5 @@
 StartChar: I.short
-Encoding: 1049 1049 266
+Encoding: 1049 1049 281
 Width: 764
 Flags: MW
 LayerCount: 2
@@ -13,5 +13,5 @@ SplineSet
  567 806 473 757 381 757 c 0
  294 757 195 804 192 903 c 1
 EndSplineSet
-Refer: 265 1048 S 1 0 0 1 0 0 2
+Refer: 280 1048 S 1 0 0 1 0 0 2
 EndChar

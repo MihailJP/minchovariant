@@ -1,9 +1,9 @@
 StartChar: schwahookgrave
-Encoding: 65550 -1 371
+Encoding: 65550 -1 388
 Width: 599
 Flags: MW
 LayerCount: 2
 Fore
-Refer: 369 602 N 1 0 0 1 0 0 2
+Refer: 386 602 N 1 0 0 1 0 0 2
 Refer: 64 96 S 1 0 0 1 -4 0 2
 EndChar

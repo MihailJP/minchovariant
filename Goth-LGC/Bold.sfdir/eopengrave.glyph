@@ -1,9 +1,9 @@
 StartChar: eopengrave
-Encoding: 65552 -1 375
+Encoding: 65552 -1 392
 Width: 458
 Flags: MW
 LayerCount: 2
 Fore
-Refer: 373 603 N 1 0 0 1 0 0 2
+Refer: 390 603 N 1 0 0 1 0 0 2
 Refer: 64 96 S 1 0 0 1 2 0 2
 EndChar

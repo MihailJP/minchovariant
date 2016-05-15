@@ -1,10 +1,10 @@
 StartChar: io
-Encoding: 1105 1105 295
+Encoding: 1105 1105 310
 Width: 511
 Flags: MW
 LayerCount: 2
 Fore
 Refer: 69 101 N 1 0 0 1 0 0 2
-Refer: 109 183 N 1 0 0 1 39 371 2
-Refer: 109 183 N 1 0 0 1 253 371 2
+Refer: 116 183 N 1 0 0 1 39 371 2
+Refer: 116 183 N 1 0 0 1 253 371 2
 EndChar

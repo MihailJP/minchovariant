@@ -1,5 +1,5 @@
 StartChar: omicrontonos
-Encoding: 972 972 400
+Encoding: 972 972 417
 Width: 528
 Flags: MW
 LayerCount: 2
@@ -11,5 +11,5 @@ SplineSet
  258 495 l 1
  197 495 l 1
 EndSplineSet
-Refer: 245 959 N 1 0 0 1 0 0 2
+Refer: 260 959 N 1 0 0 1 0 0 2
 EndChar

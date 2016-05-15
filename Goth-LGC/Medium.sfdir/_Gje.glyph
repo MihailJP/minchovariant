@@ -1,5 +1,5 @@
 StartChar: Gje
-Encoding: 1027 1027 406
+Encoding: 1027 1027 423
 Width: 542
 Flags: MW
 LayerCount: 2
@@ -14,5 +14,5 @@ SplineSet
  197 760 l 1
  173 760 l 1
 EndSplineSet
-Refer: 258 1043 N 1 0 0 1 0 0 2
+Refer: 273 1043 N 1 0 0 1 0 0 2
 EndChar

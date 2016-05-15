@@ -1,9 +1,9 @@
 StartChar: edotaccent
-Encoding: 279 279 530
+Encoding: 279 279 549
 Width: 444
 Flags: MW
 LayerCount: 2
 Fore
-Refer: 484 729 N 1 0 0 1 81 -79 2
+Refer: 501 729 N 1 0 0 1 81 -79 2
 Refer: 69 101 N 1 0 0 1 0 0 3
 EndChar

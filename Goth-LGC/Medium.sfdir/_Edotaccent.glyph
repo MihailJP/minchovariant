@@ -1,9 +1,9 @@
 StartChar: Edotaccent
-Encoding: 278 278 511
+Encoding: 278 278 530
 Width: 597
 Flags: MW
 LayerCount: 2
 Fore
-Refer: 484 729 N 1 0 0 1 172 176 2
+Refer: 501 729 N 1 0 0 1 172 176 2
 Refer: 37 69 N 1 0 0 1 0 0 3
 EndChar

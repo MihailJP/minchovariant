@@ -1,9 +1,9 @@
 StartChar: icaron
-Encoding: 464 464 351
+Encoding: 464 464 368
 Width: 374
 Flags: MW
 LayerCount: 2
 Fore
-Refer: 452 711 N 1 0 0 1 -29 -2 2
+Refer: 469 711 N 1 0 0 1 -29 -2 2
 Refer: 95 305 N 1 0 0 1 119 0 2
 EndChar

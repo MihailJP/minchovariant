@@ -1,9 +1,9 @@
 StartChar: Yeri
-Encoding: 1067 1067 284
+Encoding: 1067 1067 299
 Width: 978
 Flags: MW
 LayerCount: 2
 Fore
-Refer: 285 1068 N 1 0 0 1 0 0 2
+Refer: 300 1068 N 1 0 0 1 0 0 2
 Refer: 41 73 N 1 0 0 1 646 0 2
 EndChar

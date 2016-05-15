@@ -1,9 +1,9 @@
 StartChar: udieresiscaron
-Encoding: 474 474 437
+Encoding: 474 474 454
 Width: 517
 Flags: MW
 LayerCount: 2
 Fore
-Refer: 193 252 N 1 0 0 1 0 0 2
-Refer: 451 711 S 1 0 0 1 8 166 2
+Refer: 206 252 N 1 0 0 1 0 0 2
+Refer: 468 711 S 1 0 0 1 8 166 2
 EndChar

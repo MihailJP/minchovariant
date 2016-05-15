@@ -1,0 +1,18 @@
+StartChar: product
+Encoding: 8719 8719 660
+Width: 708
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+94 -198 m 1
+ 94 691 l 1
+ 614 691 l 1
+ 614 -198 l 1
+ 524 -198 l 1
+ 524 630 l 1
+ 184 630 l 1
+ 184 -198 l 1
+ 94 -198 l 1
+EndSplineSet
+EndChar

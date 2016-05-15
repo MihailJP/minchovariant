@@ -1,9 +1,9 @@
 StartChar: scaron
-Encoding: 353 353 205
+Encoding: 353 353 218
 Width: 383
 Flags: MW
 LayerCount: 2
 Fore
 Refer: 83 115 N 1 0 0 1 0 0 2
-Refer: 451 711 N 1 0 0 1 -61 0 2
+Refer: 468 711 N 1 0 0 1 -61 0 2
 EndChar
