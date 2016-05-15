@@ -1,0 +1,15 @@
+StartChar: Idotaccent
+Encoding: 304 304 369
+Width: 278
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+231.182617188 778 m 5
+ 246.875976562 867 l 5
+ 336.875976562 867 l 5
+ 321.182617188 778 l 5
+ 231.182617188 778 l 5
+EndSplineSet
+Refer: 41 73 N 1 0 0 1 0 0 2
+EndChar

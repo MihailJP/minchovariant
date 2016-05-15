@@ -1,0 +1,18 @@
+StartChar: comma
+Encoding: 44 44 12
+Width: 278
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+96 0 m 1
+ 110.811523438 84 l 1
+ 194.811523438 84 l 1
+ 182.46875 14 l 1
+ 182.46875 14 179.881835938 5 178 0 c 4
+ 174.765625 -7 115.958984375 -125 115.958984375 -125 c 1
+ 73.958984375 -125 l 1
+ 122 0 l 1
+ 96 0 l 1
+EndSplineSet
+EndChar

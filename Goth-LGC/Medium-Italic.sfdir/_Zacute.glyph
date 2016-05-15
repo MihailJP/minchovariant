@@ -1,0 +1,18 @@
+StartChar: Zacute
+Encoding: 377 377 302
+Width: 611
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+327.008789062 760 m 1
+ 499.877929688 850 l 25
+ 609.877929688 850 l 1
+ 437.948242188 771 l 1
+ 414.184570312 761 l 1
+ 399.008789062 760 l 1
+ 351.008789062 760 l 1
+ 327.008789062 760 l 1
+EndSplineSet
+Refer: 58 90 N 1 0 0 1 0 0 2
+EndChar

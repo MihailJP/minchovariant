@@ -1,0 +1,19 @@
+StartChar: ccaron
+Encoding: 269 269 328
+Width: 489
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+208.90234375 680 m 5
+ 281.90234375 680 l 5
+ 379.73828125 594 l 5
+ 506.90234375 680 l 5
+ 553.90234375 680 l 5
+ 579.90234375 680 l 5
+ 424.392578125 541 l 5
+ 315.392578125 541 l 5
+ 208.90234375 680 l 5
+EndSplineSet
+Refer: 67 99 S 1 0 0 1 0 0 2
+EndChar

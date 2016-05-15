@@ -1,0 +1,18 @@
+StartChar: Scaron
+Encoding: 352 352 217
+Width: 611
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+284.223632812 903 m 1
+ 357.223632812 903 l 1
+ 446.061523438 800 l 1
+ 571.223632812 903 l 1
+ 644.223632812 903 l 1xe8
+ 492.541992188 729 l 1
+ 374.541992188 729 l 1
+ 284.223632812 903 l 1
+EndSplineSet
+Refer: 51 83 S 1 0 0 1 0 0 2
+EndChar

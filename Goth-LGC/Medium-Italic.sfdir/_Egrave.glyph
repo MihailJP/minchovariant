@@ -1,0 +1,17 @@
+StartChar: Egrave
+Encoding: 200 200 162
+Width: 597
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+291.877929688 850 m 1
+ 402.877929688 850 l 25
+ 544.008789062 760 l 1
+ 466.008789062 760 l 25
+ 456.184570312 761 l 1
+ 445.890625 765 l 1
+ 291.877929688 850 l 1
+EndSplineSet
+Refer: 37 69 N 1 0 0 1 0 0 2
+EndChar

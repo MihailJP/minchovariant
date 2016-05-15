@@ -1,0 +1,18 @@
+StartChar: Lcaron.alt
+Encoding: 65542 -1 372
+Width: 581
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+304.223632812 903 m 1
+ 376.223632812 903 l 1
+ 466.061523438 800 l 1
+ 591.223632812 903 l 1
+ 663.223632812 903 l 1x25
+ 512.541992188 729 l 1
+ 393.541992188 729 l 1
+ 304.223632812 903 l 1
+EndSplineSet
+Refer: 44 76 N 1 0 0 1 0 0 2
+EndChar

@@ -1,0 +1,20 @@
+StartChar: hungarumlautcmb
+Encoding: 779 779 405
+Width: 0
+VWidth: 1136
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+-131.450195312 678 m 1
+ -7.9404296875 817 l 1
+ 128.059570312 817 l 1
+ -58.4501953125 678 l 1
+ -131.450195312 678 l 1
+-314.450195312 678 m 1
+ -190.940429688 817 l 1
+ -54.9404296875 817 l 1
+ -241.450195312 678 l 1
+ -314.450195312 678 l 1
+EndSplineSet
+EndChar

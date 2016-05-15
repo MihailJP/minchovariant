@@ -1,0 +1,18 @@
+StartChar: Macute
+Encoding: 7742 7742 289
+Width: 875
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+438.06640625 766 m 1
+ 610.935546875 856 l 25
+ 720.935546875 856 l 1
+ 549.005859375 777 l 1
+ 525.243164062 767 l 1
+ 510.06640625 766 l 1
+ 462.06640625 766 l 1
+ 438.06640625 766 l 1
+EndSplineSet
+Refer: 45 77 N 1 0 0 1 0 0 3
+EndChar

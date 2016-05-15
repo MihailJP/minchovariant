@@ -1,0 +1,17 @@
+StartChar: Udieresisgrave
+Encoding: 475 475 378
+Width: 764
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+392.435546875 1063 m 5
+ 585.435546875 1063 l 5
+ 689.979492188 964 l 5
+ 602.979492188 964 l 5
+ 587.155273438 965 l 5
+ 574.037109375 970 l 5
+ 392.435546875 1063 l 5
+EndSplineSet
+Refer: 181 220 N 1 0 0 1 0 0 2
+EndChar

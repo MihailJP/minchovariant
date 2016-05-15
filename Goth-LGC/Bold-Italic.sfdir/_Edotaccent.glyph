@@ -1,0 +1,15 @@
+StartChar: Edotaccent
+Encoding: 278 278 365
+Width: 642
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+404.243164062 767 m 5
+ 430.338867188 915 l 5
+ 578.338867188 915 l 5
+ 552.243164062 767 l 5
+ 404.243164062 767 l 5
+EndSplineSet
+Refer: 37 69 N 1 0 0 1 0 0 3
+EndChar

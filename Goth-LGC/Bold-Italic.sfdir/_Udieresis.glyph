@@ -1,0 +1,20 @@
+StartChar: Udieresis
+Encoding: 220 220 181
+Width: 764
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+356.9453125 788 m 1
+ 376.694335938 900 l 1
+ 488.694335938 900 l 1
+ 468.9453125 788 l 1
+ 356.9453125 788 l 1
+570.9453125 788 m 1
+ 590.694335938 900 l 1
+ 702.694335938 900 l 1
+ 682.9453125 788 l 1
+ 570.9453125 788 l 1
+EndSplineSet
+Refer: 53 85 N 1 0 0 1 0 0 2
+EndChar

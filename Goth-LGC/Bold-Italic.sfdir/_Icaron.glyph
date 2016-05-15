@@ -1,0 +1,18 @@
+StartChar: Icaron
+Encoding: 463 463 268
+Width: 331
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+144.223632812 903 m 1
+ 217.223632812 903 l 1
+ 306.061523438 800 l 1
+ 431.223632812 903 l 1
+ 504.223632812 903 l 1xf4
+ 352.541992188 729 l 1
+ 234.541992188 729 l 1
+ 144.223632812 903 l 1
+EndSplineSet
+Refer: 41 73 N 1 0 0 1 0 0 3
+EndChar

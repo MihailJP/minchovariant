@@ -1,0 +1,15 @@
+StartChar: cdotaccent
+Encoding: 267 267 383
+Width: 489
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+300.040039062 539 m 5
+ 326.13671875 687 l 5
+ 474.13671875 687 l 5
+ 448.040039062 539 l 5
+ 300.040039062 539 l 5
+EndSplineSet
+Refer: 67 99 N 1 0 0 1 0 0 3
+EndChar

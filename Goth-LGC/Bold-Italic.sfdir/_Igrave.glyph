@@ -1,0 +1,17 @@
+StartChar: Igrave
+Encoding: 204 204 166
+Width: 331
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+126.169921875 863 m 5
+ 319.169921875 863 l 5
+ 423.713867188 764 l 5
+ 336.713867188 764 l 5
+ 320.890625 765 l 5
+ 307.771484375 770 l 5
+ 126.169921875 863 l 5
+EndSplineSet
+Refer: 41 73 S 1 0 0 1 1 0 2
+EndChar

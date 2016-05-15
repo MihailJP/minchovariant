@@ -1,0 +1,15 @@
+StartChar: omacron
+Encoding: 333 333 235
+Width: 736
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+166.15625 551 m 1
+ 177.44140625 615 l 1
+ 537.44140625 615 l 1
+ 526.15625 551 l 1
+ 166.15625 551 l 1
+EndSplineSet
+Refer: 79 111 N 1 0 0 1 0 0 3
+EndChar

@@ -1,0 +1,14 @@
+StartChar: tonos
+Encoding: 900 900 350
+Width: 183
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+87.1611328125 517 m 5
+ 175.546875 695 l 5
+ 312.546875 695 l 5
+ 160.161132812 517 l 5
+ 87.1611328125 517 l 5
+EndSplineSet
+EndChar

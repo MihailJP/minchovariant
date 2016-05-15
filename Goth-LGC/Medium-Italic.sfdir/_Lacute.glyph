@@ -1,0 +1,18 @@
+StartChar: Lacute
+Encoding: 313 313 313
+Width: 542
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+341.008789062 760 m 1
+ 513.877929688 850 l 25
+ 623.877929688 850 l 1
+ 451.948242188 771 l 1
+ 428.184570312 761 l 1
+ 413.008789062 760 l 1
+ 365.008789062 760 l 1
+ 341.008789062 760 l 1
+EndSplineSet
+Refer: 44 76 N 1 0 0 1 0 0 2
+EndChar
