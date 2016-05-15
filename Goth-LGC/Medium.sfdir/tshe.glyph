@@ -2,8 +2,6 @@ StartChar: tshe
 Encoding: 1115 1115 401
 Width: 517
 Flags: MW
-HStem: 0 21G<79 158 357 435> 394 61<209.6 373.4> 554 59<18 79 155 396> 702 20G<79 155>
-VStem: 79 78<0 336.2 384 554 613 722> 357 78<0 357.7>
 LayerCount: 2
 Fore
 SplineSet

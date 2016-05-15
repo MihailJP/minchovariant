@@ -2,8 +2,6 @@ StartChar: i.cyr
 Encoding: 1080 1080 295
 Width: 537
 Flags: MW
-HStem: 0 21G<81 191 379 454> 425 20G<81 156 344 454>
-VStem: 81 75<70 445> 379 75<0 375>
 LayerCount: 2
 Fore
 SplineSet

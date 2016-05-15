@@ -2,8 +2,6 @@ StartChar: gje
 Encoding: 1107 1107 393
 Width: 390
 Flags: MW
-HStem: 0 21<79 157> 385 60<157 378> 510 130<139 288>
-VStem: 77 211<510 640> 79 78<0 386>
 LayerCount: 2
 Fore
 Refer: 198 180 S 1 0 0 1 -37 0 2

@@ -2,8 +2,6 @@ StartChar: a.cyr
 Encoding: 1072 1072 287
 Width: 525
 Flags: MW
-HStem: -11 73<169 249.6> 422 67<167.7 356.1>
-VStem: 30 132<82.9 233.7>
 LayerCount: 2
 Fore
 Refer: 65 97 S 1 0 0 1 0 0 2

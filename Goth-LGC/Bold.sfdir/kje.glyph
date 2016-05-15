@@ -2,8 +2,6 @@ StartChar: kje
 Encoding: 1116 1116 403
 Width: 531
 Flags: MW
-HStem: 0 21<67 185 376 511> 452 20<67 185 335 487> 542 139<210 372>
-VStem: 67 118<0 158 315 472> 137 235<542 681>
 LayerCount: 2
 Fore
 Refer: 199 180 S 1 0 0 1 -70 0 2

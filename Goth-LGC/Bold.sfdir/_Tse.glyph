@@ -2,8 +2,6 @@ StartChar: Tse
 Encoding: 1062 1062 277
 Width: 807
 Flags: MW
-HStem: -167 21G<657 767> 0 106<239 524> 675 20G<91 239 524 671>
-VStem: 91 148<106 695> 524 147<106 695> 657 110<-167 0>
 LayerCount: 2
 Fore
 SplineSet

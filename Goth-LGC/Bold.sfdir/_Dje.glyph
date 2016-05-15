@@ -2,8 +2,6 @@ StartChar: Dje
 Encoding: 1026 1026 380
 Width: 886
 Flags: MW
-HStem: -22 72<614 753> 422 73<527.5 744> 593 102<39 693>
-VStem: 292 148<0 594> 709 137<210 316>
 LayerCount: 2
 Fore
 SplineSet

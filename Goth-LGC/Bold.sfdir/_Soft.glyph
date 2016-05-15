@@ -2,8 +2,6 @@ StartChar: Soft
 Encoding: 1068 1068 283
 Width: 733
 Flags: MW
-HStem: 0 87<233 421> 314 95<233 417.5> 675 20G<91 233>
-VStem: 91 142<0 695> 532 139<101 226>
 LayerCount: 2
 Fore
 SplineSet

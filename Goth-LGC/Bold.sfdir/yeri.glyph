@@ -2,8 +2,6 @@ StartChar: yeri
 Encoding: 1099 1099 315
 Width: 744
 Flags: MW
-HStem: 0 21G<555 676> 0 78<187 311> 233 53<188 306.836> 452 20G<67 187 555 676>
-VStem: 67 121<78 233 286 472> 359 128<67.9 255.1> 555 121<0 472>
 LayerCount: 2
 Fore
 SplineSet

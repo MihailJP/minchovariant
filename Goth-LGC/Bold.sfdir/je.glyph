@@ -2,8 +2,6 @@ StartChar: je
 Encoding: 1112 1112 399
 Width: 286
 Flags: MW
-HStem: -178 85<1 104> 452 20G<92 226> 573 122<91 226>
-VStem: 91 135<-79.7 472 573 695>
 LayerCount: 2
 Fore
 Refer: 74 106 N 1 0 0 1 0 0 2

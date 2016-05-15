@@ -2,8 +2,6 @@ StartChar: i.short
 Encoding: 1081 1081 296
 Width: 537
 Flags: MW
-HStem: 0 21<81 191 379 454> 425 20<81 156 344 454> 500 67<226.172 309.606>
-VStem: 81 75<70 445> 98 62<589.08 639> 376 61<580.712 644.694> 379 75<0 375>
 LayerCount: 2
 Fore
 SplineSet

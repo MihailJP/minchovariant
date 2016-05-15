@@ -2,8 +2,6 @@ StartChar: che
 Encoding: 1095 1095 310
 Width: 537
 Flags: MW
-HStem: -0 21G<379 454> 185 57<175.438 379> 425 20G<81 156 379 454>
-VStem: 81 75<262.888 445> 379 75<0 185 241 445>
 LayerCount: 2
 Fore
 SplineSet

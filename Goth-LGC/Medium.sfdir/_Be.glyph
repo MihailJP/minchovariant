@@ -2,8 +2,6 @@ StartChar: Be
 Encoding: 1041 1041 254
 Width: 667
 Flags: MW
-HStem: 0 56<96 443.5> 330 62<180 348> 628 66<96 554>
-VStem: 96 84<0 694> 528 82<156.5 228.5>
 LayerCount: 2
 Fore
 SplineSet

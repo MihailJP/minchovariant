@@ -2,8 +2,6 @@ StartChar: dze
 Encoding: 1109 1109 395
 Width: 383
 Flags: MW
-HStem: -11 63<139.663 293.5> 401 60<98.3 269.8>
-VStem: 33 71<245.1 371.2> 289 71<84.9 170.7>
 LayerCount: 2
 Fore
 Refer: 83 115 S 1 0 0 1 0 0 2

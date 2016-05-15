@@ -2,8 +2,6 @@ StartChar: i.ukran
 Encoding: 1110 1110 396
 Width: 239
 Flags: MW
-HStem: 0 21<81 156> 425 20<81 156> 590 89<74 164>
-VStem: 74 90<590 679> 81 75<0 445>
 LayerCount: 2
 Fore
 Refer: 73 105 N 1 0 0 1 0 0 2

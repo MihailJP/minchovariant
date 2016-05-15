@@ -2,8 +2,6 @@ StartChar: iu
 Encoding: 1102 1102 317
 Width: 730
 Flags: MW
-HStem: -11 64<378.6 565.8> 216 56<158 261> 399 62<396.8 582.7>
-VStem: 80 78<0 216 272 445> 261 78<85.4 231> 621 78<67.2 368.8>
 LayerCount: 2
 Fore
 SplineSet

@@ -2,8 +2,6 @@ StartChar: u.short
 Encoding: 1118 1118 403
 Width: 461
 Flags: MW
-HStem: -205 56<77.8551 157.1> 425 20<14 93 371 446> 500 67<190.527 272.857>
-VStem: 14 432<445 445> 62 61<597.4 639> 340 61<581.079 644.694>
 LayerCount: 2
 Fore
 SplineSet

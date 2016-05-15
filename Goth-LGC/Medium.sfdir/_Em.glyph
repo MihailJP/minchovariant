@@ -2,8 +2,6 @@ StartChar: Em
 Encoding: 1052 1052 266
 Width: 875
 Flags: MW
-HStem: 0 21<100 178 697 775> 674 20<100 214 660 775>
-VStem: 100 78<0 193.333> 697 78<0 624>
 LayerCount: 2
 Fore
 Refer: 45 77 S 1 0 0 1 0 0 2

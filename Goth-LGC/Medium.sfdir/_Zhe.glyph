@@ -2,8 +2,6 @@ StartChar: Zhe
 Encoding: 1046 1046 260
 Width: 1111
 Flags: MW
-HStem: 0 21G<41 135 511 597 974 1068> 674 20G<55 148 511 597 961 1054>
-VStem: 511 86<0 228 323 694>
 LayerCount: 2
 Fore
 SplineSet

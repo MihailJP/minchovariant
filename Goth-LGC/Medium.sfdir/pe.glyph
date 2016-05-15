@@ -2,8 +2,6 @@ StartChar: pe
 Encoding: 1087 1087 302
 Width: 517
 Flags: MW
-HStem: 0 21G<81 156 358 433> 383 62<156 358>
-VStem: 81 75<0 383> 358 75<0 383>
 LayerCount: 2
 Fore
 SplineSet
