@@ -1,0 +1,24 @@
+StartChar: Ie
+Encoding: 1045 1045 258
+Width: 597
+Flags: MW
+HStem: 0 70<94 555> 330 62<184 514> 628 66<94 541>
+VStem: 94 90<0 694>
+LayerCount: 2
+Fore
+SplineSet
+94 0 m 1
+ 94 694 l 1
+ 541 694 l 1
+ 541 628 l 1
+ 184 630 l 1
+ 184 392 l 1
+ 514 392 l 1
+ 514 330 l 1
+ 184 330 l 1
+ 184 70 l 1
+ 555 72 l 5
+ 555 0 l 1
+ 94 0 l 1
+EndSplineSet
+EndChar

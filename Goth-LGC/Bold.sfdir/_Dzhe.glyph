@@ -1,0 +1,24 @@
+StartChar: Dzhe
+Encoding: 1039 1039 392
+Width: 764
+Flags: MW
+HStem: -167 21G<321 441> 0 106<239 321 441 523> 675 20G<91 239 523 671>
+VStem: 91 148<106 695> 321 120<-167 0> 523 148<106 695>
+LayerCount: 2
+Fore
+SplineSet
+91 0 m 1
+ 91 695 l 1
+ 239 695 l 1
+ 239 106 l 1
+ 523 106 l 1
+ 523 695 l 1
+ 671 695 l 1
+ 671 0 l 1
+ 441 0 l 1
+ 441 -167 l 1
+ 321 -167 l 1
+ 321 0 l 1
+ 91 0 l 1
+EndSplineSet
+EndChar

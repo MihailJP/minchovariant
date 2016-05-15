@@ -1,0 +1,24 @@
+StartChar: sha
+Encoding: 1096 1096 312
+Width: 836
+Flags: MW
+HStem: 0 73<187 357 478 647> 452 20G<67 187 357 478 647 768>
+VStem: 67 120<73 472> 357 121<73 472> 647 121<73 472>
+LayerCount: 2
+Fore
+SplineSet
+67 0 m 1
+ 67 472 l 1
+ 187 472 l 1
+ 187 73 l 1
+ 357 73 l 1
+ 357 472 l 1
+ 478 472 l 1
+ 478 73 l 1
+ 647 73 l 1
+ 647 472 l 1
+ 768 472 l 1
+ 768 0 l 1
+ 67 0 l 1
+EndSplineSet
+EndChar

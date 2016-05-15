@@ -1,0 +1,22 @@
+StartChar: i.cyr
+Encoding: 1080 1080 296
+Width: 592
+Flags: MW
+HStem: 0 21G<67 245 403 524> 452 20G<67 187 346 524>
+VStem: 67 120<0 472> 403 121<0 472>
+LayerCount: 2
+Fore
+SplineSet
+67 0 m 1
+ 67 472 l 1
+ 187 472 l 1
+ 187 125 l 1
+ 346 472 l 1
+ 524 472 l 1
+ 524 0 l 1
+ 403 0 l 1
+ 403 347 l 1
+ 245 0 l 1
+ 67 0 l 1
+EndSplineSet
+EndChar

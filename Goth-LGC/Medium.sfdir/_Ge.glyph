@@ -1,0 +1,18 @@
+StartChar: Ge
+Encoding: 1043 1043 256
+Width: 542
+Flags: MW
+HStem: 0 21G<94 184> 628 66<94 499>
+VStem: 94 90<0 694>
+LayerCount: 2
+Fore
+SplineSet
+94 0 m 1
+ 94 694 l 1
+ 499 694 l 1
+ 499 628 l 1
+ 184 630 l 5
+ 184 0 l 1
+ 94 0 l 1
+EndSplineSet
+EndChar

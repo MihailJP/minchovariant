@@ -1,0 +1,10 @@
+StartChar: a.cyr
+Encoding: 1072 1072 286
+Width: 480
+Flags: MW
+HStem: -11 62<141.1 219.1> 193 52<227.1 322> 401 60<148.9 263.253>
+VStem: 44 73<65.9 195.9> 322 78<0 35 46.8 193>
+LayerCount: 2
+Fore
+Refer: 65 97 S 1 0 0 1 0 0 2
+EndChar

@@ -1,0 +1,12 @@
+StartChar: Yi
+Encoding: 1031 1031 385
+Width: 331
+Flags: MW
+HStem: 0 21<90 238> 675 20<90 238> 788 112<1 113 215 327>
+VStem: 1 112<788 900> 90 148<0 695> 215 112<788 900>
+LayerCount: 2
+Fore
+Refer: 41 73 N 1 0 0 1 -1 0 2
+Refer: 107 183 N 1 0 0 1 -52 594 2
+Refer: 107 183 N 1 0 0 1 162 594 2
+EndChar

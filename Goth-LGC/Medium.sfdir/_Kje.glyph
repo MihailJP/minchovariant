@@ -1,0 +1,18 @@
+StartChar: Kje
+Encoding: 1036 1036 389
+Width: 694
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+262 760 m 1
+ 419 850 l 25
+ 529 850 l 1
+ 371 771 l 1
+ 349 761 l 1
+ 334 760 l 1
+ 286 760 l 1
+ 262 760 l 1
+EndSplineSet
+Refer: 264 1050 N 1 0 0 1 0 0 2
+EndChar

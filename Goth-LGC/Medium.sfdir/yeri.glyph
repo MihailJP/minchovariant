@@ -1,0 +1,17 @@
+StartChar: yeri
+Encoding: 1099 1099 314
+Width: 683
+Flags: MW
+HStem: 0 21<525 600> 0 64<156 292.412> 216 56<156 373> 425 20<81 156 525 600>
+VStem: 81 75<64 216 272 445> 376 70<112.4 178.7> 525 75<0 445>
+LayerCount: 2
+Fore
+SplineSet
+525 0 m 1
+ 525 445 l 1
+ 600 445 l 1
+ 600 0 l 1
+ 525 0 l 1
+EndSplineSet
+Refer: 315 1100 N 1 0 0 1 0 0 2
+EndChar
