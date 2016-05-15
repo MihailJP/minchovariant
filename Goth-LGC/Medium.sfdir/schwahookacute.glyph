@@ -1,9 +1,9 @@
 StartChar: schwahookacute
-Encoding: 65549 -1 387
+Encoding: 65549 -1 388
 Width: 599
 Flags: MW
 LayerCount: 2
 Fore
-Refer: 386 602 N 1 0 0 1 0 0 2
-Refer: 213 180 S 1 0 0 1 -72 0 2
+Refer: 387 602 N 1 0 0 1 0 0 2
+Refer: 214 180 S 1 0 0 1 -72 0 2
 EndChar

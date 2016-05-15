@@ -1,5 +1,5 @@
 StartChar: Kje
-Encoding: 1036 1036 432
+Encoding: 1036 1036 433
 Width: 694
 Flags: MW
 LayerCount: 2
@@ -14,5 +14,5 @@ SplineSet
  286 760 l 1
  262 760 l 1
 EndSplineSet
-Refer: 281 1050 N 1 0 0 1 0 0 2
+Refer: 282 1050 N 1 0 0 1 0 0 2
 EndChar

@@ -1,9 +1,9 @@
 StartChar: schwaacute
-Encoding: 65547 -1 384
+Encoding: 65547 -1 385
 Width: 444
 Flags: MW
 LayerCount: 2
 Fore
-Refer: 383 601 N 1 0 0 1 0 0 2
-Refer: 213 180 S 1 0 0 1 -80 0 2
+Refer: 384 601 N 1 0 0 1 0 0 2
+Refer: 214 180 S 1 0 0 1 -80 0 2
 EndChar

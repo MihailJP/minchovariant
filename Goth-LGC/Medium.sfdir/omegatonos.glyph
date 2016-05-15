@@ -1,5 +1,5 @@
 StartChar: omegatonos
-Encoding: 974 974 421
+Encoding: 974 974 422
 Width: 667
 Flags: MW
 LayerCount: 2
@@ -11,5 +11,5 @@ SplineSet
  329 495 l 5
  268 495 l 5
 EndSplineSet
-Refer: 269 969 S 1 0 0 1 0 0 2
+Refer: 270 969 S 1 0 0 1 0 0 2
 EndChar
