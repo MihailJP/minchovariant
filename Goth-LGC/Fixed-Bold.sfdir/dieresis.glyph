@@ -1,0 +1,9 @@
+StartChar: dieresis
+Encoding: 168 168 133
+Width: 500
+Flags: MW
+LayerCount: 2
+Fore
+Refer: 136 183 S 1 0 0 1 107 372 2
+Refer: 136 183 S 1 0 0 1 -107 372 2
+EndChar

@@ -1,0 +1,22 @@
+StartChar: K
+Encoding: 75 75 43
+Width: 500
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+24 0 m 1
+ 24 695 l 1
+ 154 695 l 1
+ 154 376 l 1
+ 314 695 l 1
+ 460 695 l 1
+ 283 402 l 1
+ 476 0 l 1
+ 327 0 l 1
+ 207 296 l 1
+ 154 218 l 1
+ 154 0 l 1
+ 24 0 l 1
+EndSplineSet
+EndChar

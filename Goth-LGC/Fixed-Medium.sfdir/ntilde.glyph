@@ -1,0 +1,19 @@
+StartChar: ntilde
+Encoding: 241 241 103
+Width: 500
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+84 551 m 1x58
+ 86 618 132 660 182 660 c 0x38
+ 234 660 271 612 314 612 c 0
+ 341 612 355 635 356 661 c 1
+ 416 661 l 1
+ 414 595 369 551 318 551 c 0x58
+ 267 551 229 599 186 599 c 0x38
+ 170 599 148 590 144 551 c 1x98
+ 84 551 l 1x58
+EndSplineSet
+Refer: 78 110 N 1 0 0 1 0 0 2
+EndChar
