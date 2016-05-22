@@ -1,0 +1,28 @@
+StartChar: uF2E56
+Encoding: 994902 994902 112
+Width: 1000
+VWidth: 0
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+172 0 m 5
+ 172 695 l 5
+ 290 695 l 5
+ 290 316 l 5
+ 438 472 l 5
+ 590 472 l 5
+ 418 293 l 5
+ 614 0 l 5
+ 480 0 l 5
+ 340 209 l 5
+ 286 155 l 5
+ 286 0 l 5
+ 172 0 l 5
+694 0 m 5
+ 694 695 l 5
+ 828 695 l 5
+ 828 0 l 5
+ 694 0 l 5
+EndSplineSet
+EndChar
