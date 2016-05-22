@@ -2,8 +2,6 @@ StartChar: uF1F62
 Encoding: 991074 991074 54
 Width: 1000
 Flags: MW
-HStem: 0 31<-189 -165> 3 28 340 31<3 302 3 302> 652 28
-VStem: -86 89<78 340 371 605> 302 89<78 340 340 340 371 605>
 LayerCount: 2
 Fore
 SplineSet
