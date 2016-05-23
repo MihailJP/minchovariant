@@ -1,0 +1,18 @@
+StartChar: uF27E2
+Encoding: 993250 993250 2128
+Width: 1000
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+1023 360 m 1
+ 999 380 969 403 927 426 c 4
+ 851 467 735 504 536 504 c 0
+ 176 504 75 373 50 360 c 1
+ 50 433 l 1
+ 167 578 344 640 537 640 c 0
+ 730 640 906 578 1023 433 c 1
+ 1023 360 l 1
+EndSplineSet
+Colour: ffff
+EndChar
