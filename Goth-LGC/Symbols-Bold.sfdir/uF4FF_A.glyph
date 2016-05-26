@@ -1,0 +1,19 @@
+StartChar: uF4FFA
+Encoding: 1003514 1003514 167
+Width: 1000
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+570 680 m 1
+ 693 720 l 1
+ 782 515 858 281 922 19 c 1
+ 785 -9 l 1
+ 725 248 653 478 570 680 c 1
+407 701 m 1
+ 390 443 318 207 191 -7 c 1
+ 69 53 l 1
+ 190 254 259 472 277 709 c 1
+ 407 701 l 1
+EndSplineSet
+EndChar
