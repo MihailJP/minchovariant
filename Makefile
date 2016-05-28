@@ -1,6 +1,6 @@
 SUBDIRS=mincho1 mincho3 mincho5 mincho7 mincho9 \
 socho1 socho3 socho5 socho7 \
-gothic3
+gothic1 gothic3 gothic5 gothic7
 DOWNLOADABLES=dump.tar.gz
 CIDMAPS=cidpua.map cidpua-kana.map cidpua-rkana.map \
 cidpua-kumimoji.map cidpua-rot.map cidpua-ruby.map cidpua-kanap.map \
@@ -219,6 +219,14 @@ socho7: FS-LGC/Makefile socho7/Makefile socho3/work.otf FS-LGC/lgc7.otf mincho3/
 FS-LGC/lgc7.otf: FS-LGC/Makefile
 	cd FS-LGC && $(MAKE) lgc7.otf
 
+gothic1/Makefile: $(METAMAKE_DEPS)
+	mkdir -p gothic1
+	./mkmkfile.rb gothic1.otf gothic 1 "HZ Gothic" "Light" "HZ ゴシック" "細" > $@
+gothic1: Goth-LGC/Makefile gothic1/Makefile gothic3/work.otf Goth-LGC/lgc1.otf mincho3/work.otf mincho1/work.otf
+	cd $@ && $(MAKE)
+Goth-LGC/lgc1.otf: Goth-LGC/Makefile
+	cd Goth-LGC && $(MAKE) lgc1.otf
+
 gothic3/Makefile: $(METAMAKE_DEPS)
 	mkdir -p gothic3
 	./mkmkfile.rb gothic3.otf gothic 3 "HZ Gothic" "Book" "HZ ゴシック" "標準" > $@
@@ -228,6 +236,23 @@ gothic3/work.otf: gothic3
 	cd gothic3 && $(MAKE) work.otf
 Goth-LGC/lgc3.otf: Goth-LGC/Makefile
 	cd Goth-LGC && $(MAKE) lgc3.otf
+
+gothic5/Makefile: $(METAMAKE_DEPS)
+	mkdir -p gothic5
+	./mkmkfile.rb gothic5.otf gothic 5 "HZ Gothic" "Demi" "HZ ゴシック" "中太" > $@
+gothic5: Goth-LGC/Makefile gothic5/Makefile gothic3/work.otf Goth-LGC/lgc5.otf mincho3/work.otf mincho5/work.otf
+	cd $@ && $(MAKE)
+Goth-LGC/lgc5.otf: Goth-LGC/Makefile
+	cd Goth-LGC && $(MAKE) lgc5.otf
+
+gothic7/Makefile: $(METAMAKE_DEPS)
+	mkdir -p gothic7
+	./mkmkfile.rb gothic7.otf gothic 7 "HZ Gothic" "Bold" "HZ ゴシック" "太" > $@
+gothic7: Goth-LGC/Makefile gothic7/Makefile gothic3/work.otf Goth-LGC/lgc7.otf mincho3/work.otf mincho7/work.otf
+	cd $@ && $(MAKE)
+Goth-LGC/lgc7.otf: Goth-LGC/Makefile
+	cd Goth-LGC && $(MAKE) lgc7.otf
+
 
 mincho1/mincho1.otf: mincho1
 mincho3/mincho3.otf: mincho3
@@ -240,7 +265,10 @@ socho3/socho3.otf: socho3
 socho5/socho5.otf: socho5
 socho7/socho7.otf: socho7
 
+gothic1/gothic1.otf: gothic1
 gothic3/gothic3.otf: gothic3
+gothic5/gothic5.otf: gothic5
+gothic7/gothic7.otf: gothic7
 
 ChangeLog: .git
 	./mkchglog.rb > $@
