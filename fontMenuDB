@@ -154,3 +154,18 @@ s=Bold
 f=3,1,0x411,HZ \5b8b\671d
 s=3,1,0x411,\592a
 
+
+
+[HZGothic-Book]
+f=HZ Gothic
+s=Book
+
+f=3,1,0x411,HZ \30b4\30b7\30c3\30af
+s=3,1,0x411,\6a19\6e96
+
+[HZGothcc-Book]
+f=HZ Gothic
+s=Book
+
+f=3,1,0x411,HZ \30b4\30b7\30c3\30af
+s=3,1,0x411,\6a19\6e96

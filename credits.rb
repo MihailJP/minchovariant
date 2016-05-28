@@ -7,7 +7,7 @@ def fontCopyrightOf(fontname)
 	symbol   = "Some symbol glyphs are from George Doulos' Symbola font."
 	aj16Sans = "AJ1-6 sans-serif glyphs from M+ fonts."
 	merge    = "Merged by MihailJP, June 2015."
-	if fontname =~ /Mincho/i then
+	if fontname =~ /Mincho|Gothic/i then
 		"#{kage}\n" \
 		"Alphabet glyphs by Andrey V. Panov (C) 2005 All rights reserved.\n" \
 		"#{symbol}\n#{aj16Sans}\n#{merge}"
@@ -22,7 +22,7 @@ def fontCopyrightOf(fontname)
 end
 
 def fontLicenseOf(fontname)
-	if fontname =~ /Mincho/i then
+	if fontname =~ /Mincho|Gothic/i then
 		"X11 License with exception:\n"
 		"As a special exception, if you create a document which uses these fonts, " \
 		"and embed these fonts or unaltered portions of these fonts into the " \

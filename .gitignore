@@ -10,6 +10,7 @@ head.txt
 makeglyph.js
 parts.txt
 parts-socho.txt
+parts-gothic.txt
 cidalias.sed
 cidalias.txt
 cidalias1.txt
@@ -22,6 +23,7 @@ lgc.map
 lgc-*.map
 otf-features
 otf-features-socho
+otf-features-gothic
 *.log
 *.scr
 *.sfd
@@ -51,6 +53,10 @@ socho1
 socho3
 socho5
 socho7
+gothic1
+gothic3
+gothic5
+gothic7
 HZSocho.zip
 HZSocho.tar.*
 HZSocho-*.zip

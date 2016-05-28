@@ -1,5 +1,6 @@
 SUBDIRS=mincho1 mincho3 mincho5 mincho7 mincho9 \
-socho1 socho3 socho5 socho7
+socho1 socho3 socho5 socho7 \
+gothic3
 DOWNLOADABLES=dump.tar.gz
 CIDMAPS=cidpua.map cidpua-kana.map cidpua-rkana.map \
 cidpua-kumimoji.map cidpua-rot.map cidpua-ruby.map cidpua-kanap.map \
@@ -11,13 +12,14 @@ cidpua-rblockelem.map cidpua-uprightruby.map
 LGCMAPS=lgc.map lgc-fixed.map lgc-third.map lgc-quarter.map lgc-wide.map lgc-italic.map \
 lgc-rotated.map lgc-rotfixed.map lgc-rotquarter.map lgc-rotthird.map lgc-rotitalic.map
 METAMAKE_DEP_GENERATABLES=HZMincho.db dump_newest_only.txt dump_all_versions.txt glyphs.txt cidalias.sed \
-otf-features otf-features-socho parts.txt parts-socho.txt $(CIDMAPS) $(LGCMAPS) \
+otf-features otf-features-socho otf-features-gothic \
+parts.txt parts-socho.txt parts-gothic.txt $(CIDMAPS) $(LGCMAPS) \
 groups/HALFWIDTH.txt groups/NONSPACING.txt
 METAMAKE_DEPS=$(METAMAKE_DEP_GENERATABLES) ./mkmkfile.rb
 MAPGEN_DEPS=genmaps.rb HZMincho.db
 GENERATABLES=$(METAMAKE_DEP_GENERATABLES) $(SUBDIRS) \
 groups/cidalias.txt cidalias1.txt cidalias2.txt \
-parts.txt parts-socho.txt \
+parts.txt parts-socho.txt parts-gothic.txt \
 ChangeLog README-Socho.md
 TARGETS=$(GENERATABLES) $(DOWNLOADABLES)
 ARCHIVE_CONTENTS=README.md ChangeLog \
@@ -56,6 +58,8 @@ otf-features: HZMincho.db genfeat.rb
 	./genfeat.rb mincho > $@
 otf-features-socho: HZMincho.db genfeat.rb
 	./genfeat.rb socho > $@
+otf-features-gothic: HZMincho.db genfeat.rb
+	./genfeat.rb gothic > $@
 
 cidpua.map: $(MAPGEN_DEPS)
 	./genmaps.rb 0 > $@
@@ -136,6 +140,8 @@ parts.txt: dump_newest_only.txt dump_all_versions.txt cidalias.sed
 	cat dump_newest_only.txt dump_all_versions.txt | ./mkparts.pl | sed -f cidalias.sed | sed -f kage-handakuten.sed | ./kage-roofed-l2rd.rb > $@
 parts-socho.txt: parts.txt
 	cat parts.txt | ./kage-socho.rb > $@
+parts-gothic.txt: parts.txt gothic.csv
+	cat parts.txt | ./replace-glyph.rb -i -l gothic.csv > $@
 
 mincho1/Makefile: $(METAMAKE_DEPS)
 	mkdir -p mincho1
@@ -213,6 +219,16 @@ socho7: FS-LGC/Makefile socho7/Makefile socho3/work.otf FS-LGC/lgc7.otf mincho3/
 FS-LGC/lgc7.otf: FS-LGC/Makefile
 	cd FS-LGC && $(MAKE) lgc7.otf
 
+gothic3/Makefile: $(METAMAKE_DEPS)
+	mkdir -p gothic3
+	./mkmkfile.rb gothic3.otf gothic 3 "HZ Gothic" "Book" "HZ ゴシック" "標準" > $@
+gothic3: Goth-LGC/Makefile gothic3/Makefile Goth-LGC/lgc3.otf
+	cd $@ && $(MAKE)
+gothic3/work.otf: gothic3
+	cd gothic3 && $(MAKE) work.otf
+Goth-LGC/lgc3.otf: Goth-LGC/Makefile
+	cd Goth-LGC && $(MAKE) lgc3.otf
+
 mincho1/mincho1.otf: mincho1
 mincho3/mincho3.otf: mincho3
 mincho5/mincho5.otf: mincho5
@@ -223,6 +239,8 @@ socho1/socho1.otf: socho1
 socho3/socho3.otf: socho3
 socho5/socho5.otf: socho5
 socho7/socho7.otf: socho7
+
+gothic3/gothic3.otf: gothic3
 
 ChangeLog: .git
 	./mkchglog.rb > $@

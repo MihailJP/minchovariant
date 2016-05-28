@@ -30,6 +30,7 @@ while line = gets
 	line.chomp!
 	line.gsub! /Mincoo/, 'Mincho'
 	line.gsub! /Soc[ho][-o]/, 'Socho'
+	line.gsub! /Gothcc/, 'Gothic'
 	line.sub! /<fsType value="[01]{8} [01]{8}"\/>/, '<fsType value="00000000 00000000"/>'
 	line.sub! /<sFamilyClass value="[[:digit:]]+"\/>/, '<sFamilyClass value="513"/>'
 	line.sub! /<bFamilyType value="1?[[:digit:]]"\/>/, '<bFamilyType value="2"/>'
