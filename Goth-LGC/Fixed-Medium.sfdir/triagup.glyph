@@ -1,0 +1,19 @@
+StartChar: triagup
+Encoding: 9650 9650 128
+Width: 500
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+29 106 m 4
+ 29 109 29 108 74 198 c 6
+ 232 516 l 6
+ 236 523 239 530 249 530 c 4
+ 257 530 261 528 268 514 c 6
+ 467 116 l 6
+ 468 113 470 109 470 106 c 4
+ 470 101 466 100 460 100 c 6
+ 44 100 l 6
+ 32 100 29 101 29 106 c 4
+EndSplineSet
+EndChar

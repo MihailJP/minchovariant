@@ -1,0 +1,18 @@
+StartChar: Ucircumflex
+Encoding: 219 219 180
+Width: 687
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+318 727 m 1
+ 474 900 l 1
+ 531 900 l 1
+ 630 727 l 1
+ 568 727 l 1
+ 496 849 l 1
+ 380 727 l 1
+ 318 727 l 1
+EndSplineSet
+Refer: 53 85 S 1 0 0 1 0 0 2
+EndChar

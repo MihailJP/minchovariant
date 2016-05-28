@@ -1,0 +1,19 @@
+StartChar: icaron
+Encoding: 464 464 280
+Width: 239
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+64 605 m 5
+ 126 605 l 5
+ 214 537 l 5
+ 325 605 l 5
+ 360 605 l 5
+ 387 604 l 5
+ 241 511 244 511 227 511 c 6
+ 191 511 l 6
+ 171 511 149 534 64 605 c 5
+EndSplineSet
+Refer: 137 305 N 1 0 0 1 0 0 3
+EndChar

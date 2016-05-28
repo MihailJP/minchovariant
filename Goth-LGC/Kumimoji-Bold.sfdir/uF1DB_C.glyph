@@ -1,0 +1,39 @@
+StartChar: uF1DBC
+Encoding: 990652 990652 39
+Width: 1000
+VWidth: 0
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+40 584 m 1
+ 40 689 l 1
+ 354 689 l 1
+ 354 584 l 1
+ 271 588 l 1
+ 271 0 l 1
+ 123 0 l 1
+ 123 588 l 1
+ 40 584 l 1
+375 0 m 1
+ 375 692 l 1x6c
+ 644 692 l 1
+ 644 587 l 1x34
+ 523 590 l 1
+ 523 407 l 1
+ 613 407 l 1
+ 613 312 l 1
+ 523 312 l 1
+ 523 107 l 1xac
+ 659 111 l 1
+ 659 0 l 1x64
+ 375 0 l 1
+687 0 m 1x70
+ 687 695 l 1
+ 835 695 l 1
+ 835 101 l 1xb0
+ 960 105 l 1
+ 960 0 l 1x70
+ 687 0 l 1x70
+EndSplineSet
+EndChar

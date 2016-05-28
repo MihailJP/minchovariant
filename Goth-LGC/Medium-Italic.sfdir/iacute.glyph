@@ -1,0 +1,15 @@
+StartChar: iacute
+Encoding: 237 237 196
+Width: 239
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+122 510 m 1
+ 278 640 l 1
+ 356 640 l 1
+ 184 510 l 1
+ 122 510 l 1
+EndSplineSet
+Refer: 137 305 N 1 0 0 1 0 0 2
+EndChar

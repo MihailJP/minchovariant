@@ -1,0 +1,26 @@
+StartChar: four
+Encoding: 52 52 4
+Width: 1000
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+240 171 m 1
+ 240 219 l 0
+ 240 232 241 234 251 250 c 2
+ 560 655 l 1
+ 661 655 l 1
+ 661 232 l 1xe8
+ 760 232 l 1
+ 760 171 l 1
+ 661 171 l 1
+ 661 0 l 1
+ 578 0 l 1
+ 578 171 l 1xf0
+ 240 171 l 1
+318 232 m 1
+ 587 232 l 1xe8
+ 587 618 l 1
+ 567 538 489 449 318 232 c 1
+EndSplineSet
+EndChar

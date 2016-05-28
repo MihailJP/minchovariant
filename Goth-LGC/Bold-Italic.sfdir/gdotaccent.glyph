@@ -1,0 +1,15 @@
+StartChar: gdotaccent
+Encoding: 289 289 387
+Width: 550
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+289 539 m 5
+ 315 687 l 5
+ 463 687 l 5
+ 437 539 l 5
+ 289 539 l 5
+EndSplineSet
+Refer: 71 103 N 1 0 0 1 0 0 3
+EndChar

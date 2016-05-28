@@ -1,0 +1,17 @@
+StartChar: Ograve
+Encoding: 210 210 172
+Width: 794
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+372 863 m 5
+ 565 863 l 5
+ 670 764 l 5
+ 583 764 l 5
+ 567 765 l 5
+ 554 770 l 5
+ 372 863 l 5
+EndSplineSet
+Refer: 47 79 S 1 0 0 1 0 0 2
+EndChar

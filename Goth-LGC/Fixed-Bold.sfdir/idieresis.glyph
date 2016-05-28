@@ -1,0 +1,15 @@
+StartChar: idieresis
+Encoding: 239 239 115
+Width: 500
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+183 0 m 5
+ 183 472 l 5
+ 317 472 l 5
+ 317 0 l 5
+ 183 0 l 5
+EndSplineSet
+Refer: 133 168 N 1 0 0 1 0 0 2
+EndChar

@@ -1,0 +1,19 @@
+StartChar: caroncmb
+Encoding: 780 780 407
+Width: 0
+VWidth: 1136
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+-317 816 m 5
+ -244 816 l 5
+ -146 730 l 5
+ -19 816 l 5
+ 28 816 l 5
+ 54 816 l 5
+ -102 677 l 5
+ -211 677 l 5
+ -317 816 l 5
+EndSplineSet
+EndChar

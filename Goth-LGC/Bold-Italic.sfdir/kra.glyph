@@ -1,0 +1,22 @@
+StartChar: kra
+Encoding: 312 312 360
+Width: 531
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+67 0 m 5
+ 150 472 l 5
+ 268 472 l 5
+ 241 315 l 5
+ 418 472 l 5
+ 570 472 l 5
+ 365 292 l 5
+ 511 0 l 5
+ 376 0 l 5
+ 272 210 l 5
+ 213 158 l 5
+ 185 0 l 5
+ 67 0 l 5
+EndSplineSet
+EndChar

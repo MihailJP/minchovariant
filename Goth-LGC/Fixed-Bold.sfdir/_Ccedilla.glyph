@@ -1,0 +1,15 @@
+StartChar: Ccedilla
+Encoding: 199 199 101
+Width: 500
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+166 -168 m 1
+ 258 -23 l 1
+ 331 -23 l 1
+ 270 -168 l 1
+ 166 -168 l 1
+EndSplineSet
+Refer: 35 67 N 1 0 0 1 0 0 2
+EndChar

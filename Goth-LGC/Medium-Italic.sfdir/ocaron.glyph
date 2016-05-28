@@ -1,0 +1,19 @@
+StartChar: ocaron
+Encoding: 466 466 283
+Width: 500
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+195 605 m 5
+ 257 605 l 5
+ 345 537 l 5
+ 456 605 l 5
+ 491 605 l 5
+ 518 604 l 5
+ 372 511 375 511 358 511 c 6
+ 322 511 l 6
+ 302 511 280 534 195 605 c 5
+EndSplineSet
+Refer: 79 111 N 1 0 0 1 0 0 3
+EndChar

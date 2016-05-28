@@ -1,0 +1,21 @@
+StartChar: uF1DCD
+Encoding: 990669 990669 280
+Width: 1000
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+811 20 m 256
+ 811 7 800 0 778 0 c 2
+ 222 0 l 2
+ 202 0 191 6 190 17 c 0
+ 189 20 189 26 189 33 c 2
+ 189 653 l 2
+ 189 675 196 686 209 686 c 256
+ 222 686 229 675 229 653 c 2
+ 229 40 l 1
+ 778 40 l 2
+ 800 40 811 33 811 20 c 256
+EndSplineSet
+Colour: ff
+EndChar

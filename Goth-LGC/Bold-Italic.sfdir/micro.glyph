@@ -1,0 +1,26 @@
+StartChar: micro
+Encoding: 181 181 150
+Width: 561
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+30 -167 m 1
+ 142 472 l 1
+ 279 472 l 1
+ 219 130 l 2
+ 209 70 202 50 268 50 c 0
+ 308 50 361 74 386 140 c 4
+ 390 151 393 162 395 175 c 2
+ 447 472 l 1
+ 583 472 l 1
+ 500 0 l 1
+ 367 0 l 1
+ 375 46 l 1
+ 380 80 l 1
+ 317 -7 234 -11 202 -11 c 2
+ 194 -11 l 1
+ 167 -167 l 1
+ 30 -167 l 1
+EndSplineSet
+EndChar

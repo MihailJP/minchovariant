@@ -1,0 +1,20 @@
+StartChar: z
+Encoding: 122 122 61
+Width: 1000
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+251 0 m 1
+ 251 49 l 1
+ 575 404 l 1
+ 266 402 l 1
+ 266 472 l 1
+ 746 472 l 1
+ 746 427 l 1
+ 424 74 l 1
+ 749 76 l 1
+ 749 0 l 1
+ 251 0 l 1
+EndSplineSet
+EndChar

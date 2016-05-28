@@ -1,0 +1,18 @@
+StartChar: Udieresisacute
+Encoding: 471 471 377
+Width: 764
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+459 965 m 5
+ 598 1063 l 5
+ 791 1063 l 5
+ 578 971 l 5
+ 565 967 l 5
+ 549 965 l 13
+ 489 965 l 5
+ 459 965 l 5
+EndSplineSet
+Refer: 181 220 N 1 0 0 1 0 0 2
+EndChar

@@ -1,0 +1,19 @@
+StartChar: r
+Encoding: 114 114 82
+Width: 500
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+128 0 m 1xd0
+ 128 450 l 1
+ 198 450 l 1
+ 198 404 l 5
+ 198 360 l 1xe0
+ 215 384 266 454 372 455 c 1
+ 372 388 l 1
+ 314 386 202 351 202 206 c 2xd0
+ 202 0 l 1
+ 128 0 l 1xd0
+EndSplineSet
+EndChar

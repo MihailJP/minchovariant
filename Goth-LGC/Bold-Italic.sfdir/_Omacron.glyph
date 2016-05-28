@@ -1,0 +1,17 @@
+StartChar: Omacron
+Encoding: 332 332 240
+Width: 794
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+204 809 m 0
+ 207 825 220 851 260 851 c 2
+ 827 851 l 2
+ 874 851 877 826 874 809 c 0
+ 871 794 859 767 814 767 c 2
+ 246 767 l 2
+ 201 767 202 795 204 809 c 0
+EndSplineSet
+Refer: 47 79 N 1 0 0 1 0 0 3
+EndChar

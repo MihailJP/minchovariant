@@ -1,0 +1,20 @@
+StartChar: Idieresis
+Encoding: 207 207 169
+Width: 331
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+141 788 m 1
+ 161 900 l 1
+ 273 900 l 1
+ 253 788 l 1
+ 141 788 l 1
+355 788 m 1
+ 375 900 l 1
+ 487 900 l 1
+ 467 788 l 1
+ 355 788 l 1
+EndSplineSet
+Refer: 41 73 N 1 0 0 1 0 0 2
+EndChar

@@ -1,0 +1,18 @@
+StartChar: v
+Encoding: 118 118 57
+Width: 1000
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+236 445 m 1
+ 313 445 l 1
+ 431 201 l 2
+ 469 97 475 81 480 50 c 1
+ 489 116 677 406 690 445 c 1
+ 764 445 l 1
+ 522 0 l 1
+ 434 0 l 1
+ 236 445 l 1
+EndSplineSet
+EndChar

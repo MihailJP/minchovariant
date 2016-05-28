@@ -1,0 +1,24 @@
+StartChar: dieresistonos
+Encoding: 901 901 351
+Width: 278
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+161 495 m 1
+ 287 694 l 1
+ 366 694 l 1
+ 222 495 l 1
+ 161 495 l 1
+101 507 m 1
+ 112 569 l 1
+ 173 569 l 1
+ 162 507 l 1
+ 101 507 l 1
+292 507 m 1
+ 303 569 l 1
+ 365 569 l 1
+ 354 507 l 1
+ 292 507 l 1
+EndSplineSet
+EndChar

@@ -1,0 +1,19 @@
+StartChar: zcaron
+Encoding: 382 382 222
+Width: 476
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+177 680 m 5
+ 250 680 l 5
+ 348 594 l 5
+ 475 680 l 5
+ 522 680 l 5
+ 548 680 l 5
+ 392 541 l 5
+ 283 541 l 5
+ 177 680 l 5
+EndSplineSet
+Refer: 90 122 S 1 0 0 1 0 0 2
+EndChar

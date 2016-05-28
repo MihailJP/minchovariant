@@ -1,0 +1,21 @@
+StartChar: Uogonek
+Encoding: 370 370 376
+Width: 764
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+494 0 m 17
+ 462 0 380 -49 378 -80 c 1
+ 379 -87 l 1
+ 381 -93 l 1
+ 390 -103 399 -107 418 -107 c 0
+ 447 -107 478 -97 493 -92 c 1
+ 499 -162 l 1
+ 465 -176 425 -189 379 -189 c 0
+ 315 -189 270 -161 278 -118 c 0
+ 286 -71 353 -25 400 0 c 1
+ 494 0 l 17
+EndSplineSet
+Refer: 53 85 N 1 0 0 1 0 0 2
+EndChar

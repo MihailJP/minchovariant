@@ -1,0 +1,21 @@
+StartChar: Ntilde
+Encoding: 209 209 102
+Width: 500
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+91 774 m 1
+ 93 848 141 889 189 889 c 0xde
+ 241 889 278 836 323 836 c 0xee
+ 329 836 335 837 340 840 c 0
+ 354 847 362 865 363 889 c 1
+ 424 889 l 1xde
+ 421 815 374 775 326 775 c 0xee
+ 274 775 237 828 193 828 c 0xde
+ 187 828 183 827 178 825 c 0
+ 163 818 154 800 152 774 c 1
+ 91 774 l 1
+EndSplineSet
+Refer: 46 78 N 1 0 0 1 0 0 2
+EndChar
