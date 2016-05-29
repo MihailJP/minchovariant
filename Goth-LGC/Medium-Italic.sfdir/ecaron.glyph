@@ -1,0 +1,19 @@
+StartChar: ecaron
+Encoding: 283 283 277
+Width: 444
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+187 639 m 5
+ 249 639 l 5
+ 337 571 l 5
+ 448 639 l 5
+ 483 639 l 5
+ 509 638 l 5
+ 363 545 367 545 350 545 c 6
+ 314 545 l 6
+ 294 545 272 568 187 639 c 5
+EndSplineSet
+Refer: 69 101 S 1 0 0 1 0 0 2
+EndChar

@@ -1,0 +1,26 @@
+StartChar: Shcha
+Encoding: 1065 1065 297
+Width: 1250
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+91 0 m 1xfa
+ 91 695 l 1
+ 221 695 l 1
+ 221 106 l 1
+ 537 106 l 1
+ 537 695 l 1
+ 668 695 l 1
+ 668 106 l 1
+ 984 106 l 1
+ 984 695 l 1
+ 1114 695 l 1
+ 1114 106 l 1xfc
+ 1210 106 l 1
+ 1210 -167 l 1
+ 1100 -167 l 1
+ 1100 0 l 1
+ 91 0 l 1xfa
+EndSplineSet
+EndChar

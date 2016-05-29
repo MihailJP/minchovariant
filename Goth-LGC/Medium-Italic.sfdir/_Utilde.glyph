@@ -1,0 +1,21 @@
+StartChar: Utilde
+Encoding: 360 360 275
+Width: 687
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+321 805 m 1
+ 336 879 391 920 439 920 c 0xde
+ 491 920 519 867 564 867 c 0xee
+ 570 867 576 868 582 871 c 0
+ 597 878 608 896 613 920 c 1
+ 674 920 l 1xde
+ 658 846 604 806 556 806 c 0xee
+ 504 806 476 859 432 859 c 0xde
+ 426 859 422 858 417 856 c 0
+ 401 849 389 831 382 805 c 1
+ 321 805 l 1
+EndSplineSet
+Refer: 53 85 N 1 0 0 1 0 0 2
+EndChar

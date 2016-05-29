@@ -1,0 +1,17 @@
+StartChar: asciicircum
+Encoding: 94 94 62
+Width: 500
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+78 445 m 1
+ 219 630 l 1
+ 281 630 l 1
+ 422 445 l 1
+ 361 445 l 1
+ 250 581 l 1
+ 139 445 l 1
+ 78 445 l 1
+EndSplineSet
+EndChar

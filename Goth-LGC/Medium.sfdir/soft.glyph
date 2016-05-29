@@ -1,0 +1,23 @@
+StartChar: soft
+Encoding: 1100 1100 333
+Width: 480
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+81 -0 m 1
+ 81 445 l 1
+ 156 445 l 1
+ 156 272 l 1
+ 261 272 l 2
+ 399 272 446 192 446 138 c 0
+ 446 83 418 0 262 -0 c 2
+ 81 -0 l 1
+156 64 m 1
+ 244 64 l 2
+ 322 64 376 86 376 141 c 0
+ 376 170 343 216 243 216 c 2
+ 156 216 l 1
+ 156 64 l 1
+EndSplineSet
+EndChar

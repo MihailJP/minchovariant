@@ -1,0 +1,20 @@
+StartChar: Adieresis
+Encoding: 196 196 157
+Width: 733
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+203 788 m 1
+ 203 900 l 1
+ 315 900 l 1
+ 315 788 l 1
+ 203 788 l 1
+417 788 m 1
+ 417 900 l 1
+ 529 900 l 1
+ 529 788 l 1
+ 417 788 l 1
+EndSplineSet
+Refer: 33 65 N 1 0 0 1 0 0 2
+EndChar

@@ -1,0 +1,20 @@
+StartChar: Edieresis
+Encoding: 203 203 165
+Width: 597
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+314 760 m 1
+ 330 849 l 1
+ 420 849 l 1
+ 404 760 l 1
+ 314 760 l 1
+508 760 m 1
+ 524 849 l 1
+ 614 849 l 1
+ 598 760 l 1
+ 508 760 l 1
+EndSplineSet
+Refer: 37 69 N 1 0 0 1 0 0 2
+EndChar

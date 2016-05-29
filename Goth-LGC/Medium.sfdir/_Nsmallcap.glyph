@@ -1,0 +1,20 @@
+StartChar: Nsmallcap
+Encoding: 628 628 618
+Width: 505
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+58 0 m 1
+ 58 445 l 1
+ 172 445 l 1
+ 369 70 l 1
+ 369 445 l 1
+ 447 445 l 1
+ 447 0 l 1
+ 333 0 l 1
+ 136 375 l 1
+ 136 0 l 1
+ 58 0 l 1
+EndSplineSet
+EndChar

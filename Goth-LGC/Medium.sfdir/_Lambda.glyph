@@ -1,0 +1,17 @@
+StartChar: Lambda
+Encoding: 923 923 233
+Width: 611
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+27 -0 m 1
+ 261 694 l 1
+ 348 694 l 1
+ 582 -0 l 1
+ 487 -0 l 1
+ 294 624 l 1
+ 101 -0 l 1
+ 27 -0 l 1
+EndSplineSet
+EndChar

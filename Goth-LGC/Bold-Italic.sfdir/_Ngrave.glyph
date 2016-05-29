@@ -1,0 +1,17 @@
+StartChar: Ngrave
+Encoding: 504 504 291
+Width: 794
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+392 866 m 1
+ 585 866 l 1
+ 689 767 l 1
+ 602 767 l 1
+ 586 768 l 1
+ 573 773 l 1
+ 392 866 l 1
+EndSplineSet
+Refer: 46 78 N 1 0 0 1 0 0 3
+EndChar

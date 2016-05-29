@@ -1,0 +1,10 @@
+StartChar: ohungarumlaut
+Encoding: 337 337 498
+Width: 500
+Flags: MW
+LayerCount: 2
+Fore
+Refer: 214 180 N 1 0 0 1 -82 0 2
+Refer: 214 180 S 1 0 0 1 84 0 2
+Refer: 79 111 N 1 0 0 1 0 0 2
+EndChar

@@ -1,0 +1,18 @@
+StartChar: Racute
+Encoding: 340 340 311
+Width: 646
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+317 760 m 1
+ 490 850 l 25
+ 600 850 l 1
+ 428 771 l 1
+ 404 761 l 1
+ 389 760 l 1
+ 341 760 l 1
+ 317 760 l 1
+EndSplineSet
+Refer: 50 82 N 1 0 0 1 0 0 2
+EndChar

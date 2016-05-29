@@ -1,5 +1,6 @@
 SUBDIRS=mincho1 mincho3 mincho5 mincho7 mincho9 \
-socho1 socho3 socho5 socho7
+socho1 socho3 socho5 socho7 \
+gothic1 gothic3 gothic5 gothic7
 DOWNLOADABLES=dump.tar.gz
 CIDMAPS=cidpua.map cidpua-kana.map cidpua-rkana.map \
 cidpua-kumimoji.map cidpua-rot.map cidpua-ruby.map cidpua-kanap.map \
@@ -11,14 +12,15 @@ cidpua-rblockelem.map cidpua-uprightruby.map
 LGCMAPS=lgc.map lgc-fixed.map lgc-third.map lgc-quarter.map lgc-wide.map lgc-italic.map \
 lgc-rotated.map lgc-rotfixed.map lgc-rotquarter.map lgc-rotthird.map lgc-rotitalic.map
 METAMAKE_DEP_GENERATABLES=HZMincho.db dump_newest_only.txt dump_all_versions.txt glyphs.txt cidalias.sed \
-otf-features otf-features-socho parts.txt parts-socho.txt $(CIDMAPS) $(LGCMAPS) \
+otf-features otf-features-socho otf-features-gothic \
+parts.txt parts-socho.txt parts-gothic.txt $(CIDMAPS) $(LGCMAPS) \
 groups/HALFWIDTH.txt groups/NONSPACING.txt
 METAMAKE_DEPS=$(METAMAKE_DEP_GENERATABLES) ./mkmkfile.rb
 MAPGEN_DEPS=genmaps.rb HZMincho.db
 GENERATABLES=$(METAMAKE_DEP_GENERATABLES) $(SUBDIRS) \
 groups/cidalias.txt cidalias1.txt cidalias2.txt \
-parts.txt parts-socho.txt \
-ChangeLog README-Socho.md
+parts.txt parts-socho.txt parts-gothic.txt \
+ChangeLog README-Socho.md README-Gothic.md
 TARGETS=$(SUBDIRS)
 ARCHIVE_CONTENTS=README.md ChangeLog \
 mincho1/mincho1.otf mincho3/mincho3.otf mincho5/mincho5.otf \
@@ -26,6 +28,9 @@ mincho7/mincho7.otf mincho9/mincho9.otf
 SOCHO_ARCHIVE_CONTENTS=README-Socho.md ChangeLog \
 socho1/socho1.otf socho3/socho3.otf socho5/socho5.otf \
 socho7/socho7.otf
+GOTHIC_ARCHIVE_CONTENTS=README-Gothic.md ChangeLog \
+gothic1/gothic1.otf gothic3/gothic3.otf gothic5/gothic5.otf \
+gothic7/gothic7.otf
 
 .PHONY: all fetch clean distclean $(SUBDIRS) dist
 all: $(TARGETS)
@@ -56,6 +61,8 @@ otf-features: HZMincho.db genfeat.rb
 	./genfeat.rb mincho > $@
 otf-features-socho: HZMincho.db genfeat.rb
 	./genfeat.rb socho > $@
+otf-features-gothic: HZMincho.db genfeat.rb
+	./genfeat.rb gothic > $@
 
 cidpua.map: $(MAPGEN_DEPS)
 	./genmaps.rb 0 > $@
@@ -135,7 +142,9 @@ FS-LGC/Makefile: HZMincho.db FS-LGC/metamake.rb
 parts.txt: dump_newest_only.txt dump_all_versions.txt cidalias.sed
 	cat dump_newest_only.txt dump_all_versions.txt | ./mkparts.pl | sed -f cidalias.sed | sed -f kage-handakuten.sed | ./kage-roofed-l2rd.rb > $@
 parts-socho.txt: parts.txt
-	cat parts.txt | ./kage-socho.rb > $@
+	cat parts.txt | ./replace-glyph.rb -i -l socho.csv | ./kage-socho.rb > $@
+parts-gothic.txt: parts.txt gothic.csv
+	cat parts.txt | ./replace-glyph.rb -i -l gothic.csv > $@
 
 mincho1/Makefile: $(METAMAKE_DEPS)
 	mkdir -p mincho1
@@ -213,6 +222,41 @@ socho7: FS-LGC/Makefile socho7/Makefile socho3/work.otf FS-LGC/lgc7.otf mincho3/
 FS-LGC/lgc7.otf: FS-LGC/Makefile
 	cd FS-LGC && $(MAKE) lgc7.otf
 
+gothic1/Makefile: $(METAMAKE_DEPS)
+	mkdir -p gothic1
+	./mkmkfile.rb gothic1.otf gothic 1 "HZ Gothic" "Light" "HZ ゴシック" "細" > $@
+gothic1: Goth-LGC/Makefile gothic1/Makefile gothic3/work.otf Goth-LGC/lgc1.otf mincho3/work.otf mincho1/work.otf
+	cd $@ && $(MAKE)
+Goth-LGC/lgc1.otf: Goth-LGC/Makefile
+	cd Goth-LGC && $(MAKE) lgc1.otf
+
+gothic3/Makefile: $(METAMAKE_DEPS)
+	mkdir -p gothic3
+	./mkmkfile.rb gothic3.otf gothic 3 "HZ Gothic" "Book" "HZ ゴシック" "標準" > $@
+gothic3: Goth-LGC/Makefile gothic3/Makefile Goth-LGC/lgc3.otf
+	cd $@ && $(MAKE)
+gothic3/work.otf: gothic3
+	cd gothic3 && $(MAKE) work.otf
+Goth-LGC/lgc3.otf: Goth-LGC/Makefile
+	cd Goth-LGC && $(MAKE) lgc3.otf
+
+gothic5/Makefile: $(METAMAKE_DEPS)
+	mkdir -p gothic5
+	./mkmkfile.rb gothic5.otf gothic 5 "HZ Gothic" "Demi" "HZ ゴシック" "中太" > $@
+gothic5: Goth-LGC/Makefile gothic5/Makefile gothic3/work.otf Goth-LGC/lgc5.otf mincho3/work.otf mincho5/work.otf
+	cd $@ && $(MAKE)
+Goth-LGC/lgc5.otf: Goth-LGC/Makefile
+	cd Goth-LGC && $(MAKE) lgc5.otf
+
+gothic7/Makefile: $(METAMAKE_DEPS)
+	mkdir -p gothic7
+	./mkmkfile.rb gothic7.otf gothic 7 "HZ Gothic" "Bold" "HZ ゴシック" "太" > $@
+gothic7: Goth-LGC/Makefile gothic7/Makefile gothic3/work.otf Goth-LGC/lgc7.otf mincho3/work.otf mincho7/work.otf
+	cd $@ && $(MAKE)
+Goth-LGC/lgc7.otf: Goth-LGC/Makefile
+	cd Goth-LGC && $(MAKE) lgc7.otf
+
+
 mincho1/mincho1.otf: mincho1
 mincho3/mincho3.otf: mincho3
 mincho5/mincho5.otf: mincho5
@@ -224,9 +268,16 @@ socho3/socho3.otf: socho3
 socho5/socho5.otf: socho5
 socho7/socho7.otf: socho7
 
+gothic1/gothic1.otf: gothic1
+gothic3/gothic3.otf: gothic3
+gothic5/gothic5.otf: gothic5
+gothic7/gothic7.otf: gothic7
+
 ChangeLog: .git
 	./mkchglog.rb > $@
 README-Socho.md: README.md readme-socho.diff
+	patch -o $@ -r /dev/null $^ && touch $@
+README-Gothic.md: README.md readme-gothic.diff
 	patch -o $@ -r /dev/null $^ && touch $@
 
 HZMincho.zip: $(ARCHIVE_CONTENTS)
@@ -255,14 +306,27 @@ HZSocho.tar.xz: $(SOCHO_ARCHIVE_CONTENTS)
 	rm -f $@; mkdir -p HZSocho; cp $^ HZSocho; mv HZSocho/README-Socho.md HZSocho/README.md
 	tar cfvJ $@ HZSocho
 
-dist: HZMincho.tar.xz HZSocho.tar.xz
+HZGothic.zip: $(GOTHIC_ARCHIVE_CONTENTS)
+	rm -f $@; mkdir -p HZGothic; cp $^ HZGothic; mv HZGothic/README-Gothic.md HZGothic/README.md
+	zip -m9r $@ HZGothic
+HZGothic.tar.gz: $(GOTHIC_ARCHIVE_CONTENTS)
+	rm -f $@; mkdir -p HZGothic; cp $^ HZGothic; mv HZGothic/README-Gothic.md HZGothic/README.md
+	tar cfvz $@ HZGothic
+HZGothic.tar.bz2: $(GOTHIC_ARCHIVE_CONTENTS)
+	rm -f $@; mkdir -p HZGothic; cp $^ HZGothic; mv HZGothic/README-Gothic.md HZGothic/README.md
+	tar cfvj $@ HZGothic
+HZGothic.tar.xz: $(GOTHIC_ARCHIVE_CONTENTS)
+	rm -f $@; mkdir -p HZGothic; cp $^ HZGothic; mv HZGothic/README-Gothic.md HZGothic/README.md
+	tar cfvJ $@ HZGothic
+
+dist: HZMincho.tar.xz HZSocho.tar.xz HZGothic.tar.xz
 
 clean:
 	-cd LGC && $(MAKE) clean
 	-cd FS-LGC && $(MAKE) clean
 	-cd groups && $(MAKE) clean
 	-rm -rf $(GENERATABLES)
-	-rm -rf HZMincho HZSocho
+	-rm -rf HZMincho HZSocho HZGothic
 	-rm -rf intersect*.pe
 	-rm -rf *.pyc
 

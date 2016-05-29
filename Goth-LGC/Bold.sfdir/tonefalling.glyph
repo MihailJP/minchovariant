@@ -1,0 +1,23 @@
+StartChar: tonefalling
+Encoding: 65560 -1 685
+Width: 367
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+298 -22 m 1
+ 298 717 l 1
+ 435 717 l 1
+ 435 -22 l 1
+ 298 -22 l 1
+-68 694 m 0
+ -68 733 -36 763 0 763 c 0
+ 50 763 66 716 75 700 c 2
+ 413 59 l 2
+ 422 42 435 24 435 0 c 0
+ 435 -37 404 -68 367 -68 c 0
+ 317 -68 301 -21 291 -4 c 2
+ -56 654 l 2
+ -63 669 -68 678 -68 694 c 0
+EndSplineSet
+EndChar

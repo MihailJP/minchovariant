@@ -1,0 +1,18 @@
+StartChar: Nacute
+Encoding: 323 323 318
+Width: 794
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+393 764 m 1
+ 532 862 l 1
+ 725 862 l 1
+ 512 770 l 1
+ 498 766 l 1
+ 483 764 l 9
+ 423 764 l 1
+ 393 764 l 1
+EndSplineSet
+Refer: 46 78 N 1 0 0 1 0 0 2
+EndChar

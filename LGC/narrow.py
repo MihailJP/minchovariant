@@ -13,6 +13,9 @@ font = fontforge.open(argv[1])
 
 for glyph in font.glyphs():
 	if glyph.isWorthOutputting():
+		glyph.unlinkRef()
+for glyph in font.glyphs():
+	if glyph.isWorthOutputting():
 		glyph.transform(psMat.scale(float(argv[3]), 1.0))
 		glyph.round()
 

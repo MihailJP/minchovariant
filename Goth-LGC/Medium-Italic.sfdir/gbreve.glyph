@@ -1,0 +1,17 @@
+StartChar: gbreve
+Encoding: 287 287 386
+Width: 500
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+193 639 m 5
+ 254 639 l 5
+ 248 573 323 565 350 565 c 4
+ 376 565 453 573 470 639 c 5
+ 532 639 l 5
+ 512 546 418 498 337 498 c 4
+ 256 498 180 547 193 639 c 5
+EndSplineSet
+Refer: 71 103 N 1 0 0 1 0 0 2
+EndChar

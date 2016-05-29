@@ -1,0 +1,10 @@
+StartChar: Io
+Encoding: 1025 1025 277
+Width: 642
+Flags: MW
+LayerCount: 2
+Fore
+Refer: 276 1045 N 1 0 0 1 0 0 2
+Refer: 116 183 N 1 0 0 1 119 594 2
+Refer: 116 183 N 1 0 0 1 333 594 2
+EndChar

@@ -1,0 +1,14 @@
+StartChar: emdash
+Encoding: 8212 8212 408
+Width: 1100
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+45 256 m 1
+ 58 328 l 1
+ 1158 328 l 1
+ 1145 256 l 1
+ 45 256 l 1
+EndSplineSet
+EndChar

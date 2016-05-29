@@ -1,0 +1,36 @@
+StartChar: uF2022
+Encoding: 991266 991266 11
+Width: 1000
+VWidth: 0
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+42 0 m 1
+ 254 366 l 1
+ 254 367 l 1
+ 56 694 l 1
+ 162 694 l 1
+ 306 456 l 1
+ 442 694 l 1
+ 538 694 l 1
+ 354 375 l 1
+ 354 374 l 1
+ 580 0 l 1
+ 476 0 l 1
+ 304 284 l 1
+ 302 284 l 1
+ 138 0 l 1
+ 42 0 l 1
+640 0 m 1
+ 640 694 l 1
+ 730 694 l 1
+ 730 0 l 1
+ 640 0 l 1
+868 0 m 1
+ 868 694 l 1
+ 958 694 l 1
+ 958 0 l 1
+ 868 0 l 1
+EndSplineSet
+EndChar

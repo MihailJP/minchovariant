@@ -1,0 +1,18 @@
+StartChar: Ucaron
+Encoding: 467 467 273
+Width: 764
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+360 903 m 1
+ 433 903 l 1
+ 522 800 l 1
+ 647 903 l 1
+ 720 903 l 1xf4
+ 569 729 l 1
+ 451 729 l 1
+ 360 903 l 1
+EndSplineSet
+Refer: 53 85 N 1 0 0 1 0 0 3
+EndChar

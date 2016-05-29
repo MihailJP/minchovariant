@@ -1,0 +1,21 @@
+StartChar: Iogonek
+Encoding: 302 302 370
+Width: 331
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+240 0 m 17
+ 208 0 126 -49 124 -80 c 1
+ 125 -87 l 1
+ 127 -93 l 1
+ 136 -103 145 -107 164 -107 c 0
+ 193 -107 224 -97 239 -92 c 1
+ 245 -162 l 1
+ 211 -176 171 -189 125 -189 c 0
+ 61 -189 16 -161 24 -118 c 0
+ 32 -71 99 -25 146 0 c 1
+ 240 0 l 17
+EndSplineSet
+Refer: 41 73 N 1 0 0 1 0 0 2
+EndChar

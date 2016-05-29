@@ -1,0 +1,21 @@
+StartChar: Etilde
+Encoding: 7868 7868 267
+Width: 597
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+293 766 m 1
+ 308 840 363 881 411 881 c 0xde
+ 463 881 491 828 536 828 c 0xee
+ 542 828 548 829 554 832 c 0
+ 569 839 580 857 585 881 c 1
+ 646 881 l 1xde
+ 630 807 576 767 528 767 c 0xee
+ 476 767 449 820 405 820 c 0xde
+ 399 820 394 819 389 817 c 0
+ 373 810 361 792 354 766 c 1
+ 293 766 l 1
+EndSplineSet
+Refer: 37 69 N 1 0 0 1 0 0 3
+EndChar

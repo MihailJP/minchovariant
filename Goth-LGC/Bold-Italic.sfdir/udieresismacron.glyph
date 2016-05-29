@@ -1,0 +1,15 @@
+StartChar: udieresismacron
+Encoding: 470 470 293
+Width: 561
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+219 780 m 5
+ 234 865 l 5
+ 631 865 l 5
+ 616 780 l 5
+ 219 780 l 5
+EndSplineSet
+Refer: 210 252 N 1 0 0 1 0 0 2
+EndChar

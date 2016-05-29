@@ -1,0 +1,14 @@
+StartChar: periodcentered
+Encoding: 183 183 136
+Width: 500
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+205 175 m 1
+ 205 264 l 1
+ 295 264 l 1
+ 295 175 l 1
+ 205 175 l 1
+EndSplineSet
+EndChar
