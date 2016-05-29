@@ -19,7 +19,7 @@ GENERATABLES=$(METAMAKE_DEP_GENERATABLES) $(SUBDIRS) \
 groups/cidalias.txt cidalias1.txt cidalias2.txt \
 parts.txt parts-socho.txt \
 ChangeLog README-Socho.md
-TARGETS=$(GENERATABLES) $(DOWNLOADABLES)
+TARGETS=$(SUBDIRS)
 ARCHIVE_CONTENTS=README.md ChangeLog \
 mincho1/mincho1.otf mincho3/mincho3.otf mincho5/mincho5.otf \
 mincho7/mincho7.otf mincho9/mincho9.otf
@@ -267,5 +267,5 @@ clean:
 	-rm -rf *.pyc
 
 distclean: clean
-	-rm -rf $(TARGETS)
+	-rm -rf $(DOWNLOADABLES)
 	-cd groups && $(MAKE) distclean
