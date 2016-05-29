@@ -146,6 +146,15 @@ M+ font is free for any use.
 Version History
 ---------------
 
+### Version 1.200, May 30, 2016
+* First release for HZ Gothic fonts
+* Updated font engine
+* Remove Mac font name
+* Semi-voiced mark adjustment
+* Fix kumimoji thinning issue
+* Fix width issue at some pre-composed and enclosed glyphs in Mincho font
+* Improved LGC of Socho font
+
 ### Version 1.101, June 1, 2015
 * Fix subfamily and full name (issue on Windows)
 
