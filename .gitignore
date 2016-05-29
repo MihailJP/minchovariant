@@ -62,5 +62,11 @@ HZSocho.tar.*
 HZSocho-*.zip
 HZSocho-*.tar.*
 HZSocho/
+HZGothic.zip
+HZGothic.tar.*
+HZGothic-*.zip
+HZGothic-*.tar.*
+HZGothic/
 README-Socho.md
+README-Gothic.md
 !/engine

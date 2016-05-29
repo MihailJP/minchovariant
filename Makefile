@@ -20,7 +20,7 @@ MAPGEN_DEPS=genmaps.rb HZMincho.db
 GENERATABLES=$(METAMAKE_DEP_GENERATABLES) $(SUBDIRS) \
 groups/cidalias.txt cidalias1.txt cidalias2.txt \
 parts.txt parts-socho.txt parts-gothic.txt \
-ChangeLog README-Socho.md
+ChangeLog README-Socho.md README-Gothic.md
 TARGETS=$(SUBDIRS)
 ARCHIVE_CONTENTS=README.md ChangeLog \
 mincho1/mincho1.otf mincho3/mincho3.otf mincho5/mincho5.otf \
@@ -28,6 +28,9 @@ mincho7/mincho7.otf mincho9/mincho9.otf
 SOCHO_ARCHIVE_CONTENTS=README-Socho.md ChangeLog \
 socho1/socho1.otf socho3/socho3.otf socho5/socho5.otf \
 socho7/socho7.otf
+GOTHIC_ARCHIVE_CONTENTS=README-Gothic.md ChangeLog \
+gothic1/gothic1.otf gothic3/gothic3.otf gothic5/gothic5.otf \
+gothic7/gothic7.otf
 
 .PHONY: all fetch clean distclean $(SUBDIRS) dist
 all: $(TARGETS)
@@ -274,6 +277,8 @@ ChangeLog: .git
 	./mkchglog.rb > $@
 README-Socho.md: README.md readme-socho.diff
 	patch -o $@ -r /dev/null $^ && touch $@
+README-Gothic.md: README.md readme-gothic.diff
+	patch -o $@ -r /dev/null $^ && touch $@
 
 HZMincho.zip: $(ARCHIVE_CONTENTS)
 	rm -f $@; mkdir -p HZMincho; cp $^ HZMincho
@@ -301,14 +306,27 @@ HZSocho.tar.xz: $(SOCHO_ARCHIVE_CONTENTS)
 	rm -f $@; mkdir -p HZSocho; cp $^ HZSocho; mv HZSocho/README-Socho.md HZSocho/README.md
 	tar cfvJ $@ HZSocho
 
-dist: HZMincho.tar.xz HZSocho.tar.xz
+HZGothic.zip: $(GOTHIC_ARCHIVE_CONTENTS)
+	rm -f $@; mkdir -p HZGothic; cp $^ HZGothic; mv HZGothic/README-Gothic.md HZGothic/README.md
+	zip -m9r $@ HZGothic
+HZGothic.tar.gz: $(GOTHIC_ARCHIVE_CONTENTS)
+	rm -f $@; mkdir -p HZGothic; cp $^ HZGothic; mv HZGothic/README-Gothic.md HZGothic/README.md
+	tar cfvz $@ HZGothic
+HZGothic.tar.bz2: $(GOTHIC_ARCHIVE_CONTENTS)
+	rm -f $@; mkdir -p HZGothic; cp $^ HZGothic; mv HZGothic/README-Gothic.md HZGothic/README.md
+	tar cfvj $@ HZGothic
+HZGothic.tar.xz: $(GOTHIC_ARCHIVE_CONTENTS)
+	rm -f $@; mkdir -p HZGothic; cp $^ HZGothic; mv HZGothic/README-Gothic.md HZGothic/README.md
+	tar cfvJ $@ HZGothic
+
+dist: HZMincho.tar.xz HZSocho.tar.xz HZGothic.tar.xz
 
 clean:
 	-cd LGC && $(MAKE) clean
 	-cd FS-LGC && $(MAKE) clean
 	-cd groups && $(MAKE) clean
 	-rm -rf $(GENERATABLES)
-	-rm -rf HZMincho HZSocho
+	-rm -rf HZMincho HZSocho HZGothic
 	-rm -rf intersect*.pe
 	-rm -rf *.pyc
 
