@@ -1,0 +1,18 @@
+StartChar: Rcaron
+Encoding: 344 344 321
+Width: 646
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+305 889 m 1
+ 366 889 l 1
+ 443 778 l 1
+ 560 889 l 1
+ 622 889 l 1xf6
+ 470 727 l 1
+ 398 727 l 1
+ 305 889 l 1
+EndSplineSet
+Refer: 50 82 S 1 0 0 1 0 0 2
+EndChar

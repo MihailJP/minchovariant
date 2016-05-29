@@ -1,0 +1,18 @@
+StartChar: Ncaron
+Encoding: 327 327 319
+Width: 708
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+352 889 m 1
+ 413 889 l 1
+ 490 778 l 1
+ 607 889 l 1
+ 668 889 l 1
+ 517 727 l 1
+ 445 727 l 1
+ 352 889 l 1
+EndSplineSet
+Refer: 46 78 N 1 0 0 1 0 0 2
+EndChar

@@ -5,18 +5,12 @@ s=Light
 f=3,1,0x411,HZ \660e\671d
 s=3,1,0x411,\7d30
 
-f=1,1,11,HZ \96\be\92\a9
-s=1,1,11,\8d\d7
-
 [HZMincho-Book]
 f=HZ Mincho
 s=Book
 
 f=3,1,0x411,HZ \660e\671d
 s=3,1,0x411,\6a19\6e96
-
-f=1,1,11,HZ \96\be\92\a9
-s=1,1,11,\95\57\8f\80
 
 [HZMincho-Demi]
 f=HZ Mincho
@@ -25,18 +19,12 @@ s=Demi
 f=3,1,0x411,HZ \660e\671d
 s=3,1,0x411,\4e2d\592a
 
-f=1,1,11,HZ \96\be\92\a9
-s=1,1,11,\92\86\91\be
-
 [HZMincho-Bold]
 f=HZ Mincho
 s=Bold
 
 f=3,1,0x411,HZ \660e\671d
 s=3,1,0x411,\592a
-
-f=1,1,11,HZ \96\be\92\a9
-s=1,1,11,\91\be
 
 [HZMincho-Heavy]
 f=HZ Mincho
@@ -45,18 +33,12 @@ s=Heavy
 f=3,1,0x411,HZ \660e\671d
 s=3,1,0x411,\6975\592a
 
-f=1,1,11,HZ \96\be\92\a9
-s=1,1,11,\8b\c9\91\be
-
 [HZMincoo-Light]
 f=HZ Mincho
 s=Light
 
 f=3,1,0x411,HZ \660e\671d
 s=3,1,0x411,\7d30
-
-f=1,1,11,HZ \96\be\92\a9
-s=1,1,11,\8d\d7
 
 [HZMincoo-Book]
 f=HZ Mincho
@@ -65,18 +47,12 @@ s=Book
 f=3,1,0x411,HZ \660e\671d
 s=3,1,0x411,\6a19\6e96
 
-f=1,1,11,HZ \96\be\92\a9
-s=1,1,11,\95\57\8f\80
-
 [HZMincoo-Demi]
 f=HZ Mincho
 s=Demi
 
 f=3,1,0x411,HZ \660e\671d
 s=3,1,0x411,\4e2d\592a
-
-f=1,1,11,HZ \96\be\92\a9
-s=1,1,11,\92\86\91\be
 
 [HZMincoo-Bold]
 f=HZ Mincho
@@ -85,18 +61,12 @@ s=Bold
 f=3,1,0x411,HZ \660e\671d
 s=3,1,0x411,\592a
 
-f=1,1,11,HZ \96\be\92\a9
-s=1,1,11,\91\be
-
 [HZMincoo-Heavy]
 f=HZ Mincho
 s=Heavy
 
 f=3,1,0x411,HZ \660e\671d
 s=3,1,0x411,\6975\592a
-
-f=1,1,11,HZ \96\be\92\a9
-s=1,1,11,\8b\c9\91\be
 
 
 
@@ -107,18 +77,12 @@ s=Light
 f=3,1,0x411,HZ \5b8b\671d
 s=3,1,0x411,\7d30
 
-f=1,1,11,HZ \91\76\92\a9
-s=1,1,11,\8d\d7
-
 [HZSocho-Book]
 f=HZ Socho
 s=Book
 
 f=3,1,0x411,HZ \5b8b\671d
 s=3,1,0x411,\6a19\6e96
-
-f=1,1,11,HZ \91\76\92\a9
-s=1,1,11,\95\57\8f\80
 
 [HZSocho-Demi]
 f=HZ Socho
@@ -127,18 +91,12 @@ s=Demi
 f=3,1,0x411,HZ \5b8b\671d
 s=3,1,0x411,\4e2d\592a
 
-f=1,1,11,HZ \91\76\92\a9
-s=1,1,11,\92\86\91\be
-
 [HZSocho-Bold]
 f=HZ Socho
 s=Bold
 
 f=3,1,0x411,HZ \5b8b\671d
 s=3,1,0x411,\592a
-
-f=1,1,11,HZ \91\76\92\a9
-s=1,1,11,\91\be
 
 [HZSoco--Light]
 f=HZ Socho
@@ -147,18 +105,12 @@ s=Light
 f=3,1,0x411,HZ \5b8b\671d
 s=3,1,0x411,\7d30
 
-f=1,1,11,HZ \91\76\92\a9
-s=1,1,11,\8d\d7
-
 [HZSoco--Book]
 f=HZ Socho
 s=Book
 
 f=3,1,0x411,HZ \5b8b\671d
 s=3,1,0x411,\6a19\6e96
-
-f=1,1,11,HZ \91\76\92\a9
-s=1,1,11,\95\57\8f\80
 
 [HZSoco--Demi]
 f=HZ Socho
@@ -167,18 +119,12 @@ s=Demi
 f=3,1,0x411,HZ \5b8b\671d
 s=3,1,0x411,\4e2d\592a
 
-f=1,1,11,HZ \91\76\92\a9
-s=1,1,11,\92\86\91\be
-
 [HZSoco--Bold]
 f=HZ Socho
 s=Bold
 
 f=3,1,0x411,HZ \5b8b\671d
 s=3,1,0x411,\592a
-
-f=1,1,11,HZ \91\76\92\a9
-s=1,1,11,\91\be
 
 [HZSoch--Light]
 f=HZ Socho
@@ -187,18 +133,12 @@ s=Light
 f=3,1,0x411,HZ \5b8b\671d
 s=3,1,0x411,\7d30
 
-f=1,1,11,HZ \91\76\92\a9
-s=1,1,11,\8d\d7
-
 [HZSoch--Book]
 f=HZ Socho
 s=Book
 
 f=3,1,0x411,HZ \5b8b\671d
 s=3,1,0x411,\6a19\6e96
-
-f=1,1,11,HZ \91\76\92\a9
-s=1,1,11,\95\57\8f\80
 
 [HZSoch--Demi]
 f=HZ Socho
@@ -207,9 +147,6 @@ s=Demi
 f=3,1,0x411,HZ \5b8b\671d
 s=3,1,0x411,\4e2d\592a
 
-f=1,1,11,HZ \91\76\92\a9
-s=1,1,11,\92\86\91\be
-
 [HZSoch--Bold]
 f=HZ Socho
 s=Bold
@@ -217,6 +154,60 @@ s=Bold
 f=3,1,0x411,HZ \5b8b\671d
 s=3,1,0x411,\592a
 
-f=1,1,11,HZ \91\76\92\a9
-s=1,1,11,\91\be
 
+
+[HZGothic-Light]
+f=HZ Gothic
+s=Light
+
+f=3,1,0x411,HZ 30b430b730c330af
+s=3,1,0x411,\7d30
+
+[HZGothic-Book]
+f=HZ Gothic
+s=Book
+
+f=3,1,0x411,HZ 30b430b730c330af
+s=3,1,0x411,\6a19\6e96
+
+[HZGothic-Demi]
+f=HZ Gothic
+s=Demi
+
+f=3,1,0x411,HZ 30b430b730c330af
+s=3,1,0x411,\4e2d\592a
+
+[HZGothic-Bold]
+f=HZ Gothic
+s=Bold
+
+f=3,1,0x411,HZ 30b430b730c330af
+s=3,1,0x411,\592a
+
+[HZGothcc-Light]
+f=HZ Gothic
+s=Light
+
+f=3,1,0x411,HZ 30b430b730c330af
+s=3,1,0x411,\7d30
+
+[HZGothcc-Book]
+f=HZ Gothic
+s=Book
+
+f=3,1,0x411,HZ 30b430b730c330af
+s=3,1,0x411,\6a19\6e96
+
+[HZGothcc-Demi]
+f=HZ Gothic
+s=Demi
+
+f=3,1,0x411,HZ 30b430b730c330af
+s=3,1,0x411,\4e2d\592a
+
+[HZGothcc-Bold]
+f=HZ Gothic
+s=Bold
+
+f=3,1,0x411,HZ 30b430b730c330af
+s=3,1,0x411,\592a

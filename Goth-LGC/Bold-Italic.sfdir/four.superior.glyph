@@ -1,0 +1,27 @@
+StartChar: four.superior
+Encoding: 8308 8308 248
+Width: 489
+VWidth: 950
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+104 436 m 1
+ 118 516 l 1
+ 117 512 116 511 111 507 c 1
+ 366 779 l 1
+ 525 779 l 1
+ 478 512 l 1
+ 551 512 l 1
+ 538 436 l 1
+ 465 436 l 1
+ 450 350 l 1
+ 326 350 l 1
+ 341 436 l 1
+ 104 436 l 1
+218 512 m 1
+ 358 512 l 1
+ 389 687 l 1
+ 367 657 336 631 218 512 c 1
+EndSplineSet
+EndChar

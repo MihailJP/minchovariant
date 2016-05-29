@@ -1,0 +1,10 @@
+StartChar: ellipsis
+Encoding: 8230 8230 123
+Width: 918
+Flags: MW
+LayerCount: 2
+Fore
+Refer: 14 46 S 1 0 0 1 0 0 2
+Refer: 14 46 S 1 0 0 1 306 0 2
+Refer: 14 46 S 1 0 0 1 612 0 2
+EndChar

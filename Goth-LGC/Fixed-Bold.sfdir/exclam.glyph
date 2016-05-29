@@ -1,0 +1,16 @@
+StartChar: exclam
+Encoding: 33 33 1
+Width: 500
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+184 695 m 1xe0
+ 316 695 l 1xe0
+ 302 217 l 1
+ 198 217 l 1xd0
+ 186 652 l 5
+ 184 695 l 1xe0
+EndSplineSet
+Refer: 14 46 N 1 0 0 1 98 0 2
+EndChar

@@ -1,0 +1,21 @@
+StartChar: Eogonek
+Encoding: 280 280 480
+Width: 642
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+561 0 m 17
+ 529 0 456 -49 459 -80 c 1
+ 461 -87 l 1
+ 464 -93 l 1
+ 475 -103 485 -107 504 -107 c 0
+ 533 -107 562 -97 576 -92 c 1
+ 595 -162 l 1
+ 563 -176 525 -189 479 -189 c 0
+ 415 -189 366 -161 366 -118 c 0
+ 366 -71 424 -25 467 0 c 1
+ 561 0 l 17
+EndSplineSet
+Refer: 37 69 N 1 0 0 1 0 0 2
+EndChar

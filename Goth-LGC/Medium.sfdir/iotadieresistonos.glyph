@@ -1,0 +1,25 @@
+StartChar: iotadieresistonos
+Encoding: 912 912 417
+Width: 264
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+23 495 m 1
+ 114 694 l 1
+ 193 694 l 1
+ 84 495 l 1
+ 23 495 l 1
+-39 507 m 1
+ -39 569 l 1
+ 22 569 l 1
+ 22 507 l 1
+ -39 507 l 1
+152 507 m 1
+ 152 569 l 1
+ 214 569 l 1
+ 214 507 l 1
+ 152 507 l 1
+EndSplineSet
+Refer: 255 953 N 1 0 0 1 0 0 2
+EndChar

@@ -1,0 +1,19 @@
+StartChar: scaron
+Encoding: 353 353 220
+Width: 383
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+140 639 m 5
+ 202 639 l 5
+ 290 571 l 5
+ 401 639 l 5
+ 436 639 l 5
+ 462 638 l 5
+ 316 545 320 545 303 545 c 6
+ 267 545 l 6
+ 247 545 225 568 140 639 c 5
+EndSplineSet
+Refer: 83 115 N 1 0 0 1 0 0 2
+EndChar

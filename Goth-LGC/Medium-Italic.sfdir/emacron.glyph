@@ -1,0 +1,15 @@
+StartChar: emacron
+Encoding: 275 275 234
+Width: 444
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+151 551 m 1
+ 162 615 l 1
+ 522 615 l 1
+ 511 551 l 1
+ 151 551 l 1
+EndSplineSet
+Refer: 69 101 N 1 0 0 1 0 0 3
+EndChar

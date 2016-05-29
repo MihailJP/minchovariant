@@ -1,0 +1,25 @@
+StartChar: upsilondieresistonos
+Encoding: 944 944 421
+Width: 500
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+176 495 m 1
+ 267 694 l 1
+ 346 694 l 1
+ 237 495 l 1
+ 176 495 l 1
+114 507 m 1
+ 114 569 l 1
+ 175 569 l 1
+ 175 507 l 1
+ 114 507 l 1
+305 507 m 1
+ 305 569 l 1
+ 367 569 l 1
+ 367 507 l 1
+ 305 507 l 1
+EndSplineSet
+Refer: 266 965 N 1 0 0 1 0 0 2
+EndChar

@@ -1,0 +1,15 @@
+StartChar: Zdotaccent
+Encoding: 379 379 303
+Width: 611
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+425 778 m 5
+ 441 867 l 5
+ 531 867 l 5
+ 515 778 l 5
+ 425 778 l 5
+EndSplineSet
+Refer: 58 90 N 1 0 0 1 0 0 2
+EndChar

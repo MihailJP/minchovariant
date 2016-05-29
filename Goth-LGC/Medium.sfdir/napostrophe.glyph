@@ -1,0 +1,19 @@
+StartChar: napostrophe
+Encoding: 329 329 528
+Width: 517
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+32 495 m 1
+ 58 578 l 1
+ 32 578 l 1
+ 32 662 l 1
+ 116 662 l 1
+ 116 593 l 2
+ 116 587 115 582 114 578 c 0
+ 110 565 74 495 74 495 c 1
+ 32 495 l 1
+EndSplineSet
+Refer: 78 110 N 1 0 0 1 0 0 2
+EndChar

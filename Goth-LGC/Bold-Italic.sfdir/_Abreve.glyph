@@ -1,0 +1,17 @@
+StartChar: Abreve
+Encoding: 258 258 312
+Width: 733
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+310 903 m 1
+ 383 903 l 1
+ 376 832 458 823 486 823 c 0
+ 514 823 597 832 616 903 c 1
+ 689 903 l 1
+ 667 793 562 730 470 730 c 0
+ 375 730 295 794 310 903 c 1
+EndSplineSet
+Refer: 33 65 S 1 0 0 1 0 0 2
+EndChar

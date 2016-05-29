@@ -1,0 +1,21 @@
+StartChar: Otilde
+Encoding: 213 213 175
+Width: 794
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+346 770 m 1xd7
+ 362 849 418 903 480 903 c 0xcf
+ 549 903 566 849 609 843 c 0xd7
+ 622 842 625 845 629 846 c 1
+ 646 857 656 867 663 903 c 1xe7
+ 736 903 l 1xcf
+ 720 824 664 770 602 770 c 0xd7
+ 533 770 516 824 473 829 c 0xcf
+ 459 831 461 828 453 826 c 1
+ 436 815 426 806 419 770 c 1xe7
+ 346 770 l 1xd7
+EndSplineSet
+Refer: 47 79 N 1 0 0 1 0 0 2
+EndChar

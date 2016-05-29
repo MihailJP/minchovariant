@@ -1,13 +1,13 @@
 def fontVersion
-	"1.101"
+	"1.200"
 end
 
 def fontCopyrightOf(fontname)
 	kage     = "Created by KAGE system. (http://fonts.jp/)"
 	symbol   = "Some symbol glyphs are from George Doulos' Symbola font."
 	aj16Sans = "AJ1-6 sans-serif glyphs from M+ fonts."
-	merge    = "Merged by MihailJP, June 2015."
-	if fontname =~ /Mincho/i then
+	merge    = "Merged by MihailJP, May 2016."
+	if fontname =~ /Mincho|Gothic/i then
 		"#{kage}\n" \
 		"Alphabet glyphs by Andrey V. Panov (C) 2005 All rights reserved.\n" \
 		"#{symbol}\n#{aj16Sans}\n#{merge}"
@@ -22,8 +22,8 @@ def fontCopyrightOf(fontname)
 end
 
 def fontLicenseOf(fontname)
-	if fontname =~ /Mincho/i then
-		"X11 License with exception:\n"
+	if fontname =~ /Mincho|Gothic/i then
+		"X11 License with exception: "
 		"As a special exception, if you create a document which uses these fonts, " \
 		"and embed these fonts or unaltered portions of these fonts into the " \
 		"document, these fonts does not by itself cause the resulting document to " \

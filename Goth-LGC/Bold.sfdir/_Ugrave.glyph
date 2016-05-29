@@ -1,0 +1,17 @@
+StartChar: Ugrave
+Encoding: 217 217 176
+Width: 764
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+205 863 m 1
+ 398 863 l 1
+ 520 764 l 1
+ 433 764 l 1
+ 417 765 l 1
+ 403 770 l 1
+ 205 863 l 1
+EndSplineSet
+Refer: 53 85 N 1 0 0 1 0 0 2
+EndChar

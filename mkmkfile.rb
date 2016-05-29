@@ -16,8 +16,7 @@ fontDB.execute("SELECT mapFile, fontFile FROM subFont") {|subFont|
 	cidmap += "../#{subFont[0]} #{eval("\"#{subFont[1]}\"")}\n"
 }
 
-$LGCdir = ($font == "socho" ? "FS-LGC" : "LGC")
-$KanaDir = ($font == "socho" ? "FS-Kana" : "Kana")
+$LGCdir = ($font == "gothic" ? "Goth-LGC" : $font == "socho" ? "FS-LGC" : "LGC")
 
 def lgcFile(file, suffix)
 	return <<FINIS
@@ -54,7 +53,9 @@ def heavyFont?
 end
 
 def partsSrc
-	if $font == "socho" then
+	if $font == "gothic" then
+		"parts-gothic.txt"
+	elsif $font == "socho" then
 		"parts-socho.txt"
 	else
 		"parts.txt"
@@ -70,7 +71,7 @@ CMAP_VERTICAL=#{cygPath "$(AFD_CMAPDIR)/UniJIS2004-UTF32-V"}
 MERGEFONTS=$(AFD_BINDIR)/mergeFonts
 MAKEOTF=#{iscygwin ? 'cmd /c ' : ''}#{cygPath "$(AFD_BINDIR)/makeotf#{iscygwin ? '.cmd' : ''}"}
 
-TARGETS=#{heavyFont? ? "ratio.txt " : ""}head.txt parts.txt foot.txt engine makeglyph.js kagecd.js \
+TARGETS=#{heavyFont? ? "ratio.txt " : ""}head.txt parts.txt foot.txt engine makeglyph.js \
 #{target.sub(/\..+?$/, '.raw')} cidfontinfo #{iscygwin ? "_" : "tmpcid.otf tmpcid.ttx _" + target.sub(/\..+?$/, '.ttx')} _#{target} #{target}
 
 .PHONY: all clean font
@@ -103,18 +104,12 @@ parts.txt:#{heavyFont? ? " ratio.txt" : ""} ../#{partsSrc}
 foot.txt:
 	touch $@
 engine:
-	ln -s ../kage/engine $@
+	ln -s ../engine $@
 makeglyph.js:
 	cat ../kage/makettf/makeglyph.js | sed -f ../makeglyph-patch.sed > $@
-kage.js:
-	cat ../kage/engine/kage.js | sed -f ../kage-patch.sed > $@
-kagecd.js:
-	perl ../kagecd-patch.pl ../kage/engine/kagecd.js | sed -f ../kagecd-fudeosae.sed > $@
-kagedf.js:
-	cat ../kage/engine/kagedf.js | sed -f ../kagedf-patch.sed > $@
 
 .DELETE_ON_ERROR: work_.sfd work.sfd work_.sfd work2_.sfd work2.sfd temp.otf work.otf
-work_.sfd: head.txt parts.txt foot.txt engine makeglyph.js kage.js kagecd.js kagedf.js
+work_.sfd: head.txt parts.txt foot.txt engine makeglyph.js
 	../makesvg.py . work_ #{$font} #{$weightNum}
 	cd build; $(MAKE) -j`nproc`
 	export LANG=utf-8; fontforge -script work_.scr >> work_.log 2>&1
@@ -136,8 +131,8 @@ work.otf: temp.otf
 	fontforge -lang=ff -c 'Open("$<"); Generate("$@")'
 
 .DELETE_ON_ERROR: kana_.sfd kana.sfd kana2_.sfd kana2.sfd kana.otf
-kana_.sfd: ../#{$KanaDir}/Kana.sfdir ../#{$KanaDir}/Kana-Bold.sfdir
-	../kana.py #{$weightNum} $^ $@
+kana_.sfd: work_.sfd
+	../kana.py $^ $@
 kana.sfd: kana_.sfd
 	../fixup-layers.py $< $@
 kana2_.sfd: kana.sfd

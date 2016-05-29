@@ -1,0 +1,19 @@
+StartChar: acaron
+Encoding: 462 462 276
+Width: 480
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+167 605 m 5
+ 229 605 l 5
+ 317 537 l 5
+ 428 605 l 5
+ 463 605 l 5
+ 490 604 l 5
+ 344 511 347 511 330 511 c 6
+ 294 511 l 6
+ 274 511 252 534 167 605 c 5
+EndSplineSet
+Refer: 65 97 N 1 0 0 1 0 0 3
+EndChar

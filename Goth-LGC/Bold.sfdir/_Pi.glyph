@@ -1,0 +1,18 @@
+StartChar: Pi
+Encoding: 928 928 238
+Width: 794
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+91 0 m 1
+ 91 692 l 1
+ 702 692 l 1
+ 702 0 l 1
+ 554 0 l 1
+ 554 597 l 1
+ 239 597 l 1
+ 239 0 l 1
+ 91 0 l 1
+EndSplineSet
+EndChar

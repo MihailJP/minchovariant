@@ -1,0 +1,30 @@
+StartChar: zhe
+Encoding: 1078 1078 311
+Width: 806
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+18 -0 m 1
+ 215 293 l 1
+ 42 472 l 1
+ 194 472 l 1
+ 342 319 l 1
+ 342 472 l 1
+ 459 472 l 1
+ 459 315 l 1
+ 610 472 l 1
+ 762 472 l 1
+ 589 292 l 1
+ 786 -0 l 1
+ 651 -0 l 1
+ 510 210 l 1
+ 459 158 l 1
+ 459 -0 l 1
+ 342 -0 l 1
+ 342 160 l 1
+ 294 210 l 1
+ 154 -0 l 1
+ 18 -0 l 1
+EndSplineSet
+EndChar

@@ -1,0 +1,24 @@
+StartChar: wturn
+Encoding: 653 653 605
+Width: 744
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+15 0 m 1
+ 143 472 l 1
+ 313 472 l 1
+ 324 437 385 205 392 137 c 1
+ 396 190 463 443 471 472 c 1
+ 600 472 l 1
+ 729 0 l 1
+ 607 0 l 1
+ 514 339 l 1
+ 422 0 l 1
+ 327 0 l 1
+ 263 237 l 1
+ 231 355 l 1
+ 135 0 l 1
+ 15 0 l 1
+EndSplineSet
+EndChar

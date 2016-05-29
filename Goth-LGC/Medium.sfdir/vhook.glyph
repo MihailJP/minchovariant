@@ -1,0 +1,20 @@
+StartChar: vhook
+Encoding: 651 651 564
+Width: 481
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+80 149 m 2
+ 80 450 l 1
+ 158 450 l 1
+ 158 144 l 2
+ 158 63 202 51 231 51 c 0
+ 307 51 357 143 357 258 c 0
+ 357 329 345 383 331 435 c 1
+ 406 455 l 1
+ 422 401 435 332 435 256 c 0
+ 435 123 353 -11 227 -11 c 0
+ 155 -11 80 21 80 149 c 2
+EndSplineSet
+EndChar

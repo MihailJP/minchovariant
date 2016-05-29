@@ -1,0 +1,23 @@
+StartChar: stigma
+Encoding: 987 987 676
+Width: 500
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+55 312 m 0xda
+ 55 419 177 465 285 466 c 6xda
+ 444 467 l 5
+ 444 389 l 1xea
+ 343 389 302 399 259 399 c 0
+ 141 399 117 347 117 312 c 0
+ 117 243 192 236 262 236 c 2
+ 344 236 l 1
+ 344 158 l 1
+ 297 160 l 1xda
+ 304 -0 l 1
+ 225 -0 l 1xdc
+ 233 167 l 1
+ 160 178 55 213 55 312 c 0xda
+EndSplineSet
+EndChar

@@ -11,16 +11,29 @@ TEMPNAME = "temp"
 
 from sys import exit, argv as ARGV
 from os import system
-from os.path import exists
+from os.path import exists, dirname
 from commands import getoutput
 import re
 import urllib
+from os.path import join as pathjoin
+import sqlite3
 
 if len(ARGV) != 5:
 	print "Usage: makettf.pl WorkingDirectory WorkingName Shotai Weight"
 	print "Shotai: mincho or gothic"
 	print "Weight: 1 3 5 7"
 	exit(1)
+
+dbFileName = pathjoin(dirname(ARGV[0]), "HZMincho.db")
+if not exists(dbFileName):
+	raise IOError(2, "Database '%s' not found" % (dbFileName,))
+
+KumimojiGlyphs = set()
+with sqlite3.connect(dbFileName) as db:
+	for cids in db.execute('select horizontal, vertical, horizontalAlt, verticalAlt from cjkKumimoji;'):
+		for cid in cids:
+			if cid is not None:
+				KumimojiGlyphs.add(cid)
 
 def unlink(filename):
 	import os, errno
@@ -50,10 +63,40 @@ targetDict = {}
 
 ##############################################################################
 
+def adjustWeight(weight, code):
+	if (int(code, 16) - 0xf0000) not in KumimojiGlyphs:
+		return weight
+	elif weight == 1:
+		return 0
+	elif weight == 3:
+		return 1
+	elif weight == 5 or weight == 105:
+		return 3
+	elif weight == 7:
+		return 5
+	elif weight == 107:
+		return 105
+	elif weight == 9:
+		return 7
+	elif weight == 109:
+		return 107
+	elif weight == 201:
+		return 200
+	elif weight == 203:
+		return 201
+	elif weight == 205:
+		return 203
+	elif weight == 207:
+		return 205
+	else:
+		return weight
+
+##############################################################################
+
 def render(target, partsdata, code):
-	LOG.write(code+" : "+(" ".join([MAKEGLYPH, target, partsdata, SHOTAI, WEIGHT]))+"\n")
+	LOG.write(code+" : "+(" ".join([MAKEGLYPH, target, partsdata, SHOTAI, str(adjustWeight(int(WEIGHT), code))]))+"\n")
 	svgBaseName = WORKDIR+"/build/"+code
-	svgcmd = "cd ..; " + (" ".join([MAKEGLYPH, target, partsdata, SHOTAI, WEIGHT])) + " > build/" + code + ".raw.svg; cd build"
+	svgcmd = "cd ..; " + (" ".join([MAKEGLYPH, target, partsdata, SHOTAI, str(adjustWeight(int(WEIGHT), code))])) + " > build/" + code + ".raw.svg; cd build"
 	needsUpdate = False
 	if not exists(svgBaseName+".sh"):
 		needsUpdate = True
@@ -66,7 +109,7 @@ def render(target, partsdata, code):
 			FH.write(svgcmd + "\n")
 			FH.write("inkscape -z -a 0:0:200:200 -e {0}.png -w 1024 -h 1024 -d 1200 {0}.raw.svg > /dev/null\n".format(code))
 			FH.write("if [ $? -ne 0 ]; then exit 2; fi\n")
-			FH.write("convert {0}.png {0}.bmp\n".format(code))
+			FH.write("convert {0}.png -background white -flatten -alpha off {0}.bmp\n".format(code))
 			FH.write("if [ $? -ne 0 ]; then exit 2; fi\n")
 			FH.write("potrace -s {0}.bmp -o {0}.svg\n".format(code))
 			FH.write("if [ $? -ne 0 ]; then exit 2; fi\n")

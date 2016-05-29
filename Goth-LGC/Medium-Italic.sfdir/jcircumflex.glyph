@@ -1,0 +1,21 @@
+StartChar: jcircumflex
+Encoding: 309 309 347
+Width: 267
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+-91 -171 m 5
+ -65 -110 l 5
+ -44 -130 -24 -141 7 -141 c 4
+ 48 -141 80 -117 92 -91 c 4
+ 95 -83 97 -74 99 -65 c 6
+ 188 445 l 5
+ 263 445 l 5
+ 176 -50 l 6xe8
+ 166 -105 144 -142 119 -166 c 4
+ 88 -195 51 -205 23 -205 c 4
+ -25 -205 -63 -189 -91 -171 c 5
+EndSplineSet
+Refer: 126 710 N 1 0 0 1 -102 2 2
+EndChar

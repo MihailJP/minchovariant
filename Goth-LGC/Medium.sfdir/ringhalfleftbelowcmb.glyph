@@ -1,0 +1,17 @@
+StartChar: ringhalfleftbelowcmb
+Encoding: 796 796 689
+Width: 0
+VWidth: 660
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+-253 -198 m 4
+ -253 -132 -200 -59 -99 -57 c 5
+ -99 -118 l 5
+ -174 -122 -191 -173 -191 -198 c 4
+ -191 -230 -167 -275 -99 -279 c 5
+ -99 -340 l 5
+ -187 -338 -253 -278 -253 -198 c 4
+EndSplineSet
+EndChar

@@ -1,0 +1,18 @@
+StartChar: Cacute
+Encoding: 262 262 314
+Width: 703
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+392 765 m 1
+ 531 863 l 1
+ 724 863 l 1
+ 511 771 l 1
+ 497 767 l 1
+ 482 765 l 9
+ 422 765 l 1
+ 392 765 l 1
+EndSplineSet
+Refer: 35 67 N 1 0 0 1 0 0 2
+EndChar

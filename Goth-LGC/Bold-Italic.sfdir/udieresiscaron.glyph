@@ -1,0 +1,19 @@
+StartChar: udieresiscaron
+Encoding: 474 474 295
+Width: 561
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+249 878 m 5
+ 322 878 l 5
+ 420 792 l 5
+ 547 878 l 5
+ 594 878 l 5
+ 620 878 l 5
+ 464 739 l 5
+ 355 739 l 5
+ 249 878 l 5
+EndSplineSet
+Refer: 210 252 N 1 0 0 1 0 0 2
+EndChar

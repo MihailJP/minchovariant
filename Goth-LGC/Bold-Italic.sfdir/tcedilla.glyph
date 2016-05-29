@@ -1,0 +1,27 @@
+StartChar: tcedilla
+Encoding: 355 355 337
+Width: 404
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+91 400 m 1
+ 103 472 l 1
+ 173 472 l 1
+ 197 607 l 1
+ 325 607 l 1
+ 301 472 l 1xf4
+ 438 472 l 1
+ 426 400 l 1
+ 289 400 l 1
+ 244 150 l 2
+ 233 89 248 67 281 67 c 0xf8
+ 320 67 349 86 373 103 c 1
+ 379 33 l 1
+ 319 7 259 -11 185 -11 c 0
+ 88 -11 102 85 111 138 c 2
+ 158 400 l 1xf8
+ 91 400 l 1
+EndSplineSet
+Refer: 129 184 S 1 0 0 1 20 0 2
+EndChar

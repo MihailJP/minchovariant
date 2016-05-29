@@ -1,0 +1,18 @@
+StartChar: quoteright
+Encoding: 8217 8217 109
+Width: 1000
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+96 639 m 1
+ 96 723 l 1
+ 180 723 l 1
+ 180 653 l 1
+ 179 639 l 1
+ 138 514 l 1
+ 96 514 l 1
+ 122 639 l 1
+ 96 639 l 1
+EndSplineSet
+EndChar

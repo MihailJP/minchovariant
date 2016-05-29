@@ -1,12 +1,13 @@
 /load("engine\/polygon.js");/i \
 load("../rotate.js");\
 load("engine/2d.js");
-/load("engine\/kage.js");/c \
-load("kage.js");
-/load("engine\/kagecd.js");/c \
-load("kagecd.js");
-/load("engine\/kagedf.js");/c \
-load("kagedf.js");
+/kage = new Kage();/ a \
+\
+if (arguments === undefined) {\
+  if (scriptArgs !== undefined) { // workaround for newer mozjs\
+    var arguments = scriptArgs;\
+  }\
+}
 /if(arguments\[2\] == "gothic"){/c \
 if(arguments[2] == "socho"){\
   kage.kShotai = kage.kSocho;\
@@ -44,6 +45,12 @@ a \
   kage.kMage = 20;\
   kage.kAdjustTateStep = 7;\
   kage.kAdjustMageStep = 8;\
+} else if(arguments[3] == 0){\
+  kage.kMinWidthY = 1;\
+  kage.kMinWidthU = 1;\
+  kage.kMinWidthT = 3;\
+  kage.kWidth = 2;\
+  kage.kKakato = 4;\
 } else if(arguments[3] == 105){\
   kage.kMinWidthY = 2;\
   kage.kMinWidthU = 3;\
@@ -71,6 +78,14 @@ a \
   kage.kMage = 17;\
   kage.kAdjustTateStep = 5;\
   kage.kAdjustMageStep = 7;\
+} else if(arguments[3] == 200){\
+  kage.kMinWidthY = 1.5;\
+  kage.kMinWidthU = 1.5;\
+  kage.kMinWidthT = 2;\
+  kage.kWidth = 2;\
+  kage.kKakato = 5;\
+  kage.kAdjustKakatoL = ([12, 10, 8, 6]);\
+  kage.kAdjustKakatoR = ([6, 5, 4, 3]);\
 } else if(arguments[3] == 201){\
   kage.kMinWidthY = 2;\
   kage.kMinWidthU = 2;\
