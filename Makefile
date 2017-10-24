@@ -257,6 +257,22 @@ Goth-LGC/lgc7.otf: Goth-LGC/Makefile
 	cd Goth-LGC && $(MAKE) lgc7.otf
 
 
+mincho1/work.otf: mincho1
+mincho3/work.otf: mincho3
+mincho5/work.otf: mincho5
+mincho7/work.otf: mincho7
+mincho9/work.otf: mincho9
+
+socho1/work.otf: socho1
+socho3/work.otf: socho3
+socho5/work.otf: socho5
+socho7/work.otf: socho7
+
+gothic1/work.otf: gothic1
+gothic3/work.otf: gothic3
+gothic5/work.otf: gothic5
+gothic7/work.otf: gothic7
+
 mincho1/mincho1.otf: mincho1
 mincho3/mincho3.otf: mincho3
 mincho5/mincho5.otf: mincho5
