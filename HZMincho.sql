@@ -2328,6 +2328,7 @@ INSERT INTO cjkKumimoji VALUES('ベクレル', 20939, 20953, NULL, NULL, 'ベ', 
 INSERT INTO cjkKumimoji VALUES('ボー', 20940, 20954, NULL, NULL, 'ボ', 'ー', NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO cjkKumimoji VALUES('ランド', 20941, 20955, NULL, NULL, 'ラ', 'ン', 'ド', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO cjkKumimoji VALUES('リンギット', 20942, 20956, NULL, NULL, 'リ', 'ン', 'ギ', 'ッ', 'ト', NULL, NULL, NULL);
+INSERT INTO cjkKumimoji VALUES('令和', 23058, 23059, NULL, NULL, '令', '和', NULL, NULL, NULL, NULL, NULL, NULL);
 CREATE VIEW zeroNoSlash AS SELECT * FROM lgcGlyphs WHERE glyphName = 'zero';
 CREATE VIEW zeroWithSlash AS SELECT * FROM lgcGlyphs WHERE glyphName = 'zero.slash';
 CREATE VIEW zero AS
