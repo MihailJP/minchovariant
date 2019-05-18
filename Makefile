@@ -128,11 +128,11 @@ groups/HALFWIDTH.txt:
 groups/NONSPACING.txt:
 	cd groups; $(MAKE) NONSPACING.txt
 
-cidalias.sed: cidalias.txt
-	cat $^ | ./cidalias_sed.rb > $@
+cidalias.sed: cidalias.txt HZMincho.db
+	cat $< | ./cidalias_sed.rb > $@
 
 glyphs.txt: groups/cidalias.txt
-	cat $^ | sort | uniq > $@
+	cat $^ | sort | uniq | ./cidalias_filter.rb > $@
 
 LGC/Makefile: HZMincho.db LGC/metamake.rb
 	cd LGC && (./metamake.rb > Makefile)
