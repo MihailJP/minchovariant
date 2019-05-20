@@ -1,8 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+def javascript(scriptName):
+	from sys import platform
+	if platform == 'Darwin' or platform == 'darwin':
+		return '/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc ' + scriptName + ' --'
+	else:
+		return 'js ' + scriptName
+
 FONTFORGE = "export LANG=utf-8; env fontforge"
-MAKEGLYPH = "/usr/bin/js ./makeglyph.js"
+MAKEGLYPH = javascript("./makeglyph.js")
 MV = "/bin/mv"
 HEADER_FILENAME = "head.txt"
 PARTS_FILENAME = "parts.txt"
