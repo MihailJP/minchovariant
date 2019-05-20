@@ -148,6 +148,15 @@ M+ font is free for any use.
 Version History
 ---------------
 
+### Version 1.300, May 22, 2019
+* Adobe Japan1-7 font
+* Updated font engine
+* Fix wrong font name for HZ Gothic fonts
+* Fix some stroke thinning issues
+* No longer depends on Inkscape for build
+* Intermediate rasterization is now now equal-magnified (200px) rather than 1024px.
+* Reduce build time by omitting rendering of unneeded Kage glyphs.
+
 ### Version 1.200, May 30, 2016
 * First release for HZ Gothic fonts
 * Updated font engine
