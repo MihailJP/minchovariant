@@ -13,6 +13,6 @@ Weight         (#{enWeight})
 version        (1.100)
 Registry       (Adobe)
 Ordering       (Japan1)
-Supplement     6
+Supplement     7
 AdobeCopyright (#{fontCopyrightOf(enName).gsub(/\n/, " / ").gsub(/\s*\(.*?\)/, "")})
 FINIS
