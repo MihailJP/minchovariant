@@ -3,7 +3,7 @@
 cjkRotOffset = {}
 while l = STDIN.gets
 	if l.chomp == "-- LIST OF TARGET CID" then
-		for i in 0..23057
+		for i in 0..23059
 			print("INSERT INTO targetCIDs VALUES(#{i});\n")
 		end
 	elsif l.chomp =~ /^-- CJKCID (\d+) (\d+) (\d+)/ then
