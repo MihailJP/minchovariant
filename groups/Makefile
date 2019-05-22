@@ -18,8 +18,8 @@ cidalias.txt: ../cidalias.txt
 
 _HALFWIDTH:
 	wget -O $@ http://glyphwiki.org/wiki/Group:HalfwidthGlyphs
-HALFWIDTH.txt: _HALFWIDTH
-	$(GNAMEFILTER) | sed -e '1i mihail-jp_notdef' > $@
+HALFWIDTH.txt: _HALFWIDTH ../halfwidth.sed
+	$(GNAMEFILTER) | sed -f ../halfwidth.sed > $@
 
 _NONSPACING_FULL:
 	wget -O $@ http://glyphwiki.org/wiki/Group:NonSpacingGlyphs

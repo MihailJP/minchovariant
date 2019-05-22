@@ -49,7 +49,7 @@ module Kage
 			@data.dup
 		end
 		def strokelength
-			case @data[0]
+			case @data[0] % 100
 			when 1
 				return Math.hypot(@data[5] - @data[3], @data[6] - @data[4])
 			when 2, 3, 4
@@ -120,7 +120,7 @@ module Kage
 			@data[2] = val
 		end
 		def startPoint
-			case @data[0]
+			case @data[0] % 100
 			when 1, 2, 3, 4, 6, 7, 99
 				return @data[3..4].dup
 			else
@@ -128,7 +128,7 @@ module Kage
 			end
 		end
 		def controlPoint1
-			case @data[0]
+			case @data[0] % 100
 			when 2, 3, 4, 6, 7
 				return @data[5..6].dup
 			else
@@ -136,7 +136,7 @@ module Kage
 			end
 		end
 		def controlPoint2
-			case @data[0]
+			case @data[0] % 100
 			when 2, 3, 4
 				return @data[5..6].dup
 			when 6, 7
@@ -146,7 +146,7 @@ module Kage
 			end
 		end
 		def controlPoint
-			case @data[0]
+			case @data[0] % 100
 			when 2, 3, 4
 				return @data[5..6].dup
 			when 6, 7
@@ -156,7 +156,7 @@ module Kage
 			end
 		end
 		def endPoint
-			case @data[0]
+			case @data[0] % 100
 			when 1, 99
 				return @data[5..6]
 			when 2, 3, 4
@@ -173,7 +173,7 @@ module Kage
 		end
 		def controlPoint1=(a)
 			raise TypeError, "Not an Array of 2 Fixnum instances" unless a.is_a? Array and a.length == 2 and a.all?{|elem| elem.is_a? Fixnum}
-			case @data[0]
+			case @data[0] % 100
 			when 2, 3, 4, 6, 7
 				@data[5..6] = a
 			else
@@ -182,7 +182,7 @@ module Kage
 		end
 		def controlPoint2=(a)
 			raise TypeError, "Not an Array of 2 Fixnum instances" unless a.is_a? Array and a.length == 2 and a.all?{|elem| elem.is_a? Fixnum}
-			case @data[0]
+			case @data[0] % 100
 			when 2, 3, 4
 				@data[5..6] = a
 			when 6, 7
@@ -193,7 +193,7 @@ module Kage
 		end
 		def endPoint=(a)
 			raise TypeError, "Not an Array of 2 Fixnum instances" unless a.is_a? Array and a.length == 2 and a.all?{|elem| elem.is_a? Fixnum}
-			case @data[0]
+			case @data[0] % 100
 			when 1, 99
 				@data[5..6] = a
 			when 2, 3, 4

@@ -1,8 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+def javascript(scriptName):
+	from sys import platform
+	if platform == 'Darwin' or platform == 'darwin':
+		return '/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc ' + scriptName + ' --'
+	else:
+		return 'js ' + scriptName
+
 FONTFORGE = "export LANG=utf-8; env fontforge"
-MAKEGLYPH = "/usr/bin/js ./makeglyph.js"
+MAKEGLYPH = javascript("./makeglyph.js")
 MV = "/bin/mv"
 HEADER_FILENAME = "head.txt"
 PARTS_FILENAME = "parts.txt"
@@ -107,14 +114,11 @@ def render(target, partsdata, code):
 	if needsUpdate:
 		with open(svgBaseName+".sh", "w") as FH:
 			FH.write(svgcmd + "\n")
-			FH.write("inkscape -z -a 0:0:200:200 -e {0}.png -w 1024 -h 1024 -d 1200 {0}.raw.svg > /dev/null\n".format(code))
-			FH.write("if [ $? -ne 0 ]; then exit 2; fi\n")
-			FH.write("convert {0}.png -background white -flatten -alpha off {0}.bmp\n".format(code))
+			FH.write("convert {0}.raw.svg -background white -flatten -alpha off {0}.bmp\n".format(code))
 			FH.write("if [ $? -ne 0 ]; then exit 2; fi\n")
 			FH.write("potrace -s {0}.bmp -o {0}.svg\n".format(code))
 			FH.write("if [ $? -ne 0 ]; then exit 2; fi\n")
 			FH.write("rm -f " + code+".raw.svg\n")
-			FH.write("rm -f " + code+".png\n")
 			FH.write("rm -f " + code+".bmp\n")
 
 ##############################################################################

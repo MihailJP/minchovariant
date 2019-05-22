@@ -27,21 +27,23 @@ KAGE engine is referred as a Git submodule. Do not forget
 * [Fontforge][1] with Python and native script feature enabled
 * [Adobe Font Development Kit for OpenType][2]
 * JavaScript
-* [Perl][3]
-* [Ruby][4]
-* [SQLite3][5]
-* [Inkscape][6]
-* [ImageMagick][7]
-* [Potrace][8]
+* [Perl](http://www.perl.org/)
+* [Python](https://www.python.org/)
+* [Ruby](https://www.ruby-lang.org/)
+  * gem [sqlite3](https://rubygems.org/gems/sqlite3/)
+* [SQLite3](http://www.sqlite.org/)
+* [ImageMagick](http://www.imagemagick.org/)
+* [Potrace](http://potrace.sourceforge.net/)
 
 [1]: http://fontforge.github.io/
 [2]: http://www.adobe.com/devnet/opentype/afdko.html
-[3]: http://www.perl.org/
-[4]: https://www.ruby-lang.org/
-[5]: http://www.sqlite.org/
-[6]: https://inkscape.org/ja/
-[7]: http://www.imagemagick.org/
-[8]: http://potrace.sourceforge.net/
+
+Prerequisite memory amount
+--------------------------
+This is a Japanese font, which consists of more than twenty thousand glyphs.
+It is known that this require 4GB of memory in order to build (on Linux:
+concretely speaking, this is while running Fontforge). Avoid `make -j` in
+order not to experience thrashing.
 
 Authors
 -------
@@ -145,6 +147,15 @@ M+ font is free for any use.
 
 Version History
 ---------------
+
+### Version 1.300, May 22, 2019
+* Adobe Japan1-7 font
+* Updated font engine
+* Fix wrong font name for HZ Gothic fonts
+* Fix some stroke thinning issues
+* No longer depends on Inkscape for build
+* Intermediate rasterization is now now equal-magnified (200px) rather than 1024px.
+* Reduce build time by omitting rendering of unneeded Kage glyphs.
 
 ### Version 1.200, May 30, 2016
 * First release for HZ Gothic fonts

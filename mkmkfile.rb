@@ -62,6 +62,14 @@ def partsSrc
 	end
 end
 
+def mac?
+	if RUBY_PLATFORM.downcase =~ /darwin/ then
+		return true
+	else
+		return false
+	end
+end
+
 print <<FINIS
 AFD_DIR=#{iscygwin ? AFD_DIR : "#{ENV["HOME"]}/bin/FDK"}
 AFD_BINDIR=$(AFD_DIR)/Tools/#{iscygwin ? 'win' : 'linux'}
@@ -111,7 +119,7 @@ makeglyph.js:
 .DELETE_ON_ERROR: work_.sfd work.sfd work_.sfd work2_.sfd work2.sfd temp.otf work.otf
 work_.sfd: head.txt parts.txt foot.txt engine makeglyph.js
 	../makesvg.py . work_ #{$font} #{$weightNum}
-	cd build; $(MAKE) -j`nproc`
+	cd build; $(MAKE) -j`#{mac? ? "getconf _NPROCESSORS_ONLN" : "nproc"}`
 	export LANG=utf-8; fontforge -script work_.scr >> work_.log 2>&1
 work.sfd: work_.sfd
 	../fixup-layers.py $< $@

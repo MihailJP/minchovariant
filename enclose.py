@@ -35,12 +35,8 @@ for srcGlyph in srcFont.glyphs():
 							if verticalFlag:
 								glyph.transform(psMat.translate(0, srcFont.descent))
 								if glyph.color != 0xffff00: glyph.transform(psMat.rotate(pi / 2))
-							try:
-								glyph.left_side_bearing = 50
-								glyph.right_side_bearing = 50
-							except TypeError:
-								glyph.left_side_bearing = 50L
-								glyph.right_side_bearing = 50L
+							glyph.left_side_bearing = 50
+							glyph.right_side_bearing = 50
 							if verticalFlag:
 								w = glyph.width
 								glyph.transform(psMat.rotate(-pi / 2))
