@@ -1,22 +1,23 @@
 StartChar: uF3F69
 Encoding: 999273 999273 227
 Width: 1000
+VWidth: 940
 Flags: MW
 LayerCount: 2
 Fore
 SplineSet
-893 -66 m 1
- 107 -66 l 1
- 166 404 l 1
- 499 720 l 1
- 834 404 l 1
- 893 -66 l 1
-853 -28 m 5
- 801 386 l 5
- 499 671 l 5
- 199 386 l 5
- 147 -28 l 5
- 853 -28 l 5
+76 -113 m 1
+ 154 544 l 1
+ 500 744 l 1
+ 846 544 l 1
+ 924 -113 l 1
+ 76 -113 l 1
+500 690 m 1
+ 197 515 l 1
+ 129 -67 l 1
+ 871 -67 l 1
+ 803 515 l 1
+ 500 690 l 1
 EndSplineSet
 Colour: ff
 EndChar

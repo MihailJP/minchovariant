@@ -1,14 +1,15 @@
 StartChar: uF02DB
 Encoding: 983771 983771 210
 Width: 1000
+VWidth: 940
 Flags: MW
 LayerCount: 2
 Fore
 SplineSet
-934 -49 m 1
- 66 -49 l 1
- 500 648 l 1
- 934 -49 l 1
+950 -60 m 1
+ 50 -60 l 1
+ 500 720 l 1
+ 950 -60 l 1
 EndSplineSet
 Colour: ff
 EndChar

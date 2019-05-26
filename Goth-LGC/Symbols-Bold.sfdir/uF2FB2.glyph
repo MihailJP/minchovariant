@@ -5,14 +5,14 @@ Flags: MW
 LayerCount: 2
 Fore
 SplineSet
-868 319 m 1
- 326 319 l 1
- 323 174 l 1
- 130 361 l 1
- 323 549 l 1
- 326 403 l 1
- 868 403 l 1
- 868 319 l 1
+369 508 m 1
+ 369 355 l 1
+ 920 355 l 1
+ 920 245 l 1
+ 369 245 l 1
+ 369 91 l 1
+ 62 300 l 1
+ 369 508 l 1
 EndSplineSet
-Colour: ff
+Colour: 8080ff
 EndChar

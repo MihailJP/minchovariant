@@ -9,12 +9,9 @@ Latin, Greek and Cyrillic glyphs are not derived from GlyphWiki but from
 because GlyphWiki's [Kage engine](http://fonts.jp/kage/index.en.html) is
 intended for Chinese characters and not good at LGC.
 
-Some symbols, including CIDs 16314, 16323, 16324 and 16325,
-came from [Symbola](http://users.teilar.gr/~g1951d/) font.
-
-Sans-serif Katakana and Figures, namely CIDs 20473 to 20496 and
-20513 to 20522 are from
-[M+ 2m](http://mplus-fonts.sourceforge.jp/mplus-outline-fonts/) font.
+Some symbols are from
+[M+](http://mplus-fonts.sourceforge.jp/mplus-outline-fonts/) fonts and
+[GL Antique](http://gutenberg.osdn.jp/ja/) font.
 
 Build-time dependencies
 -----------------------
@@ -52,7 +49,6 @@ Authors
   * Includes MihailJP
 * Andrei V. Panov (Computer Modern Unicode)
   * Some additional glyphs are composed by MihailJP
-* George Doulos (Symbola)
 * Coji Morishita (M+ 2m)
 
 License
@@ -124,16 +120,7 @@ font exception clause.
 > your version of the fonts, but you are not obligated to do so. If you do
 > not wish to do so, delete this exception statement from your version.
 
-### Symbola font, in lieu of a licence ###
-_See http://users.teilar.gr/~g1951d/._
-
-Symbola font is free for any use.
-
-> Fonts in this site are offered free for any use; they may be installed,
-> embedded, opened, edited, modified, regenerated, posted, packaged and
-> redistributed. George Douros
-
-### License of M+ font ###
+### License of M+ fonts ###
 _See http://mplus-fonts.sourceforge.jp/mplus-outline-fonts/index.html#license._
 
 M+ font is free for any use.
@@ -144,6 +131,11 @@ M+ font is free for any use.
 > with or without modification, either commercially or noncommercially.
 > 
 > **THESE FONTS ARE PROVIDED "AS IS" WITHOUT WARRANTY.**
+
+### License of GL-Antique ###
+_See http://gutenberg.osdn.jp/ja/license.html._
+
+Same as M+ fonts.
 
 Version History
 ---------------
