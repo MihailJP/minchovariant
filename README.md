@@ -140,6 +140,9 @@ Same as M+ fonts.
 Version History
 ---------------
 
+### Version 1.301, May 28, 2019
+* Replace LGC and symbol glyphs
+
 ### Version 1.300, May 22, 2019
 * Adobe Japan1-7 font
 * Updated font engine
