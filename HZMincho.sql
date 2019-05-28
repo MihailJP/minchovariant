@@ -792,7 +792,7 @@ INSERT INTO subFont VALUES(7,'cidpua-kanap.map','KanaP','kanap.otf', 'kanap-base
 INSERT INTO subFont VALUES(9,'cidpua-kanavertp.map','KanaVertP','kanavp.otf', 'kanavp-base.otf', 'PROPORTIONALVERTKANA');
 INSERT INTO subFont VALUES(10,'cidpua-symbols.map','Symbols','symbols.otf', NULL, 'SYMBOLFONT');
 INSERT INTO subFont VALUES(11,'cidpua-blockelem.map','BlockElem','../mincho3/work.otf', NULL, NULL);
-INSERT INTO subFont VALUES(12,'cidpua-dingbats.map','Dingbats','../mincho#{($weightNum.to_i % 100) > 7 ? 7 : (($weightNum.to_i % 100) > 3 ? ($weightNum.to_i % 100) : 3)}/work.otf', NULL, NULL);
+INSERT INTO subFont VALUES(12,'cidpua-dingbats.map','Dingbats','../mincho3/work.otf', NULL, NULL);
 INSERT INTO subFont VALUES(13,'cidpua-enclosed.map','Enclosed','enclosed.otf', 'enclosed-base.otf', 'ENCLFONT');
 INSERT INTO subFont VALUES(14,'cidpua-uprightsym.map','UprightSym','upright.otf', NULL, NULL);
 INSERT INTO subFont VALUES(15,'cidpua-uprightsymp.map','UprightSymP','uprightp.otf', NULL, NULL);

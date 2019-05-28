@@ -6,16 +6,6 @@
  =======================
  This is a free/libre OpenType CID-keyed Japanese font
  derived from [GlyphWiki](http://en.glyphwiki.org/wiki/GlyphWiki:MainPage)'s
-@@ -9,8 +9,7 @@
- because GlyphWiki's [Kage engine](http://fonts.jp/kage/index.en.html) is
- intended for Chinese characters and not good at LGC.
- 
--Some symbols, including CIDs 16314, 16323, 16324 and 16325,
--came from [Symbola](http://users.teilar.gr/~g1951d/) font.
-+Some symbols came from [Symbola](http://users.teilar.gr/~g1951d/) font.
- 
- Sans-serif Katakana and Figures, namely CIDs 20473 to 20496 and
- 20513 to 20522 are from
 @@ -58,7 +57,7 @@
  This font is composed of some individual fonts available under
  their open source licenses.

@@ -1,28 +1,23 @@
 def fontVersion
-	"1.300"
+	"1.301"
 end
 
 def fontCopyrightOf(fontname)
 	kage     = "Created by KAGE system. (http://fonts.jp/)"
-	symbol   = "Some symbol glyphs are from George Doulos' Symbola font."
+	symbol   = "Some symbol glyphs are M+ fonts and GL-Antique."
 	aj16Sans = "AJ1-6 sans-serif glyphs from M+ fonts."
 	merge    = "Merged by MihailJP, May 2019."
-	if fontname =~ /Mincho|Gothic/i then
+	if fontname =~ /Mincho|Gothic|Socho/i then
 		"#{kage}\n" \
 		"Alphabet glyphs by Andrey V. Panov (C) 2005 All rights reserved.\n" \
-		"#{symbol}\n#{aj16Sans}\n#{merge}"
-	elsif fontname =~ /Socho/i then
-		"#{kage}\n" \
-		"Latin alphabet glyphs Copyright (c) 2010 Barry Schwartz.\n" \
-		"Greek, Cyrillic and " \
-		"#{symbol[0].upcase}#{symbol[1..-1]}\n#{aj16Sans}\n#{merge}"
+		"#{symbol}\n#{merge}"
 	else
 		"#{kage}"
 	end
 end
 
 def fontLicenseOf(fontname)
-	if fontname =~ /Mincho|Gothic/i then
+	if fontname =~ /Mincho|Gothic|Socho/i then
 		"X11 License with exception: "
 		"As a special exception, if you create a document which uses these fonts, " \
 		"and embed these fonts or unaltered portions of these fonts into the " \
@@ -32,8 +27,6 @@ def fontLicenseOf(fontname)
 		"X11 License. If you modify these fonts, you may extend this exception to " \
 		"your version of the fonts, but you are not obligated to do so. If you do " \
 		"not wish to do so, delete this exception statement from your version."
-	elsif fontname =~ /Socho/i then
-		"This font is distributed under the terms of MIT License."
 	else
 		"The glyphs registered at the GlyphWiki, as well as the articles, can be " \
 		"freely used by anyone. Reuse of this data, such as reproduction or " \

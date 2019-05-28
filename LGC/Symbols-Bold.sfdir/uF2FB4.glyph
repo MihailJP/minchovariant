@@ -1,19 +1,18 @@
 StartChar: uF2FB4
 Encoding: 995252 995252 348
 Width: 1000
-VWidth: 1000
 Flags: MW
 LayerCount: 2
 Fore
 SplineSet
-688 539 m 1
- 542 536 l 1
- 542 -6 l 1
- 458 -6 l 1
- 458 536 l 1
- 312 539 l 1
- 500 731 l 1
- 688 539 l 1
+708 431 m 1
+ 555 431 l 1
+ 555 -120 l 1
+ 445 -120 l 1
+ 445 431 l 1
+ 291 431 l 1
+ 500 738 l 1
+ 708 431 l 1
 EndSplineSet
-Colour: ff
+Colour: 8080ff
 EndChar

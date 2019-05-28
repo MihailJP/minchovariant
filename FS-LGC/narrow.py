@@ -1,1 +1,0 @@
-../LGC/narrow.py

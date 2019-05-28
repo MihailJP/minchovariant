@@ -1,120 +1,17 @@
 --- README.md	2015-05-05 20:56:22.344874613 +0900
 +++ README-Socho.md	2015-05-06 01:58:19.473132949 +0900
-@@ -1,11 +1,13 @@
+@@ -1,4 +1,4 @@
 -HZ Mincho OpenType font
 -=======================
 +HZ Socho OpenType font
 +======================
  This is a free/libre OpenType CID-keyed Japanese font
  derived from [GlyphWiki](http://en.glyphwiki.org/wiki/GlyphWiki:MainPage)'s
- CJK data, with weight variations.
- 
- Latin, Greek and Cyrillic glyphs are not derived from GlyphWiki but from
--[Computer Modern Unicode](http://canopus.iacp.dvo.ru/~panov/cm-unicode/)
-+[Sorts Mill Goudy](https://bitbucket.org/sortsmill/sortsmill-fonts)
-+(package released under MIT license, not OFL) for Latin alphabet, and
-+[Asea](http://users.teilar.gr/~g1951d/) for Greek and Cyrillic,
- because GlyphWiki's [Kage engine](http://fonts.jp/kage/index.en.html) is
- intended for Chinese characters and not good at LGC.
- 
-@@ -48,9 +50,9 @@
- * Merged by MihailJP <mihailjp@gmail.com>.
- * GlyphWiki contributors
-   * Includes MihailJP
--* Andrei V. Panov (Computer Modern Unicode)
-+* Barry Schwartz (Sorts Mill Goudy)
-   * Some additional glyphs are composed by MihailJP
--* George Doulos (Symbola)
-+* George Doulos (Asea, Symbola)
- * Coji Morishita (M+ 2m)
- 
- License
-@@ -58,9 +60,9 @@
+@@ -58,6 +60,6 @@
  This font is composed of some individual fonts available under
  their open source licenses.
  
 -HZMincho font may be used in any way, including, but not limited to, copying,
 +HZSocho font may be used in any way, including, but not limited to, copying,
  modifying, distributing, or selling copies, as long as you follow the terms
--of Computer Modern Unicode's X11 license with font embedding exception.
-+of Sorts Mill Goudy's MIT license with font embedding exception.
- This permission is regardless of commerciality.
- 
- ### GlyphWiki's license ##
-@@ -77,55 +79,36 @@
- > on any citations used throughout GlyphWiki articles. Please consult their
- > respective licences when reusing such content.
- 
--### License of Computer Modern Unicode ###
-+### License of Sorts Mill Goudy ###
- _See http://canopus.iacp.dvo.ru/~panov/cm-unicode/license.html._
- 
--The versions of Computer Modern Unicode font prior to 0.7.0 are distributed
--under the terms of X11 License with exception similar to GPL's
--font exception clause.
-+Sorts Mill Goudy are distributed under the terms of MIT License.
-+There's also alternative package licensed under SIL OFL instead.
- 
--> Andrey V. Panov (C) 2005
-+> Copyright (c) 2010 Barry Schwartz
- > 
--> All rights reserved.
-+> Permission is hereby granted, free of charge, to any person obtaining a copy
-+> of this software and associated documentation files (the "Software"), to deal
-+> in the Software without restriction, including without limitation the rights
-+> to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-+> copies of the Software, and to permit persons to whom the Software is
-+> furnished to do so, subject to the following conditions:
- > 
--> Permission is hereby granted, free of charge, to any person obtaining a
--> copy of this software and associated documentation files (the
--> "Software"), to deal in the Software without restriction, including
--> without limitation the rights to use, copy, modify, merge, publish,
--> distribute, and/or sell copies of the Software, and to permit persons to
--> whom the Software is furnished to do so, provided that the above
--> copyright notice(s) and this permission notice appear in all copies of
--> the Software and that both the above copyright notice(s) and this
--> permission notice appear in supporting documentation.
-+> The above copyright notice and this permission notice shall be included in
-+> all copies or substantial portions of the Software.
- > 
--> **THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
--> OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
--> MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF
--> THIRD PARTY RIGHTS. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR HOLDERS
--> INCLUDED IN THIS NOTICE BE LIABLE FOR ANY CLAIM, OR ANY SPECIAL INDIRECT
--> OR CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
--> OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
--> OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
--> PERFORMANCE OF THIS SOFTWARE.**
--> 
--> Except as contained in this notice, the name of a copyright holder shall
--> not be used in advertising or otherwise to promote the sale, use or
--> other dealings in this Software without prior written authorization of
--> the copyright holder.
--> 
--> As a special exception, if you create a document which uses these fonts,
--> and embed these fonts or unaltered portions of these fonts into the
--> document, these fonts does not by itself cause the resulting document to
--> be covered by the X11 License. This exception does not however
--> invalidate any other reasons why the document might be covered by the
--> X11 License. If you modify these fonts, you may extend this exception to
--> your version of the fonts, but you are not obligated to do so. If you do
--> not wish to do so, delete this exception statement from your version.
-+> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-+> IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-+> FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-+> AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-+> LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-+> OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-+> THE SOFTWARE.
- 
--### Symbola font, in lieu of a licence ###
-+### Asea and Symbola fonts, in lieu of a licence ###
- _See http://users.teilar.gr/~g1951d/._
- 
--Symbola font is free for any use.
-+Asea and Symbola fonts are free for any use.
- 
- > Fonts in this site are offered free for any use; they may be installed,
- > embedded, opened, edited, modified, regenerated, posted, packaged and
+ of Computer Modern Unicode's X11 license with font embedding exception.
