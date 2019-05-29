@@ -1,0 +1,20 @@
+StartChar: uF2FCC
+Encoding: 995276 995276 375
+Width: 1000
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+295 510 m 1
+ 295 100 l 1
+ 705 100 l 1
+ 705 510 l 1
+ 295 510 l 1
+765 40 m 1
+ 235 40 l 1
+ 235 570 l 1
+ 765 570 l 1
+ 765 40 l 1
+EndSplineSet
+Colour: ff
+EndChar

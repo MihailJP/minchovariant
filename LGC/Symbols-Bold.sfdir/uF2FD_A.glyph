@@ -1,0 +1,15 @@
+StartChar: uF2FDA
+Encoding: 995290 995290 389
+Width: 1000
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+500 70 m 1
+ 265 305 l 1
+ 500 540 l 1
+ 735 305 l 1
+ 500 70 l 1
+EndSplineSet
+Colour: ff
+EndChar
