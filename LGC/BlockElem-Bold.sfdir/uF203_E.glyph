@@ -1,0 +1,22 @@
+StartChar: uF203E
+Encoding: 991294 991294 24
+Width: 1000
+Flags: HW
+LayerCount: 2
+Fore
+SplineSet
+0 140 m 1
+ 0 200 l 1
+ 470 200 l 1
+ 470 400 l 1
+ 0 400 l 1
+ 0 460 l 1
+ 470 460 l 1
+ 470 800 l 1
+ 530 800 l 1
+ 530 -200 l 1
+ 470 -200 l 1
+ 470 140 l 1
+ 0 140 l 1
+EndSplineSet
+EndChar

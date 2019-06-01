@@ -1,0 +1,20 @@
+StartChar: dnhvleftupltform
+Encoding: 9511 9511 177
+Width: 500
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+0 270 m 1
+ 0 330 l 1
+ 220 330 l 1
+ 220 800 l 1
+ 280 800 l 1
+ 280 330 l 1
+ 340 330 l 1
+ 340 -200 l 1
+ 160 -200 l 1
+ 160 270 l 1
+ 0 270 l 1
+EndSplineSet
+EndChar

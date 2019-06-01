@@ -1,0 +1,20 @@
+StartChar: uF203B
+Encoding: 991291 991291 21
+Width: 1000
+VWidth: 940
+Flags: HW
+LayerCount: 2
+Fore
+SplineSet
+0 147 m 1
+ 0 193 l 1
+ 1000 193 l 1
+ 1000 147 l 1
+ 0 147 l 1
+0 407 m 1
+ 0 453 l 1
+ 1000 453 l 1
+ 1000 407 l 1
+ 0 407 l 1
+EndSplineSet
+EndChar

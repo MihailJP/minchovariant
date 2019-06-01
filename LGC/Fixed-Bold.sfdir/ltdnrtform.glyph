@@ -1,0 +1,16 @@
+StartChar: ltdnrtform
+Encoding: 9484 9484 150
+Width: 500
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+220 -200 m 1
+ 220 330 l 1
+ 500 330 l 1
+ 500 270 l 1
+ 280 270 l 1
+ 280 -200 l 1
+ 220 -200 l 1
+EndSplineSet
+EndChar

@@ -1,0 +1,19 @@
+StartChar: dnlthorizhvform
+Encoding: 9519 9519 181
+Width: 1000
+VWidth: 940
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+0 227 m 1
+ 0 373 l 1
+ 1000 373 l 1
+ 1000 227 l 1
+ 523 227 l 1
+ 523 -200 l 1
+ 477 -200 l 1
+ 477 227 l 1
+ 0 227 l 1
+EndSplineSet
+EndChar

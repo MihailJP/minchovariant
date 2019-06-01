@@ -1,0 +1,17 @@
+StartChar: hvuprtform
+Encoding: 9495 9495 157
+Width: 1000
+VWidth: 940
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+427 227 m 1
+ 427 800 l 1
+ 573 800 l 1
+ 573 373 l 1
+ 1000 373 l 1
+ 1000 227 l 1
+ 427 227 l 1
+EndSplineSet
+EndChar

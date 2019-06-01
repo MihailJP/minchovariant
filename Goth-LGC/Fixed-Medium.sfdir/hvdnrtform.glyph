@@ -1,0 +1,17 @@
+StartChar: hvdnrtform
+Encoding: 9487 9487 153
+Width: 500
+VWidth: 940
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+177 -200 m 1
+ 177 373 l 1
+ 500 373 l 1
+ 500 227 l 1
+ 323 227 l 1
+ 323 -200 l 1
+ 177 -200 l 1
+EndSplineSet
+EndChar

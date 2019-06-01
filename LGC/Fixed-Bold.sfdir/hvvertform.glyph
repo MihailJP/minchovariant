@@ -1,0 +1,14 @@
+StartChar: hvvertform
+Encoding: 9475 9475 141
+Width: 500
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+160 -200 m 1
+ 160 800 l 1
+ 340 800 l 1
+ 340 -200 l 1
+ 160 -200 l 1
+EndSplineSet
+EndChar

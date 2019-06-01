@@ -8,7 +8,7 @@ cidpua-kanavertp.map \
 cidpua-symbols.map \
 cidpua-blockelem.map cidpua-dingbats.map cidpua-enclosed.map \
 cidpua-uprightsym.map cidpua-uprightsymp.map cidpua-uprightsymvp.map \
-cidpua-rblockelem.map cidpua-uprightruby.map
+cidpua-uprightruby.map
 LGCMAPS=lgc.map lgc-fixed.map lgc-third.map lgc-quarter.map lgc-wide.map lgc-italic.map \
 lgc-rotated.map lgc-rotfixed.map lgc-rotquarter.map lgc-rotthird.map lgc-rotitalic.map
 METAMAKE_DEP_GENERATABLES=HZMincho.db dump_newest_only.txt dump_all_versions.txt glyphs.txt cidalias.sed \
@@ -94,8 +94,6 @@ cidpua-uprightsymp.map: $(MAPGEN_DEPS)
 	./genmaps.rb 15 > $@
 cidpua-uprightsymvp.map: $(MAPGEN_DEPS)
 	./genmaps.rb 16 > $@
-cidpua-rblockelem.map: $(MAPGEN_DEPS)
-	./genmaps.rb 18 > $@
 cidpua-uprightruby.map: $(MAPGEN_DEPS)
 	./genmaps.rb 19 > $@
 lgc.map: $(MAPGEN_DEPS)
@@ -131,8 +129,8 @@ groups/NONSPACING.txt:
 cidalias.sed: cidalias.txt HZMincho.db
 	cat $< | ./cidalias_sed.rb > $@
 
-glyphs.txt: groups/cidalias.txt
-	cat $^ | sort | uniq | ./cidalias_filter.rb > $@
+glyphs.txt: groups/cidalias.txt HZMincho.db
+	cat $< | sort | uniq | ./cidalias_filter.rb > $@
 
 LGC/Makefile: HZMincho.db LGC/metamake.rb
 	cd LGC && (./metamake.rb > Makefile)

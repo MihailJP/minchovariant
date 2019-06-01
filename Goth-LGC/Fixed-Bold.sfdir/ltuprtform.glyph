@@ -1,0 +1,16 @@
+StartChar: ltuprtform
+Encoding: 9492 9492 158
+Width: 500
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+220 270 m 1
+ 220 800 l 1
+ 280 800 l 1
+ 280 330 l 1
+ 500 330 l 1
+ 500 270 l 1
+ 220 270 l 1
+EndSplineSet
+EndChar

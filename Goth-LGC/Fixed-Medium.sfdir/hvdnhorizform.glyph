@@ -1,0 +1,19 @@
+StartChar: hvdnhorizform
+Encoding: 9523 9523 189
+Width: 500
+VWidth: 940
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+0 227 m 1
+ 0 373 l 1
+ 500 373 l 1
+ 500 227 l 1
+ 323 227 l 1
+ 323 -200 l 1
+ 177 -200 l 1
+ 177 227 l 1
+ 0 227 l 1
+EndSplineSet
+EndChar

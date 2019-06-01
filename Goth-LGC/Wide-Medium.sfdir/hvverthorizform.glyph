@@ -1,0 +1,23 @@
+StartChar: hvverthorizform
+Encoding: 9547 9547 209
+Width: 1000
+VWidth: 940
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+0 227 m 1
+ 0 373 l 1
+ 427 373 l 1
+ 427 800 l 1
+ 573 800 l 1
+ 573 373 l 1
+ 1000 373 l 1
+ 1000 227 l 1
+ 573 227 l 1
+ 573 -200 l 1
+ 427 -200 l 1
+ 427 227 l 1
+ 0 227 l 1
+EndSplineSet
+EndChar
