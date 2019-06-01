@@ -1,0 +1,31 @@
+StartChar: uF203D
+Encoding: 991293 991293 426
+Width: 1000
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+0 140 m 1
+ 0 200 l 1
+ 470 200 l 1
+ 470 400 l 1
+ 0 400 l 1
+ 0 460 l 1
+ 470 460 l 1
+ 470 800 l 1
+ 530 800 l 1
+ 530 460 l 1
+ 1000 460 l 1
+ 1000 400 l 1
+ 530 400 l 1
+ 530 200 l 1
+ 1000 200 l 1
+ 1000 140 l 1
+ 530 140 l 1
+ 530 -200 l 1
+ 470 -200 l 1
+ 470 140 l 1
+ 0 140 l 1
+EndSplineSet
+Colour: ff
+EndChar
