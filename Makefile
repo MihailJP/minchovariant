@@ -6,7 +6,7 @@ CIDMAPS=cidpua.map cidpua-kana.map cidpua-rkana.map \
 cidpua-kumimoji.map cidpua-rot.map cidpua-ruby.map cidpua-kanap.map \
 cidpua-kanavertp.map \
 cidpua-symbols.map \
-cidpua-blockelem.map cidpua-dingbats.map cidpua-enclosed.map \
+cidpua-dingbats.map cidpua-enclosed.map \
 cidpua-uprightsym.map cidpua-uprightsymp.map cidpua-uprightsymvp.map \
 cidpua-uprightruby.map
 LGCMAPS=lgc.map lgc-fixed.map lgc-third.map lgc-quarter.map lgc-wide.map lgc-italic.map \
@@ -82,8 +82,6 @@ cidpua-kanavertp.map: $(MAPGEN_DEPS)
 	./genmaps.rb 9 > $@
 cidpua-symbols.map: $(MAPGEN_DEPS)
 	./genmaps.rb 10 > $@
-cidpua-blockelem.map: $(MAPGEN_DEPS)
-	./genmaps.rb 11 > $@
 cidpua-dingbats.map: $(MAPGEN_DEPS)
 	./genmaps.rb 12 > $@
 cidpua-enclosed.map: $(MAPGEN_DEPS)
