@@ -1,0 +1,29 @@
+StartChar: ltdashquadvertform
+Encoding: 9482 9482 144
+Width: 1000
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+470 9 m 1
+ 530 9 l 1
+ 530 -158 l 1
+ 470 -158 l 1
+ 470 9 l 1
+470 92 m 1
+ 470 259 l 1
+ 530 259 l 1
+ 530 92 l 1
+ 470 92 l 1
+470 342 m 1
+ 470 508 l 1
+ 530 508 l 1
+ 530 342 l 1
+ 470 342 l 1
+470 592 m 1
+ 470 759 l 1
+ 530 759 l 1
+ 530 592 l 1
+ 470 592 l 1
+EndSplineSet
+EndChar

@@ -1,0 +1,24 @@
+StartChar: rtdnhvleftupltform
+Encoding: 9542 9542 204
+Width: 1000
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+0 270 m 1
+ 0 330 l 1
+ 410 330 l 1
+ 410 390 l 1
+ 470 390 l 1
+ 470 800 l 1
+ 530 800 l 1
+ 530 390 l 1
+ 1000 390 l 1
+ 1000 210 l 1
+ 590 210 l 1
+ 590 -200 l 1
+ 410 -200 l 1
+ 410 270 l 1
+ 0 270 l 1
+EndSplineSet
+EndChar

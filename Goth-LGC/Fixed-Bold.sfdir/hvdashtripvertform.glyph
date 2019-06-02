@@ -1,0 +1,24 @@
+StartChar: hvdashtripvertform
+Encoding: 9479 9479 145
+Width: 500
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+160 74 m 1
+ 340 74 l 1
+ 340 -140 l 1
+ 160 -140 l 1
+ 160 74 l 1
+160 193 m 1
+ 160 407 l 1
+ 340 407 l 1
+ 340 193 l 1
+ 160 193 l 1
+160 526 m 1
+ 160 740 l 1
+ 340 740 l 1
+ 340 526 l 1
+ 160 526 l 1
+EndSplineSet
+EndChar

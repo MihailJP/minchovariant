@@ -1,0 +1,15 @@
+StartChar: uF2038
+Encoding: 991288 991288 421
+Width: 1000
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+0 270 m 5
+ 0 330 l 1
+ 292.72 330 530 92.72 530 -200 c 1
+ 470 -200 l 1
+ 470 59.58 259.58 270 0 270 c 5
+EndSplineSet
+Colour: ff
+EndChar

@@ -1,0 +1,24 @@
+StartChar: ltdashtriphorizform
+Encoding: 9476 9476 138
+Width: 1000
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+60 270 m 1
+ 60 330 l 1
+ 274 330 l 1
+ 274 270 l 1
+ 60 270 l 1
+393 270 m 1
+ 393 330 l 1
+ 607 330 l 1
+ 607 270 l 1
+ 393 270 l 1
+726 270 m 1
+ 726 330 l 1
+ 940 330 l 1
+ 940 270 l 1
+ 726 270 l 1
+EndSplineSet
+EndChar

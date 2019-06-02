@@ -1,0 +1,25 @@
+StartChar: ltdashtripvertform
+Encoding: 9478 9478 140
+Width: 1000
+VWidth: 940
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+477 74 m 1
+ 523 74 l 1
+ 523 -140 l 1
+ 477 -140 l 1
+ 477 74 l 1
+477 193 m 1
+ 477 407 l 1
+ 523 407 l 1
+ 523 193 l 1
+ 477 193 l 1
+477 526 m 1
+ 477 740 l 1
+ 523 740 l 1
+ 523 526 l 1
+ 477 526 l 1
+EndSplineSet
+EndChar
