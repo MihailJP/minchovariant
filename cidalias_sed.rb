@@ -9,10 +9,7 @@ db = SQLite3::Database.open("HZMincho.db", {:readonly=>true})
 'rotPwid', 'rotHwid', 'rotQwid', 'rotTwid', 'rotItal'].each {|tag|
 	lgcGlyphs += db.execute("select #{tag} from lgcglyphs where #{tag} is not null").flatten
 }
-['horizontalFull', 'horizontalHalf', 'verticalFull', 'verticalHalf', 'horizontalRuby', 'verticalRuby', 'horizontalTune', 'verticalTune', 'proportional', 'verticalProp'].each {|tag|
-	lgcGlyphs -= db.execute("select #{tag} from kana where #{tag} is not null").flatten
-}
-lgcGlyphs -= db.execute("select cid from cjkCID").flatten
+lgcGlyphs -= db.execute("select cid from cjkCID where fontID <> 10").flatten
 
 if $0 =~ /sed/ then
 	print "$a \\\n"
