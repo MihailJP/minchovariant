@@ -9,6 +9,7 @@ db = SQLite3::Database.open("HZMincho.db", {:readonly=>true})
 'rotPwid', 'rotHwid', 'rotQwid', 'rotTwid', 'rotItal'].each {|tag|
 	lgcGlyphs += db.execute("select #{tag} from lgcglyphs where #{tag} is not null").flatten
 }
+lgcGlyphs += db.execute("select cid from cjkCID where fontID == 10").flatten
 lgcGlyphs -= db.execute("select cid from cjkCID where fontID <> 10").flatten
 
 if $0 =~ /sed/ then
