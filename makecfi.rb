@@ -10,7 +10,7 @@ FontName       (#{psName})
 FullName       (#{enName} #{enWeight})
 FamilyName     (#{enName})
 Weight         (#{enWeight})
-version        (1.100)
+version        (#{fontVersion})
 Registry       (Adobe)
 Ordering       (Japan1)
 Supplement     7
