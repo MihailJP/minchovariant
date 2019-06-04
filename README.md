@@ -140,6 +140,12 @@ Same as M+ fonts.
 Version History
 ---------------
 
+### Version 1.302, June 5, 2019
+* Add symbol glyphs
+* Glyphs for block elements
+* Move block element glyphs to Symbols subfont
+* Replace CIDs 7917 and 20958
+
 ### Version 1.301, May 28, 2019
 * Replace LGC and symbol glyphs
 
