@@ -138,7 +138,7 @@ temp.otf: work2.sfd
 work.otf: temp.otf
 	fontforge -lang=ff -c 'Open("$<"); Generate("$@")'
 
-.DELETE_ON_ERROR: kana_.sfd kana.sfd kana2_.sfd kana2.sfd kana.otf
+.DELETE_ON_ERROR: kana_.sfd kana.sfd kana2_.sfd kana2.sfd kana2.otf kana.otf
 kana_.sfd: work_.sfd
 	../kana.py $^ $@
 kana.sfd: kana_.sfd
@@ -147,7 +147,9 @@ kana2_.sfd: kana.sfd
 	../smooth-contours.py $< $@
 kana2.sfd: kana2_.sfd
 	../fixup-layers.py $< $@
-kana.otf: kana2.sfd
+kana2.otf: kana2.sfd
+	../width.py $< $@
+kana.otf: kana2.otf
 	fontforge -lang=ff -c 'Open("$<"); Generate("$@")'
 
 .DELETE_ON_ERROR: rotcjk.sfd rotcjk.otf
