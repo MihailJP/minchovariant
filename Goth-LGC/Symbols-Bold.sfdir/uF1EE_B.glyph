@@ -1,0 +1,18 @@
+StartChar: uF1EEB
+Encoding: 990955 990955 440
+Width: 1000
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+30 210 m 1
+ 970 210 l 1
+ 970 -107 l 1
+ 909 -44 838 5 756 40 c 128
+ 674 75 589 93 500 93 c 128
+ 411 93 326 75 244 40 c 128
+ 162 5 91 -44 30 -107 c 1
+ 30 210 l 1
+EndSplineSet
+Colour: ff
+EndChar
