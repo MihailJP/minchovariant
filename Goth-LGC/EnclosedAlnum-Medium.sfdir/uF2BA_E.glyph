@@ -1,0 +1,19 @@
+StartChar: uF2BAE
+Encoding: 994222 994222 638
+Width: 1000
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+50 770 m 1
+ 950 770 l 1
+ 950 -170 l 1
+ 50 -170 l 1
+ 50 770 l 1
+468.5 57.099609375 m 1
+ 531.5 57.099609375 l 1
+ 531.5 542.900390625 l 1
+ 468.5 542.900390625 l 1
+ 468.5 57.099609375 l 1
+EndSplineSet
+EndChar
