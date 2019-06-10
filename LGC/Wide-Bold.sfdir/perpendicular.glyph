@@ -1,0 +1,21 @@
+StartChar: perpendicular
+Encoding: 8869 8869 229
+Width: 1000
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+118 -61 m 0
+ 118 -45 134 -43 147 -43 c 2
+ 482 -43 l 1
+ 482 556 l 2
+ 482 580 493 584 500 584 c 0
+ 515 584 518 569 518 555 c 2
+ 518 -43 l 1
+ 856 -43 l 2
+ 878 -44 882 -54 882 -61 c 0
+ 882 -76 869 -79 857 -80 c 2
+ 146 -80 l 2
+ 122 -80 118 -69 118 -61 c 0
+EndSplineSet
+EndChar
