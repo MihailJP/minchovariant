@@ -1,0 +1,18 @@
+StartChar: nabla
+Encoding: 8711 8711 231
+Width: 1000
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+912 692 m 1
+ 595 -3 l 1
+ 404 -3 l 1
+ 88 692 l 5
+ 912 692 l 1
+711 559 m 1
+ 311 559 l 1
+ 511 121 l 1
+ 711 559 l 1
+EndSplineSet
+EndChar

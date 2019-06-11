@@ -1,0 +1,19 @@
+StartChar: orthogonal
+Encoding: 8735 8735 245
+Width: 1000
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+168 -61 m 2
+ 168 556 l 2
+ 168 580 179 584 186 584 c 0
+ 201 584 204 569 204 555 c 2
+ 204 -43 l 1
+ 806 -43 l 2
+ 828 -44 832 -54 832 -61 c 0
+ 832 -76 819 -79 807 -80 c 2
+ 187 -80 l 2
+ 175 -80 168 -72 168 -61 c 2
+EndSplineSet
+EndChar
