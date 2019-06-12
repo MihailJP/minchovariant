@@ -140,6 +140,15 @@ Same as M+ fonts.
 Version History
 ---------------
 
+### Version 1.303, June 13, 2019
+* Fix pitch of fullwidth space in Gothic font
+* Omit generating Kage-glyphs for Kumimoji subfont (which is LGC only)
+* Fix width of halfwidth kana
+* Remove subfont `Dingbats` whose all remaining glyphs are moved to `Symbols`
+* Split subfont `EnclosedAlnum` from `Enclosed`
+* Correct width of sans-serif bold glyphs which was of narrower pitch than medium-weight
+* Update glyphs for mathematical operators
+
 ### Version 1.302, June 5, 2019
 * Add symbol glyphs
 * Glyphs for block elements
