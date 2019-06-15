@@ -81,7 +81,7 @@ MAKEOTF=#{iscygwin ? 'cmd /c ' : ''}#{cygPath "$(AFD_BINDIR)/makeotf#{iscygwin ?
 TARGETS=#{heavyFont? ? "ratio.txt " : ""}head.txt parts.txt foot.txt engine makeglyph.js \
 #{target.sub(/\..+?$/, '.raw')} cidfontinfo #{iscygwin ? "_" : "tmpcid.otf tmpcid.ttx _" + target.sub(/\..+?$/, '.ttx')} _#{target} #{target}
 
-.PHONY: all clean font
+.PHONY: all clean font mostlyclean
 all: $(TARGETS)
 
 .DELETE_ON_ERROR: $(TARGETS)
@@ -243,7 +243,9 @@ LINUX
 cidfontinfo:
 	../makecfi.rb '#{enName}' '#{enWeight}' > $@
 
-clean:
-	-rm -rf $(TARGETS) *.scr *.log build *.otf work*.sfd kana*.sfd rot*.sfd *.js \
+mostlyclean:
+	-rm -rf $(TARGETS) *.scr *.log *.otf work*.sfd kana*.sfd rot*.sfd *.js \
 	temp.bmp temp.png temp.svg current.fpr _WORKDATA_* _WATCHDOG_*
+clean: mostlyclean
+	-rm -rf build
 FINIS
