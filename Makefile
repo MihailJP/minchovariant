@@ -15,7 +15,7 @@ parts.txt parts-socho.txt parts-gothic.txt $(CIDMAPS) $(LGCMAPS) \
 groups/HALFWIDTH.txt groups/NONSPACING.txt
 METAMAKE_DEPS=$(METAMAKE_DEP_GENERATABLES) ./mkmkfile.rb
 MAPGEN_DEPS=genmaps.rb HZMincho.db
-GENERATABLES=$(METAMAKE_DEP_GENERATABLES) $(SUBDIRS) \
+GENERATABLES=$(METAMAKE_DEP_GENERATABLES) \
 groups/cidalias.txt cidalias1.txt cidalias2.txt \
 parts.txt parts-socho.txt parts-gothic.txt \
 ChangeLog README-Socho.md README-Gothic.md
@@ -30,7 +30,7 @@ GOTHIC_ARCHIVE_CONTENTS=README-Gothic.md ChangeLog \
 gothic1/gothic1.otf gothic3/gothic3.otf gothic5/gothic5.otf \
 gothic7/gothic7.otf
 
-.PHONY: all fetch clean distclean $(SUBDIRS) dist
+.PHONY: all fetch clean distclean mostlyclean $(SUBDIRS) dist
 all: $(TARGETS)
 
 .DELETE_ON_ERROR: $(GENERATABLES) $(DOWNLOADABLES)
@@ -331,14 +331,18 @@ HZGothic.tar.xz: $(GOTHIC_ARCHIVE_CONTENTS)
 
 dist: HZMincho.tar.xz HZSocho.tar.xz HZGothic.tar.xz
 
-clean:
+mostlyclean:
 	-cd LGC && $(MAKE) clean
 	-cd FS-LGC && $(MAKE) clean
 	-cd groups && $(MAKE) clean
 	-rm -rf $(GENERATABLES)
+	-for i in $(SUBDIRS); do $(MAKE) -C $$i mostlyclean; done
 	-rm -rf HZMincho HZSocho HZGothic
 	-rm -rf intersect*.pe
 	-rm -rf *.pyc
+
+clean:
+	-rm -rf $(SUBDIRS)
 
 distclean: clean
 	-rm -rf $(DOWNLOADABLES)

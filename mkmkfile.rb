@@ -20,17 +20,17 @@ $LGCdir = ($font == "gothic" ? "Goth-LGC" : $font == "socho" ? "FS-LGC" : "LGC")
 
 def lgcFile(file, suffix)
 	return <<FINIS
-#{file}: ../#{$LGCdir}/lgc#{$weightNum.to_i % 100}#{suffix}.otf
-	cp $^ $@
-../#{$LGCdir}/lgc#{$weightNum.to_i % 100}#{suffix}.otf:
+.DELETE_ON_ERROR: #{file}
+.INTERMEDIATE: #{file}
+#{file}:
 	cd ../#{$LGCdir} && $(MAKE) lgc#{$weightNum.to_i % 100}#{suffix}.otf
+	ln -s ../#{$LGCdir}/lgc#{$weightNum.to_i % 100}#{suffix}.otf $@
 FINIS
 end
 
 def lgcFiles(db)
 	result = ""
 	db.execute("SELECT fontFile, procBaseFont, tSuffix FROM subFont JOIN lgcFont ON lgcFontTag = fontTag WHERE lgcFontTag IS NOT NULL") {|subFont|
-		result += ".DELETE_ON_ERROR: #{subFont[1] or subFont[0]}\n"
 		result += lgcFile((subFont[1] or subFont[0]), subFont[2])
 	}
 	return result
@@ -82,7 +82,7 @@ MAKEOTF=#{iscygwin ? 'cmd /c ' : ''}#{cygPath "$(AFD_BINDIR)/makeotf#{iscygwin ?
 TARGETS=#{heavyFont? ? "ratio.txt " : ""}head.txt parts.txt foot.txt engine makeglyph.js \
 #{target.sub(/\..+?$/, '.raw')} cidfontinfo #{iscygwin ? "_" : "tmpcid.otf tmpcid.ttx _" + target.sub(/\..+?$/, '.ttx')} _#{target} #{target}
 
-.PHONY: all clean font
+.PHONY: all clean font mostlyclean
 all: $(TARGETS)
 
 .DELETE_ON_ERROR: $(TARGETS)
@@ -116,11 +116,13 @@ engine:
 makeglyph.js:
 	cat ../kage/makettf/makeglyph.js | sed -f ../makeglyph-patch.sed > $@
 
+.INTERMEDIATE: work_.sfd work_.scr work2_.sfd work2.sfd temp.otf
 .DELETE_ON_ERROR: work_.sfd work.sfd work_.sfd work2_.sfd work2.sfd temp.otf work.otf
-work_.sfd: head.txt parts.txt foot.txt engine makeglyph.js
+work_.scr: head.txt parts.txt foot.txt engine makeglyph.js
 	../makesvg.py . work_ #{$font} #{$weightNum}
+work_.sfd: work_.scr
 	cd build; $(MAKE) -j`#{mac? ? "getconf _NPROCESSORS_ONLN" : "nproc"}`
-	export LANG=utf-8; fontforge -script work_.scr >> work_.log 2>&1
+	export LANG=utf-8; fontforge -script work_.scr >> work.log 2>&1
 work.sfd: work_.sfd
 	../fixup-layers.py $< $@
 #{$font == "socho" ? <<SOCHO
@@ -138,8 +140,9 @@ temp.otf: work2.sfd
 work.otf: temp.otf
 	fontforge -lang=ff -c 'Open("$<"); Generate("$@")'
 
+.INTERMEDIATE: kana_.sfd kana2_.sfd kana2.otf
 .DELETE_ON_ERROR: kana_.sfd kana.sfd kana2_.sfd kana2.sfd kana2.otf kana.otf
-kana_.sfd: work_.sfd
+kana_.sfd: work.sfd
 	../kana.py $^ $@
 kana.sfd: kana_.sfd
 	../fixup-layers.py $< $@
@@ -152,12 +155,14 @@ kana2.otf: kana2.sfd
 kana.otf: kana2.otf
 	fontforge -lang=ff -c 'Open("$<"); Generate("$@")'
 
+.INTERMEDIATE: rotcjk.sfd
 .DELETE_ON_ERROR: rotcjk.sfd rotcjk.otf
 rotcjk.sfd: upright.otf
 	../#{$LGCdir}/rotate.py $< $@
 rotcjk.otf: rotcjk.sfd
 	../rotcid.py 5 $< $@
 
+.INTERMEDIATE: rotkana.sfd
 .DELETE_ON_ERROR: rotkana.sfd rotkana.otf
 rotkana.sfd: kana.otf
 	../#{$LGCdir}/rotate.py $< $@
@@ -177,6 +182,7 @@ kanavp.otf: kanavp-base.otf kana.otf work.otf
 	../proportional-vert.py $^ $@
 
 #{$font == "socho" ? <<SOCHO
+.INTERMEDIATE: upright_.sfd upright.sfd upright_.otf
 .DELETE_ON_ERROR: upright_.sfd upright.sfd upright_.otf upright.otf
 .DELETE_ON_ERROR: uprightruby.otf uprightp.otf uprightvp.otf
 upright_.sfd: ../mincho#{($weightNum.to_i % 100)}/work.sfd
@@ -202,12 +208,14 @@ uprightp.otf: kanap-base.otf kana.otf upright.otf
 uprightvp.otf: kanavp-base.otf kana.otf upright.otf
 	../proportional-vert.py $^ $@
 
+.INTERMEDIATE: rotming.sfd
 .DELETE_ON_ERROR: rotming.sfd rotming.otf
 rotming.sfd: ../mincho3/work.otf
 	../#{$LGCdir}/rotate.py $< $@
 rotming.otf: rotming.sfd
 	../rotcid.py 18 $< $@
 
+.INTERMEDIATE: #{target.sub(/\..+?$/, '.raw')}
 #{target.sub(/\..+?$/, '.raw')}: cidfontinfo #{
 	fontDB.execute("SELECT fontFile FROM subFont WHERE fontFile IS NOT NULL").flatten.map {|i| i =~ /#/ ? eval("\"#{i}\"") : i}.uniq.join(" ")
 }
@@ -219,6 +227,7 @@ rotming.otf: rotming.sfd
 	stat #{target} > /dev/null
 CYGWIN
 : <<LINUX
+.INTERMEDIATE: _#{target} _#{target.sub(/\..+?$/, '.ttx')} tmpcid.ttx
 tmpcid.otf: #{target.sub(/\..+?$/, '.raw')}
 	$(MAKEOTF) -f $< -ff ../otf-features#{$font == "mincho" ? "" : "-#{$font}"} -mf ../fontMenuDB -o $@ -ch $(CMAP_HORIZONTAL)
 	stat $@ > /dev/null
@@ -237,7 +246,9 @@ LINUX
 cidfontinfo:
 	../makecfi.rb '#{enName}' '#{enWeight}' > $@
 
-clean:
-	-rm -rf $(TARGETS) *.scr *.log build *.otf work*.sfd kana*.sfd rot*.sfd *.js \
+mostlyclean:
+	-rm -rf $(TARGETS) *.scr *.log *.otf work*.sfd kana*.sfd rot*.sfd *.js \
 	temp.bmp temp.png temp.svg current.fpr _WORKDATA_* _WATCHDOG_*
+clean: mostlyclean
+	-rm -rf build
 FINIS
