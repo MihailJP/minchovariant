@@ -20,16 +20,17 @@ $LGCdir = ($font == "gothic" ? "Goth-LGC" : $font == "socho" ? "FS-LGC" : "LGC")
 
 def lgcFile(file, suffix)
 	return <<FINIS
+.DELETE_ON_ERROR: #{file}
+.INTERMEDIATE: #{file}
 #{file}:
 	cd ../#{$LGCdir} && $(MAKE) lgc#{$weightNum.to_i % 100}#{suffix}.otf
-	cp -p ../#{$LGCdir}/lgc#{$weightNum.to_i % 100}#{suffix}.otf $@
+	ln -s ../#{$LGCdir}/lgc#{$weightNum.to_i % 100}#{suffix}.otf $@
 FINIS
 end
 
 def lgcFiles(db)
 	result = ""
 	db.execute("SELECT fontFile, procBaseFont, tSuffix FROM subFont JOIN lgcFont ON lgcFontTag = fontTag WHERE lgcFontTag IS NOT NULL") {|subFont|
-		result += ".DELETE_ON_ERROR: #{subFont[1] or subFont[0]}\n"
 		result += lgcFile((subFont[1] or subFont[0]), subFont[2])
 	}
 	return result
