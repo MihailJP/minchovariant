@@ -139,12 +139,18 @@ LGC/Makefile: HZMincho.db LGC/metamake.rb
 FS-LGC/Makefile: HZMincho.db FS-LGC/metamake.rb
 	cd FS-LGC && (./metamake.rb > Makefile)
 
-parts.txt: dump_newest_only.txt dump_all_versions.txt cidalias.sed
-	cat dump_newest_only.txt dump_all_versions.txt | ./mkparts.pl | sed -f cidalias.sed | sed -f kage-handakuten.sed | ./kage-roofed-l2rd.rb > $@
-parts-socho.txt: parts.txt
-	cat parts.txt | ./replace-glyph.rb -i -l socho.csv | ./kage-socho.rb > $@
-parts-gothic.txt: parts.txt gothic.csv
-	cat parts.txt | ./replace-glyph.rb -i -l gothic.csv > $@
+parts.dat: dump_newest_only.txt dump_all_versions.txt
+	cat $^ | ./mkparts.pl | sed -f kage-handakuten.sed | ./kage-roofed-l2rd.rb > $@
+parts-socho.dat: parts.dat socho.csv
+	cat $< | ./replace-glyph.rb -i -l socho.csv | ./kage-socho.rb > $@
+parts-gothic.dat: parts.dat gothic.csv
+	cat $< | ./replace-glyph.rb -i -l gothic.csv > $@
+parts.txt: parts.dat cidalias.sed
+	cat $< | sed -f cidalias.sed > $@
+parts-socho.txt: parts-socho.dat cidalias.sed
+	cat $< | sed -f cidalias.sed > $@
+parts-gothic.txt: parts-gothic.dat cidalias.sed
+	cat $< | sed -f cidalias.sed > $@
 
 mincho1/Makefile: $(METAMAKE_DEPS)
 	mkdir -p mincho1
@@ -349,6 +355,7 @@ mostlyclean:
 
 clean:
 	-rm -rf $(SUBDIRS)
+	-rm -f parts.dat parts-socho.dat parts-gothic.dat
 
 distclean: clean
 	-rm -rf $(DOWNLOADABLES)
