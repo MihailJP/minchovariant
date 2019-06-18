@@ -11,6 +11,9 @@ makeglyph.js
 parts.txt
 parts-socho.txt
 parts-gothic.txt
+parts.dat
+parts-socho.dat
+parts-gothic.dat
 cidalias.sed
 cidalias.txt
 cidalias1.txt
