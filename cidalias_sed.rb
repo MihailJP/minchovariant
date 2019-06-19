@@ -4,6 +4,7 @@ require 'sqlite3'
 require 'set'
 
 lgcGlyphs = SortedSet.new()
+processed = SortedSet.new()
 db = SQLite3::Database.open("HZMincho.db", {:readonly=>true})
 ['pwid', 'hwid', 'qwid', 'twid', 'fwid', 'ital',
 'rotPwid', 'rotHwid', 'rotQwid', 'rotTwid', 'rotItal'].each {|tag|
@@ -23,6 +24,8 @@ end
 lines = $stdin.read.split(/\r?\n/)
 for l in 0...(lines.length) do
 	unless lgcGlyphs.member?(lines[l].split("\t")[0][1..-1].hex - 0xf0000) then
-		print lines[l] + ($0 =~ /sed/ ? (l < (lines.length - 1) ? "\\" : "") : "") + "\n"
+		if processed.add?(lines[l].split("\t")[0]) then
+			print lines[l] + ($0 =~ /sed/ ? (l < (lines.length - 1) ? "\\" : "") : "") + "\n"
+		end
 	end
 end
