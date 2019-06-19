@@ -162,8 +162,8 @@ def addsubset(subset, target):
 	subset[target] = buhin[target]
 	txtbuf = '$'+buhin[target]+'$'
 	for match in re.findall(r"(\$99:[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:([^\$:]*)(?::[^\$]*)?)", txtbuf):
-		if match[1] not in subset:
-			addsubset(subset, match[1])
+		if match[1].strip() not in subset:
+			addsubset(subset, match[1].strip())
 
 ##############################################################################
 
@@ -200,7 +200,7 @@ LOG.write("Prepare parts data ... done.\n")
 # parse target code point
 with open("../glyphs.txt", "r") as GLYPHLIST: # or die "Cannot read the glyph list"
 	for line in GLYPHLIST:
-		name = re.sub(r"\r?\n$", "", line)
+		name = line.rstrip()
 		target = re.sub(r"^[uU]0*", "", name) # delete zero for the beginning
 		targetDict[target] = name
 LOG.write("Prepare target code point ... done.\n")
