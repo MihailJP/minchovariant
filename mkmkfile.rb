@@ -79,13 +79,14 @@ CMAP_VERTICAL=#{cygPath "$(AFD_CMAPDIR)/UniJIS2004-UTF32-V"}
 MERGEFONTS=$(AFD_BINDIR)/mergeFonts
 MAKEOTF=#{iscygwin ? 'cmd /c ' : ''}#{cygPath "$(AFD_BINDIR)/makeotf#{iscygwin ? '.cmd' : ''}"}
 
-TARGETS=#{heavyFont? ? "ratio.txt " : ""}head.txt parts.txt foot.txt engine makeglyph.js \
-#{target.sub(/\..+?$/, '.raw')} cidfontinfo #{iscygwin ? "_" : "tmpcid.otf tmpcid.ttx _" + target.sub(/\..+?$/, '.ttx')} _#{target} #{target}
+TARGETS=#{target}
+GENERATABLES=$(TARGETS) #{heavyFont? ? "ratio.txt " : ""}head.txt parts.txt foot.txt engine makeglyph.js \
+#{target.sub(/\..+?$/, '.raw')} cidfontinfo #{iscygwin ? "_" : "tmpcid.otf tmpcid.ttx _" + target.sub(/\..+?$/, '.ttx')} _#{target}
 
 .PHONY: all clean font mostlyclean
 all: $(TARGETS)
 
-.DELETE_ON_ERROR: $(TARGETS)
+.DELETE_ON_ERROR: $(GENERATABLES)
 
 Makefile: ../dump_all_versions.txt ../glyphs.txt ../cidalias.sed ../HZMincho.sql ../mkmkfile.rb
 	env MYDIR=$$(basename $$PWD) bash -c 'cd .. && $(MAKE) $$MYDIR/Makefile'
@@ -245,7 +246,7 @@ cidfontinfo:
 	../makecfi.rb '#{enName}' '#{enWeight}' > $@
 
 mostlyclean:
-	-rm -rf $(TARGETS) *.scr *.log *.otf work*.sfd kana*.sfd rot*.sfd *.js \
+	-rm -rf $(GENERATABLES) *.scr *.log *.otf work*.sfd kana*.sfd rot*.sfd *.js \
 	temp.bmp temp.png temp.svg current.fpr _WORKDATA_* _WATCHDOG_*
 clean: mostlyclean
 	-rm -rf build
