@@ -15,7 +15,7 @@ OS2Version: 0
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1390651633
-ModificationTime: 1560775389
+ModificationTime: 1561159041
 OS2TypoAscent: 0
 OS2TypoAOffset: 1
 OS2TypoDescent: 0
@@ -38,7 +38,7 @@ NameList: AGL For New Fonts
 DisplaySize: -48
 AntiAlias: 1
 FitToEm: 1
-WinInfo: 64 16 4
+WinInfo: 48 16 4
 BeginPrivate: 0
 EndPrivate
 EndSplineFont
