@@ -5,7 +5,7 @@ DOWNLOADABLES=dump.tar.gz
 CIDMAPS=cidpua.map cidpua-kana.map cidpua-rkana.map \
 cidpua-kumimoji.map cidpua-rot.map cidpua-ruby.map cidpua-kanap.map \
 cidpua-kanavertp.map cidpua-symbols.map cidpua-enclalnum.map cidpua-enclosed.map \
-cidpua-uprightsym.map cidpua-uprightsymp.map cidpua-uprightsymvp.map \
+cidpua-uprightsym.map cidpua-uprightsymvp.map \
 cidpua-uprightruby.map
 LGCMAPS=lgc.map lgc-fixed.map lgc-third.map lgc-quarter.map lgc-wide.map lgc-italic.map \
 lgc-rotated.map lgc-rotfixed.map lgc-rotquarter.map lgc-rotthird.map lgc-rotitalic.map
@@ -86,8 +86,6 @@ cidpua-enclosed.map: $(MAPGEN_DEPS)
 	./genmaps.rb 13 > $@
 cidpua-uprightsym.map: $(MAPGEN_DEPS)
 	./genmaps.rb 14 > $@
-cidpua-uprightsymp.map: $(MAPGEN_DEPS)
-	./genmaps.rb 15 > $@
 cidpua-uprightsymvp.map: $(MAPGEN_DEPS)
 	./genmaps.rb 16 > $@
 cidpua-uprightruby.map: $(MAPGEN_DEPS)
