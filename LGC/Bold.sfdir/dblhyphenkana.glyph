@@ -1,0 +1,20 @@
+StartChar: dblhyphenkana
+Encoding: 12448 12448 786
+Width: 500
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+450 180 m 1
+ 50 180 l 1
+ 50 220 l 1
+ 450 220 l 1
+ 450 180 l 1
+450 380 m 1
+ 50 380 l 1
+ 50 420 l 1
+ 450 420 l 1
+ 450 380 l 1
+EndSplineSet
+Colour: ffff
+EndChar

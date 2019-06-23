@@ -905,6 +905,7 @@ INSERT INTO lgcGlyphs VALUES('squareplus', 15906, NULL, NULL, NULL, 12190, NULL,
 INSERT INTO lgcGlyphs VALUES('squaremultiply', 15907, NULL, NULL, NULL, 12185, NULL, 16710, NULL, NULL, NULL, NULL);
 INSERT INTO lgcGlyphs VALUES('female', NULL, 12066, NULL, NULL, 706, NULL, NULL, 13298, NULL, NULL, NULL);
 INSERT INTO lgcGlyphs VALUES('male', NULL, 12067, NULL, NULL, 705, NULL, NULL, 13299, NULL, NULL, NULL);
+INSERT INTO lgcGlyphs VALUES('dblhyphenkana', 15516, NULL, NULL, NULL, NULL, 15913, 16527, NULL, NULL, NULL, 16716);
 CREATE TABLE lgcFont (fontTag TEXT PRIMARY KEY NOT NULL, srcPrefix TEXT NOT NULL, srcSuffix TEXT NOT NULL, tSuffix TEXT, rotated TEXT);
 INSERT INTO lgcFont VALUES('SRCFONT', '', '.sfdir', '', 'ROTATED');
 INSERT INTO lgcFont VALUES('FIXEDFONT', 'Fixed-', '.sfdir', 'f', 'ROTATEDFIXED');
@@ -937,7 +938,6 @@ INSERT INTO subFont VALUES(10,'cidpua-symbols.map','Symbols','symbols.otf', NULL
 INSERT INTO subFont VALUES(12,'cidpua-enclalnum.map','EnclosedAlnum','encl-alnum.otf', NULL, 'ENCLALNUM');
 INSERT INTO subFont VALUES(13,'cidpua-enclosed.map','Enclosed','enclosed.otf', 'enclosed-base.otf', 'ENCLFONT');
 INSERT INTO subFont VALUES(14,'cidpua-uprightsym.map','UprightSym','upright.otf', NULL, NULL);
-INSERT INTO subFont VALUES(16,'cidpua-uprightsymvp.map','UprightSymVertP','uprightvp.otf', NULL, NULL);
 INSERT INTO subFont VALUES(19,'cidpua-uprightruby.map','UprightRuby','uprightruby.otf', NULL, NULL);
 INSERT INTO subFont VALUES(30,'lgc.map','LGC','lgc.otf', NULL, 'SRCFONT');
 INSERT INTO subFont VALUES(31,'lgc-fixed.map','Fixed','fixed.otf', NULL, 'FIXEDFONT');
@@ -1008,8 +1008,7 @@ CREATE TABLE cjkCID (CID INTEGER NOT NULL, fontID INTEGER NOT NULL, FOREIGN KEY(
 -- CJKCID 16414 16468 6
 -- CJKCID 15449 15455 7
 -- CJKCID 15462 15463 7
--- CJKCID 15516 15724 7
--- CJKCID 15913 15913 7
+-- CJKCID 15517 15724 7
 -- CJKCID 15976 16192 9
 -- CJKCID 690 691 10
 -- CJKCID 721 734 10
@@ -1137,8 +1136,6 @@ CREATE TABLE cjkCID (CID INTEGER NOT NULL, fontID INTEGER NOT NULL, FOREIGN KEY(
 -- CJKCID 16315 16322 14
 -- CJKCID 16329 16332 14
 -- CJKCID 20959 20960 14
--- CJKCID 16527 16527 16
--- CJKCID 16716 16716 16
 -- CJKCID 12641 12648 19
 -- CJKCID 12655 12660 19
 -- CJKCID 16412 16413 19
