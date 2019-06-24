@@ -140,6 +140,18 @@ Same as M+ fonts.
 Version History
 ---------------
 
+### Version 1.304, June 24, 2019
+* Update meta-makefile for intermediate files
+* Add target `mostlyclean`
+* Modify glyphs for mathematic operators and some punctuations
+* Fix HZMincho.sql (glyph Nos. 15880, 15905)
+* Update Kage.rb (0:97:... to 0:99:...)
+* Intermediate parts file
+* Unexpected newline while running makesvg.py
+* Cleanup pua-addenda.txt and pua-extension.txt
+* Cleanup VWidth
+* Cleanup subfonts
+
 ### Version 1.303, June 13, 2019
 * Fix pitch of fullwidth space in Gothic font
 * Omit generating Kage-glyphs for Kumimoji subfont (which is LGC only)
