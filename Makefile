@@ -7,7 +7,7 @@ cidpua-kumimoji.map cidpua-rot.map cidpua-ruby.map cidpua-kanap.map \
 cidpua-kanavertp.map cidpua-symbols.map cidpua-enclalnum.map cidpua-enclosed.map \
 cidpua-uprightsym.map cidpua-uprightruby.map
 LGCMAPS=lgc.map lgc-fixed.map lgc-third.map lgc-quarter.map lgc-wide.map lgc-italic.map \
-lgc-rotated.map lgc-rotfixed.map lgc-rotquarter.map lgc-rotthird.map lgc-rotitalic.map
+lgc-rotated.map lgc-rotfixed.map lgc-rotquarter.map lgc-rotthird.map lgc-rotwide.map lgc-rotitalic.map
 METAMAKE_DEP_GENERATABLES=HZMincho.db dump_newest_only.txt dump_all_versions.txt glyphs.txt cidalias.sed \
 otf-features otf-features-socho otf-features-gothic \
 parts.txt parts-socho.txt parts-gothic.txt $(CIDMAPS) $(LGCMAPS) \
@@ -107,6 +107,8 @@ lgc-rotquarter.map: $(MAPGEN_DEPS)
 	./genmaps.rb 52 > $@
 lgc-rotthird.map: $(MAPGEN_DEPS)
 	./genmaps.rb 53 > $@
+lgc-rotwide.map: $(MAPGEN_DEPS)
+	./genmaps.rb 54 > $@
 lgc-rotitalic.map: $(MAPGEN_DEPS)
 	./genmaps.rb 57 > $@
 
