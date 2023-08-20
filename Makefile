@@ -40,7 +40,7 @@ all: $(TARGETS)
 fetch: $(DOWNLOADABLES)
 
 dump.tar.gz:
-	wget -O $@ http://glyphwiki.org/dump.tar.gz
+	wget --no-check-certificate -O $@ https://glyphwiki.org/dump.tar.gz
 
 dump_newest_only.txt: dump.tar.gz
 	tar xfz $< $@ && touch $@

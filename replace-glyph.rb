@@ -11,7 +11,7 @@ opt.banner = "Usage: #{$0} [options] [filename...]"
 opt.separator ""
 opt.separator "Options:"
 opt.on("-l", "--list-file=FILENAME", "Replacement list file (must be tab-separated, may be specified more than once)") { |val|
-	replaceList = CSV.read(val, {:col_sep => "\t"})
+	replaceList = CSV.read(val, col_sep: "\t")
 	for glyph in replaceList
 		replaceGlyphs[glyph[0]] = {
 			'glyph' => glyph[1],
@@ -27,8 +27,8 @@ opt.parse!(ARGV)
 
 while l = gets
 	l.chomp!
-    csvDat = CSV.parse(l, {:col_sep => "\t"})
-	glyphName = CSV.parse(l, {:col_sep => "\t"})[0][0]
+    csvDat = CSV.parse(l, col_sep: "\t")
+	glyphName = CSV.parse(l, col_sep: "\t")[0][0]
 	glyphName2 = glyphName.dup
     if ignoreVersion then glyphName2.gsub!(/\@\d+/, "") end
 	if replaceGlyphs.include?(glyphName2) then

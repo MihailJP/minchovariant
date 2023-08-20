@@ -17,22 +17,22 @@ cidalias.txt: ../cidalias.txt
 	cat $^ | cut -f 1 > $@
 
 _HALFWIDTH:
-	wget -O $@ http://glyphwiki.org/wiki/Group:HalfwidthGlyphs
+	wget --no-check-certificate -O $@ https://glyphwiki.org/wiki/Group:HalfwidthGlyphs
 HALFWIDTH.txt: _HALFWIDTH ../halfwidth.sed
 	$(GNAMEFILTER) | sed -f ../halfwidth.sed > $@
 
 _NONSPACING_FULL:
-	wget -O $@ http://glyphwiki.org/wiki/Group:NonSpacingGlyphs
+	wget --no-check-certificate -O $@ https://glyphwiki.org/wiki/Group:NonSpacingGlyphs
 NONSPACING_FULL.txt: _NONSPACING_FULL
 	$(GNAMEFILTER) > $@
 
 _NONSPACING_HALF:
-	wget -O $@ http://glyphwiki.org/wiki/Group:NonSpacingGlyphs-Halfwidth
+	wget --no-check-certificate -O $@ https://glyphwiki.org/wiki/Group:NonSpacingGlyphs-Halfwidth
 NONSPACING_HALF.txt: _NONSPACING_HALF
 	$(GNAMEFILTER) > $@
 
 _NONSPACING:
-	wget -O $@ http://glyphwiki.org/wiki/Group:NonSpacingGlyphs-Fullwidth
+	wget --no-check-certificate -O $@ https://glyphwiki.org/wiki/Group:NonSpacingGlyphs-Fullwidth
 NONSPACING.txt: _NONSPACING_FULL _NONSPACING_HALF _NONSPACING
 	$(GNAMEFILTER) > $@
 

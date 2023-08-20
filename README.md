@@ -24,12 +24,15 @@ KAGE engine is referred as a Git submodule. Do not forget
 * [Fontforge][1] with Python and native script feature enabled
 * [Adobe Font Development Kit for OpenType][2]
 * JavaScript
+  * [V8](https://v8.dev/) engine required for Windows or Linux
 * [Perl](http://www.perl.org/)
-* [Python](https://www.python.org/)
+* [Python](https://www.python.org/) 3
 * [Ruby](https://www.ruby-lang.org/)
-  * gem [sqlite3](https://rubygems.org/gems/sqlite3/)
+  * gems [sorted_set](https://rubygems.org/gems/sorted_set/)
+    and [sqlite3](https://rubygems.org/gems/sqlite3/)
 * [SQLite3](http://www.sqlite.org/)
 * [ImageMagick](http://www.imagemagick.org/)
+  * [Inkscape](https://inkscape.org/) may be needed to read/write SVG
 * [Potrace](http://potrace.sourceforge.net/)
 
 [1]: http://fontforge.github.io/
