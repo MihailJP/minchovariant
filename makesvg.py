@@ -107,21 +107,18 @@ def adjustWeight(weight, code):
 ##############################################################################
 
 def render(target, partsdata, code):
-	LOG.write(code+" : "+(" ".join([MAKEGLYPH, target, partsdata, SHOTAI, str(adjustWeight(int(WEIGHT), code))]))+"\n")
+	LOG.write(code+" : "+(" ".join([MAKEGLYPH, target, urllib.parse.quote_plus(partsdata), SHOTAI, str(adjustWeight(int(WEIGHT), code))]))+"\n")
 	svgBaseName = WORKDIR+"/build/"+code
-	svgcmd = "(cd ..; " + (" ".join([MAKEGLYPH, target, partsdata, SHOTAI, str(adjustWeight(int(WEIGHT), code))])) + ") | \\"
 	needsUpdate = False
-	if not exists(svgBaseName+".sh"):
+	if not exists(svgBaseName+".kage"):
 		needsUpdate = True
 	else:
-		with codecs.open(svgBaseName+".sh", "r", "utf-8") as FH:
-			if FH.readline().rstrip('\n') != svgcmd:
+		with codecs.open(svgBaseName+".kage", "r", "utf-8") as FH:
+			if FH.read().rstrip('\n') != partsdata.rstrip('\n'):
 				needsUpdate = True
 	if needsUpdate:
-		with codecs.open(svgBaseName+".sh", "w", "utf-8") as FH:
-			FH.write(svgcmd + "\n")
-			FH.write("magick convert - -background white -flatten -alpha off bmp:- | \\\n")
-			FH.write("potrace -s - -o {0}.svg\n".format(code))
+		with codecs.open(svgBaseName+".kage", "w", "utf-8") as FH:
+			FH.write(partsdata)
 
 ##############################################################################
 
@@ -217,17 +214,20 @@ with codecs.open(WORKDIR+"/build/Makefile", "w", "utf-8") as FH:
 		FH.write(code + ".svg \\\n")
 	FH.write("""
 .PHONY: all clean
-.DELETE_ON_ERROR:
+.DELETE_ON_ERROR: $(TARGETS)
 
 all: $(TARGETS)
 
-.SUFFIXES: .svg .sh
-.sh.svg:
-	sh -o pipefail $^
+.SUFFIXES: .kage .svg
+.kage.svg:
+	set -o pipefail; \\
+	(set -o pipefail; cd ..; d8 ./makeglyph.js -- u$* $$(../urlencode.py < build/$<) {0} {1}) | \\
+	magick convert - -background white -flatten -alpha off bmp:- | \\
+	potrace -s - -o $@
 
 clean:
 	rm -f *.svg *.bmp *.png
-""")
+""".format(SHOTAI, str(adjustWeight(int(WEIGHT), code))))
 for code in targets:
 	#LOG.write(code+" : ")
 	refGlyph = targetDict[code]
@@ -237,7 +237,6 @@ for code in targets:
 	for subsetKey in subset.keys():
 		partsdata += subsetKey+" "+subset[subsetKey]+"\n"
 	target = urllib.parse.quote_plus(refGlyph)
-	partsdata = urllib.parse.quote_plus(partsdata)
 	render(target, partsdata, code)
 	addglyph(code, refGlyph, target)
 LOG.write("Prepare each glyph ... done.\n")
