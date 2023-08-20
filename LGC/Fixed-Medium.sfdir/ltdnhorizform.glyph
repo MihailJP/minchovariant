@@ -1,0 +1,18 @@
+StartChar: ltdnhorizform
+Encoding: 9516 9516 182
+Width: 500
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+0 277 m 1
+ 0 323 l 1
+ 500 323 l 1
+ 500 277 l 1
+ 273 277 l 1
+ 273 -200 l 1
+ 227 -200 l 1
+ 227 277 l 1
+ 0 277 l 1
+EndSplineSet
+EndChar

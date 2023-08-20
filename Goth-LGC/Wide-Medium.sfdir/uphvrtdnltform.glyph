@@ -1,0 +1,20 @@
+StartChar: uphvrtdnltform
+Encoding: 9502 9502 164
+Width: 1000
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+427 277 m 1
+ 427 800 l 1
+ 573 800 l 1
+ 573 323 l 1
+ 1000 323 l 1
+ 1000 277 l 1
+ 523 277 l 1
+ 523 -200 l 1
+ 477 -200 l 1
+ 477 277 l 1
+ 427 277 l 1
+EndSplineSet
+EndChar

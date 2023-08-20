@@ -1,0 +1,18 @@
+StartChar: hvvertrtform
+Encoding: 9507 9507 169
+Width: 1000
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+427 -200 m 1
+ 427 800 l 1
+ 573 800 l 1
+ 573 373 l 1
+ 1000 373 l 1
+ 1000 227 l 1
+ 573 227 l 1
+ 573 -200 l 1
+ 427 -200 l 1
+EndSplineSet
+EndChar

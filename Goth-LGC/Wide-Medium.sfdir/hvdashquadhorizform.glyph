@@ -1,0 +1,29 @@
+StartChar: hvdashquadhorizform
+Encoding: 9481 9481 143
+Width: 1000
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+41 227 m 1
+ 41 373 l 1
+ 208 373 l 1
+ 208 227 l 1
+ 41 227 l 1
+292 227 m 1
+ 292 373 l 1
+ 458 373 l 1
+ 458 227 l 1
+ 292 227 l 1
+541 227 m 1
+ 541 373 l 1
+ 708 373 l 1
+ 708 227 l 1
+ 541 227 l 1
+791 227 m 1
+ 791 373 l 1
+ 958 373 l 1
+ 958 227 l 1
+ 791 227 l 1
+EndSplineSet
+EndChar

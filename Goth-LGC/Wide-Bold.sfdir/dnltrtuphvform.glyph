@@ -1,0 +1,20 @@
+StartChar: dnltrtuphvform
+Encoding: 9505 9505 167
+Width: 1000
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+410 210 m 1
+ 410 800 l 1
+ 590 800 l 1
+ 590 390 l 1
+ 1000 390 l 1
+ 1000 210 l 1
+ 530 210 l 1
+ 530 -200 l 1
+ 470 -200 l 1
+ 470 210 l 1
+ 410 210 l 1
+EndSplineSet
+EndChar

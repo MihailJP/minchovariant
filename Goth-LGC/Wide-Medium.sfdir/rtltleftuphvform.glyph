@@ -1,0 +1,20 @@
+StartChar: rtltleftuphvform
+Encoding: 9529 9529 191
+Width: 1000
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+0 227 m 1
+ 0 373 l 1
+ 427 373 l 1
+ 427 800 l 1
+ 573 800 l 1
+ 573 323 l 1
+ 1000 323 l 1
+ 1000 277 l 1
+ 573 277 l 1
+ 573 227 l 1
+ 0 227 l 1
+EndSplineSet
+EndChar

@@ -6,15 +6,16 @@ UnderlinePosition: -99.6094
 UnderlineWidth: 49.8047
 Ascent: 800
 Descent: 200
+InvalidEm: 0
 LayerCount: 2
-Layer: 0 0 "+gMyXYgAA"  1
-Layer: 1 0 "+Uk2XYgAA"  0
+Layer: 0 0 "+gMyXYgAA" 1
+Layer: 1 0 "+Uk2XYgAA" 0
 XUID: [1021 562 -354799692 13138345]
 OS2Version: 0
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1390651633
-ModificationTime: 1430027553
+ModificationTime: 1561289368
 OS2TypoAscent: 0
 OS2TypoAOffset: 1
 OS2TypoDescent: 0

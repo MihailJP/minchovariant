@@ -1,0 +1,18 @@
+StartChar: uphvhorizltform
+Encoding: 9528 9528 190
+Width: 1000
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+0 270 m 1
+ 0 330 l 1
+ 410 330 l 1
+ 410 800 l 1
+ 590 800 l 1
+ 590 330 l 1
+ 1000 330 l 1
+ 1000 270 l 1
+ 0 270 l 1
+EndSplineSet
+EndChar

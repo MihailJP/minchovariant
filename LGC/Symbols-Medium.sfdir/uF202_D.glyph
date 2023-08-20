@@ -1,0 +1,15 @@
+StartChar: uF202D
+Encoding: 991277 991277 362
+Width: 1000
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+0 -200 m 1
+ 0 800 l 1
+ 1000 800 l 1
+ 1000 -200 l 1
+ 0 -200 l 1
+EndSplineSet
+Colour: ff
+EndChar

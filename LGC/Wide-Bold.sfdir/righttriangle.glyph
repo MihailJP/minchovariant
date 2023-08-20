@@ -1,0 +1,22 @@
+StartChar: righttriangle
+Encoding: 8895 8895 246
+Width: 1000
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+168 -61 m 0
+ 168 -52 173 -47 178 -42 c 2
+ 792 572 l 2
+ 800 580 805 584 814 584 c 0
+ 829 584 832 569 832 555 c 2
+ 832 -61 l 2
+ 832 -71 823 -80 815 -80 c 2
+ 196 -80 l 2
+ 172 -80 168 -69 168 -61 c 0
+228 -43 m 1
+ 796 -43 l 1
+ 796 525 l 1
+ 228 -43 l 1
+EndSplineSet
+EndChar

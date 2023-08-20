@@ -12,6 +12,12 @@ fontforge.setPrefs('CoverageFormatsAllowed', 1)
 font = fontforge.open(argv[1])
 font.hasvmetrics = True
 
+font.selection.none()
+for glyph in font.glyphs():
+	if glyph.isWorthOutputting():
+		font.selection.select(("more",), glyph)
+font.unlinkReferences()
+
 for glyph in font.glyphs():
 	if glyph.isWorthOutputting():
 		w = glyph.width

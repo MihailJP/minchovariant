@@ -143,6 +143,33 @@ Same as M+ fonts.
 Version History
 ---------------
 
+### Version 1.304, June 24, 2019
+* Update meta-makefile for intermediate files
+* Add target `mostlyclean`
+* Modify glyphs for mathematic operators and some punctuations
+* Fix HZMincho.sql (glyph Nos. 15880, 15905)
+* Update Kage.rb (0:97:... to 0:99:...)
+* Intermediate parts file
+* Unexpected newline while running makesvg.py
+* Cleanup pua-addenda.txt and pua-extension.txt
+* Cleanup VWidth
+* Cleanup subfonts
+
+### Version 1.303, June 13, 2019
+* Fix pitch of fullwidth space in Gothic font
+* Omit generating Kage-glyphs for Kumimoji subfont (which is LGC only)
+* Fix width of halfwidth kana
+* Remove subfont `Dingbats` whose all remaining glyphs are moved to `Symbols`
+* Split subfont `EnclosedAlnum` from `Enclosed`
+* Correct width of sans-serif bold glyphs which was of narrower pitch than medium-weight
+* Update glyphs for mathematical operators
+
+### Version 1.302, June 5, 2019
+* Add symbol glyphs
+* Glyphs for block elements
+* Move block element glyphs to Symbols subfont
+* Replace CIDs 7917 and 20958
+
 ### Version 1.301, May 28, 2019
 * Replace LGC and symbol glyphs
 

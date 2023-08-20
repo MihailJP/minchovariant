@@ -1,0 +1,20 @@
+StartChar: leftltrtuphvform
+Encoding: 9530 9530 196
+Width: 500
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+0 277 m 1
+ 0 323 l 1
+ 177 323 l 1
+ 177 800 l 1
+ 323 800 l 1
+ 323 373 l 1
+ 500 373 l 1
+ 500 227 l 1
+ 177 227 l 1
+ 177 277 l 1
+ 0 277 l 1
+EndSplineSet
+EndChar

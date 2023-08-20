@@ -90,7 +90,7 @@ ratio.txt: ../parts.txt
 	cat ../parts.txt | sed -e 's/\\\\@/@/g' | ../cntstroke.rb > $@
 SUBRECIPE
 : ""}../#{partsSrc}:
-	cd .. && $(MAKE) #{partsSrc}.txt
+	cd .. && $(MAKE) #{partsSrc}
 parts.txt:#{heavyFont? ? " ratio.txt" : ""} ../#{partsSrc}
 	cat ../#{partsSrc} #{heavyFont? ? "| ../kage-width.rb -f $< " : ""}> $@
 foot.txt:

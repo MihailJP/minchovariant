@@ -1,0 +1,24 @@
+StartChar: hvdashtriphorizform
+Encoding: 9477 9477 139
+Width: 1000
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+60 210 m 1
+ 60 390 l 1
+ 274 390 l 1
+ 274 210 l 1
+ 60 210 l 1
+393 210 m 1
+ 393 390 l 1
+ 607 390 l 1
+ 607 210 l 1
+ 393 210 l 1
+726 210 m 1
+ 726 390 l 1
+ 940 390 l 1
+ 940 210 l 1
+ 726 210 l 1
+EndSplineSet
+EndChar

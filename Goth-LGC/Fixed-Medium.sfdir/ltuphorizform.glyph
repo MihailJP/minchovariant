@@ -1,0 +1,18 @@
+StartChar: ltuphorizform
+Encoding: 9524 9524 190
+Width: 500
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+0 277 m 1
+ 1.42108547152e-14 323 l 1
+ 227 323 l 1
+ 227 800 l 1
+ 273 800 l 1
+ 273 323 l 1
+ 500 323 l 1
+ 500 277 l 1
+ 0 277 l 1
+EndSplineSet
+EndChar

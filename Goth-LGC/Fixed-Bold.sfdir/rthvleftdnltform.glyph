@@ -1,0 +1,20 @@
+StartChar: rthvleftdnltform
+Encoding: 9518 9518 184
+Width: 500
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+0 270 m 1
+ 0 330 l 1
+ 220 330 l 1
+ 220 390 l 1
+ 500 390 l 1
+ 500 210 l 1
+ 280 210 l 1
+ 280 -200 l 1
+ 220 -200 l 1
+ 220 270 l 1
+ 0 270 l 1
+EndSplineSet
+EndChar

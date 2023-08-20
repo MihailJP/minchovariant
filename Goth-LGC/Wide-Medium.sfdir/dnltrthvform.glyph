@@ -1,0 +1,16 @@
+StartChar: dnltrthvform
+Encoding: 9485 9485 147
+Width: 1000
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+477 -200 m 1
+ 477 373 l 1
+ 1000 373 l 1
+ 1000 227 l 1
+ 523 227 l 1
+ 523 -200 l 1
+ 477 -200 l 1
+EndSplineSet
+EndChar
