@@ -42,11 +42,11 @@ with sqlite3.connect(dbFileName) as db:
 				glyph.transform(psMat.translate(0, -font.em), ("partialRefs", None))
 				glyph.width = 0
 			elif (kagename in hwl) or (widthType == 1) or (widthType == 2 and glyph.boundingBox()[2] <= font.em / 2):
-				glyph.width = font.em / 2
+				glyph.width = font.em // 2
 			elif widthType == 3:
-				glyph.width = font.em / 4
+				glyph.width = font.em // 4
 			elif widthType == 4:
-				glyph.width = font.em / 3
+				glyph.width = font.em // 3
 			else:
 				glyph.width = font.em
 font.generate(argv[2])
