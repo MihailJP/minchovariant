@@ -109,7 +109,7 @@ def adjustWeight(weight, code):
 def render(target, partsdata, code):
 	LOG.write(code+" : "+(" ".join([MAKEGLYPH, target, partsdata, SHOTAI, str(adjustWeight(int(WEIGHT), code))]))+"\n")
 	svgBaseName = WORKDIR+"/build/"+code
-	svgcmd = "cd ..; " + (" ".join([MAKEGLYPH, target, partsdata, SHOTAI, str(adjustWeight(int(WEIGHT), code))])) + " > build/" + code + ".raw.svg; cd build"
+	svgcmd = "(cd ..; " + (" ".join([MAKEGLYPH, target, partsdata, SHOTAI, str(adjustWeight(int(WEIGHT), code))])) + ") | \\"
 	needsUpdate = False
 	if not exists(svgBaseName+".sh"):
 		needsUpdate = True
@@ -120,12 +120,8 @@ def render(target, partsdata, code):
 	if needsUpdate:
 		with codecs.open(svgBaseName+".sh", "w", "utf-8") as FH:
 			FH.write(svgcmd + "\n")
-			FH.write("magick convert {0}.raw.svg -background white -flatten -alpha off {0}.bmp\n".format(code))
-			FH.write("if [ $? -ne 0 ]; then exit 2; fi\n")
-			FH.write("potrace -s {0}.bmp -o {0}.svg\n".format(code))
-			FH.write("if [ $? -ne 0 ]; then exit 2; fi\n")
-			FH.write("rm -f " + code+".raw.svg\n")
-			FH.write("rm -f " + code+".bmp\n")
+			FH.write("magick convert - -background white -flatten -alpha off bmp:- | \\\n")
+			FH.write("potrace -s - -o {0}.svg\n".format(code))
 
 ##############################################################################
 
@@ -221,12 +217,13 @@ with codecs.open(WORKDIR+"/build/Makefile", "w", "utf-8") as FH:
 		FH.write(code + ".svg \\\n")
 	FH.write("""
 .PHONY: all clean
+.DELETE_ON_ERROR:
 
 all: $(TARGETS)
 
 .SUFFIXES: .svg .sh
 .sh.svg:
-	sh $^
+	sh -o pipefail $^
 
 clean:
 	rm -f *.svg *.bmp *.png
