@@ -4,3 +4,6 @@
 [submodule "engine"]
 	path = engine
 	url = git@github.com:MihailJP/kage-engine.git
+[submodule "cmap-resources"]
+	path = cmap-resources
+	url = https://github.com/adobe-type-tools/cmap-resources.git

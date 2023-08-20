@@ -2,7 +2,6 @@
 
 require "#{File.dirname(__FILE__)}/credits.rb"
 
-AFD_DIR='/cygdrive/c/Apps/FDK' # Needed for Cygwin, otherwise meaningless
 require 'sqlite3'
 DBFileName = 'HZMincho.db'
 if not File.exist?(DBFileName) then raise IOError, "Database '#{DBFileName}' not found" end
@@ -36,18 +35,6 @@ def lgcFiles(db)
 	return result
 end
 
-def iscygwin
-	!!(RUBY_PLATFORM.downcase =~ /cygwin/)
-end
-
-def cygPath(path)
-	if iscygwin then
-		return "\"`cygpath -w \"#{path}\"`\""
-	else
-		return "\"#{path}\""
-	end
-end
-
 def heavyFont?
 	($font != "socho") and ($weightNum.to_i % 100 == 9)
 end
@@ -71,17 +58,13 @@ def mac?
 end
 
 print <<FINIS
-AFD_DIR=#{iscygwin ? AFD_DIR : "#{ENV["HOME"]}/bin/FDK"}
-AFD_BINDIR=$(AFD_DIR)/Tools/#{iscygwin ? 'win' : 'linux'}
-AFD_CMAPDIR=$(AFD_DIR)/Tools/SharedData/Adobe Cmaps/Adobe-Japan1
-CMAP_HORIZONTAL=#{cygPath "$(AFD_CMAPDIR)/UniJIS2004-UTF32-H"}
-CMAP_VERTICAL=#{cygPath "$(AFD_CMAPDIR)/UniJIS2004-UTF32-V"}
-MERGEFONTS=$(AFD_BINDIR)/mergeFonts
-MAKEOTF=#{iscygwin ? 'cmd /c ' : ''}#{cygPath "$(AFD_BINDIR)/makeotf#{iscygwin ? '.cmd' : ''}"}
+AFD_CMAPDIR=../cmap-resources/Adobe-Japan1-7/CMap/
+CMAP_HORIZONTAL=$(AFD_CMAPDIR)/UniJIS2004-UTF32-H
+CMAP_VERTICAL=$(AFD_CMAPDIR)/UniJIS2004-UTF32-V
 
 TARGETS=#{target}
 GENERATABLES=$(TARGETS) #{heavyFont? ? "ratio.txt " : ""}head.txt parts.txt foot.txt engine makeglyph.js \
-#{target.sub(/\..+?$/, '.raw')} cidfontinfo #{iscygwin ? "_" : "tmpcid.otf tmpcid.ttx _" + target.sub(/\..+?$/, '.ttx')} _#{target}
+#{target.sub(/\..+?$/, '.raw')} cidfontinfo #{"tmpcid.otf tmpcid.ttx _" + target.sub(/\..+?$/, '.ttx')} _#{target}
 
 .PHONY: all clean font mostlyclean
 all: $(TARGETS)
@@ -220,17 +203,11 @@ rotming.otf: rotming.sfd
 #{target.sub(/\..+?$/, '.raw')}: cidfontinfo #{
 	fontDB.execute("SELECT fontFile FROM subFont WHERE fontFile IS NOT NULL").flatten.map {|i| i =~ /#/ ? eval("\"#{i}\"") : i}.uniq.join(" ")
 }
-	$(MERGEFONTS) -cid cidfontinfo $@ #{cidmap.gsub(/\r?\n/, " ")}
+	mergefonts -cid cidfontinfo $@ #{cidmap.gsub(/\r?\n/, " ")}
 
-#{iscygwin ? <<CYGWIN
-#{target}: #{target.sub(/\..+?$/, '.raw')}
-	$(MAKEOTF) -f $< -ff ../otf-features#{$font == "mincho" ? "" : "-#{$font}"} -mf ../fontMenuDB -o $@ -ch $(CMAP_HORIZONTAL)
-	stat #{target} > /dev/null
-CYGWIN
-: <<LINUX
 .INTERMEDIATE: _#{target} _#{target.sub(/\..+?$/, '.ttx')} tmpcid.ttx
 tmpcid.otf: #{target.sub(/\..+?$/, '.raw')}
-	$(MAKEOTF) -f $< -ff ../otf-features#{$font == "mincho" ? "" : "-#{$font}"} -mf ../fontMenuDB -o $@ -ch $(CMAP_HORIZONTAL)
+	makeotf -f $< -ff ../otf-features#{$font == "mincho" ? "" : "-#{$font}"} -mf ../fontMenuDB -o $@ -ch $(CMAP_HORIZONTAL)
 	stat $@ > /dev/null
 tmpcid.ttx: tmpcid.otf
 	ttx -o $@ $<
@@ -242,8 +219,6 @@ _#{target}: _#{target.sub(/\..+?$/, '.ttx')}
 	stat $@ > /dev/null
 #{target}: _#{target}
 	../fix-table.py $< $@
-LINUX
-}
 cidfontinfo:
 	../makecfi.rb '#{enName}' '#{enWeight}' > $@
 
