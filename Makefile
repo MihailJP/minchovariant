@@ -16,6 +16,7 @@ METAMAKE_DEPS=$(METAMAKE_DEP_GENERATABLES) ./mkmkfile.rb
 MAPGEN_DEPS=genmaps.rb HZMincho.db
 GENERATABLES=$(METAMAKE_DEP_GENERATABLES) \
 groups/cidalias.txt cidalias1.txt cidalias2.txt \
+parts.dat parts-socho.dat parts-gothic.dat \
 parts.txt parts-socho.txt parts-gothic.txt \
 ChangeLog README-Socho.md README-Gothic.md
 TARGETS=$(SUBDIRS)
@@ -44,6 +45,7 @@ dump_newest_only.txt: dump.tar.gz
 dump_all_versions.txt: dump.tar.gz
 	tar xfz $< $@ && touch $@
 
+.INTERMEDIATE: cidalias1.txt cidalias2.txt
 cidalias1.txt: pua-addenda.txt
 	./cidpua.rb < $< > $@
 cidalias2.txt: dump_newest_only.txt dump_all_versions.txt
@@ -128,6 +130,7 @@ LGC/Makefile: HZMincho.db LGC/metamake.rb
 FS-LGC/Makefile: HZMincho.db FS-LGC/metamake.rb
 	cd FS-LGC && (./metamake.rb > Makefile)
 
+.INTERMEDIATE: parts.dat parts-socho.dat parts-gothic.dat
 parts.dat: dump_newest_only.txt dump_all_versions.txt
 	cat $^ | ./mkparts.pl | ./kage-roofed-l2rd.rb > $@
 parts-socho.dat: parts.dat socho.csv
