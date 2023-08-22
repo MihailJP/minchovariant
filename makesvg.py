@@ -131,9 +131,8 @@ Scale(500)
 CanonicalContours()
 CanonicalStart()
 FindIntersections()
-RemoveOverlap()
 SetGlyphComment("Kage: {1}\\nAlias: {2}")
-Simplify(12,10,20,10,1,100)
+Simplify()
 Scale(20)
 SetWidth(1000)
 RoundToInt()
@@ -222,7 +221,9 @@ all: $(TARGETS)
 .SUFFIXES: .kage .svg
 .kage.svg:
 	set -o pipefail; \\
-	(set -o pipefail; cd ..; d8 ./makeglyph.js -- u$* $$(../urlencode.py < build/$<) {0} {1}) > $@
+	(set -o pipefail; cd ..; d8 ./makeglyph.js -- u$* $$(../urlencode.py < build/$<) {0} {1}) | \\
+	magick convert - -background white -flatten -alpha off bmp:- | \\
+	potrace -s - -o $@
 
 clean:
 	rm -f *.svg *.bmp *.png
