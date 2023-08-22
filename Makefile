@@ -146,7 +146,7 @@ parts-gothic.txt: parts-gothic.dat cidalias.sed
 
 mincho1/Makefile: $(METAMAKE_DEPS)
 	mkdir -p mincho1
-	./mkmkfile.rb mincho1.otf mincho 1 "HZ Mincho" "Light" "HZ 明朝" "細" > $@
+	./mkmkfile.rb mincho1.otf mincho 1 "HZ Mincho Pr6N" "Light" "HZ 明朝 Pr6N" "細" > $@
 mincho1: LGC/Makefile mincho1/Makefile mincho3/work.otf LGC/lgc1.otf
 	cd $@ && $(MAKE)
 LGC/lgc1.otf: LGC/Makefile
@@ -154,7 +154,7 @@ LGC/lgc1.otf: LGC/Makefile
 
 mincho3/Makefile: $(METAMAKE_DEPS)
 	mkdir -p mincho3
-	./mkmkfile.rb mincho3.otf mincho 3 "HZ Mincho" "Book" "HZ 明朝" "標準" > $@
+	./mkmkfile.rb mincho3.otf mincho 3 "HZ Mincho Pr6N" "Book" "HZ 明朝 Pr6N" "標準" > $@
 mincho3: LGC/Makefile mincho3/Makefile LGC/lgc3.otf
 	cd $@ && $(MAKE)
 mincho3/work.otf: mincho3
@@ -164,7 +164,7 @@ LGC/lgc3.otf: LGC/Makefile
 
 mincho5/Makefile: $(METAMAKE_DEPS)
 	mkdir -p mincho5
-	./mkmkfile.rb mincho5.otf mincho 105 "HZ Mincho" "Demi" "HZ 明朝" "中太" > $@
+	./mkmkfile.rb mincho5.otf mincho 105 "HZ Mincho Pr6N" "Demi" "HZ 明朝 Pr6N" "中太" > $@
 mincho5: LGC/Makefile mincho5/Makefile mincho3/work.otf LGC/lgc5.otf
 	cd $@ && $(MAKE)
 LGC/lgc5.otf: LGC/Makefile
@@ -172,7 +172,7 @@ LGC/lgc5.otf: LGC/Makefile
 
 mincho7/Makefile: $(METAMAKE_DEPS)
 	mkdir -p mincho7
-	./mkmkfile.rb mincho7.otf mincho 107 "HZ Mincho" "Bold" "HZ 明朝" "太" > $@
+	./mkmkfile.rb mincho7.otf mincho 107 "HZ Mincho Pr6N" "Bold" "HZ 明朝 Pr6N" "太" > $@
 mincho7: LGC/Makefile mincho7/Makefile mincho3/work.otf LGC/lgc7.otf
 	cd $@ && $(MAKE)
 LGC/lgc7.otf: LGC/Makefile
@@ -180,7 +180,7 @@ LGC/lgc7.otf: LGC/Makefile
 
 mincho9/Makefile: $(METAMAKE_DEPS)
 	mkdir -p mincho9
-	./mkmkfile.rb mincho9.otf mincho 109 "HZ Mincho" "Heavy" "HZ 明朝" "極太" > $@
+	./mkmkfile.rb mincho9.otf mincho 109 "HZ Mincho Pr6N" "Heavy" "HZ 明朝 Pr6N" "極太" > $@
 mincho9: LGC/Makefile mincho9/Makefile mincho3/work.otf LGC/lgc9.otf
 	cd $@ && $(MAKE)
 LGC/lgc9.otf: LGC/Makefile
@@ -188,7 +188,7 @@ LGC/lgc9.otf: LGC/Makefile
 
 socho1/Makefile: $(METAMAKE_DEPS)
 	mkdir -p socho1
-	./mkmkfile.rb socho1.otf socho 201 "HZ Socho" "Light" "HZ 宋朝" "細" > $@
+	./mkmkfile.rb socho1.otf socho 201 "HZ Socho Pr6N" "Light" "HZ 宋朝 Pr6N" "細" > $@
 socho1: FS-LGC/Makefile socho1/Makefile socho3/work.otf FS-LGC/lgc1.otf mincho3/work.otf mincho1/work.otf
 	cd $@ && $(MAKE)
 FS-LGC/lgc1.otf: FS-LGC/Makefile
@@ -196,7 +196,7 @@ FS-LGC/lgc1.otf: FS-LGC/Makefile
 
 socho3/Makefile: $(METAMAKE_DEPS)
 	mkdir -p socho3
-	./mkmkfile.rb socho3.otf socho 203 "HZ Socho" "Book" "HZ 宋朝" "標準" > $@
+	./mkmkfile.rb socho3.otf socho 203 "HZ Socho Pr6N" "Book" "HZ 宋朝 Pr6N" "標準" > $@
 socho3: FS-LGC/Makefile socho3/Makefile FS-LGC/lgc3.otf mincho3/work.otf
 	cd $@ && $(MAKE)
 socho3/work.otf: socho3
@@ -206,7 +206,7 @@ FS-LGC/lgc3.otf: FS-LGC/Makefile
 
 socho5/Makefile: $(METAMAKE_DEPS)
 	mkdir -p socho5
-	./mkmkfile.rb socho5.otf socho 205 "HZ Socho" "Demi" "HZ 宋朝" "中太" > $@
+	./mkmkfile.rb socho5.otf socho 205 "HZ Socho Pr6N" "Demi" "HZ 宋朝 Pr6N" "中太" > $@
 socho5: FS-LGC/Makefile socho5/Makefile socho3/work.otf FS-LGC/lgc5.otf mincho3/work.otf mincho5/work.otf
 	cd $@ && $(MAKE)
 FS-LGC/lgc5.otf: FS-LGC/Makefile
@@ -214,7 +214,7 @@ FS-LGC/lgc5.otf: FS-LGC/Makefile
 
 socho7/Makefile: $(METAMAKE_DEPS)
 	mkdir -p socho7
-	./mkmkfile.rb socho7.otf socho 207 "HZ Socho" "Bold" "HZ 宋朝" "太" > $@
+	./mkmkfile.rb socho7.otf socho 207 "HZ Socho Pr6N" "Bold" "HZ 宋朝 Pr6N" "太" > $@
 socho7: FS-LGC/Makefile socho7/Makefile socho3/work.otf FS-LGC/lgc7.otf mincho3/work.otf mincho7/work.otf
 	cd $@ && $(MAKE)
 FS-LGC/lgc7.otf: FS-LGC/Makefile
@@ -222,7 +222,7 @@ FS-LGC/lgc7.otf: FS-LGC/Makefile
 
 gothic1/Makefile: $(METAMAKE_DEPS)
 	mkdir -p gothic1
-	./mkmkfile.rb gothic1.otf gothic 1 "HZ Gothic" "Light" "HZ ゴシック" "細" > $@
+	./mkmkfile.rb gothic1.otf gothic 1 "HZ Gothic Pr6N" "Light" "HZ ゴシック Pr6N" "細" > $@
 gothic1: Goth-LGC/Makefile gothic1/Makefile gothic3/work.otf Goth-LGC/lgc1.otf mincho3/work.otf mincho1/work.otf
 	cd $@ && $(MAKE)
 Goth-LGC/lgc1.otf: Goth-LGC/Makefile
@@ -230,7 +230,7 @@ Goth-LGC/lgc1.otf: Goth-LGC/Makefile
 
 gothic3/Makefile: $(METAMAKE_DEPS)
 	mkdir -p gothic3
-	./mkmkfile.rb gothic3.otf gothic 3 "HZ Gothic" "Book" "HZ ゴシック" "標準" > $@
+	./mkmkfile.rb gothic3.otf gothic 3 "HZ Gothic Pr6N" "Book" "HZ ゴシック Pr6N" "標準" > $@
 gothic3: Goth-LGC/Makefile gothic3/Makefile Goth-LGC/lgc3.otf
 	cd $@ && $(MAKE)
 gothic3/work.otf: gothic3
@@ -240,7 +240,7 @@ Goth-LGC/lgc3.otf: Goth-LGC/Makefile
 
 gothic5/Makefile: $(METAMAKE_DEPS)
 	mkdir -p gothic5
-	./mkmkfile.rb gothic5.otf gothic 5 "HZ Gothic" "Demi" "HZ ゴシック" "中太" > $@
+	./mkmkfile.rb gothic5.otf gothic 5 "HZ Gothic Pr6N" "Demi" "HZ ゴシック Pr6N" "中太" > $@
 gothic5: Goth-LGC/Makefile gothic5/Makefile gothic3/work.otf Goth-LGC/lgc5.otf mincho3/work.otf mincho5/work.otf
 	cd $@ && $(MAKE)
 Goth-LGC/lgc5.otf: Goth-LGC/Makefile
@@ -248,7 +248,7 @@ Goth-LGC/lgc5.otf: Goth-LGC/Makefile
 
 gothic7/Makefile: $(METAMAKE_DEPS)
 	mkdir -p gothic7
-	./mkmkfile.rb gothic7.otf gothic 7 "HZ Gothic" "Bold" "HZ ゴシック" "太" > $@
+	./mkmkfile.rb gothic7.otf gothic 7 "HZ Gothic Pr6N" "Bold" "HZ ゴシック Pr6N" "太" > $@
 gothic7: Goth-LGC/Makefile gothic7/Makefile gothic3/work.otf Goth-LGC/lgc7.otf mincho3/work.otf mincho7/work.otf
 	cd $@ && $(MAKE)
 Goth-LGC/lgc7.otf: Goth-LGC/Makefile

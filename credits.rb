@@ -5,8 +5,8 @@ end
 def fontCopyrightOf(fontname)
 	kage     = "Created by KAGE system. (http://fonts.jp/)"
 	symbol   = "Some symbol glyphs are M+ fonts and GL-Antique."
-	aj16Sans = "AJ1-6 sans-serif glyphs from M+ fonts."
-	merge    = "Merged by MihailJP, June 2019."
+	aj16Sans = "AJ1-7 sans-serif glyphs from M+ fonts."
+	merge    = "Merged by MihailJP, August 2023."
 	if fontname =~ /Mincho|Gothic|Socho/i then
 		"#{kage}\n" \
 		"Alphabet glyphs by Andrey V. Panov (C) 2005 All rights reserved.\n" \

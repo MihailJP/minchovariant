@@ -39,9 +39,9 @@ table name {
 	nameid 0 1 "#{fontCopyright.gsub(/\(C\)/, "\\a9").gsub(/\n/, "\\\\0a")}";
 	nameid 0 3 "#{fontCopyright.gsub(/\(C\)/, "\\\\00a9").gsub(/\n/, "\\\\000d\\\\000a")}";
 	nameid 0 1 1 11 "#{fontCopyright.gsub(/\(C\)/, "\\fd").gsub(/\n/, "\\\\0d")}";
-	nameid 1 "HZ Mincho";
-	nameid 1 1 1 11 "HZ \\96\\be\\92\\a9";
-	nameid 1 3 1 0x411 "HZ \\660e\\671d";
+	nameid 1 "HZ Mincho Pr6N";
+	nameid 1 1 1 11 "HZ \\96\\be\\92\\a9 Pr6N";
+	nameid 1 3 1 0x411 "HZ \\660e\\671d Pr6N";
 	nameid 5 "#{fontVersion}";
 	nameid 5 1 "#{fontVersion}";
 	nameid 5 3 "#{fontVersion}";

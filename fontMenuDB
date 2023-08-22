@@ -1,213 +1,92 @@
-[HZMincho-Light]
-f=HZ Mincho
+[HZMinchoPr6N-Light]
+f=HZ Mincho Pr6N
 s=Light
 
-f=3,1,0x411,HZ \660e\671d
+f=3,1,0x411,HZ \660e\671d Pr6N
 s=3,1,0x411,\7d30
 
-[HZMincho-Book]
-f=HZ Mincho
+[HZMinchoPr6N-Book]
+f=HZ Mincho Pr6N
 s=Book
 
-f=3,1,0x411,HZ \660e\671d
+f=3,1,0x411,HZ \660e\671d Pr6N
 s=3,1,0x411,\6a19\6e96
 
-[HZMincho-Demi]
-f=HZ Mincho
+[HZMinchoPr6N-Demi]
+f=HZ Mincho Pr6N
 s=Demi
 
-f=3,1,0x411,HZ \660e\671d
+f=3,1,0x411,HZ \660e\671d Pr6N
 s=3,1,0x411,\4e2d\592a
 
-[HZMincho-Bold]
-f=HZ Mincho
+[HZMinchoPr6N-Bold]
+f=HZ Mincho Pr6N
 s=Bold
 
-f=3,1,0x411,HZ \660e\671d
+f=3,1,0x411,HZ \660e\671d Pr6N
 s=3,1,0x411,\592a
 
-[HZMincho-Heavy]
-f=HZ Mincho
+[HZMinchoPr6N-Heavy]
+f=HZ Mincho Pr6N
 s=Heavy
 
-f=3,1,0x411,HZ \660e\671d
-s=3,1,0x411,\6975\592a
-
-[HZMincoo-Light]
-f=HZ Mincho
-s=Light
-
-f=3,1,0x411,HZ \660e\671d
-s=3,1,0x411,\7d30
-
-[HZMincoo-Book]
-f=HZ Mincho
-s=Book
-
-f=3,1,0x411,HZ \660e\671d
-s=3,1,0x411,\6a19\6e96
-
-[HZMincoo-Demi]
-f=HZ Mincho
-s=Demi
-
-f=3,1,0x411,HZ \660e\671d
-s=3,1,0x411,\4e2d\592a
-
-[HZMincoo-Bold]
-f=HZ Mincho
-s=Bold
-
-f=3,1,0x411,HZ \660e\671d
-s=3,1,0x411,\592a
-
-[HZMincoo-Heavy]
-f=HZ Mincho
-s=Heavy
-
-f=3,1,0x411,HZ \660e\671d
+f=3,1,0x411,HZ \660e\671d Pr6N
 s=3,1,0x411,\6975\592a
 
 
-
-[HZSocho-Light]
-f=HZ Socho
+[HZSochoPr6N-Light]
+f=HZ Socho Pr6N
 s=Light
 
-f=3,1,0x411,HZ \5b8b\671d
+f=3,1,0x411,HZ \5b8b\671d Pr6N
 s=3,1,0x411,\7d30
 
-[HZSocho-Book]
-f=HZ Socho
+[HZSochoPr6N-Book]
+f=HZ Socho Pr6N
 s=Book
 
-f=3,1,0x411,HZ \5b8b\671d
+f=3,1,0x411,HZ \5b8b\671d Pr6N
 s=3,1,0x411,\6a19\6e96
 
-[HZSocho-Demi]
-f=HZ Socho
+[HZSochoPr6N-Demi]
+f=HZ Socho Pr6N
 s=Demi
 
-f=3,1,0x411,HZ \5b8b\671d
+f=3,1,0x411,HZ \5b8b\671d Pr6N
 s=3,1,0x411,\4e2d\592a
 
-[HZSocho-Bold]
-f=HZ Socho
+[HZSochoPr6N-Bold]
+f=HZ Socho Pr6N
 s=Bold
 
-f=3,1,0x411,HZ \5b8b\671d
-s=3,1,0x411,\592a
-
-[HZSoco--Light]
-f=HZ Socho
-s=Light
-
-f=3,1,0x411,HZ \5b8b\671d
-s=3,1,0x411,\7d30
-
-[HZSoco--Book]
-f=HZ Socho
-s=Book
-
-f=3,1,0x411,HZ \5b8b\671d
-s=3,1,0x411,\6a19\6e96
-
-[HZSoco--Demi]
-f=HZ Socho
-s=Demi
-
-f=3,1,0x411,HZ \5b8b\671d
-s=3,1,0x411,\4e2d\592a
-
-[HZSoco--Bold]
-f=HZ Socho
-s=Bold
-
-f=3,1,0x411,HZ \5b8b\671d
-s=3,1,0x411,\592a
-
-[HZSoch--Light]
-f=HZ Socho
-s=Light
-
-f=3,1,0x411,HZ \5b8b\671d
-s=3,1,0x411,\7d30
-
-[HZSoch--Book]
-f=HZ Socho
-s=Book
-
-f=3,1,0x411,HZ \5b8b\671d
-s=3,1,0x411,\6a19\6e96
-
-[HZSoch--Demi]
-f=HZ Socho
-s=Demi
-
-f=3,1,0x411,HZ \5b8b\671d
-s=3,1,0x411,\4e2d\592a
-
-[HZSoch--Bold]
-f=HZ Socho
-s=Bold
-
-f=3,1,0x411,HZ \5b8b\671d
+f=3,1,0x411,HZ \5b8b\671d Pr6N
 s=3,1,0x411,\592a
 
 
-
-[HZGothic-Light]
-f=HZ Gothic
+[HZGothicPr6N-Light]
+f=HZ Gothic Pr6N
 s=Light
 
-f=3,1,0x411,HZ \30b4\30b7\30c3\30af
+f=3,1,0x411,HZ \30b4\30b7\30c3\30af Pr6N
 s=3,1,0x411,\7d30
 
-[HZGothic-Book]
-f=HZ Gothic
+[HZGothicPr6N-Book]
+f=HZ Gothic Pr6N
 s=Book
 
-f=3,1,0x411,HZ \30b4\30b7\30c3\30af
+f=3,1,0x411,HZ \30b4\30b7\30c3\30af Pr6N
 s=3,1,0x411,\6a19\6e96
 
-[HZGothic-Demi]
-f=HZ Gothic
+[HZGothicPr6N-Demi]
+f=HZ Gothic Pr6N
 s=Demi
 
-f=3,1,0x411,HZ \30b4\30b7\30c3\30af
+f=3,1,0x411,HZ \30b4\30b7\30c3\30af Pr6N
 s=3,1,0x411,\4e2d\592a
 
-[HZGothic-Bold]
-f=HZ Gothic
+[HZGothicPr6N-Bold]
+f=HZ Gothic Pr6N
 s=Bold
 
-f=3,1,0x411,HZ \30b4\30b7\30c3\30af
-s=3,1,0x411,\592a
-
-[HZGothcc-Light]
-f=HZ Gothic
-s=Light
-
-f=3,1,0x411,HZ \30b4\30b7\30c3\30af
-s=3,1,0x411,\7d30
-
-[HZGothcc-Book]
-f=HZ Gothic
-s=Book
-
-f=3,1,0x411,HZ \30b4\30b7\30c3\30af
-s=3,1,0x411,\6a19\6e96
-
-[HZGothcc-Demi]
-f=HZ Gothic
-s=Demi
-
-f=3,1,0x411,HZ \30b4\30b7\30c3\30af
-s=3,1,0x411,\4e2d\592a
-
-[HZGothcc-Bold]
-f=HZ Gothic
-s=Bold
-
-f=3,1,0x411,HZ \30b4\30b7\30c3\30af
+f=3,1,0x411,HZ \30b4\30b7\30c3\30af Pr6N
 s=3,1,0x411,\592a
