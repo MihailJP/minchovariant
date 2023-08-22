@@ -15,7 +15,7 @@ groups/HALFWIDTH.txt groups/NONSPACING.txt
 METAMAKE_DEPS=$(METAMAKE_DEP_GENERATABLES) ./mkmkfile.rb
 MAPGEN_DEPS=genmaps.rb HZMincho.db
 GENERATABLES=$(METAMAKE_DEP_GENERATABLES) \
-groups/cidalias.txt cidalias1.txt cidalias2.txt \
+groups/cidalias.txt cidalias.txt cidalias1.txt cidalias2.txt \
 parts.dat parts-socho.dat parts-gothic.dat \
 parts.txt parts-socho.txt parts-gothic.txt \
 ChangeLog README-Socho.md README-Gothic.md
