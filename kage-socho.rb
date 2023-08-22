@@ -199,11 +199,15 @@ def replace_special_l2rd(stat, glyph) # 特殊型右はらい
 		for xStroke, xIndex in glyph.each_with_index
 			if xIndex != index then
 				xStroke = glyph[xIndex]
-				if (not xStroke.ref?) and ((stroke.control1X)..(stroke.endX)).cover?(xStroke.endX) and ((stroke.control1Y)..(stroke.endY)).cover?(xStroke.endY) then
-					slope = (stroke.endY - stroke.control1Y).to_f / (stroke.endX - stroke.control1X).to_f
-					yIntercept = stroke.control1Y.to_f - slope * stroke.control1X.to_f
-					xStroke.endY = (xStroke.endX * slope + yIntercept - 3).round
-					glyph[xIndex] = xStroke
+				begin
+					if (not xStroke.ref?) and ((stroke.control1X)..(stroke.endX)).cover?(xStroke.endX) and ((stroke.control1Y)..(stroke.endY)).cover?(xStroke.endY) then
+						slope = (stroke.endY - stroke.control1Y).to_f / (stroke.endX - stroke.control1X).to_f
+						yIntercept = stroke.control1Y.to_f - slope * stroke.control1X.to_f
+						xStroke.endY = (xStroke.endX * slope + yIntercept - 3).round
+						glyph[xIndex] = xStroke
+					end
+				rescue => evar
+					STDERR.write("#{glyph.name}: インデックス#{index}のKageデータが正しくありません！！\n#{evar.to_s}\n")
 				end
 			end
 		end
