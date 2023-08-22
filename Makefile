@@ -352,4 +352,5 @@ clean:
 
 distclean: clean
 	-rm -rf $(DOWNLOADABLES)
+	-rm -rf dump_newest_only.txt dump_all_versions.txt
 	-cd groups && $(MAKE) distclean
