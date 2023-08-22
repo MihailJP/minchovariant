@@ -1,6 +1,7 @@
 /load("engine\/polygon.js");/i \
 load("../rotate.js");\
-load("engine/2d.js");
+load("engine/2d.js");\
+load("engine/curve.js");
 /kage = new Kage();/ a \
 \
 if (arguments === undefined) {\
