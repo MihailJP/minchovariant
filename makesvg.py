@@ -221,9 +221,11 @@ all: $(TARGETS)
 .SUFFIXES: .kage .svg
 .kage.svg:
 	set -o pipefail; \\
-	(set -o pipefail; cd ..; cat build/$< | ../urlencode.py | xargs -i d8 ./makeglyph.js -- u$* {{}} {0} {1}) | \\
+	cd ..; \\
+	KAGE=$$(../urlencode.py < build/$<);\\
+	d8 --single-threaded ./makeglyph.js -- u$* $$KAGE {0} {1} | \\
 	magick convert - -background white -flatten -alpha off bmp:- | \\
-	potrace -s - -o $@
+	potrace -s - -o build/$@
 
 clean:
 	rm -f *.svg *.bmp *.png
