@@ -129,6 +129,8 @@ LGC/Makefile: HZMincho.db LGC/metamake.rb
 	cd LGC && (./metamake.rb > Makefile)
 FS-LGC/Makefile: HZMincho.db FS-LGC/metamake.rb
 	cd FS-LGC && (./metamake.rb > Makefile)
+Goth-LGC/Makefile: HZMincho.db Goth-LGC/metamake.rb
+	cd Goth-LGC && (./metamake.rb > Makefile)
 
 .INTERMEDIATE: parts.dat parts-socho.dat parts-gothic.dat
 parts.dat: dump_newest_only.txt dump_all_versions.txt
