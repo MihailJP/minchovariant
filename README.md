@@ -46,6 +46,8 @@ It is known that this require 4GB of memory in order to build (on Linux:
 concretely speaking, this is while running Fontforge). Avoid `make -j` in
 order not to experience thrashing.
 
+Also, it may take **days** to build the fonts.
+
 Authors
 -------
 * Merged by MihailJP <mihailjp@gmail.com>.
@@ -143,6 +145,13 @@ Same as M+ fonts.
 
 Version History
 ---------------
+
+### Version 1.400, August 26, 2023
+* Update development environment
+* Update Kage engine
+* Update glyph data
+* Add 'Pr6N' to font name
+* Set `sFamilyClass`
 
 ### Version 1.304, June 24, 2019
 * Update meta-makefile for intermediate files
