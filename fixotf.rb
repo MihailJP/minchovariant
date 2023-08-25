@@ -2,10 +2,12 @@
 # -*- coding: utf-8 -*-
 
 $fontWeight = nil
+$sFamilyClass = nil
 
 require 'optparse'
 opt = OptionParser.new
 opt.on('-w', '--weight=STR', 'override font weight') {|val| $fontWeight = val}
+opt.on('-c', '--family-class=VAL', 'sFamilyClass') {|val| $sFamilyClass = val}
 opt.parse!(ARGV)
 
 JapaneseWeight = {
@@ -32,7 +34,9 @@ while line = gets
 	line.gsub! /Soc[ho][-o]/, 'Socho'
 	line.gsub! /Gothcc/, 'Gothic'
 	line.sub! /<fsType value="[01]{8} [01]{8}"\/>/, '<fsType value="00000000 00000000"/>'
-	line.sub! /<sFamilyClass value="[[:digit:]]+"\/>/, '<sFamilyClass value="513"/>'
+	if $sFamilyClass then
+		line.sub! /<sFamilyClass value="[[:digit:]]+"\/>/, "<sFamilyClass value=\"#{$sFamilyClass}\"/>"
+	end
 	line.sub! /<bFamilyType value="1?[[:digit:]]"\/>/, '<bFamilyType value="2"/>'
 	if ($fontWeight) and (line =~ /<namerecord nameID="2"/) then
 		weightHdr = line

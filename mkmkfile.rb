@@ -213,7 +213,7 @@ tmpcid.ttx: tmpcid.otf
 	ttx -o $@ $<
 	stat $@ > /dev/null
 _#{target.sub(/\..+?$/, '.ttx')}: tmpcid.ttx
-	../fixotf.rb -w #{enWeight} $< > $@
+	../fixotf.rb -w #{enWeight} -c #{$font == "gothic" ? 2048 : 513} $< > $@
 _#{target}: _#{target.sub(/\..+?$/, '.ttx')}
 	ttx -o $@ $<
 	stat $@ > /dev/null
