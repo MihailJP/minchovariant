@@ -126,3 +126,7 @@ n
 a \
   kage.kMinWidthU = 2;
 }
+/polygons = new Polygons();/i \
+if ((kage.kShotai == kage.kGothic) && (kage.kKakato >= 2)) {\
+  kage.kKakato -= 1;\
+}
