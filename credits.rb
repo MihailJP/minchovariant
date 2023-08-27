@@ -1,5 +1,5 @@
 def fontVersion
-	"1.400"
+	"1.401"
 end
 
 def fontCopyrightOf(fontname)

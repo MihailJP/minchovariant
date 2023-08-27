@@ -146,6 +146,9 @@ Same as M+ fonts.
 Version History
 ---------------
 
+### Version 1.401, August 27, 2023
+* Modify Gothic strokes
+
 ### Version 1.400, August 26, 2023
 * Update development environment
 * Update Kage engine
