@@ -98,7 +98,7 @@ foot.txt:
 engine:
 	ln -s ../engine $@
 makeglyph.js:
-	cat ../kage/makettf/makeglyph.js | sed -f ../makeglyph-patch.sed > $@
+	cat ../makeglyph/makeglyph.js | sed -f ../makeglyph-patch.sed > $@
 
 .INTERMEDIATE: work_.sfd work_.scr work2_.sfd work2.sfd temp.otf
 .DELETE_ON_ERROR: work_.sfd work.sfd work_.sfd work2_.sfd work2.sfd temp.otf work.otf
