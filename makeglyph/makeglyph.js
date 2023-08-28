@@ -149,8 +149,8 @@ if ((kage.kShotai == kage.kGothic) && (kage.kKakato >= 2)) {
 }
 polygons = new Polygons();
 
-target = (unescape(arguments[0]));
-buhin = (unescape(arguments[1])).replace(/\r\n|\n/g, "\r").replace(/\+|\t/g, " ");
+target = arguments[0];
+buhin = arguments[1].replace(/\r\n|\n/g, "\r").replace(/\+|\t/g, " ");
 
 temp = buhin.split("\r");
 for(i = 0; i < temp.length; i++){
