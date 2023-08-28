@@ -12,6 +12,8 @@ if (arguments === undefined) {\
 /if(arguments\[2\] == "gothic"){/c \
 if(arguments[2] == "socho"){\
   kage.kShotai = kage.kSocho;\
+}else if(arguments[2] == "latin"){\
+  kage.kShotai = kage.kLatin;\
 }else if(arguments[2] == "gothic"){
 /if(arguments\[3\] == 1){/ {
 n
@@ -127,6 +129,6 @@ a \
   kage.kMinWidthU = 2;
 }
 /polygons = new Polygons();/i \
-if ((kage.kShotai == kage.kGothic) && (kage.kKakato >= 2)) {\
+if ((kage.kShotai == kage.kGothic || kage.kShotai == kage.kLatin) && (kage.kKakato >= 2)) {\
   kage.kKakato -= 1;\
 }

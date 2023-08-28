@@ -90,3 +90,32 @@ s=Bold
 
 f=3,1,0x411,HZ \30b4\30b7\30c3\30af Pr6N
 s=3,1,0x411,\592a
+
+
+[HZLatinPr6N-Light]
+f=HZ Latin Pr6N
+s=Light
+
+f=3,1,0x411,HZ \30e9\30c6\30f3 Pr6N
+s=3,1,0x411,\7d30
+
+[HZLatinPr6N-Book]
+f=HZ Latin Pr6N
+s=Book
+
+f=3,1,0x411,HZ \30e9\30c6\30f3 Pr6N
+s=3,1,0x411,\6a19\6e96
+
+[HZLatinPr6N-Demi]
+f=HZ Latin Pr6N
+s=Demi
+
+f=3,1,0x411,HZ \30e9\30c6\30f3 Pr6N
+s=3,1,0x411,\4e2d\592a
+
+[HZLatinPr6N-Bold]
+f=HZ Latin Pr6N
+s=Bold
+
+f=3,1,0x411,HZ \30e9\30c6\30f3 Pr6N
+s=3,1,0x411,\592a

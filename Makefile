@@ -1,6 +1,7 @@
 SUBDIRS=mincho1 mincho3 mincho5 mincho7 mincho9 \
 socho1 socho3 socho5 socho7 \
-gothic1 gothic3 gothic5 gothic7
+gothic1 gothic3 gothic5 gothic7 \
+latin1 latin3 latin5 latin7
 DOWNLOADABLES=dump.tar.gz
 CIDMAPS=cidpua.map cidpua-kana.map cidpua-rkana.map \
 cidpua-kumimoji.map cidpua-rot.map cidpua-ruby.map cidpua-kanap.map \
@@ -9,16 +10,16 @@ cidpua-uprightsym.map cidpua-uprightruby.map
 LGCMAPS=lgc.map lgc-fixed.map lgc-third.map lgc-quarter.map lgc-wide.map lgc-italic.map \
 lgc-rotated.map lgc-rotfixed.map lgc-rotquarter.map lgc-rotthird.map lgc-rotitalic.map
 METAMAKE_DEP_GENERATABLES=HZMincho.db dump_newest_only.txt dump_all_versions.txt glyphs.txt cidalias.sed \
-otf-features otf-features-socho otf-features-gothic \
-parts.txt parts-socho.txt parts-gothic.txt $(CIDMAPS) $(LGCMAPS) \
+otf-features otf-features-socho otf-features-gothic otf-features-latin \
+parts.txt parts-socho.txt parts-gothic.txt parts-latin.txt $(CIDMAPS) $(LGCMAPS) \
 groups/HALFWIDTH.txt groups/NONSPACING.txt
 METAMAKE_DEPS=$(METAMAKE_DEP_GENERATABLES) ./mkmkfile.rb
 MAPGEN_DEPS=genmaps.rb HZMincho.db
 GENERATABLES=$(METAMAKE_DEP_GENERATABLES) \
 groups/cidalias.txt cidalias.txt cidalias1.txt cidalias2.txt \
-parts.dat parts-socho.dat parts-gothic.dat \
-parts.txt parts-socho.txt parts-gothic.txt \
-ChangeLog README-Socho.md README-Gothic.md
+parts.dat parts-socho.dat parts-gothic.dat parts-latin.dat \
+parts.txt parts-socho.txt parts-gothic.txt parts-latin.txt \
+ChangeLog README-Socho.md README-Gothic.md README-Latin.md
 TARGETS=$(SUBDIRS)
 ARCHIVE_CONTENTS=README.md ChangeLog \
 mincho1/mincho1.otf mincho3/mincho3.otf mincho5/mincho5.otf \
@@ -29,6 +30,9 @@ socho7/socho7.otf
 GOTHIC_ARCHIVE_CONTENTS=README-Gothic.md ChangeLog \
 gothic1/gothic1.otf gothic3/gothic3.otf gothic5/gothic5.otf \
 gothic7/gothic7.otf
+LATIN_ARCHIVE_CONTENTS=README-Latin.md ChangeLog \
+latin1/latin1.otf latin3/latin3.otf latin5/latin5.otf \
+latin7/latin7.otf
 
 .PHONY: all fetch clean distclean mostlyclean $(SUBDIRS) dist
 all: $(TARGETS)
@@ -62,6 +66,8 @@ otf-features-socho: HZMincho.db genfeat.rb
 	./genfeat.rb socho > $@
 otf-features-gothic: HZMincho.db genfeat.rb
 	./genfeat.rb gothic > $@
+otf-features-latin: HZMincho.db genfeat.rb
+	./genfeat.rb latin > $@
 
 cidpua.map: $(MAPGEN_DEPS)
 	./genmaps.rb 0 > $@
@@ -131,19 +137,25 @@ FS-LGC/Makefile: HZMincho.db FS-LGC/metamake.rb
 	cd FS-LGC && (./metamake.rb > Makefile)
 Goth-LGC/Makefile: HZMincho.db Goth-LGC/metamake.rb
 	cd Goth-LGC && (./metamake.rb > Makefile)
+Lat-LGC/Makefile: HZMincho.db Lat-LGC/metamake.rb
+	cd Lat-LGC && (./metamake.rb > Makefile)
 
-.INTERMEDIATE: parts.dat parts-socho.dat parts-gothic.dat
+.INTERMEDIATE: parts.dat parts-socho.dat parts-gothic.dat parts-latin.dat
 parts.dat: dump_newest_only.txt dump_all_versions.txt
 	cat $^ | ./mkparts.pl | ./kage-roofed-l2rd.rb > $@
 parts-socho.dat: parts.dat socho.csv
 	cat $< | ./replace-glyph.rb -i -l socho.csv | ./kage-socho.rb > $@
 parts-gothic.dat: parts.dat gothic.csv
 	cat $< | ./replace-glyph.rb -i -l gothic.csv > $@
+parts-latin.dat: parts.dat latin.csv
+	cat $< | ./replace-glyph.rb -i -l latin.csv > $@
 parts.txt: parts.dat cidalias.sed
 	cat $< | sed -f cidalias.sed > $@
 parts-socho.txt: parts-socho.dat cidalias.sed
 	cat $< | sed -f cidalias.sed > $@
 parts-gothic.txt: parts-gothic.dat cidalias.sed
+	cat $< | sed -f cidalias.sed > $@
+parts-latin.txt: parts-latin.dat cidalias.sed
 	cat $< | sed -f cidalias.sed > $@
 
 mincho1/Makefile: $(METAMAKE_DEPS)
@@ -256,6 +268,40 @@ gothic7: Goth-LGC/Makefile gothic7/Makefile gothic3/work.otf Goth-LGC/lgc7.otf m
 Goth-LGC/lgc7.otf: Goth-LGC/Makefile
 	cd Goth-LGC && $(MAKE) lgc7.otf
 
+latin1/Makefile: $(METAMAKE_DEPS)
+	mkdir -p latin1
+	./mkmkfile.rb latin1.otf latin 1 "HZ Latin Pr6N" "Light" "HZ ラテン Pr6N" "細" > $@
+latin1: Lat-LGC/Makefile latin1/Makefile latin3/work.otf Lat-LGC/lgc1.otf mincho3/work.otf mincho1/work.otf
+	cd $@ && $(MAKE)
+Lat-LGC/lgc1.otf: Lat-LGC/Makefile
+	cd Lat-LGC && $(MAKE) lgc1.otf
+
+latin3/Makefile: $(METAMAKE_DEPS)
+	mkdir -p latin3
+	./mkmkfile.rb latin3.otf latin 3 "HZ Latin Pr6N" "Book" "HZ ラテン Pr6N" "標準" > $@
+latin3: Lat-LGC/Makefile latin3/Makefile Lat-LGC/lgc3.otf
+	cd $@ && $(MAKE)
+latin3/work.otf: latin3
+	cd latin3 && $(MAKE) work.otf
+Lat-LGC/lgc3.otf: Lat-LGC/Makefile
+	cd Lat-LGC && $(MAKE) lgc3.otf
+
+latin5/Makefile: $(METAMAKE_DEPS)
+	mkdir -p latin5
+	./mkmkfile.rb latin5.otf latin 5 "HZ Latin Pr6N" "Demi" "HZ ラテン Pr6N" "中太" > $@
+latin5: Lat-LGC/Makefile latin5/Makefile latin3/work.otf Lat-LGC/lgc5.otf mincho3/work.otf mincho5/work.otf
+	cd $@ && $(MAKE)
+Lat-LGC/lgc5.otf: Lat-LGC/Makefile
+	cd Lat-LGC && $(MAKE) lgc5.otf
+
+latin7/Makefile: $(METAMAKE_DEPS)
+	mkdir -p latin7
+	./mkmkfile.rb latin7.otf latin 7 "HZ Latin Pr6N" "Bold" "HZ ラテン Pr6N" "太" > $@
+latin7: Lat-LGC/Makefile latin7/Makefile latin3/work.otf Lat-LGC/lgc7.otf mincho3/work.otf mincho7/work.otf
+	cd $@ && $(MAKE)
+Lat-LGC/lgc7.otf: Lat-LGC/Makefile
+	cd Lat-LGC && $(MAKE) lgc7.otf
+
 
 mincho1/work.otf: mincho1
 mincho3/work.otf: mincho3
@@ -273,6 +319,11 @@ gothic3/work.otf: gothic3
 gothic5/work.otf: gothic5
 gothic7/work.otf: gothic7
 
+latin1/work.otf: latin1
+latin3/work.otf: latin3
+latin5/work.otf: latin5
+latin7/work.otf: latin7
+
 mincho1/mincho1.otf: mincho1
 mincho3/mincho3.otf: mincho3
 mincho5/mincho5.otf: mincho5
@@ -289,11 +340,18 @@ gothic3/gothic3.otf: gothic3
 gothic5/gothic5.otf: gothic5
 gothic7/gothic7.otf: gothic7
 
+latin1/latin1.otf: latin1
+latin3/latin3.otf: latin3
+latin5/latin5.otf: latin5
+latin7/latin7.otf: latin7
+
 ChangeLog: .git
 	./mkchglog.rb > $@
 README-Socho.md: README.md readme-socho.diff
 	patch -o $@ -r /dev/null $^ && touch $@
 README-Gothic.md: README.md readme-gothic.diff
+	patch -o $@ -r /dev/null $^ && touch $@
+README-Latin.md: README.md readme-latin.diff
 	patch -o $@ -r /dev/null $^ && touch $@
 
 HZMincho.zip: $(ARCHIVE_CONTENTS)
@@ -335,22 +393,36 @@ HZGothic.tar.xz: $(GOTHIC_ARCHIVE_CONTENTS)
 	rm -f $@; mkdir -p HZGothic; cp $^ HZGothic; mv HZGothic/README-Gothic.md HZGothic/README.md
 	tar cfvJ $@ HZGothic
 
-dist: HZMincho.tar.xz HZSocho.tar.xz HZGothic.tar.xz
+HZLatin.zip: $(LATIN_ARCHIVE_CONTENTS)
+	rm -f $@; mkdir -p HZLatin; cp $^ HZLatin; mv HZLatin/README-Latin.md HZLatin/README.md
+	zip -m9r $@ HZLatin
+HZLatin.tar.gz: $(LATIN_ARCHIVE_CONTENTS)
+	rm -f $@; mkdir -p HZLatin; cp $^ HZLatin; mv HZLatin/README-Latin.md HZLatin/README.md
+	tar cfvz $@ HZLatin
+HZLatin.tar.bz2: $(LATIN_ARCHIVE_CONTENTS)
+	rm -f $@; mkdir -p HZLatin; cp $^ HZLatin; mv HZLatin/README-Latin.md HZLatin/README.md
+	tar cfvj $@ HZLatin
+HZLatin.tar.xz: $(LATIN_ARCHIVE_CONTENTS)
+	rm -f $@; mkdir -p HZLatin; cp $^ HZLatin; mv HZLatin/README-Latin.md HZLatin/README.md
+	tar cfvJ $@ HZLatin
+
+dist: HZMincho.tar.xz HZSocho.tar.xz HZGothic.tar.xz HZLatin.tar.xz
 
 mostlyclean:
 	-cd LGC && $(MAKE) clean
 	-cd FS-LGC && $(MAKE) clean
 	-cd Goth-LGC && $(MAKE) clean
+	-cd Latin-LGC && $(MAKE) clean
 	-cd groups && $(MAKE) clean
 	-rm -rf $(GENERATABLES)
 	-for i in $(SUBDIRS); do $(MAKE) -C $$i mostlyclean; done
-	-rm -rf HZMincho HZSocho HZGothic
+	-rm -rf HZMincho HZSocho HZGothic HZLatin
 	-rm -rf intersect*.pe
 	-rm -rf *.pyc
 
 clean:
 	-rm -rf $(SUBDIRS)
-	-rm -f parts.dat parts-socho.dat parts-gothic.dat
+	-rm -f parts.dat parts-socho.dat parts-gothic.dat parts-latin.dat
 
 distclean: clean
 	-rm -rf $(DOWNLOADABLES)

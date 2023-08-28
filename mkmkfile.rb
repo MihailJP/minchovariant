@@ -15,7 +15,7 @@ fontDB.execute("SELECT mapFile, fontFile FROM subFont") {|subFont|
 	cidmap += "../#{subFont[0]} #{eval("\"#{subFont[1]}\"")}\n"
 }
 
-$LGCdir = ($font == "gothic" ? "Goth-LGC" : $font == "socho" ? "FS-LGC" : "LGC")
+$LGCdir = ($font == "latin" ? "Lat-LGC" : $font == "gothic" ? "Goth-LGC" : $font == "socho" ? "FS-LGC" : "LGC")
 
 def lgcFile(file, suffix)
 	return <<FINIS
@@ -44,6 +44,8 @@ def partsSrc
 		"parts-gothic.txt"
 	elsif $font == "socho" then
 		"parts-socho.txt"
+	elsif $font == "latin" then
+		"parts-latin.txt"
 	else
 		"parts.txt"
 	end

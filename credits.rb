@@ -7,7 +7,7 @@ def fontCopyrightOf(fontname)
 	symbol   = "Some symbol glyphs are M+ fonts and GL-Antique."
 	aj16Sans = "AJ1-7 sans-serif glyphs from M+ fonts."
 	merge    = "Merged by MihailJP, August 2023."
-	if fontname =~ /Mincho|Gothic|Socho/i then
+	if fontname =~ /Mincho|Gothic|Socho|Latin/i then
 		"#{kage}\n" \
 		"Alphabet glyphs by Andrey V. Panov (C) 2005 All rights reserved.\n" \
 		"#{symbol}\n#{merge}"
@@ -17,7 +17,7 @@ def fontCopyrightOf(fontname)
 end
 
 def fontLicenseOf(fontname)
-	if fontname =~ /Mincho|Gothic|Socho/i then
+	if fontname =~ /Mincho|Gothic|Socho|Latin/i then
 		"X11 License with exception: "
 		"As a special exception, if you create a document which uses these fonts, " \
 		"and embed these fonts or unaltered portions of these fonts into the " \

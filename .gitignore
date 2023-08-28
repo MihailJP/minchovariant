@@ -9,11 +9,9 @@ glyphs.txt
 head.txt
 makeglyph.js
 parts.txt
-parts-socho.txt
-parts-gothic.txt
+parts-*.txt
 parts.dat
-parts-socho.dat
-parts-gothic.dat
+parts-*.dat
 cidalias.sed
 cidalias.txt
 cidalias1.txt
@@ -25,8 +23,7 @@ cidpua-*.map
 lgc.map
 lgc-*.map
 otf-features
-otf-features-socho
-otf-features-gothic
+otf-features-*
 *.log
 *.scr
 *.sfd
@@ -44,6 +41,7 @@ mincho9m
 LGC/Makefile
 FS-LGC/Makefile
 Goth-LGC/Makefile
+Lat-LGC/Makefile
 HZMincho.zip
 HZMincho.tar.*
 HZMincho-*.zip
@@ -60,6 +58,10 @@ gothic1
 gothic3
 gothic5
 gothic7
+latin1
+latin3
+latin5
+latin7
 HZSocho.zip
 HZSocho.tar.*
 HZSocho-*.zip
@@ -70,6 +72,10 @@ HZGothic.tar.*
 HZGothic-*.zip
 HZGothic-*.tar.*
 HZGothic/
-README-Socho.md
-README-Gothic.md
+HZLatin.zip
+HZLatin.tar.*
+HZLatin-*.zip
+HZLatin-*.tar.*
+HZLatin/
+README-*.md
 !/engine
