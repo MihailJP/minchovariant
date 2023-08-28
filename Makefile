@@ -60,13 +60,13 @@ cidalias.txt: cidalias1.txt cidalias2.txt pua-extension.txt
 HZMincho.db: HZMincho.sql gensql.rb
 	rm -f $@; cat $< | ./gensql.rb | sqlite3 $@
 
-otf-features: HZMincho.db genfeat.rb
+otf-features: HZMincho.db genfeat.rb credits.rb
 	./genfeat.rb mincho > $@
-otf-features-socho: HZMincho.db genfeat.rb
+otf-features-socho: HZMincho.db genfeat.rb credits.rb
 	./genfeat.rb socho > $@
-otf-features-gothic: HZMincho.db genfeat.rb
+otf-features-gothic: HZMincho.db genfeat.rb credits.rb
 	./genfeat.rb gothic > $@
-otf-features-latin: HZMincho.db genfeat.rb
+otf-features-latin: HZMincho.db genfeat.rb credits.rb
 	./genfeat.rb latin > $@
 
 cidpua.map: $(MAPGEN_DEPS)
