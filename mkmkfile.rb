@@ -219,7 +219,7 @@ _#{target}: _#{target.sub(/\..+?$/, '.ttx')}
 	stat $@ > /dev/null
 #{target}: _#{target}
 	../fix-table.py $< $@
-cidfontinfo:
+cidfontinfo: ../makecfi.rb ../credits.rb
 	../makecfi.rb '#{enName}' '#{enWeight}' > $@
 
 mostlyclean:
