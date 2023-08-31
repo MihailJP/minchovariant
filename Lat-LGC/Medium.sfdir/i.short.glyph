@@ -1,0 +1,17 @@
+StartChar: i.short
+Encoding: 1081 1081 314
+Width: 537
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+98 639 m 1
+ 160 639 l 1
+ 165 575 240 567 268 567 c 0xec
+ 296 567 370 575 376 639 c 1
+ 437 639 l 1
+ 434 547 348 500 268 500 c 0
+ 187 500 101 547 98 639 c 1
+EndSplineSet
+Refer: 313 1080 S 1 0 0 1 0 0 2
+EndChar

@@ -1,0 +1,14 @@
+StartChar: lsuper
+Encoding: 737 737 631
+Width: 128
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+30 393 m 1
+ 30 741 l 1
+ 97 741 l 1
+ 97 393 l 1
+ 30 393 l 1
+EndSplineSet
+EndChar

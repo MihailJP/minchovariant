@@ -1,0 +1,49 @@
+SplineFontDB: 3.2
+FontName: Sans-Medium
+FullName: Sans Medium
+FamilyName: Sans
+Weight: Medium
+Copyright: 
+Version: 
+ItalicAngle: 0
+UnderlinePosition: -99
+UnderlineWidth: 49
+Ascent: 800
+Descent: 200
+InvalidEm: 0
+LayerCount: 2
+Layer: 0 0 "+gMyXYgAA" 1
+Layer: 1 0 "+Uk2XYgAA" 0
+XUID: [1021 562 -354799692 13138345]
+OS2Version: 0
+OS2_WeightWidthSlopeOnly: 0
+OS2_UseTypoMetrics: 1
+CreationTime: 1390651633
+ModificationTime: 1693477615
+OS2TypoAscent: 0
+OS2TypoAOffset: 1
+OS2TypoDescent: 0
+OS2TypoDOffset: 1
+OS2TypoLinegap: 0
+OS2WinAscent: 0
+OS2WinAOffset: 1
+OS2WinDescent: 0
+OS2WinDOffset: 1
+HheadAscent: 0
+HheadAOffset: 1
+HheadDescent: 0
+HheadDOffset: 1
+OS2Vendor: 'PfEd'
+MarkAttachClasses: 1
+DEI: 91125
+Encoding: UnicodeBmp
+Compacted: 1
+UnicodeInterp: none
+NameList: AGL For New Fonts
+DisplaySize: -48
+AntiAlias: 1
+FitToEm: 1
+WinInfo: 0 16 8
+BeginPrivate: 0
+EndPrivate
+EndSplineFont

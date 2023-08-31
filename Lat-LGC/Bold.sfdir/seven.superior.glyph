@@ -1,0 +1,17 @@
+StartChar: seven.superior
+Encoding: 8311 8311 640
+Width: 489
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+40 691 m 1
+ 40 779 l 1
+ 448 779 l 1
+ 448 696 l 1
+ 323 590 262 467 262 343 c 1
+ 117 343 l 1
+ 117 486 211 607 376 692 c 1
+ 40 691 l 1
+EndSplineSet
+EndChar

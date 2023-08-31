@@ -1,0 +1,20 @@
+StartChar: i.cyr
+Encoding: 1080 1080 313
+Width: 537
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+81 0 m 1
+ 81 445 l 1
+ 156 445 l 1
+ 156 70 l 1
+ 344 445 l 1
+ 454 445 l 1
+ 454 0 l 1
+ 379 0 l 1
+ 379 375 l 1
+ 191 0 l 1
+ 81 0 l 1
+EndSplineSet
+EndChar

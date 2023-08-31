@@ -1,0 +1,19 @@
+StartChar: dcaron
+Encoding: 271 271 494
+Width: 732
+Flags: HMW
+LayerCount: 2
+Fore
+SplineSet
+560 555 m 1
+ 599 629 l 1
+ 560 629 l 1
+ 560 760 l 1
+ 692 760 l 1
+ 692 642 l 1
+ 692 629 l 1
+ 625 555 l 1
+ 560 555 l 1
+EndSplineSet
+Refer: 68 100 N 1 0 0 1 0 0 2
+EndChar

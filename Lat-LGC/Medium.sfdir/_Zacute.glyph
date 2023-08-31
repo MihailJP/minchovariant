@@ -1,0 +1,18 @@
+StartChar: Zacute
+Encoding: 377 377 463
+Width: 611
+Flags: HMW
+LayerCount: 2
+Fore
+SplineSet
+193 760 m 1
+ 350 850 l 25
+ 460 850 l 1
+ 302 771 l 1
+ 280 761 l 1
+ 265 760 l 1
+ 217 760 l 1
+ 193 760 l 1
+EndSplineSet
+Refer: 58 90 N 1 0 0 1 0 0 2
+EndChar

@@ -1,0 +1,18 @@
+StartChar: bridgeinvertedbelowcmb
+Encoding: 826 826 704
+Width: 0
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+-465 -95 m 1x70
+ -392 -95 l 1x70
+ -392 -190 l 1
+ -160 -190 l 1xb0
+ -160 -95 l 1
+ -87 -95 l 1
+ -87 -263 l 1
+ -465 -263 l 1
+ -465 -95 l 1x70
+EndSplineSet
+EndChar

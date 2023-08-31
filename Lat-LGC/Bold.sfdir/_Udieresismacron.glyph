@@ -1,0 +1,17 @@
+StartChar: Udieresismacron
+Encoding: 469 469 546
+Width: 764
+Flags: HMW
+LayerCount: 2
+Fore
+SplineSet
+46 1009 m 4
+ 46 1025 55 1051 95 1051 c 6
+ 662 1051 l 6
+ 709 1051 716 1026 716 1009 c 4
+ 716 994 709 967 664 967 c 6
+ 96 967 l 6
+ 51 967 46 995 46 1009 c 4
+EndSplineSet
+Refer: 179 220 N 1 0 0 1 0 0 2
+EndChar

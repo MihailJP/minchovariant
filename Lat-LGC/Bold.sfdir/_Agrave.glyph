@@ -1,0 +1,17 @@
+StartChar: Agrave
+Encoding: 192 192 153
+Width: 733
+Flags: HMW
+LayerCount: 2
+Fore
+SplineSet
+190 863 m 1
+ 383 863 l 1
+ 505 764 l 1
+ 418 764 l 1
+ 402 765 l 1
+ 388 770 l 1
+ 190 863 l 1
+EndSplineSet
+Refer: 33 65 N 1 0 0 1 0 0 2
+EndChar

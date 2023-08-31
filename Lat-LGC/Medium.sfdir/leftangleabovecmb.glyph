@@ -1,0 +1,16 @@
+StartChar: leftangleabovecmb
+Encoding: 794 794 706
+Width: 0
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+-279 745 m 5
+ -279 806 l 5
+ -57 806 l 5
+ -57 584 l 5
+ -118 584 l 5
+ -118 745 l 5
+ -279 745 l 5
+EndSplineSet
+EndChar

@@ -1,0 +1,16 @@
+StartChar: macronbelowcmb
+Encoding: 817 817 691
+Width: 0
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+-371 -200 m 0
+ -371 -185 -363 -161 -325 -161 c 2
+ -10 -161 l 2
+ 34 -161 38 -189 38 -200 c 0
+ 38 -215 30 -239 -9 -239 c 2
+ -325 -239 l 2
+ -366 -239 -371 -211 -371 -200 c 0
+EndSplineSet
+EndChar

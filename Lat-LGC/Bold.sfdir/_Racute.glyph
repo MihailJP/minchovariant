@@ -1,0 +1,18 @@
+StartChar: Racute
+Encoding: 340 340 475
+Width: 703
+Flags: HMW
+LayerCount: 2
+Fore
+SplineSet
+197 764 m 1
+ 319 862 l 1
+ 512 862 l 1
+ 315 770 l 1
+ 302 766 l 1
+ 287 764 l 9
+ 227 764 l 1
+ 197 764 l 1
+EndSplineSet
+Refer: 50 82 N 1 0 0 1 0 0 2
+EndChar

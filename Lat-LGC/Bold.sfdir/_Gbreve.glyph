@@ -1,0 +1,17 @@
+StartChar: Gbreve
+Encoding: 286 286 532
+Width: 733
+Flags: HMW
+LayerCount: 2
+Fore
+SplineSet
+188 903 m 5
+ 260 903 l 5
+ 266 832 348 824 377 824 c 4xfd
+ 405 824 486 832 492 903 c 5
+ 565 903 l 5
+ 562 793 470 730 376 730 c 4
+ 282 730 191 795 188 903 c 5
+EndSplineSet
+Refer: 39 71 N 1 0 0 1 0 0 2
+EndChar

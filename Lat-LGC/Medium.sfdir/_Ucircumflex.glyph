@@ -1,0 +1,18 @@
+StartChar: Ucircumflex
+Encoding: 219 219 178
+Width: 687
+Flags: HMW
+LayerCount: 2
+Fore
+SplineSet
+190 727 m 1
+ 315 900 l 1
+ 372 900 l 1
+ 502 727 l 1
+ 440 727 l 1
+ 346 849 l 1
+ 252 727 l 1
+ 190 727 l 1
+EndSplineSet
+Refer: 53 85 S 1 0 0 1 0 0 2
+EndChar

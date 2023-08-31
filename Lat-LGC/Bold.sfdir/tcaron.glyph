@@ -1,0 +1,19 @@
+StartChar: tcaron
+Encoding: 357 357 471
+Width: 404
+Flags: HMW
+LayerCount: 2
+Fore
+SplineSet
+289 533 m 1
+ 328 607 l 1
+ 289 607 l 1
+ 289 738 l 1
+ 421 738 l 1
+ 421 620 l 1
+ 421 607 l 1
+ 354 533 l 1
+ 289 533 l 1
+EndSplineSet
+Refer: 84 116 N 1 0 0 1 0 0 2
+EndChar

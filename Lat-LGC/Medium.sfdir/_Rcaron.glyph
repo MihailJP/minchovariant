@@ -1,0 +1,18 @@
+StartChar: Rcaron
+Encoding: 344 344 485
+Width: 646
+Flags: HMW
+LayerCount: 2
+Fore
+SplineSet
+148 889 m 1
+ 209 889 l 1
+ 306 778 l 1
+ 403 889 l 1
+ 465 889 l 1xf6
+ 342 727 l 1
+ 270 727 l 1
+ 148 889 l 1
+EndSplineSet
+Refer: 50 82 S 1 0 0 1 0 0 2
+EndChar

@@ -1,0 +1,18 @@
+StartChar: Lacute
+Encoding: 313 313 477
+Width: 581
+Flags: HMW
+LayerCount: 2
+Fore
+SplineSet
+221 765 m 1
+ 343 863 l 1
+ 536 863 l 1
+ 339 771 l 1
+ 326 767 l 1
+ 311 765 l 9
+ 251 765 l 1
+ 221 765 l 1
+EndSplineSet
+Refer: 44 76 N 1 0 0 1 1 0 2
+EndChar

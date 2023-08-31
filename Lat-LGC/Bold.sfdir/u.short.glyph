@@ -1,0 +1,17 @@
+StartChar: u.short
+Encoding: 1118 1118 447
+Width: 500
+Flags: HMW
+LayerCount: 2
+Fore
+SplineSet
+63 680 m 1
+ 135 680 l 1
+ 140 642 172 629 249 629 c 0
+ 332 629 363 641 368 680 c 1
+ 440 680 l 1
+ 436 578 335 534 252 534 c 0xe8
+ 165 534 66 581 63 680 c 1
+EndSplineSet
+Refer: 89 121 S 1 0 0 1 0 0 2
+EndChar

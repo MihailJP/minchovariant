@@ -1,0 +1,15 @@
+StartChar: epsilontonos
+Encoding: 941 941 413
+Width: 474
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+170 517 m 5
+ 227 695 l 5
+ 364 695 l 5
+ 243 517 l 5
+ 170 517 l 5
+EndSplineSet
+Refer: 251 949 S 1 0 0 1 0 0 2
+EndChar

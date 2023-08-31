@@ -1,0 +1,20 @@
+StartChar: Udieresis
+Encoding: 220 220 179
+Width: 764
+Flags: HMW
+LayerCount: 2
+Fore
+SplineSet
+218 788 m 1
+ 218 900 l 1
+ 330 900 l 1
+ 330 788 l 1
+ 218 788 l 1
+432 788 m 1
+ 432 900 l 1
+ 544 900 l 1
+ 544 788 l 1
+ 432 788 l 1
+EndSplineSet
+Refer: 53 85 N 1 0 0 1 0 0 2
+EndChar

@@ -1,0 +1,15 @@
+StartChar: bilabialclick
+Encoding: 664 664 588
+Width: 794
+Flags: HMW
+LayerCount: 2
+Fore
+SplineSet
+331 348 m 0
+ 331 384 360 413 396 413 c 0
+ 432 413 462 384 462 348 c 0
+ 462 312 432 284 396 284 c 0
+ 360 284 331 312 331 348 c 0
+EndSplineSet
+Refer: 47 79 N 1 0 0 1 0 0 2
+EndChar

@@ -1,0 +1,20 @@
+StartChar: celsius
+Encoding: 8451 8451 715
+Width: 947
+Flags: HMW
+LayerCount: 2
+Fore
+SplineSet
+-0 572 m 0
+ 0 653 50 695 122 695 c 0
+ 197 695 244 651 244 573 c 0
+ 244 491 194 450 122 450 c 0
+ 42 450 0 500 -0 572 c 0
+83 572 m 0
+ 83 539 103 534 124 534 c 3
+ 156 534 161 549 161 573 c 0xee
+ 161 603 146 611 124 611 c 0
+ 101 611 83 607 83 572 c 0
+EndSplineSet
+Refer: 35 67 N 1 0 0 1 246 0 2
+EndChar

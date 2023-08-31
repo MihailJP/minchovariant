@@ -1,0 +1,18 @@
+StartChar: lcommaaccent
+Encoding: 316 316 557
+Width: 256
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+84 -63 m 1
+ 176 -63 l 1
+ 176 -141 l 2
+ 174 -166 178 -147 130 -232 c 1
+ 84 -232 l 1
+ 111 -154 l 1
+ 84 -154 l 1
+ 84 -63 l 1
+EndSplineSet
+Refer: 76 108 N 1 0 0 1 0 0 2
+EndChar

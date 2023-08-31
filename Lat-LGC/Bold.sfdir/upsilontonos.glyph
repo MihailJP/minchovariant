@@ -1,0 +1,15 @@
+StartChar: upsilontonos
+Encoding: 973 973 419
+Width: 550
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+189 517 m 5
+ 246 695 l 5
+ 383 695 l 5
+ 262 517 l 5
+ 189 517 l 5
+EndSplineSet
+Refer: 266 965 S 1 0 0 1 0 0 2
+EndChar

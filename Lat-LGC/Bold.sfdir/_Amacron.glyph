@@ -1,0 +1,17 @@
+StartChar: Amacron
+Encoding: 256 256 347
+Width: 733
+Flags: HMW
+LayerCount: 2
+Fore
+SplineSet
+31 809 m 0
+ 31 825 40 851 80 851 c 2
+ 647 851 l 2
+ 694 851 701 826 701 809 c 0
+ 701 794 694 767 649 767 c 2
+ 81 767 l 2
+ 36 767 31 795 31 809 c 0
+EndSplineSet
+Refer: 33 65 N 1 0 0 1 0 0 3
+EndChar

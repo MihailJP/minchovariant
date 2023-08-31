@@ -1,0 +1,17 @@
+StartChar: seven
+Encoding: 55 55 23
+Width: 550
+Flags: HMW
+LayerCount: 2
+Fore
+SplineSet
+45 577 m 5
+ 45 695 l 1
+ 503 695 l 1
+ 503 584 l 5
+ 264 -11 l 1
+ 142 -11 l 1
+ 444 578 l 5
+ 45 577 l 5
+EndSplineSet
+EndChar

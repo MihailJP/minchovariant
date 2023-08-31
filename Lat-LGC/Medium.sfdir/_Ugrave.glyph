@@ -1,0 +1,17 @@
+StartChar: Ugrave
+Encoding: 217 217 176
+Width: 687
+Flags: HMW
+LayerCount: 2
+Fore
+SplineSet
+201 851 m 1
+ 312 851 l 25
+ 469 761 l 1
+ 391 761 l 25
+ 381 762 l 1
+ 370 766 l 1
+ 201 851 l 1
+EndSplineSet
+Refer: 53 85 N 1 0 0 1 0 0 2
+EndChar

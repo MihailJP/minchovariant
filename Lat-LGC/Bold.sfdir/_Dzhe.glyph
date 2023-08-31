@@ -1,0 +1,22 @@
+StartChar: Dzhe
+Encoding: 1039 1039 435
+Width: 764
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+91 0 m 1
+ 91 695 l 1
+ 239 695 l 1
+ 239 106 l 1
+ 523 106 l 1
+ 523 695 l 1
+ 671 695 l 1
+ 671 0 l 1
+ 441 0 l 1
+ 441 -167 l 1
+ 321 -167 l 1
+ 321 0 l 1
+ 91 0 l 1
+EndSplineSet
+EndChar

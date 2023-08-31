@@ -1,0 +1,21 @@
+StartChar: summation
+Encoding: 8721 8721 734
+Width: 794
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+60 -200 m 1
+ 410 240 l 1
+ 60 594 l 1
+ 60 695 l 1
+ 732 695 l 1
+ 732 590 l 1
+ 269 593 l 1
+ 600 258 l 1
+ 323 -90 l 1
+ 732 -87 l 1
+ 732 -200 l 1
+ 60 -200 l 1
+EndSplineSet
+EndChar

@@ -1,0 +1,18 @@
+StartChar: undertie
+Encoding: 8255 8255 785
+Width: 500
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+0 -52 m 4
+ 0 -47 4 -43 9 -43 c 0
+ 13 -43 17 -46 20 -49 c 0
+ 65 -94 170 -124 249 -124 c 0
+ 352 -124 415 -92 476 -51 c 0
+ 481 -48 486 -43 491 -43 c 0
+ 497 -43 500 -48 500 -54 c 0
+ 500 -101 346 -164 251 -164 c 0
+ 156 -164 0 -107 0 -52 c 4
+EndSplineSet
+EndChar

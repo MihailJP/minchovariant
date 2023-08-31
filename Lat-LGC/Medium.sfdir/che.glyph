@@ -1,0 +1,22 @@
+StartChar: che
+Encoding: 1095 1095 328
+Width: 537
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+81 289 m 2
+ 81 445 l 1
+ 156 445 l 1
+ 156 289 l 2
+ 156 256 173 242 219 242 c 2
+ 379 242 l 25
+ 379 445 l 1
+ 454 445 l 1
+ 454 -0 l 1
+ 379 -0 l 1
+ 379 185 l 1
+ 229 185 l 2
+ 137 185 81 200 81 289 c 2
+EndSplineSet
+EndChar

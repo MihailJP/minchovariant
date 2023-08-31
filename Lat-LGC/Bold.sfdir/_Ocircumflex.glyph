@@ -1,0 +1,18 @@
+StartChar: Ocircumflex
+Encoding: 212 212 172
+Width: 794
+Flags: HMW
+LayerCount: 2
+Fore
+SplineSet
+222 729 m 1
+ 341 914 l 1
+ 451 914 l 1
+ 570 729 l 1
+ 498 729 l 1
+ 396 840 l 1
+ 295 729 l 1
+ 222 729 l 1
+EndSplineSet
+Refer: 47 79 S 1 0 0 1 0 0 2
+EndChar

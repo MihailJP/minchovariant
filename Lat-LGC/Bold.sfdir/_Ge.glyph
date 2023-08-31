@@ -1,0 +1,16 @@
+StartChar: Ge
+Encoding: 1043 1043 274
+Width: 581
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+91 0 m 1
+ 91 695 l 1xb0
+ 534 695 l 1
+ 534 590 l 1xd0
+ 239 593 l 1
+ 239 0 l 1xb0
+ 91 0 l 1
+EndSplineSet
+EndChar

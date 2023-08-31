@@ -1,0 +1,20 @@
+StartChar: Odieresis
+Encoding: 214 214 174
+Width: 736
+Flags: HMW
+LayerCount: 2
+Fore
+SplineSet
+225 760 m 1
+ 225 849 l 1
+ 315 849 l 1
+ 315 760 l 1
+ 225 760 l 1
+420 760 m 1
+ 420 849 l 1
+ 510 849 l 1
+ 510 760 l 1
+ 420 760 l 1
+EndSplineSet
+Refer: 47 79 N 1 0 0 1 0 0 2
+EndChar

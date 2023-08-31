@@ -1,0 +1,21 @@
+StartChar: uogonek
+Encoding: 371 371 560
+Width: 561
+Flags: HMW
+LayerCount: 2
+Fore
+SplineSet
+500 0 m 17
+ 468 0 395 -49 398 -80 c 1
+ 400 -87 l 1
+ 403 -93 l 1
+ 414 -103 424 -107 443 -107 c 0
+ 472 -107 501 -97 515 -92 c 1
+ 534 -162 l 1
+ 502 -176 464 -189 418 -189 c 0
+ 354 -189 305 -161 305 -118 c 0
+ 305 -71 363 -25 406 0 c 1
+ 500 0 l 17
+EndSplineSet
+Refer: 85 117 N 1 0 0 1 0 0 2
+EndChar

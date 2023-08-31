@@ -1,0 +1,21 @@
+StartChar: Utilde
+Encoding: 360 360 363
+Width: 687
+Flags: HMW
+LayerCount: 2
+Fore
+SplineSet
+179 805 m 1
+ 181 879 229 920 277 920 c 0xde
+ 329 920 366 867 411 867 c 0xee
+ 417 867 423 868 428 871 c 0
+ 442 878 450 896 451 920 c 1
+ 512 920 l 1xde
+ 509 846 462 806 414 806 c 0xee
+ 362 806 325 859 281 859 c 0xde
+ 275 859 271 858 266 856 c 0
+ 251 849 242 831 240 805 c 1
+ 179 805 l 1
+EndSplineSet
+Refer: 53 85 N 1 0 0 1 0 0 2
+EndChar

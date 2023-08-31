@@ -1,0 +1,18 @@
+StartChar: Pe
+Encoding: 1055 1055 287
+Width: 764
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+91 0 m 1
+ 91 695 l 1
+ 671 695 l 1
+ 671 0 l 1
+ 523 0 l 1
+ 523 594 l 1
+ 239 594 l 1
+ 239 0 l 1
+ 91 0 l 1
+EndSplineSet
+EndChar

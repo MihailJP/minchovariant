@@ -1,0 +1,19 @@
+StartChar: rturnascend
+Encoding: 634 634 611
+Width: 372
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+15 -11 m 1
+ 15 91 l 1
+ 73 92 177 119 177 232 c 2xc0
+ 177 639 l 1
+ 311 639 l 1xc0
+ 311 -5 l 1
+ 182 -5 l 1
+ 182 68 l 5
+ 182 116 l 1xa0
+ 165 70 117 -9 15 -11 c 1
+EndSplineSet
+EndChar

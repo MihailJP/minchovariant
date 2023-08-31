@@ -1,0 +1,20 @@
+StartChar: glottalstopreversed
+Encoding: 661 661 585
+Width: 500
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+55 523 m 0
+ 55 603 98 705 262 705 c 0
+ 330 705 387 687 444 649 c 1
+ 420 585 l 1
+ 372 624 326 644 263 644 c 0
+ 169 644 133 596 133 525 c 0
+ 133 408 303 400 303 399 c 2
+ 303 0 l 1
+ 225 0 l 1
+ 225 352 l 1
+ 155 371 55 418 55 523 c 0
+EndSplineSet
+EndChar

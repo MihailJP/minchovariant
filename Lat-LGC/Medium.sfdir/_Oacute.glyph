@@ -1,0 +1,18 @@
+StartChar: Oacute
+Encoding: 211 211 171
+Width: 736
+Flags: HMW
+LayerCount: 2
+Fore
+SplineSet
+242 760 m 1
+ 399 850 l 25
+ 509 850 l 1
+ 351 771 l 1
+ 329 761 l 1
+ 314 760 l 1
+ 266 760 l 1
+ 242 760 l 1
+EndSplineSet
+Refer: 47 79 N 1 0 0 1 0 0 2
+EndChar

@@ -1,0 +1,23 @@
+StartChar: jsuper
+Encoding: 690 690 627
+Width: 143
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+-35 319 m 1
+ -25 356 l 1
+ -11 350 -2 347 13 347 c 0
+ 41 347 46 355 46 366 c 2
+ 46 630 l 1
+ 113 630 l 1
+ 113 377 l 2
+ 112 346 112 304 38 304 c 0
+ 11 304 -14 311 -35 319 c 1
+46 680 m 1
+ 46 741 l 1
+ 113 741 l 1
+ 113 680 l 1
+ 46 680 l 1
+EndSplineSet
+EndChar

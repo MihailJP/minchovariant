@@ -1,0 +1,1 @@
+../LGC/metamake.rb
