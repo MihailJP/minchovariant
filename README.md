@@ -146,6 +146,9 @@ Same as M+ fonts.
 Version History
 ---------------
 
+### Version 1.402, August 31, 2023
+* Modify Gothic glyphs
+
 ### Version 1.401, August 27, 2023
 * Modify Gothic strokes
 
