@@ -205,6 +205,8 @@ rotming.otf: rotming.sfd
 }
 	mergefonts -cid cidfontinfo $@ #{cidmap.gsub(/\r?\n/, " ")}
 
+.INTERMEDIATE: temp.bmp temp.png temp.svg
+
 .INTERMEDIATE: _#{target} _#{target.sub(/\..+?$/, '.ttx')} tmpcid.ttx
 tmpcid.otf: #{target.sub(/\..+?$/, '.raw')}
 	makeotf -f $< -ff ../otf-features#{$font == "mincho" ? "" : "-#{$font}"} -mf ../fontMenuDB -o $@ -ch $(CMAP_HORIZONTAL)
