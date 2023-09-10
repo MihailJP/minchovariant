@@ -220,12 +220,7 @@ all: $(TARGETS)
 
 .SUFFIXES: .kage .svg
 .kage.svg:
-	set -o pipefail; \\
-	cd ..; \\
-	KAGE=$$(<build/$<);\\
-	d8 --single-threaded ./makeglyph.js -- u$* "$$KAGE" {0} {1} | \\
-	magick convert - -background white -flatten -alpha off bmp:- | \\
-	potrace -s - -o build/$@
+	bash ../../mkglyphsvg.sh $* {0} {1}
 
 clean:
 	rm -f *.svg *.bmp *.png
