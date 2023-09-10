@@ -144,7 +144,7 @@ Lat-LGC/Makefile: HZMincho.db Lat-LGC/metamake.rb
 parts.dat: dump_newest_only.txt dump_all_versions.txt
 	cat $^ | ./mkparts.pl | ./kage-roofed-l2rd.rb > $@
 parts-socho.dat: parts.dat socho.csv
-	cat $< | ./replace-glyph.rb -i -l socho.csv | ./kage-socho.rb > $@
+	cat $< | ./replace-glyph.rb -i -l socho.csv | sed -f aj1-de-j.sed | ./kage-socho.rb > $@
 parts-gothic.dat: parts.dat gothic.csv
 	cat $< | ./replace-glyph.rb -i -l gothic.csv > $@
 parts-latin.dat: parts.dat latin.csv
