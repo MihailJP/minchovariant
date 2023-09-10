@@ -15,7 +15,7 @@ trap "cleanup_and_abend $1" SIGTERM
 KAGE=$(<build/$1.kage)
 for iter in $(seq 1 5); do
 	# Rasterize then trace
-	d8 --single-threaded ./makeglyph.js -- u$1 $KAGE $2 $3 | \
+	d8 --single-threaded ./makeglyph.js -- u$1 "$KAGE" $2 $3 | \
 	magick convert - -background white -flatten -alpha off bmp:- | \
 	potrace -s - -o build/$1.svg
 
