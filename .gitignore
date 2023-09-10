@@ -79,3 +79,4 @@ HZLatin-*.tar.*
 HZLatin/
 README-*.md
 !/engine
+!/makeglyph/makeglyph.js

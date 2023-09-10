@@ -1,6 +1,3 @@
-[submodule "kage"]
-	path = kage
-	url = http://git.chise.org/git/chise/kage.git
 [submodule "engine"]
 	path = engine
 	url = git@github.com:MihailJP/kage-engine.git
