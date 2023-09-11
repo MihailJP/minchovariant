@@ -13,7 +13,7 @@ preInputGlyph = {
 # U+8085 肅  U+8096 肖  U+8207 與  U+898D 覍  U+9F52 齒
 # U+23D92 [淵-氵]  U+27D2A [瑣-王]
 ignorePattern = /^(u(4e(0f|31|e5)|53d6|53e2|5433|5de[59]|5f0f|6b6[23f]|6b7[23]|723f|7247|80(33|85|96)|8207|898d|9f52|23d92|27d2a)|aj1-13760|cdp-89cd|j90-4c6c|u2ff1-cdp-8cfa-u5bf8)($|-|@\d+)/
-nonKanjiPattern = /^u([01a-e][0-9a-f]{3}|(2[0-9a-d]|3[023]|f[0-8b-f])[0-9a-f]{2}|(2e[0-7]|2f[ef]|31[0-8abf]|4d[c-f])[0-9a-f]|([13-f]|10)[0-9a-f]{4})($|-|@\d+)/
+nonKanjiPattern = /^(mihail-jp_mingkana-)?u([01a-e][0-9a-f]{3}|(2[0-9a-d]|3[023]|f[0-8b-f])[0-9a-f]{2}|(2e[0-7]|2f[ef]|31[0-8abf]|4d[c-f])[0-9a-f]|([13-f]|10)[0-9a-f]{4})($|-|@\d+)/
 
 ############################################################################
 
@@ -79,6 +79,9 @@ def find_special_l2rd(stat, glyph) # 特殊型右はらい
 end
 def find_point_on_horiz(stat, glyph) # なべぶた・ウ冠
 	stat['pointOnHoriz'] = {'horiz' => [], 'point' => [], 'diagonal' => []}
+	if glyph.name =~ /^u8eab\b/ then # 「身」
+		return
+	end
 	for stroke, index in glyph.each_with_index
 		if stroke[0] == 1 and stroke.startY == stroke.endY then
 			stat['pointOnHoriz']['horiz'].push([index, stroke.dup])
@@ -91,6 +94,9 @@ def find_point_on_horiz(stat, glyph) # なべぶた・ウ冠
 end
 def find_hook(stat, glyph) # 鈎（レの字）
 	stat['hook'] = {'hook' => [], 'stem' => [], 'horiz' => []}
+	if glyph.name =~ /^u8eab\b/ then # 「身」
+		return
+	end
 	for stroke, index in glyph.each_with_index
 		if stroke.strokeType == 1 and stroke.startX == stroke.endX then
 			stat['hook']['stem'].push([index, stroke.dup])
