@@ -146,6 +146,12 @@ Same as M+ fonts.
 Version History
 ---------------
 
+### Version 1.404, September 13, 2023
+* Modify Socho glyphs
+* Import makeglyph.js from the old Kage repository
+* Remove urlencode
+* Bugfix
+
 ### Version 1.403, September 10, 2023
 * Fix connecting diagonal lines of HZ Latin
 
