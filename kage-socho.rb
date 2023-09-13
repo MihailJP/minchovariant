@@ -79,7 +79,7 @@ def find_special_l2rd(stat, glyph) # 特殊型右はらい
 end
 def find_point_on_horiz(stat, glyph) # なべぶた・ウ冠
 	stat['pointOnHoriz'] = {'horiz' => [], 'point' => [], 'diagonal' => []}
-	if glyph.name =~ /^u8eab\b/ then # 「身」
+	if glyph.name =~ /^(u5c07|u6215|u8eab)\b/ then # 除外グリフ
 		return
 	end
 	for stroke, index in glyph.each_with_index
@@ -94,7 +94,7 @@ def find_point_on_horiz(stat, glyph) # なべぶた・ウ冠
 end
 def find_hook(stat, glyph) # 鈎（レの字）
 	stat['hook'] = {'hook' => [], 'stem' => [], 'horiz' => []}
-	if glyph.name =~ /^u8eab\b/ then # 「身」
+	if glyph.name =~ /^(aj1-13601|u8033|u8eab)\b/ then # 除外グリフ
 		return
 	end
 	for stroke, index in glyph.each_with_index
