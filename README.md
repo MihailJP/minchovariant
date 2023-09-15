@@ -146,6 +146,11 @@ Same as M+ fonts.
 Version History
 ---------------
 
+### Version 1.406, September 15, 2023
+* Modify Gothic glyphs
+* Modify Gothic scripts
+* Verify glyph SVG height (fix unintended vertical position)
+
 ### Version 1.405, September 14, 2023
 * Modify Socho glyphs
 
