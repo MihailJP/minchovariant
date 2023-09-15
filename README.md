@@ -25,7 +25,7 @@ KAGE engine is referred as a Git submodule. Do not forget
 * [Adobe Font Development Kit for OpenType][2]
   * Make sure AFDKO executables are in `PATH`
 * JavaScript
-  * [V8](https://v8.dev/) engine required for Windows or Linux
+  * [V8](https://v8.dev/) engine required
 * [Perl](http://www.perl.org/)
 * [Python](https://www.python.org/) 3
 * [Ruby](https://www.ruby-lang.org/)
