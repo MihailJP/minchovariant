@@ -146,6 +146,10 @@ Same as M+ fonts.
 Version History
 ---------------
 
+### Version 1.406a, September 16, 2023
+* Modify "Latin" glyphs
+* Modify "Latin" scripts
+
 ### Version 1.406, September 15, 2023
 * Modify Gothic glyphs
 * Modify Gothic scripts
