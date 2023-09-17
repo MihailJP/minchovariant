@@ -2,11 +2,7 @@
 # -*- coding: utf-8 -*-
 
 def javascript(scriptName):
-	from sys import platform
-	if platform == 'Darwin' or platform == 'darwin':
-		return '/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc ' + scriptName + ' --'
-	else:
-		return 'd8 ' + scriptName + ' --'
+	return 'd8 ' + scriptName + ' --'
 
 FONTFORGE = "export LANG=utf-8; env fontforge"
 MAKEGLYPH = javascript("./makeglyph.js")

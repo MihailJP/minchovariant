@@ -24,13 +24,17 @@ KAGE engine is referred as a Git submodule. Do not forget
 * [Fontforge][1] with Python and native script feature enabled
 * [Adobe Font Development Kit for OpenType][2]
   * Make sure AFDKO executables are in `PATH`
-* JavaScript
-  * [V8](https://v8.dev/) engine required
+  * Read [the description in PyPI][3] for instruction of installation
+* JavaScript engine, one of the following:
+  * [V8](https://v8.dev/) (prioritized if you have both)
+  * [Spidermonkey](https://spidermonkey.dev/)
 * [Perl](http://www.perl.org/)
 * [Python](https://www.python.org/) 3
+  * Make sure /usr/bin/python is or links to Python 3
 * [Ruby](https://www.ruby-lang.org/)
-  * gems [sorted_set](https://rubygems.org/gems/sorted_set/)
-    and [sqlite3](https://rubygems.org/gems/sqlite3/)
+  * gem [sqlite3](https://rubygems.org/gems/sqlite3/)
+  * gem [sorted_set](https://rubygems.org/gems/sorted_set/)
+    if you are using Ruby 3.0 or later since no longer bundled with
 * [SQLite3](http://www.sqlite.org/)
 * [ImageMagick](http://www.imagemagick.org/)
   * [Inkscape](https://inkscape.org/) may be needed to read/write SVG
@@ -38,6 +42,7 @@ KAGE engine is referred as a Git submodule. Do not forget
 
 [1]: http://fontforge.github.io/
 [2]: http://www.adobe.com/devnet/opentype/afdko.html
+[3]: https://pypi.org/project/afdko/
 
 Prerequisite memory amount
 --------------------------
@@ -46,7 +51,17 @@ It is known that this require 4GB of memory in order to build (on Linux:
 concretely speaking, this is while running Fontforge). Avoid `make -j` in
 order not to experience thrashing.
 
-Also, it may take **days** to build the fonts.
+Also, it is not recommended to run on MinGW: it may have long latency.
+Some benchmarks:
+
+* About 26 minutes per font, Spidermonkey on openSUSE in VMware Player,
+  12 threads @ AMD Ryzen 5 3600 non-overclocked\
+  (7455.25s user, 2626.75s system, 657% cpu, 25:32.64 total)
+* About 4 hours per font, V8 on MinGW-64 in Windows 10,
+  12 threads @ AMD Ryzen 5 3600 non-overclocked\
+  (1050.87s user, 3175.09s system, 33% cpu, 3:29:44.75 total)
+* About 37 minutes per font, V8 on M1 MacBook Air, 8 threads\
+  (8295.54s user, 1914.27s system, 468% cpu, 36:21:52 total)
 
 Authors
 -------
