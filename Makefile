@@ -12,7 +12,8 @@ lgc-rotated.map lgc-rotfixed.map lgc-rotquarter.map lgc-rotthird.map lgc-rotital
 METAMAKE_DEP_GENERATABLES=HZMincho.db dump_newest_only.txt dump_all_versions.txt glyphs.txt cidalias.sed \
 otf-features otf-features-socho otf-features-gothic otf-features-latin \
 parts.txt parts-socho.txt parts-gothic.txt parts-latin.txt $(CIDMAPS) $(LGCMAPS) \
-groups/HALFWIDTH.txt groups/NONSPACING.txt
+groups/HALFWIDTH.txt groups/NONSPACING.txt \
+js
 METAMAKE_DEPS=$(METAMAKE_DEP_GENERATABLES) ./mkmkfile.rb
 MAPGEN_DEPS=genmaps.rb HZMincho.db
 GENERATABLES=$(METAMAKE_DEP_GENERATABLES) \
@@ -48,6 +49,17 @@ dump_newest_only.txt: dump.tar.gz
 	tar xfz $< $@ && touch $@
 dump_all_versions.txt: dump.tar.gz
 	tar xfz $< $@ && touch $@
+
+js:
+	if [ -L $@ ]; then \
+		exit 0; \
+	else \
+		rm -f $@;\
+		if   which d8; then ln -s $$(which d8) $@;\
+		elif which js; then ln -s $$(which js) $@;\
+		else exit 1;\
+		fi;\
+	fi
 
 .INTERMEDIATE: cidalias1.txt cidalias2.txt
 cidalias1.txt: pua-addenda.txt

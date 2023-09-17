@@ -20,6 +20,10 @@ if (arguments === undefined) {
   }
 }
 
+if (arguments[0] == "--") { // spidermonkey
+  arguments.shift();
+}
+
 if(arguments[2] == "socho"){
   kage.kShotai = kage.kSocho;
 }else if(arguments[2] == "gothic"){
