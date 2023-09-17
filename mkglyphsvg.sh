@@ -1,6 +1,7 @@
 #!/usr/bin/bash
 
 TRIES=5
+WEIGHT=$3
 cd ..
 
 function cleanup_and_abend () {
@@ -16,7 +17,7 @@ trap "cleanup_and_abend $1" SIGTERM
 KAGE=$(<build/$1.kage)
 for iter in $(seq 1 $TRIES); do
 	# Rasterize then trace
-	../js ./makeglyph.js -- u$1 "$KAGE" $2 $3 | \
+	../js ./makeglyph.js -- u$1 "$KAGE" $2 $WEIGHT | \
 	magick convert - -background white -flatten -alpha off bmp:- | \
 	potrace -s - -o build/$1.svg
 
@@ -26,19 +27,23 @@ for iter in $(seq 1 $TRIES); do
 			exit 0
 		elif grep "^u0020 " build/$1.kage > /dev/null; then
 			exit 0
+		elif [ $(($WEIGHT % 100)) = 1 ]; then
+			echo "*** $1: empty glyph detected (too thin?) ***" 1>&2
+			WEIGHT=$((WEIGHT + 2))
+			echo "*** $1: use weight $WEIGHT ***" 1>&2
 		else
-			echo "*** Empty glyph detected ***" 1>&2
+			echo "*** $1: empty glyph detected ***" 1>&2
 		fi
 	else
-		echo "*** Height is not 200 ***" 1>&2
+		echo "*** $1: height is not 200 ***" 1>&2
 		grep "height=\"" build/$1.svg 1>&2
 	fi
 
 	# If fail, retry
 	if [ x$iter = x$TRIES ]; then
-		echo "*** Enough tries, aborting ***" 1>&2
+		echo "*** $1: enough tries, aborting ***" 1>&2
 	else
-		echo "*** Retrying ***" 1>&2
+		echo "*** $1: retrying ***" 1>&2
 		sleep $((3 + RANDOM % 7))
 	fi
 done
