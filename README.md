@@ -161,6 +161,11 @@ Same as M+ fonts.
 Version History
 ---------------
 
+### Version 1.407, September 20, 2023
+* Modify Gothic glyphs
+* Modify Gothic scripts
+* Modify Socho u6c35-09
+
 ### Version 1.406, September 15, 2023
 * Modify Gothic glyphs
 * Modify Gothic scripts
