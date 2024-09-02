@@ -17,9 +17,18 @@ trap "cleanup_and_abend $1" SIGTERM
 KAGE=$(<build/$1.kage)
 for iter in $(seq 1 $TRIES); do
 	# Rasterize then trace
+	../js ./makeglyph.js -- u$1 "$KAGE" $2 $WEIGHT > build/$1_raw.svg
 	../js ./makeglyph.js -- u$1 "$KAGE" $2 $WEIGHT | \
+	sed -e "s/viewBox=\"[^\"]*\"/viewBox=\"-100 -100 400 400\"/" \
+		-e "s/width=\"[^\"]*\"/width=\"400\"/" \
+		-e "s/height=\"[^\"]*\"/height=\"400\"/" | \
 	magick convert - -background white -flatten -alpha off bmp:- | \
-	potrace -s - -o build/$1.svg
+	potrace -s - | \
+	sed -e "s/viewBox=\"[^\"]*\"/viewBox=\"0 0 200 200\"/" \
+		-e "s/width=\"[^\"]*\"/width=\"200\"/" \
+		-e "s/height=\"[^\"]*\"/height=\"200\"/" \
+		-e "s/translate([^)]*)/translate(-100,300)/" > build/$1.svg
+	exit
 
 	# Verify
 	if grep "height=\"200." build/$1.svg > /dev/null; then
